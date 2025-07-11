@@ -13,7 +13,7 @@ blackfriday:
   plainIDAnchors: true
 
 params:
-  canonicalBasePath: "https://docs.flowave.finos.org"
+  canonicalBasePath: "https://docs.camunda.org"
   sections:
     - id: "get-started"
       name: "Get Started"
@@ -33,8 +33,8 @@ params:
       - "0.9"
       - "develop"
   github:
-    repositoryName: "finos/flowave-docs-manual"
-    branch: "main"
+    repositoryName: "camunda/camunda-docs-manual"
+    branch: "master"
 
 outputs:
   home:
