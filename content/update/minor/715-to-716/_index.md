@@ -77,7 +77,7 @@ Take the following steps to complete the update:
 # Set Variables on Process Instance Migration
 
 We have extended the [Process Instance Migration Batch Operation]({{< ref "/user-guide/process-engine/process-instance-migration.md#set-variables-to-process-instances" >}}) to set variables into the process instances' scope.
-Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
+Please bear in mind that the [usage of new features]({{< ref "/update/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
 leads to unexpected behavior and therefore must be avoided: When a migration batch with variables is 
 created during a rolling update, variables might or might not be set depending on the executing engine (old/new engine), 
 and batch variables might not be removed when an old engine executes the monitor job.

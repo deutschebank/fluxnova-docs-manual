@@ -101,7 +101,7 @@ This is necessary due to the aforementioned security improvement to revalidate u
 
 We have extended the [Set Job Retries Batch Operation]({{< ref "/user-guide/process-engine/batch-operations.md#setting-retries-and-due-dates-of-jobs-using-the-builder-pattern" >}}).
 There are now new options that allow to set the due date of a job while also setting the number of retries.
-Please bear in mind that the [usage of new features]({{< ref "/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
+Please bear in mind that the [usage of new features]({{< ref "/update/rolling-update.md#usage-of-new-features" >}}) during a rolling update 
 leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
 created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).
 
