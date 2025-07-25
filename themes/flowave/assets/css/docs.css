@@ -1,5 +1,3 @@
-@link-hover-color :                darken(@link-color, 25%)
-@link-hover-decoration:           none;
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /* line 11, node_modules\bootstrap\less\normalize.less */
 html {
@@ -1411,14 +1409,14 @@ textarea {
 }
 /* line 48, node_modules\bootstrap\less\scaffolding.less */
 a {
-  color: #00CE97;
+  color: #00ce97;
   text-decoration: none;
 }
 /* line 52, node_modules\bootstrap\less\scaffolding.less */
 a:hover,
 a:focus {
-  color: #00825f;
-  text-decoration: underline;
+  color: #004f3a;
+  text-decoration: none;
 }
 /* line 58, node_modules\bootstrap\less\scaffolding.less */
 a:focus {
@@ -3244,10 +3242,10 @@ output {
 }
 /* line 57, node_modules\bootstrap\less\mixins\forms.less */
 .form-control:focus {
-  border-color: #00825f;
+  border-color: #004f3a;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 130, 95, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 130, 95, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 79, 58, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 79, 58, 0.6);
 }
 /* line 105, node_modules\bootstrap\less\mixins\vendor-prefixes.less */
 .form-control::-moz-placeholder {
@@ -4168,7 +4166,7 @@ fieldset[disabled] .btn-danger.focus {
 /* line 96, node_modules\bootstrap\less\buttons.less */
 .btn-link {
   font-weight: 400;
-  color: #00CE97;
+  color: #00ce97;
   border-radius: 0;
 }
 /* line 101, node_modules\bootstrap\less\buttons.less */
@@ -4191,8 +4189,8 @@ fieldset[disabled] .btn-link {
 /* line 115, node_modules\bootstrap\less\buttons.less */
 .btn-link:hover,
 .btn-link:focus {
-  color: #00825f;
-  text-decoration: underline;
+  color: #004f3a;
+  text-decoration: none;
   background-color: transparent;
 }
 /* line 123, node_modules\bootstrap\less\buttons.less */
@@ -5197,7 +5195,7 @@ a.badge:focus {
 /* line 49, node_modules\bootstrap\less\badges.less */
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #00CE97;
+  color: #00ce97;
   background-color: #fff;
 }
 /* line 55, node_modules\bootstrap\less\badges.less */
@@ -5235,7 +5233,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #00CE97;
+  border-color: #00ce97;
 }
 /* line 34, node_modules\bootstrap\less\thumbnails.less */
 .thumbnail .caption {
@@ -6484,7 +6482,7 @@ body {
 }
 /* line 80, styles\_menu.less */
 .site-menu .site-menu-items li > a:hover {
-  border-left-color: #00CE97;
+  border-left-color: #00ce97;
   color: #000;
 }
 /* line 84, styles\_menu.less */
@@ -7202,7 +7200,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #00CE97;
+  color: #00ce97;
 }
 /* line 97, styles\_prism.less */
 .token.selector,
@@ -7362,14 +7360,14 @@ table tbody tr.collapse-bottom > td {
 }
 /* line 425, styles\_mixins.less */
 a {
-  color: #00CE97;
+  color: #00ce97;
 }
 /* line 428, styles\_mixins.less */
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: none;
   outline: none;
-  color: #00825f;
+  color: #004f3a;
 }
 /* line 446, styles\_mixins.less */
 a:hover,
@@ -7450,7 +7448,7 @@ a:focus {
 .page-content h4:hover a.content-anchor,
 .page-content h5:hover a.content-anchor,
 .page-content h6:hover a.content-anchor {
-  color: #00CE97;
+  color: #00ce97;
 }
 /* line 85, styles\_content.less */
 .page-content figure.image img,
@@ -7493,7 +7491,7 @@ a:focus {
 }
 /* line 120, styles\_content.less */
 .page-content figure.clickable > span {
-  border-color: #00CE97;
+  border-color: #00ce97;
 }
 /* line 124, styles\_content.less */
 .page-content figure.clickable:before,
@@ -7872,7 +7870,7 @@ code {
 }
 /* line 48, styles\_page-toc.less */
 .page-toc li > a:hover {
-  border-left-color: #00CE97;
+  border-left-color: #00ce97;
   color: #000;
 }
 /* line 52, styles\_page-toc.less */
@@ -7979,15 +7977,15 @@ svg circle {
 }
 /* line 14, styles\_svg.less */
 .implemented svg [fill="#333333"] {
-  fill: #df8a13;
+  fill: #00825f;
 }
 /* line 17, styles\_svg.less */
 .implemented svg [stroke="#333333"] {
-  stroke: #df8a13;
+  stroke: #00825f;
 }
 /* line 23, styles\_svg.less */
 .label-implemented {
-  background-color: #df8a13;
+  background-color: #00825f;
 }
 /* line 29, styles\_svg.less */
 .bpmn-symbols .row,

@@ -29,10 +29,14 @@
   {{ end }}
 </div>
 
+
+{{ $currentPage := . }}
 <ul class="site-menu-items">
   {{ range .Site.Menus.main }}
-    {{ template "menu-node" . }}
-  {{end}}
+  {{ if or ($currentPage.IsMenuCurrent .Menu . ) ($currentPage.HasMenuCurrent .Menu . ) }}
+      {{ template "menu-node" . }}
+    {{ end }}
+  {{ end }}
 </ul>
 
 

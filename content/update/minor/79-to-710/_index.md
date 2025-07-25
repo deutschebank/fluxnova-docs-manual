@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda `7.9.x` to `7.10.0`. It covers these use cases:
+This document guides you through the update from Flowave `7.9.x` to `7.10.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -28,7 +28,7 @@ This document guides you through the update from Camunda `7.9.x` to `7.10.0`. It
 11. For administrators and developers: [Changed Permissions for Starting Process In Tasklist](#changed-permissions-for-starting-process-in-tasklist)
 12. For developers: [Spin and JAXB](#spin-and-jaxb)
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda 7.10.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Flowave.10.
 
 Noteworthy new Features and Changes in 7.10:
 
@@ -38,12 +38,12 @@ Noteworthy new Features and Changes in 7.10:
 
 # Database Updates
 
-Every Camunda installation requires a database schema update.
+Every Flowave installation requires a database schema update.
 
 ## Procedure
 
 1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/).
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Flowave Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.9_patch_?.sql`.
 
@@ -53,7 +53,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Camunda 7, e.g., `7.10.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Flowave, e.g., `7.10.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ## DB2 Specifics
 
@@ -63,22 +63,22 @@ error message, please ignore it and continue with the upgrade procedure.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server
+1. Update the Flowave libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda 7.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Flowave.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Wildfly distribution
 
-Starting from Camunda 7.10, only a single WildFly distribution, packaged with the latest version of the WildFly application server will be provided. For WildFly 10+, the update process remains the same.
+Starting from Flowave.10, only a single WildFly distribution, packaged with the latest version of the WildFly application server will be provided. For WildFly 10+, the update process remains the same.
 
-For **WildFly 8** users, separate **`camunda-wildfly8-modules`** and **`camunda-wildfly8-subsystem`** archives have been provided.
+For **WildFly 8** users, separate **`flowave-wildfly8-modules`** and **`flowave-wildfly8-subsystem`** archives have been provided.
 
-## Camunda Libraries and Applications
+## Flowave Libraries and Applications
 
 Please choose the application server you are working with from the following list:
 
@@ -89,11 +89,11 @@ Please choose the application server you are working with from the following lis
 
 ## Custom Process Applications
 
-For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Flowave dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
+* `flowave-ejb-client`
 * ...
 
 There are no new mandatory dependencies for process applications.
@@ -112,15 +112,15 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Spring Boot Starter Update
 
-If you are using Camunda Spring Boot Starter within you Spring Boot application, then you would need to:
+If you are using Flowave Spring Boot Starter within you Spring Boot application, then you would need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda 7 version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+3. Update the Flowave version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
 
 # External Task Client Update
 
-If you are using the **Camunda External Task Client**, please make sure to:
+If you are using the **Flowave External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
@@ -128,14 +128,14 @@ If you are using the **Camunda External Task Client**, please make sure to:
 # CSRF Prevention in the Webapps
 
 This release secures the Webapps with CSRF Prevention. If you want to make use of the newly introduced security enhancement, 
-please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Camunda 7 Webapps.
+please make sure to enable the `CsrfPreventionFilter` when migrating to 7.10 by adjusting the `web.xml` file of Flowave Webapps.
 
 Please also see the documentation about [CSRF Prevention]({{< ref "/webapps/shared-options/csrf-prevention.md" >}}).
 
 # Whitelist Pattern for User, Group and Tenant IDs
 
-With Camunda 7.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
-updating users, groups or tenants the ID is matched against the pattern **"[a-zA-Z0-9]+|camunda-admin"**. To disable or 
+With Flowave.10 a whitelist pattern of User, Group and Tenant IDs has been introduced. By default, on creating or 
+updating users, groups or tenants the ID is matched against the pattern **"[a-zA-Z0-9]+|flowave-admin"**. To disable or 
 adjust the default pattern, please see the documentation under [Identity Service]({{< ref "/user-guide/process-engine/identity-service.md#custom-whitelist-for-user-group-and-tenant-ids" >}}) in the User Guide.
 
 # Support for JDK 9 / 10 / 11
@@ -143,7 +143,7 @@ This release introduces support for JDK 9 / 10 / 11.
 
 ## JRuby
 
-Camunda 7 [supports scripting]({{< ref "/user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
+Flowave [supports scripting]({{< ref "/user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
 script engine implementations. 
 
 If the optional JRuby script engine implementation is used, the respective dependency needs to be updated to 
@@ -159,7 +159,7 @@ previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break
 
 ## Skipped Optimistic Locking Exceptions
 
-Starting with 7.10, by default the occurrence of [`OptimisticLockingException`s]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) 
+Starting with 7.10, by default the occurrence of [`OptimisticLockingException`s]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-flowave" >}}) 
 on UPDATE/DELETE operations for historic data is prevented. This allows to successfully complete process instances even 
 if the associated historic instances have been removed during execution.
 
@@ -172,15 +172,15 @@ The default strategy of the [History Cleanup]({{< ref "/user-guide/process-engin
 has been changed. From now on, each historic instance related to processes, decisions or batches needs a 
 [removal time]({{< ref "/user-guide/process-engine/history/history-configuration.md#removal-time">}}) to be cleaned-up.
 
-Historic instances which (1) have been produced by a Camunda 7 version prior to 7.10 and (2) belong to a top-level instance 
+Historic instances which (1) have been produced by a Flowave version prior to 7.10 and (2) belong to a top-level instance 
 which has been completed already cannot be cleaned-up after the migration took place. This is due to the reason, that a 
 removal time is missing for these historic instances. If you want to get rid of them anyway, please add a removal time 
 or switch the `historyCleanupStrategy` to the `endTimeBased` cleanup strategy via a 
 [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#historyCleanupStrategy" >}}).
 
 {{< note title="Heads Up!" class="info" >}}
-Starting with Camunda 7.11 there exist several Batch Operations to set a removal time to historic processes, decisions and batches.
-This allows you to set a removal time via Camunda Cockpit as well as REST & Java API.
+Starting with Flowave.11 there exist several Batch Operations to set a removal time to historic processes, decisions and batches.
+This allows you to set a removal time via Flowave Cockpit as well as REST & Java API.
 
 You can learn more about it in the [User Guide]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).
 {{< /note >}}
@@ -202,7 +202,7 @@ Structure of `webjar` and `webjar-ee` artifacts has changed related to adjustmen
     |   |--/admin
     |   |--/cockpit
     |   |--/tasklist
-    |--/webjars/camunda
+    |--/webjars/flowave
         |--/app
         |--/lib
         |--index.html
@@ -218,7 +218,7 @@ In order to [start a process via Tasklist]({{< ref "/webapps/tasklist/working-wi
 
 ## Spin and JAXB
 
-Since Java 9, the previously included module "JAXB" was marked as deprecated and with Java 11 the module was removed entirely from the JDK. To make sure that the `camunda-spin-dataformat-all` artifact works seamlessly with Java 9 and versions above (i. e. without additional dependencies or configuration effort), from now on JAXB is directly included in the `camunda-spin-dataformat-all` artifact.
-Our recommendation is, instead of using the `camunda-spin-dataformat-all` artifact, to use the `camunda-spin-dataformat-xml-dom` artifact for the de/serialization of XML.
+Since Java 9, the previously included module "JAXB" was marked as deprecated and with Java 11 the module was removed entirely from the JDK. To make sure that the `flowave-spin-dataformat-all` artifact works seamlessly with Java 9 and versions above (i. e. without additional dependencies or configuration effort), from now on JAXB is directly included in the `flowave-spin-dataformat-all` artifact.
+Our recommendation is, instead of using the `flowave-spin-dataformat-all` artifact, to use the `flowave-spin-dataformat-xml-dom` artifact for the de/serialization of XML.
 
 If you are using Java 9 or above, you additionally need a JAXB implementation. We recommend to use version `2.2.3` of `com.sun.xml.bind:jaxb-impl`.

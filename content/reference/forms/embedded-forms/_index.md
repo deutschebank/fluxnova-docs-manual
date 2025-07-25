@@ -13,13 +13,13 @@ menu:
 
 ---
 
-This reference covers the features of the Camunda 7 Forms SDK. The Forms SDK simplifies the
+This reference covers the features of the Flowave Forms SDK. The Forms SDK simplifies the
 implementation of user task forms in HTML5 / JavaScript based Applications. The Forms SDK itself is
 written in JavaScript and can be added to any  JavaScript based Application.
 
-{{< note title="The Forms SDK and Camunda Tasklist" class="info" >}}
+{{< note title="The Forms SDK and Flowave Tasklist" class="info" >}}
 <a href="{{< ref "/webapps/tasklist/_index.md" >}}">
-Camunda Tasklist</a> uses the Form SDK for providing support for Embedded Forms. By default, the 
+Flowave Tasklist</a> uses the Form SDK for providing support for Embedded Forms. By default, the 
 tasklist uses the Form SDKs AngularJS integration.
 {{< /note >}}
 

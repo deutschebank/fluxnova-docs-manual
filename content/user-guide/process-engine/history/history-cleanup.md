@@ -20,7 +20,7 @@ It deletes:
 * Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
 * Historic batches plus all related historic data (historic incidents and job logs)
 
-History cleanup can be triggered manually or scheduled on a regular basis. Only [camunda-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup manually.
+History cleanup can be triggered manually or scheduled on a regular basis. Only [flowave-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-flowave-admin-group">}}) have permissions to execute history cleanup manually.
 
 ## Use case example
 
@@ -34,7 +34,7 @@ Note: The exact time at which data is removed depends on a couple of configurati
 
 ### Cleanable instances
 
-The following elements of Camunda history are cleanable:
+The following elements of Flowave history are cleanable:
 
 * Process Instances
 * Decision Instances
@@ -99,7 +99,7 @@ Strengths:
 
 Limitations:
 
-* Can only remove data for which a removal time is set. This is especially not the case for data which has been created with Camunda versions < 7.10.0.
+* Can only remove data for which a removal time is set. This is especially not the case for data which has been created with Flowave versions < 7.10.0.
 * Changing the TTL of a definition only applies to history data that is created in the future. It does not dynamically update the removal time of already written history data. However, it is possible to [Set a Removal Time via Batch Operations]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).
 * History data of case instances is not cleaned up.
 
@@ -110,7 +110,7 @@ The *end-time-based cleanup strategy* deletes data whose end time plus TTL has e
 Strengths:
 
 * Changing the TTL of a definition also affects already written history data.
-* Can remove data from any Camunda version.
+* Can remove data from any Flowave version.
 
 Limitations:
 

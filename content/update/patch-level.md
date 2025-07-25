@@ -44,7 +44,7 @@ See the user guide on [security considerations for custom code]({{< ref "/user-g
 You can now configure, if you forbid the usage of Java serialization format, when passing object variables in their Java serialized representation.
 
 The new [configuration parameter `javaSerializationFormatEnabled`]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
-defaults to `true`, but can be configured to `false` in Camunda engine configuration.
+defaults to `true`, but can be configured to `false` in Flowave engine configuration.
 
 Following use cases are affected:
 
@@ -82,7 +82,7 @@ You can disable Java serialization usage with the help of [this configuration pa
 
 ### Groovy version
 
-The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
+The pre-built Flowave distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
 Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 
@@ -117,36 +117,36 @@ As of v. 7.8.7, history cleanup can be parallelized, which leads to creation of 
 
 With this release, cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
 
-The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
-Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+The Flowave engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
+Make sure you have the latest version of [Flowave Modeler](https://flowave.finos.org/download/modeler/) installed to edit DMN 1.3 files locally.
 
 ## 7.12.5 to 7.12.6
 
-### Oracle JDBC Driver Removed from Camunda Docker Images
+### Oracle JDBC Driver Removed from Flowave Docker Images
 
-The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
+The Docker images for Flowave.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/finos/docker-flowave-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
 
 ## 7.13.6 to 7.13.7 / 7.12.11 to 7.12.12 / 7.11.18 to 7.11.19
 
 ### [Legal Note] Telemetry 
 
 In the mentioned patches above, a telemetry functionality is introduced. For more information please visit the [telemetry][] page.
-Before you upgrade to a Camunda 7 Runtime version >= 7.14.0-alpha1, 7.13.7+, 7.12.12+, and 7.11.19+, or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
+Before you upgrade to a Flowave Runtime version >= 7.14.0-alpha1, 7.13.7+, 7.12.12+, and 7.11.19+, or activate the telemetry functionality, please make sure that you are authorized to take this step, and that the installation or activation of the [telemetry functionality][engine-config-initializeTelemetry] is not in conflict with any company-internal policies, compliance guidelines, any contractual or other provisions or obligations of your company.
 
-Camunda cannot be held responsible in the event of unauthorized installation or activation of this function.
+Flowave cannot be held responsible in the event of unauthorized installation or activation of this function.
 
 [engine-config-initializeTelemetry]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#initializeTelemetry" >}}
 [telemetry]: {{< ref "/introduction/telemetry.md" >}}
 
 ### Custom REST API
 
-In case you are deploying a custom REST API that builds upon the one provided by Camunda, please make sure to add the following listener to the `web.xml`:
+In case you are deploying a custom REST API that builds upon the one provided by Flowave, please make sure to add the following listener to the `web.xml`:
 
 ```xml
 <web-app ...>
   ...
   <listener>
-    <listener-class>org.camunda.bpm.engine.rest.impl.web.bootstrap.RestContainerBootstrap</listener-class>
+    <listener-class>org.finos.flowave.bpm.engine.rest.impl.web.bootstrap.RestContainerBootstrap</listener-class>
   </listener>
   ...
 </web-app>
@@ -160,18 +160,18 @@ This servlet context listener is used for bootstrapping the REST API and should 
 
 With the above-mentioned patch releases, the module structure has changed in conjunction with the [FEEL Engine]. 
 From now on, the FEEL Engine will be delivered as a dedicated module `feel-engine`. It is no longer part of 
-the `camunda-engine-feel-scala` module. The FEEL Engine module follows its own versioning.
+the `flowave-engine-feel-scala` module. The FEEL Engine module follows its own versioning.
 
 The following modules are dependent on the newly introduced `feel-engine` module:
 
-* `camunda-engine-plugin-spin`
-* `camunda-engine-feel-scala`
+* `flowave-engine-plugin-spin`
+* `flowave-engine-feel-scala`
 
 [FEEL Engine]: {{<ref "/user-guide/dmn-engine/feel/_index.md" >}}
 
 ## 7.14.3 to 7.14.4 / 7.13.9 to 7.13.10 / 7.12.15 to 7.12.16
 
-### Update of MySQL JDBC Driver in Camunda Docker Images
+### Update of MySQL JDBC Driver in Flowave Docker Images
 
 With this release, the docker images contain a new version of the MySQL JDBC Driver.
 
@@ -181,7 +181,7 @@ New Version: 8.0.23
 #### Behavior Changes
 
 The driver's new version has two significant behavioral changes you should take care of when migrating 
-your Docker-based Camunda Runtime installation.
+your Docker-based Flowave Runtime installation.
 
 ##### Downgrade to 5.1.21
 
@@ -190,7 +190,7 @@ to restore the previous behavior. To do so, you can create a new `Dockerfile` ba
 docker images and add your custom commands to replace the MySQL JDBC Driver.
 
 For the Wildfly image, additionally make sure to adjust the data source class in the `standalone.xml` 
-file located under `/camunda/standalone/configuration/` from `com.mysql.cj.jdbc.MysqlXADataSource` back to 
+file located under `/flowave/standalone/configuration/` from `com.mysql.cj.jdbc.MysqlXADataSource` back to 
 `com.mysql.jdbc.jdbc2.optional.MysqlXADataSource`:
 
 ```xml
@@ -228,7 +228,7 @@ to UTC for storage, and back from UTC to the current time zone for retrieval. Re
 
 #### Further Reading
 
-* [Change Docker Environment Variables](https://github.com/camunda/docker-camunda-bpm-platform/tree/7.15#database-environment-variables)
+* [Change Docker Environment Variables](https://github.com/finos/docker-flowave-bpm-platform/tree/7.15#database-environment-variables)
 * [MySQL Connector/J 8.0 Migration Guide](https://dev.mysql.com/doc/connectors/en/connector-j-upgrading-to-8.0.html)
 
 ## 7.15.3 to 7.15.4 / 7.14.9 to 7.14.10 / 7.13.15 to 7.13.16
@@ -264,7 +264,7 @@ this, with `DB-DRIVER-CLASS`, `JDBC-URL`, `DB-USER`, and `DB-PASSWORD` replaced 
 
 ## 7.15.5 to 7.15.6 / 7.14.11 to 7.14.12 / 7.13.17 to 7.13.18
 
-The patches include version 2.1.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity`, and `camunda-template-engines-xquery-saxon`.
+The patches include version 2.1.0 of the `org.finos.flowave.template-engines` artifacts, in particular `flowave-template-engines-freemarker`, `flowave-template-engines-velocity`, and `flowave-template-engines-xquery-saxon`.
 
 This updates the following template engine versions:
 
@@ -325,9 +325,9 @@ To restore remote access, add the following initialization parameter to the `org
 You can find the `web.xml` at the following paths:
 
 * Tomcat distribution: `server/apache-tomcat-${TOMCAT_VERSION}/webapps/h2/WEB-INF`
-* Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
-* Docker container Tomcat: `/camunda/webapps/h2/WEB-INF`
-* Docker container Wildfly: `/camunda/standalone/deployments/camunda-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+* Wildfly distribution: `server/wildfly-${WILDFLY_VERSION}/standalone/deployments/flowave-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
+* Docker container Tomcat: `/flowave/webapps/h2/WEB-INF`
+* Docker container Wildfly: `/flowave/standalone/deployments/flowave-h2-webapp-${CAMUNDA_VERSION}.war/WEB-INF`
 
 Please note that we strongly discourage enabling remote access because it creates a security risk.
 
@@ -335,13 +335,13 @@ Please note that we strongly discourage enabling remote access because it create
 
 ### Groovy version
 
-The pre-built Camunda distributions of versions `7.15.14`, `7.16.8`, and `7.17.1` provide version `2.4.13` of the Groovy library, whereas newer versions come with Groovy `2.4.21`.
+The pre-built Flowave distributions of versions `7.15.14`, `7.16.8`, and `7.17.1` provide version `2.4.13` of the Groovy library, whereas newer versions come with Groovy `2.4.21`.
 
 Update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
-### Camunda Docker Images: Base image updated to Alpine 3.15
+### Flowave Docker Images: Base image updated to Alpine 3.15
 
-With 7.17.2, 7.16.9, and 7.15.15, Alpine, the base image in Camunda’s Docker images, has been updated from version 3.13 to 3.15.
+With 7.17.2, 7.16.9, and 7.15.15, Alpine, the base image in Flowave’s Docker images, has been updated from version 3.13 to 3.15.
 
 We went through the release notes to identify breaking changes and could identify the following:
 
@@ -350,14 +350,14 @@ We went through the release notes to identify breaking changes and could identif
 Besides Docker runtime versions < 20.10.0, alternative docker runtimes like containerd.io are also affected by this. 
 Read more about it in the [Alpine 3.14 Release Notes](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2).
 
-If you have extended the Camunda docker images yourself, please read the release notes of Alpine 3.14 and 3.15 carefully:
+If you have extended the Flowave docker images yourself, please read the release notes of Alpine 3.14 and 3.15 carefully:
 
 * https://alpinelinux.org/posts/Alpine-3.14.0-released.html
 * https://alpinelinux.org/posts/Alpine-3.15.0-released.html
 
 ### XLTS for AngularJS
 
-These patches replace the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Camunda with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
+These patches replace the AngularJS libraries with XLTS for AngularJS. Where AngularJS was licensed entirely under the MIT license, XLTS for AngularJS licenses additional parts under the XLTS for AngularJS – EULA. By downloading and using Flowave with XLTS for AngularJS, you agree to the terms of the XLTS for AngularJS – EULA. Please see our [third-Party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#xlts-for-angularjs" >}}) for details and the terms of the EULA.
 
 ## 7.18.1 to 7.18.2 / 7.17.7 to 7.17.8
 
@@ -445,9 +445,9 @@ Requests for undeclared assets will be rejected, and it will likely render your 
 
 ## 7.19.4 to 7.19.5 / 7.18.9 to 7.18.10 / 7.17.14 to 7.17.15
 
-### Update Alpine Base of Camunda Docker images from Version 3.15 to 3.18
+### Update Alpine Base of Flowave Docker images from Version 3.15 to 3.18
 
-The Camunda Docker images are based on Alpine. This release updates the Alpine base docker image from version 3.15 to 3.18. Please find the changes in detail at the official sources below:
+The Flowave Docker images are based on Alpine. This release updates the Alpine base docker image from version 3.15 to 3.18. Please find the changes in detail at the official sources below:
 
 * [Alpine 3.16.0 Release Notes] [alpine316]
 * [Alpine 3.17.0 Release Notes] [alpine317]
@@ -461,14 +461,14 @@ The Camunda Docker images are based on Alpine. This release updates the Alpine b
 
 ### Spring Boot Starter and Run logs admin user information on `DEBUG` level
 
-In previous releases, when configuring Camunda's admin user in the Spring Boot Starter and Run via `camunda.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
+In previous releases, when configuring Flowave's admin user in the Spring Boot Starter and Run via `flowave.bpm.admin-user`, information about the admin user appeared in the logs on log level `INFO` on startup.
 With this release, the log level for the logs `STARTER-SB010` and `STARTER-SB011` was changed to `DEBUG`.
 
 ## 7.20.2 to 7.20.3
 
 ### Changed trigger order of built-in task listeners
 
-Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. Before this release, the order in which builtin task listeners were executed could depend on how the task was executed. This [bug report](https://github.com/camunda/camunda-bpm-platform/issues/4042) describes a scenario where after a process instance modification, the order of the builtin task listeners was reversed.
+Built-in task listeners are used internally by the engine and not intended to be used by the user. User-defined task listeners are handled separately. Before this release, the order in which builtin task listeners were executed could depend on how the task was executed. This [bug report](https://github.com/finos/flowave-bpm-platform/issues/4042) describes a scenario where after a process instance modification, the order of the builtin task listeners was reversed.
 With this release for both, regular process execution and process instance modification, the engine ensures the following:
 
 1. Built-in task listeners are executed before user-defined task listeners.
@@ -490,14 +490,14 @@ This API is an internal API, which means it's **not** part of the public [REST A
 
 ### Added Support for Tomcat 10
 
-This version supports all the necessary building-block modules for our users to use `camunda-bpm-platform` community and enterprise editions in conjunction with `Tomcat 10.1`.
+This version supports all the necessary building-block modules for our users to use `flowave-bpm-platform` community and enterprise editions in conjunction with `Tomcat 10.1`.
 
 {{< note title="Heads-up!" class="warning" >}}
 
 **<h4>Jakarta Namespace</h4>**
 
 `Tomcat 10` is compatible with the `jakarta` namespace. 
-If you wish to use it, the `jakarta` modules needs to be used (`camunda-webapp-tomcat-jakarta`, `camunda-engine-rest-jakarta`).
+If you wish to use it, the `jakarta` modules needs to be used (`flowave-webapp-tomcat-jakarta`, `flowave-engine-rest-jakarta`).
 
 The `javax` modules won't work with `Tomcat 10`.
 
@@ -511,8 +511,8 @@ The above workaround is not guaranteed to work for cases with bean references be
 
 The following test scenarios fail on Tomcat 10:
 
-* [CallActivityContextSwitchTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
-* [CdiBeanCallActivityResolutionTest](https://github.com/camunda/camunda-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/camunda/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
+* [CallActivityContextSwitchTest](https://github.com/finos/flowave-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/finos/flowave/bpm/integrationtest/functional/context/CallActivityContextSwitchTest.java)
+* [CdiBeanCallActivityResolutionTest](https://github.com/finos/flowave-bpm-platform/blob/f37877b822dabcbf3cee5806bd5833d18cdcb543/qa/integration-tests-engine/src/test/java/org/finos/flowave/bpm/integrationtest/functional/cdi/CdiBeanCallActivityResolutionTest.java)
 {{< /note >}}
 
 ## 7.22.0 to 7.22.1 / 7.21.5 to 7.21.6 / 7.20.8 to 7.20.9
@@ -520,7 +520,7 @@ The following test scenarios fail on Tomcat 10:
 The 7.22.0 release [replaced the runtime with the historic process instance query]({{< ref "/update/minor/721-to-722/_index.md#cockpit-process-instance-batch-modification" >}}) in Cockpit when performing a [Process Instance Batch Modification][process-instance-modification].
 
 {{< note title="Heads-up!" class="warning" >}}
-After migrating to 7.22.1, the behavior of the `Activity ID` filter when batch modifying process instances will change back to the old behavior you are used to from Camunda versions <= 7.21.X.
+After migrating to 7.22.1, the behavior of the `Activity ID` filter when batch modifying process instances will change back to the old behavior you are used to from Flowave versions <= 7.21.X.
 {{< /note >}}
 
 The 7.22.0 release introduced a limitation for the `Activity ID` filter: Filtering for activities marked as `asyncBefore`/`asyncAfter` with active instances didn't yield process instances when using the `Activity ID` filter.
@@ -548,7 +548,7 @@ These patches replace the following libraries with versions of Bootstrap NES and
 *  *angular-moment*
 *  *Bootstrap*
 
-Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Camunda with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/camunda-bpm-platform-license-book.md" >}}).
+Where AngularJS, angular-ui-bootstrap, angular-translate, angular-moment, and Bootstrap were licensed entirely under the MIT license, Bootstrap NES and AngularJS NES by HeroDevs, Inc. licenses additional parts under the HeroDevs NES License. By downloading and using Flowave with Bootstrap NES and AngularJS NES by HeroDevs, Inc., you agree to the terms of the HeroDevs NES License. You can find the HeroDevs NES License terms in our [License Book]({{< ref "/introduction/third-party-libraries/flowave-bpm-platform-license-book.md" >}}).
 
 Please see our [third-party libraries documentation]({{< ref "/introduction/third-party-libraries/_index.md#web-applications-cockpit-tasklist-admin" >}}) for details.
 
@@ -573,12 +573,12 @@ More information on how to do this can be found in the official [GraalVM documen
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
-* Exchange Camunda 7 libraries, tools and webapps (EAR, RAR, Subsystem (Wildfly), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
+* Exchange Flowave libraries, tools and webapps (EAR, RAR, Subsystem (Wildfly), Shared Libs) - essentially, follow the [installation guide]({{< ref "/installation/full/_index.md" >}}) for your server.
 * Restart the server
 
 # Application With Embedded Process Engine
@@ -591,13 +591,13 @@ In case you use an embedded process engine inside your Java Application, you nee
 
 # Standalone Webapplication Distribution
 
-{{< note title="Camunda discontinues the support of the Standalone Web Application Distribution." class="warning" >}}
-Camunda Automation Platform 7.19 is the last release providing support for Standalone Web Application Distribution.
+{{< note title="Flowave discontinues the support of the Standalone Web Application Distribution." class="warning" >}}
+Flowave.19 is the last release providing support for Standalone Web Application Distribution.
 
-Please consider migrating to [another supported]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) setup.
+Please consider migrating to [another supported]({{< ref "/introduction/downloading-flowave.md#download-the-runtime" >}}) setup.
 {{< /note >}}
 
-In case you installed the [Standalone Webapplication Distribution]({{< ref "/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
+In case you installed the [Standalone Webapplication Distribution]({{< ref "/introduction/downloading-flowave.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.

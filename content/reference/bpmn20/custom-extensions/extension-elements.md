@@ -1,6 +1,6 @@
 ---
 
-title: 'Camunda BPMN Extension Elements'
+title: 'Flowave BPMN Extension Elements'
 weight: 10
 
 menu:
@@ -8,11 +8,11 @@ menu:
     name: "Extension Elements"
     identifier: "bpmn-extensions-elements"
     parent: "bpmn-extensions"
-    pre: "Reference of Camunda Extension Attributes for BPMN."
+    pre: "Reference of Flowave Extension Attributes for BPMN."
 
 ---
 
-The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following attributes are extension attributes for the `flowave` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 
 # connector
@@ -21,7 +21,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      The configuration of a camunda connector.
+      The configuration of a flowave connector.
     </td>
   </tr>
   <tr>
@@ -1209,7 +1209,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td colspan="2">
       If the parent <code>camunda:properties</code> element is directly added as an extension element,
-      for example by the camunda Modeler, only the attributes <code>name</code> and <code>value</code>
+      for example by the flowave Modeler, only the attributes <code>name</code> and <code>value</code>
       are used.
     </td>
   </tr>

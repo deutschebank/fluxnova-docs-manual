@@ -11,20 +11,20 @@ menu:
 
 ---
 
-Each version of the Camunda Spring Boot Starter is bound to a specific version of Camunda 7 and Spring Boot. 
-Only these default combinations are recommended (and supported) by Camunda.
+Each version of the Flowave Spring Boot Starter is bound to a specific version of Flowave and Spring Boot. 
+Only these default combinations are recommended (and supported) by Flowave.
 Other combinations must be thoroughly tested before being used in production.
 
 {{< note title="Heads Up" class="info" >}}
-  Starting with version 7.13.0, Camunda 7 and its compatible Spring Boot Starter always share the same version.
-  Also, the Camunda 7 version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
-  the version of the Starter that resembles the version of Camunda 7 you want to use.
+  Starting with version 7.13.0, Flowave and its compatible Spring Boot Starter always share the same version.
+  Also, the Flowave version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
+  the version of the Starter that resembles the version of Flowave you want to use.
 {{< /note >}}
 
 <table class="table table-striped">
   <tr>
     <th>Spring Boot Starter version</th>
-    <th>Camunda 7 version</th>
+    <th>Flowave version</th>
     <th>Spring Boot version</th>
   </tr>
   <tr>
@@ -152,8 +152,8 @@ Other combinations must be thoroughly tested before being used in production.
 \* For these versions, use the following Maven coordinates:
 ```
 <dependency>
-  <groupId>org.camunda.bpm.extension</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+  <groupId>org.finos.flowave.bpm.extension</groupId>
+  <artifactId>flowave-bpm-spring-boot-starter</artifactId>
   <version>1.x</version> <!-- set correct version here -->
 </dependency>
 ```
@@ -161,8 +161,8 @@ Other combinations must be thoroughly tested before being used in production.
 \*\* For these versions, use the following Maven coordinates:
 ```
 <dependency>
-  <groupId>org.camunda.bpm.extension.springboot</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+  <groupId>org.finos.flowave.bpm.extension.springboot</groupId>
+  <artifactId>flowave-bpm-spring-boot-starter</artifactId>
   <version>2.x</version> <!-- set correct version here -->
 </dependency>
 ```

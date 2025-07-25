@@ -25,7 +25,7 @@ Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 
 # Available modules
 
-Since 7.5, the availability of modules in plugins has been changed. The following matrix shows availability of modules for plugins in the Camunda web applications:
+Since 7.5, the availability of modules in plugins has been changed. The following matrix shows availability of modules for plugins in the Flowave web applications:
 
 <table class="table table-bordered">
   <thead>
@@ -50,13 +50,13 @@ Since 7.5, the availability of modules in plugins has been changed. The followin
     <td><span class="glyphicon glyphicon-ok"></span></td>
   </tr>
   <tr>
-    <td>camunda-commons-ui</td>
+    <td>flowave-commons-ui</td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
   </tr>
   <tr>
-    <td>camunda-bpm-sdk-js</td>
+    <td>flowave-bpm-sdk-js</td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
     <td><span class="glyphicon glyphicon-ok"></span></td>
@@ -136,13 +136,13 @@ The following modules have been updated to a newer version:
 
 # Maven Dependency
 
-The dependency to the Camunda webapp core with the maven coordinates `org.camunda.bpm.webapp:camunda-webapp-core` has been renamed. Please use the following snippet in your `pom.xml`:
+The dependency to the Flowave webapp core with the maven coordinates `org.finos.flowave.bpm.webapp:flowave-webapp-core` has been renamed. Please use the following snippet in your `pom.xml`:
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.webapp</groupId>
-  <artifactId>camunda-webapp</artifactId>
+  <groupId>org.finos.flowave.bpm.webapp</groupId>
+  <artifactId>flowave-webapp</artifactId>
   <classifier>classes</classifier>
-  <version>${camunda.version}</version>
+  <version>${flowave.version}</version>
 </dependency>
 ```

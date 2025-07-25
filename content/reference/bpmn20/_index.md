@@ -16,7 +16,7 @@ This page gives you an overview of the BPMN 2.0 elements and the current coverag
 
 {{< note title="BPMN - Business Process Model and Notation" >}}
 If you are unfamiliar with BPMN 2.0, you might want to check out the
-<a href="http://camunda.org/bpmn/tutorial.html">BPMN Tutorial</a> first.
+<a href="http://flowave.finos.org/bpmn/tutorial.html">BPMN Tutorial</a> first.
 {{< /note >}}
 
 # Coverage
@@ -343,8 +343,8 @@ In BPMN there are start events, intermediate events and end events. These three 
 
 {{< note title="Understanding BPMN Events" >}}
 To help understand the principle behavior of events in BPMN, we recommend to check the
-[Events: Basic Concepts](http://camunda.org/bpmn/reference.html#events-basic-concepts)
-chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html).
+[Events: Basic Concepts](http://flowave.finos.org/bpmn/reference.html#events-basic-concepts)
+chapter of the [BPMN Modeling Reference](http://flowave.finos.org/bpmn/reference.html).
 {{< /note >}}
 
 <table class="table table-responsive table-bordered bpmn-events">
@@ -387,8 +387,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
       <td></td>
       <td>
-        <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
-          
+        <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">          
           <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
           <circle cx="20" cy="20" r="12" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
         </svg>

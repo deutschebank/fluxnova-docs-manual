@@ -1,13 +1,13 @@
-# The Camunda 7 Documentation Sources
+# The Flowave Documentation Sources
 
-This repository contains the sources of the Camunda 7 documentation.
+This repository contains the sources of the Flowave documentation.
 
-**Important:** _do NOT change the content of `themes/camunda` directory directly!_
-Instead, change the [theme](//github.com/camunda/camunda-docs-theme).
+**Important:** _do NOT change the content of `themes/flowave` directory directly!_
+Instead, change the [theme](//github.com/finos/flowave-docs-theme).
 
 ## Contributing
 
-Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-platform/blob/master/CONTRIBUTING.md) for our general contribution guidelines. See the following sections for how to work with the docs.
+Have a look at our [contribution guide](https://github.com/finos/flowave-bpm-platform/blob/master/CONTRIBUTING.md) for our general contribution guidelines. See the following sections for how to work with the docs.
 
 ## Installing Hugo
 
@@ -63,7 +63,7 @@ Use the `img` shorthand:
 Use the 'javadocref' shorthand:
 
 ```html
-{{< javadocref page="org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
+{{< javadocref page="org/finos/flowave/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
 ```
 
 ### How can I add a note?
@@ -133,12 +133,12 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 * Download and install [Open Sans font][OpenSans]
 * Create a new drawing in OpenOffice Draw
 
-![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
+![Setup](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
 
 * Configure document:
     * Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
 
-![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/set-zoom.PNG)
+![Set Zoom Level](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/set-zoom.PNG)
 
 
 * Page Setup (Format menu -> Page)
@@ -147,7 +147,7 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
     * Height: 20,00 cm
     * Orientation: Landscape
 
-![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
+![Set Zoom Level](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
 
 
 ### Take the screenshots
@@ -162,12 +162,12 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 * Add rectangle shapes for text boxes
 * Use the Open Sans font for text
 
-![Set Font](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/font.png)
+![Set Font](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/font.png)
 
 * If possible, utilize the whitespaces within the image
 * Use shadows
 
-![Set Shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
+![Set Shadows](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
 
 ### Export the image
 * Export (File menu -> Export)
@@ -175,7 +175,7 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 * Compression: 1
 * Resolution: 96 pixels/inch
 
-![Export](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/export.png)
+![Export](https://raw.githubusercontent.com/finos/flowave-docs-manual/master/develop/drawings/ReadMe-images/export.png)
 
 
 [Hugo]: http://gohugo.io/

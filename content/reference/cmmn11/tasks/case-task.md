@@ -47,7 +47,7 @@ The activation of the case task as well as the creation and execution of the cas
 
 # Case Binding
 
-By default, the case task always creates a new case instance of the latest case definition with the specified key. To specify a different version of a case, it is possible to define a binding with the Camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
+By default, the case task always creates a new case instance of the latest case definition with the specified key. To specify a different version of a case, it is possible to define a binding with the Flowave custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
 
 * `latest`: use the latest case definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the case definition version that is part of the calling case definition's deployment (note: this requires that a case with the specified key is deployed along with the calling case definition)
@@ -106,7 +106,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 # Exchange Variables
 
-The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,:
+The Flowave custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,:
 
 ```xml
 <caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase">
@@ -194,24 +194,24 @@ If the business key of the called case instance should be different from the bus
 </caseTask>
 ```
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#caseversion" >}}">camunda:caseVersion</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#caseversion" >}}">camunda:caseVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

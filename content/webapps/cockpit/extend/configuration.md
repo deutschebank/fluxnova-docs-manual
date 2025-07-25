@@ -20,12 +20,12 @@ You can change the visual aspects of Cockpit. The user stylesheet file is locate
 and can override the standard styles.
 
 ```css
-/* hides the Camunda logo */
+/* hides the Flowave logo */
 .app-banner svg {
   display: none;
 }
 .app-banner {
-  /* hides the "Camunda Cockpit" text */
+  /* hides the "Flowave Cockpit" text */
   text-indent: 200vw;
   /* put your logo */
   background-image: url(./path/to/the/logo.png);
@@ -39,7 +39,7 @@ and can override the standard styles.
 }
 ```
 
-**Note:** you can also change the app name (*Cockpit*) and vendor (*Camunda*)
+**Note:** you can also change the app name (*Cockpit*) and vendor (*Flowave*)
 by changing the `app/cockpit/scripts/config.js` configuration file as follow:
 
 ```js
@@ -54,8 +54,8 @@ export default {
 
 # Localization
 
-Cockpit can be localized. Camunda maintains English and German translation files. 
-You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
+Cockpit can be localized. Flowave maintains English and German translation files. 
+You can find and download community maintained translation files at the [Flowave webapp translations repository](https://github.com/finos/flowave-webapp-translations).
 
 The localization of Cockpit is contained in the `app/cockpit/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -97,13 +97,13 @@ export default {
     ['custom-module/module.js']
 };
 ```
-This includes a `custom-module/module.js` file. The path is relative to the `app/cockpit` folder in the Camunda webapp .war file.
+This includes a `custom-module/module.js` file. The path is relative to the `app/cockpit` folder in the Flowave webapp .war file.
 
-You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda 7 examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-cats).
+You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Flowave examples repository](https://github.com/finos/flowave-bpm-examples/tree/master/cockpit/cockpit-cats).
 
 ## Legacy Custom Scripts
 
-Custom Scripts created for Camunda 7.13 or earlier can be included using the `requireJsConfig` property to the `app/cockpit/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
+Custom Scripts created for Flowave.13 or earlier can be included using the `requireJsConfig` property to the `app/cockpit/scripts/config.js`. You can include these custom scripts using the custom [requireJS configuration](https://requirejs.org/docs/api.html#config).
 
 ```Javascript
 export default {
@@ -124,7 +124,7 @@ export default {
 }
 ```
 
-For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda **7.13** .
+For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.flowave.finos.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Flowave **7.13** .
 
 # BPMN Diagram Viewer (bpmn.js)
 
@@ -133,7 +133,7 @@ The diagram viewer (bpmn.js) can be either customized by moddle extensions or
 of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config.js` file.
 
 ## Additional Modules
-To add modules, the `additionalModules` property needs to be specified, where each module is registered with its path. The path is relative to the `app/cockpit` folder in the .war file of the Camunda Webapp.
+To add modules, the `additionalModules` property needs to be specified, where each module is registered with its path. The path is relative to the `app/cockpit` folder in the .war file of the Flowave Webapp.
 
 ```javascript
 export default {
@@ -146,18 +146,18 @@ export default {
 }
 ```
 
-You can find an example on how to add an additional bpmn.js module to Cockpit in the [Camunda 7 examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
+You can find an example on how to add an additional bpmn.js module to Cockpit in the [Flowave examples repository](https://github.com/finos/flowave-bpm-examples/tree/master/cockpit/cockpit-bpmn-js-module).
 
 ## Moddle Extensions
 The BPMN moddle can be extended by adding a `moddleExtensions` property. Each moddle extension has a unique name (key)
 and a path (value) to the JSON file of the moddle extension. The path is relative to the `app/cockpit` folder in the
-.war file of the Camunda Webapp. The suffix `.json` of the file is added automatically and must not be specified.
+.war file of the Flowave Webapp. The suffix `.json` of the file is added automatically and must not be specified.
 ```json
 export default {
   // …
   bpmnJs: {
     moddleExtensions: {
-      camunda: 'my-custom-moddle/camunda'
+      camunda: 'my-custom-moddle/flowave'
     }
   }
 }
@@ -253,7 +253,7 @@ export default = {
 
 # Disable Welcome Message for new Users
 
-First-time visitors are shown a message directing them to the camunda welcome page. If you do
+First-time visitors are shown a message directing them to the flowave welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
 export default = {

@@ -10,65 +10,65 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
+The following steps describe how to update the Flowave artifacts on a Tomcat server in a shared process engine setting.
 
 Throughout the procedure, refer to the [update guide][update-guide]. If not already done, download the
-[Camunda 7.17 Tomcat distribution][tomcat-distribution].
+[Flowave.17 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
 
-1. Update the Camunda 7 core libraries.
-2. Update optional Camunda 7 libraries.
+1. Update the Flowave core libraries.
+2. Update optional Flowave libraries.
 3. Update web applications.
 
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
-# 1. Update the Camunda 7 core libraries
+# 1. Update the Flowave core libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
-* `camunda-engine-$PLATFORM_VERSION.jar`
-* `camunda-bpmn-model-$PLATFORM_VERSION.jar`
-* `camunda-cmmn-model-$PLATFORM_VERSION.jar`
-* `camunda-dmn-model-$PLATFORM_VERSION.jar`
-* `camunda-xml-model-$PLATFORM_VERSION.jar`
-* `camunda-engine-dmn-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-scala-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-$PLATFORM_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
-* `camunda-connect-core-$CONNECT_VERSION.jar`
-* `camunda-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
+* `flowave-engine-$PLATFORM_VERSION.jar`
+* `flowave-bpmn-model-$PLATFORM_VERSION.jar`
+* `flowave-cmmn-model-$PLATFORM_VERSION.jar`
+* `flowave-dmn-model-$PLATFORM_VERSION.jar`
+* `flowave-xml-model-$PLATFORM_VERSION.jar`
+* `flowave-engine-dmn-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-api-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-juel-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-scala-$PLATFORM_VERSION.jar`
+* `flowave-commons-logging-$COMMONS_VERSION.jar`
+* `flowave-commons-typed-values-$PLATFORM_VERSION.jar`
+* `flowave-commons-utils-$COMMONS_VERSION.jar`
+* `flowave-connect-connectors-all-$CONNECT_VERSION.jar`
+* `flowave-connect-core-$CONNECT_VERSION.jar`
+* `flowave-template-engines-freemarker-$TEMPLATE_ENGINES_VERSION.jar`
 * `feel-engine-$FEEL_ENGINE_VERSION-scala-shaded.jar`
 * `freemarker-$FREEMARKER_VERSION.jar`
 * `mybatis-$MYBATIS_VERSION.jar`
 
-# 2. Update optional Camunda 7 libraries
+# 2. Update optional Flowave libraries
 
-In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Flowave Connect, Flowave Spin, and scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
 Copy the following library from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `camunda-identity-ldap-$PLATFORM_VERSION.jar`
+* `flowave-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect plugin
-
-Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
-
-* `camunda-engine-plugin-connect-$PLATFORM_VERSION.jar`
-
-## Camunda Spin
+## Flowave Connect plugin
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
-* `camunda-spin-dataformat-all-$SPIN_VERSION.jar`
-* `camunda-spin-core-$SPIN_VERSION.jar`
-* `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
+* `flowave-engine-plugin-connect-$PLATFORM_VERSION.jar`
+
+## Flowave Spin
+
+Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
+
+* `flowave-spin-dataformat-all-$SPIN_VERSION.jar`
+* `flowave-spin-core-$SPIN_VERSION.jar`
+* `flowave-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
 ## GraalVM JavaScript
 
@@ -85,25 +85,25 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 ## Update REST API
 
-The following steps are required to update the Camunda REST API on a Tomcat instance:
+The following steps are required to update the Flowave REST API on a Tomcat instance:
 
-1. Undeploy an existing web application with a name like `camunda-engine-rest`.
+1. Undeploy an existing web application with a name like `flowave-engine-rest`.
 2. Download the REST API web application archive from our [Artifact Repository][artifact-repository-restapi] Alternatively, switch 
    to the private repository for the enterprise version (credentials from license required). Choose the correct version 
-   named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+   named `$PLATFORM_VERSION/flowave-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 ## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
+The following steps are required to update the Flowave web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
-1. Undeploy an existing web application with a name like `camunda-webapp`.
-2. Download the Camunda web application archive from our [Artifact Repository][artifact-repository-webapp]. Alternatively, switch 
+1. Undeploy an existing web application with a name like `flowave-webapp`.
+2. Download the Flowave web application archive from our [Artifact Repository][artifact-repository-webapp]. Alternatively, switch 
    to the private repository for the enterprise version (credentials from license required). Choose the correct version 
-   named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+   named `$PLATFORM_VERSION/flowave-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 [update-guide]: {{< ref "/update/minor/716-to-717/_index.md" >}}
-[artifact-repository-restapi]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/7.17.0/camunda-engine-rest-7.17.0-tomcat.war
-[artifact-repository-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-tomcat/7.17.0/camunda-webapp-tomcat-7.17.0.war
+[artifact-repository-restapi]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest/7.17.0/camunda-engine-rest-7.17.0-tomcat.war
+[artifact-repository-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/webapp/camunda-webapp-tomcat/7.17.0/camunda-webapp-tomcat-7.17.0.war
 [tomcat-distribution]: https://downloads.camunda.cloud/release/camunda-bpm/tomcat/7.17/

@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda `7.18.x` to `7.19.0` and covers the following use cases:
+This document guides you through the update from Flowave `7.18.x` to `7.19.0` and covers the following use cases:
 
 1. For administrators and developers: [Database updates](#database-updates)
 2. For administrators and developers: [Full distribution update](#full-distribution)
@@ -22,36 +22,36 @@ This document guides you through the update from Camunda `7.18.x` to `7.19.0` an
    * For administrators and developers:\
      [Container-based authentication requires implementing a ReadOnlyIdentityProvider](#container-based-authentication-requires-implementing-a-readonlyidentityprovider)
 5. For administrators: [Set Job Retries Asynchronously](#set-job-retries-asynchronously)
-6. For developers: [Camunda external task client JS update](#camunda-external-task-client-js-update)
+6. For developers: [Flowave external task client JS update](#flowave-external-task-client-js-update)
 7. For developers: [Job executor priority range properties type changed](#job-executor-priority-range-properties-type-changed)
 8. For developers: [Java External Task Client: Deprecated exception types removed](#java-external-task-client-deprecated-exception-types-removed)
 9. For developers: [Consolidated REST API responses for a missing process engine](#consolidated-rest-api-responses-for-a-missing-process-engine)
 10. For developers: [Multi-Tenancy enabled for User operation logs](#multi-tenancy-enabled-for-user-operation-logs)
 11. For administrators and developers: [Update to WildFly 27 Application Server](#update-to-wildfly-27-application-server)
 
-This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Camunda 7.19.
+This guide covers mandatory migration steps and optional considerations for the initial configuration of new functionality included in Flowave.19.
 
 # Database updates
 
-Every Camunda installation requires a database schema update. Check our [database schema update guide]({{< ref "/installation/database-schema.md#update" >}}) 
+Every Flowave installation requires a database schema update. Check our [database schema update guide]({{< ref "/installation/database-schema.md#update" >}}) 
 for further instructions.
 
 # Full distribution
 
 This section is applicable if you installed the 
-[Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) 
+[Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) 
 with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server.
+1. Update the Flowave libraries and applications inside the application server.
 2. Migrate custom process applications.
 
-Before starting, ensure you have downloaded the Camunda 7.19 distribution for the application server you use.
+Before starting, ensure you have downloaded the Flowave.19 distribution for the application server you use.
 This contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution
 to a path named `$DISTRIBUTION_PATH`.
 
-## Camunda libraries and applications
+## Flowave libraries and applications
 
 Choose the application server you are working with from the following list:
 
@@ -62,11 +62,11 @@ Choose the application server you are working with from the following list:
 
 ## Custom process applications
 
-For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of the following:
+For every process application, the Flowave dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of the following:
 
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
+* `flowave-ejb-client`
 
 There are no new mandatory dependencies for process applications.
 
@@ -105,12 +105,12 @@ Please bear in mind that the [usage of new features]({{< ref "/update/rolling-up
 leads to unexpected behavior and therefore must be avoided: When a set retries batch with due date is 
 created during a rolling update, due dates might or might not be set depending on the executing engine (old/new engine).
 
-# Camunda external task client JS update
+# Flowave external task client JS update
 
 We always strive to keep up with established standards and reduce technical debt which is why we
 decided to move away from CommonJS in favor of ECMAScript modules (ESM).
 
-This means that the latest 3.0 version of the [Camunda external task client JS](https://github.com/camunda/camunda-external-task-client-js/)
+This means that the latest 3.0 version of the [Flowave external task client JS](https://github.com/finos/flowave-external-task-client-js/)
 is now a pure ECMAScript module. Furthermore, the minimum required NodeJS to run the client is version 18.\
 If your project is already using ECMAScript modules then you can update to this version without any problems.
 
@@ -152,39 +152,39 @@ If you prefer to stay on WildFly ≤26 or JBoss EAP 7, you can still download th
 
 To work with Wildfly 27, consider the following when migrating your process applications and replacing artifacts on the application server:
 
-[wildfly26-modules]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly26-modules/
-[wildfly26-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
-[wildfly26-rest-api]: https://artifacts.camunda.com/artifactory/public/org/camunda/bpm/camunda-engine-rest/
+[wildfly26-modules]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/wildfly/camunda-wildfly26-modules/
+[wildfly26-webapp]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/webapp/camunda-webapp-jboss/
+[wildfly26-rest-api]: https://artifacts.camunda.com/artifactory/public/org/finos/flowave/bpm/camunda-engine-rest/
 
 ## Migrate process applications
 
 * Replace Java EE class references (`javax.*`) with Jakarta class references (`jakarta.*`)
   * You might have a look at [`org.eclipse.transformer:transformer-maven-plugin`](https://github.com/eclipse/transformer)
-* Replace Camunda class references:
-  * `org.camunda.bpm.application.impl.EjbProcessApplication` → `org.camunda.bpm.application.impl.JakartaEjbProcessApplication`
-  * `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` → `org.camunda.bpm.application.impl.JakartaServletProcessApplicationDeployer`
-  * `org.camunda.bpm.application.impl.ServletProcessApplication` → `org.camunda.bpm.application.impl.JakartaServletProcessApplication`
-  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
-  * `org.camunda.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.camunda.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
-  * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
-  * `org.camunda.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.camunda.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
-* Replace Camunda Maven dependencies:
-  * `org.camunda.bpm.javaee:camunda-ejb-client` → `org.camunda.bpm.javaee:camunda-ejb-client-jakarta`
-  * `org.camunda.bpm:camunda-engine-cdi` → `org.camunda.bpm:camunda-engine-cdi-jakarta`
+* Replace Flowave class references:
+  * `org.finos.flowave.bpm.application.impl.EjbProcessApplication` → `org.finos.flowave.bpm.application.impl.JakartaEjbProcessApplication`
+  * `org.finos.flowave.bpm.application.impl.ServletProcessApplicationDeployer` → `org.finos.flowave.bpm.application.impl.JakartaServletProcessApplicationDeployer`
+  * `org.finos.flowave.bpm.application.impl.ServletProcessApplication` → `org.finos.flowave.bpm.application.impl.JakartaServletProcessApplication`
+  * `org.finos.flowave.bpm.engine.impl.cfg.jta.JtaTransactionContext` → `org.finos.flowave.bpm.engine.impl.cfg.jta.JakartaTransactionContext`
+  * `org.finos.flowave.bpm.engine.impl.cfg.jta.JtaTransactionContextFactory` → `org.finos.flowave.bpm.engine.impl.cfg.jta.JakartaTransactionContextFactory`
+  * `org.finos.flowave.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` → `org.finos.flowave.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration`
+  * `org.finos.flowave.bpm.engine.impl.interceptor.JtaTransactionInterceptor` → `org.finos.flowave.bpm.engine.impl.interceptor.JakartaTransactionInterceptor`
+* Replace Flowave Maven dependencies:
+  * `org.finos.flowave.bpm.javaee:flowave-ejb-client` → `org.finos.flowave.bpm.javaee:flowave-ejb-client-jakarta`
+  * `org.finos.flowave.bpm:flowave-engine-cdi` → `org.finos.flowave.bpm:flowave-engine-cdi-jakarta`
 
 ## Replace artifacts on the application server
 
-You can find the new artifacts either in the current WildFly distribution or in the [`camunda-wildfly-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly-modules/).
+You can find the new artifacts either in the current WildFly distribution or in the [`camunda-wildfly-modules`](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/wildfly/camunda-wildfly-modules/).
 
 ### Replace modules
 
-* `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom` → `$WILDFLY_HOME/modules/org/camunda/spin/camunda-spin-dataformat-xml-dom-jakarta`
-* Camunda WildFly Subsystem under `$WILDFLY_HOME/modules/org/camunda/bpm/$APP_SERVER/camunda-wildfly-subsystem`
+* `$WILDFLY_HOME/modules/org/finos/flowave/spin/flowave-spin-dataformat-xml-dom` → `$WILDFLY_HOME/modules/org/finos/flowave/spin/flowave-spin-dataformat-xml-dom-jakarta`
+* Flowave WildFly Subsystem under `$WILDFLY_HOME/modules/org/finos/flowave/bpm/$APP_SERVER/flowave-wildfly-subsystem`
   
 ### Replace web application (Cockpit, Admin, Tasklist, Welcome) deployment
 
-Replace the artifact `camunda-webapp-jboss-$PLATFORM_VERSION.war` with `camunda-webapp-wildfly-$PLATFORM_VERSION.war` under `$WILDFLY_HOME/standalone/deployments`.
+Replace the artifact `flowave-webapp-jboss-$PLATFORM_VERSION.war` with `flowave-webapp-wildfly-$PLATFORM_VERSION.war` under `$WILDFLY_HOME/standalone/deployments`.
 
 ### Replace REST API deployment
 
-Replace the artifact `camunda-engine-rest-$PLATFORM_VERSION-wildfly.war` with `camunda-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war` under `$WILDFLY_HOME/standalone/deployments`.
+Replace the artifact `flowave-engine-rest-$PLATFORM_VERSION-wildfly.war` with `flowave-engine-rest-jakarta-$PLATFORM_VERSION-wildfly.war` under `$WILDFLY_HOME/standalone/deployments`.

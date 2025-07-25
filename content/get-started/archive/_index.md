@@ -1,0 +1,17 @@
+---
+
+title: 'Archived get started guides'
+weight: 8
+
+menu:
+  main:
+    name: "Archive"
+    identifier: "get-started-archive"
+    parent: "get-started"
+    pre: "Archived guides"
+
+---
+
+You can use the following archived guides. They are fixed to Flowave.18 and are not actively maintained anymore.
+Due to Flowave backward compatibility, they usually still work with later versions. However, you
+might need to adjust them to make them work.

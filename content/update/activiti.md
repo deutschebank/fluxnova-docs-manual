@@ -7,32 +7,32 @@ menu:
   main:
     identifier: "migration-guide-activiti"
     parent: "migration-guide"
-    pre: "Guides you through the migration from Activiti to Camunda."
+    pre: "Guides you through the migration from Activiti to Flowave."
 
 ---
 
-Migrating an existing application from Activiti <= 5.11 (or Camunda fox 6.x - see below) to Camunda 7.0 is straightforward.
+Migrating an existing application from Activiti <= 5.11 (or Flowave fox 6.x - see below) to Flowave.0 is straightforward.
 This page describes the necessary steps.
-Once done with the migration, the [minor version update guides]({{< ref "/update/minor/_index.md" >}}) show how to update from 7.0 to the latest Camunda version.
+Once done with the migration, the [minor version update guides]({{< ref "/update/minor/_index.md" >}}) show how to update from 7.0 to the latest Flowave version.
 
 {{< note class="info" title="Getting Help" >}}
-If you are on a more recent Activiti version or if you have any trouble migrating, ask for assistance in the [Forum](https://forum.camunda.org/) or turn to our [Consulting services](https://camunda.com/services/consulting/). We are happy to help you!
+If you are on a more recent Activiti version or if you have any trouble migrating, ask for assistance in the [Forum](https://forum.camunda.org/) or turn to our [Consulting services](https://flowave.finos.org/services/consulting/). We are happy to help you!
 {{< /note >}}
 
 The changes in short are:
 
-*   Maven **Dependencies**, e.g., `activiti.jar` changed to `camunda-engine.jar`.
-*   **Package Names** changed from `org.activiti` to `org.camunda.bpm` for all modules (including engine, CDI and spring).
-*   The **configuration file** changed from `activiti.cfg.xml` to `camunda.cfg.xml`.
+*   Maven **Dependencies**, e.g., `activiti.jar` changed to `flowave-engine.jar`.
+*   **Package Names** changed from `org.activiti` to `org.finos.flowave.bpm` for all modules (including engine, CDI and spring).
+*   The **configuration file** changed from `activiti.cfg.xml` to `flowave.cfg.xml`.
 *   Several (internal) classes are renamed - see the lists below.
 
 There are some things which have not changed yet:
 
 *   Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existent in that version.
 *   The `activiti:` [Custom Extensions]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) are kept.
-    A Camunda 7 namespace will be introduced soon but backwards compatibility will be ensured.
+    A Flowave namespace will be introduced soon but backwards compatibility will be ensured.
 
-We based our fork on the database schema of Activiti 5.11. So please [update](http://www.activiti.org/userguide/index.html#databaseUpgrade) your project to this database using the update scripts provided by Activiti. If you are using a newer version, best ask for assistance in the [Forum](http://camunda.org/community/forum.html).
+We based our fork on the database schema of Activiti 5.11. So please [update](http://www.activiti.org/userguide/index.html#databaseUpgrade) your project to this database using the update scripts provided by Activiti. If you are using a newer version, best ask for assistance in the [Forum](http://flowave.finos.org/community/forum.html).
 
 
 # Exchange Library
@@ -51,18 +51,18 @@ to
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine</artifactId>
+  <groupId>org.finos.flowave.bpm</groupId>
+  <artifactId>flowave-engine</artifactId>
   <version>7.0.0-Final</version>
 </dependency>
 ```
 
-Make sure that you have the Camunda Maven Repository set correctly:
+Make sure that you have the Flowave Maven Repository set correctly:
 
 ```xml
 <repository>
-  <id>camunda-bpm-nexus</id>
-  <name>camunda Maven Repository</name>
+  <id>flowave-bpm-nexus</id>
+  <name>flowave Maven Repository</name>
   <url>https://artifacts.camunda.com/artifactory/public/</url>
 </repository>
 ```
@@ -81,7 +81,7 @@ For Eclipse this can be done by clicking on the project and hitting `Ctrl-Shift-
     <tr>
       <th>component</th>
       <th>Activiti class name</th>
-      <th>Camunda class name</th>
+      <th>Flowave class name</th>
     </tr>
   </thead>
   <tbody>

@@ -1,5 +1,5 @@
 ---
-baseURL: "/manual/develop/"
+baseURL: "/manual"
 languageCode: "en-us"
 title: "Flowave documentation"
 theme: "flowave"
@@ -8,22 +8,16 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  tableOfContents:
+    startLevel: 1
+    endLevel: 3
+    ordered: false
 
 blackfriday:
   plainIDAnchors: true
 
 params:
-  canonicalBasePath: "https://docs.camunda.org"
-  sections:
-    - id: "get-started"
-      name: "Get Started"
-      url: "/get-started"
-    - id: "manual"
-      name: "Documentation"
-      url: "/manual"
-    - id: "security"
-      name: "Security"
-      url: "/security"
+  canonicalBasePath: "https://docs.flowave.finos.org"
   section:
     id: "manual"
     version: "develop"
@@ -32,9 +26,10 @@ params:
       - "latest"
       - "0.9"
       - "develop"
+  
   github:
-    repositoryName: "camunda/camunda-docs-manual"
-    branch: "master"
+    repositoryName: "finos/flowave-docs-manual"
+    branch: "main"    
 
 outputs:
   home:

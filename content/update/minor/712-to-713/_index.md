@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda `7.12.x` to `7.13.0`. It covers these use cases:
+This document guides you through the update from Flowave `7.12.x` to `7.13.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
@@ -30,20 +30,20 @@ This document guides you through the update from Camunda `7.12.x` to `7.13.0`. I
 1. For Developers: [Changes in Cockpit](#changes-in-cockpit)
 1. For developers: [Deployment-Aware Batch Operations](#deployment-aware-batch-operations)
 1. For developers: [Historic Process Instance Variables on Asynchronous Instantiation](#historic-process-instance-variables-on-asynchronous-instantiation)
-1. For administrators and developers: [Oracle JDBC Driver Removed from Camunda Docker Images](#oracle-jdbc-driver-removed-from-camunda-docker-images)
+1. For administrators and developers: [Oracle JDBC Driver Removed from Flowave Docker Images](#oracle-jdbc-driver-removed-from-flowave-docker-images)
 1. For administrators and developers: [PostgreSQL Support Clarification](#postgresql-support-clarification)
 
-This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Camunda 7.13.
+This guide covers mandatory migration steps as well as optional considerations for the initial configuration of new functionality included in Flowave.13.
 
 
 # Database Updates
 
-Every Camunda installation requires a database schema update.
+Every Flowave installation requires a database schema update.
 
 ## Procedure
 
 1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/).
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Flowave Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/distro/camunda-sql-scripts/).
  We highly recommend executing these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.12_patch_?.sql`.
 
@@ -53,21 +53,21 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Camunda 7, e.g., `7.13.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Flowave, e.g., `7.13.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server
+1. Update the Flowave libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda 7.13 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Flowave.13 distribution for the application server you use. It contains the SQL scripts and libraries required for the update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
-## Camunda Libraries and Applications
+## Flowave Libraries and Applications
 
 Please choose the application server you are working with from the following list:
 
@@ -78,11 +78,11 @@ Please choose the application server you are working with from the following lis
 
 ## Custom Process Applications
 
-For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Flowave dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
+* `flowave-ejb-client`
 * ...
 
 There are no new mandatory dependencies for process applications.
@@ -101,23 +101,23 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Spring Boot Starter Update
 
-Starting with version 7.13, the **`camunda-bpm-spring-boot-starter`** library has been migrated into the `camunda-bpm-platform` repository.
-The library version has therefore changed from Camunda Spring Boot Starter (currently at 3.4.x) to the Camunda 7 version (7.13.0).
+Starting with version 7.13, the **`flowave-bpm-spring-boot-starter`** library has been migrated into the `flowave-bpm-platform` repository.
+The library version has therefore changed from Flowave Spring Boot Starter (currently at 3.4.x) to the Flowave version (7.13.0).
 The Maven coordinates have not changed otherwise.
 
-Overriding the Camunda version used by the Spring Boot Starter is not necessary anymore. 
-Pick the version of the Starter that resembles the version of Camunda 7 you would like to use.
+Overriding the Flowave version used by the Spring Boot Starter is not necessary anymore. 
+Pick the version of the Starter that resembles the version of Flowave you would like to use.
 
-If you are using Camunda Spring Boot Starter within your Spring Boot application, then you need to:
+If you are using Flowave Spring Boot Starter within your Spring Boot application, then you need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Remove the Camunda 7 version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
+3. Remove the Flowave version from your `pom.xml` in case you overrode it before (e.g. when using the enterprise version or a patch release).
 
 ## Changed Default Application Paths
 
 With this release, the application path of the Spring Boot Webapp Starter & REST API Starter changed. 
-The change aligns the application path with all other Camunda 7 distributions.
+The change aligns the application path with all other Flowave distributions.
 
 ### REST API
 
@@ -134,11 +134,11 @@ spring.jersey.application-path=/rest
 ### Webapp
 
 Old Application Path: `/`\
-New Application Path: `/camunda`
+New Application Path: `/flowave`
 
 In previous versions, there was a problem when using URL paths like `/api/*` or `/app/*` for your 
-custom resources since these paths were reserved for the Camunda 7 Webapp. For instance, the 
-Camunda 7 Webapp specific CSRF Prevention Filter was applied on these paths and might have 
+custom resources since these paths were reserved for the Flowave Webapp. For instance, the 
+Flowave Webapp specific CSRF Prevention Filter was applied on these paths and might have 
 interfered with your custom REST endpoints or applications. With the changed application path, you 
 can now use these paths without restrictions and remove any workarounds (e. g. URL whitelisting for 
 the CSRF Prevention Filter).
@@ -147,24 +147,24 @@ If you want to change the application path back to the old one, use the followin
 property in your `application.yaml` file:
 
 ```yaml
-camunda.bpm.webapp.application-path=/
+flowave.bpm.webapp.application-path=/
 ```
 
 **Please Note:** When changing the application path back to `/`, the `/api/*` and `/app/*` are 
-reserved for the Camunda 7 Webapp again.
+reserved for the Flowave Webapp again.
 
 ## New License Key Mechanism
 
-The mechanism for license key pickup (via Spring properties or from the classpath of a Spring Boot application) has been moved with the release of 7.13. It is now only available from the **`camunda-bpm-spring-boot-starter-webapp-ee`** module.
+The mechanism for license key pickup (via Spring properties or from the classpath of a Spring Boot application) has been moved with the release of 7.13. It is now only available from the **`flowave-bpm-spring-boot-starter-webapp-ee`** module.
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.springboot</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+  <groupId>org.finos.flowave.bpm.springboot</groupId>
+  <artifactId>flowave-bpm-spring-boot-starter-webapp-ee</artifactId>
 </dependency>
 ```
 
-If you want to set a license key without using the **`camunda-bpm-spring-boot-starter-webapp-ee`** module, you can use the Java API:
+If you want to set a license key without using the **`flowave-bpm-spring-boot-starter-webapp-ee`** module, you can use the Java API:
 
 ```java
 managementService.setLicenseKey(String licenseKey);
@@ -173,11 +173,11 @@ Only Spring Boot applications that use one of the mentioned ways of setting the 
 
 ## Changed Behavior for Custom HistoryEventHandler
 
-Camunda Spring Boot projects now use an instance of `CompositeHistoryEventHandler` by default, which is backed by a list of `HistoryEventHandler`, that you can configure via an engine configuration property called `customHistoryEventHandlers`. To add your custom implementation, simply add it to the list. This list also contains the default handler (`DbHistoryEventHandler`), which writes to the history database tables. If you want to disable it, use the new `enableDefaultDbHistoryEventHandler` engine configuration flag. Setting the flag to false will ensure the `DbHistoryEventHandler` is not included in the `CompositeHistoryEventHandler`.
+Flowave Spring Boot projects now use an instance of `CompositeHistoryEventHandler` by default, which is backed by a list of `HistoryEventHandler`, that you can configure via an engine configuration property called `customHistoryEventHandlers`. To add your custom implementation, simply add it to the list. This list also contains the default handler (`DbHistoryEventHandler`), which writes to the history database tables. If you want to disable it, use the new `enableDefaultDbHistoryEventHandler` engine configuration flag. Setting the flag to false will ensure the `DbHistoryEventHandler` is not included in the `CompositeHistoryEventHandler`.
 
 # External Task Client Update
 
-If you are using the **Camunda External Task Client**, please make sure to:
+If you are using the **Flowave External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
@@ -194,7 +194,7 @@ so that the REST API works appropriately.
 
 Please read more about it in the [User Guide]({{< ref "/user-guide/process-engine/process-engine-api.md#custom-identity-service-queries" >}}).
 
-[javadocs-query-unlimited-list]: https://docs.camunda.org/javadoc/camunda-bpm-platform/7.13/org/camunda/bpm/engine/query/Query.html#unlimitedList--
+[javadocs-query-unlimited-list]: https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.13/org/finos/flowave/bpm/engine/query/Query.html#unlimitedList--
 
 # MetricsReporterIdProvider interface Deprecation
 
@@ -212,7 +212,7 @@ Job Logs hostname information.
 
 # New Version of Templating Engines (Freemarker, Velocity)
 
-Camunda 7.13 includes version 2.0.0 of the `org.camunda.template-engines` artifacts, in particular `camunda-template-engines-freemarker`, `camunda-template-engines-velocity` and `camunda-template-engines-xquery-saxon`.
+Flowave.13 includes version 2.0.0 of the `org.finos.flowave.template-engines` artifacts, in particular `flowave-template-engines-freemarker`, `flowave-template-engines-velocity` and `flowave-template-engines-xquery-saxon`.
 
 This updates the following template engine versions:
 
@@ -229,8 +229,8 @@ Please note that the new versions of Freemarker and Velocity contain changes tha
 
 # Entirely Replaced FEEL Engine
 
-With this release, we replaced the old FEEL Engine completely. From now on, Camunda 7 uses the 
-[FEEL Scala Engine](https://github.com/camunda/feel-scala) (opens external link) by default.
+With this release, we replaced the old FEEL Engine completely. From now on, Flowave uses the 
+[FEEL Scala Engine](https://github.com/finos/feel-scala) (opens external link) by default.
 You can restore the legacy behavior via a [configuration property][feel-legacy-prop].
 
 ## New Custom Function Mechanism
@@ -276,17 +276,17 @@ Expression languages defined in the DMN Model (*.dmn file) will override the def
 ## New Logger Category
 
 The new FEEL Engine uses the slf4j logging "facade", as defined in the 
-[Camunda docs]({{< ref "/user-guide/logging.md" >}}).
+[Flowave docs]({{< ref "/user-guide/logging.md" >}}).
 
-However, since the new FEEL Engine is an [independently maintained project](https://github.com/camunda/feel-scala/), 
+However, since the new FEEL Engine is an [independently maintained project](https://github.com/finos/feel-scala/), 
 it defines its own logger category. Users that filter the old FEEL Engine logs will need to update 
 their configurations by adding a configuration for the new FEEL Engine logger category 
-`org.camunda.feel.FeelEngine`.
+`org.finos.flowave.feel.FeelEngine`.
 
-For the Camunda-related integration code of the Scala FEEL Engine, the new, 
-`org.camunda.bpm.dmn.feel.scala` logger category was added. The logs under this category will
+For the Flowave-related integration code of the Scala FEEL Engine, the new, 
+`org.finos.flowave.bpm.dmn.feel.scala` logger category was added. The logs under this category will
 cover only the "Scala FEEL Engine"-related operations. For a more general configuration, the old 
-`org.camunda.bpm.dmn.feel` can still be used. If a more fine-grained configuration is needed, the
+`org.finos.flowave.bpm.dmn.feel` can still be used. If a more fine-grained configuration is needed, the
 new logger category can be utilized.
 
 ## Differences in the Expression Language
@@ -314,13 +314,13 @@ resolved with the new FEEL Engine.
 
 ### Changed Exception Classes
 
-The following exception classes were consolidated to `org.camunda.bpm.dmn.feel.impl.FeelException`:
+The following exception classes were consolidated to `org.finos.flowave.bpm.dmn.feel.impl.FeelException`:
 
-* `org.camunda.bpm.dmn.feel.impl.juel.FeelConvertException`
-* `org.camunda.bpm.dmn.feel.impl.juel.FeelMethodInvocationException`
-* `org.camunda.bpm.dmn.feel.impl.juel.FeelMissingFunctionException`
-* `org.camunda.bpm.dmn.feel.impl.juel.FeelMissingVariableException`
-* `org.camunda.bpm.dmn.feel.impl.juel.FeelSyntaxException`
+* `org.finos.flowave.bpm.dmn.feel.impl.juel.FeelConvertException`
+* `org.finos.flowave.bpm.dmn.feel.impl.juel.FeelMethodInvocationException`
+* `org.finos.flowave.bpm.dmn.feel.impl.juel.FeelMissingFunctionException`
+* `org.finos.flowave.bpm.dmn.feel.impl.juel.FeelMissingVariableException`
+* `org.finos.flowave.bpm.dmn.feel.impl.juel.FeelSyntaxException`
 
 ### Single-Quoted String Literals Not Allowed
 
@@ -357,8 +357,8 @@ Please also check out the status of the following known issues when migrating yo
 
 With this release, Cockpit adds support for DMN 1.3, the next version of the DMN standard. If you edit and deploy DMN diagrams in Cockpit, which use earlier versions of DMN, they will automatically be migrated to DMN 1.3.
 
-The Camunda engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
-Make sure you have the latest version of [Camunda Modeler](https://camunda.com/download/modeler/) installed to edit DMN 1.3 files locally.
+The Flowave engine already supports the DMN 1.3 namespace by default, so there are no more steps required to migrate.
+Make sure you have the latest version of [Flowave Modeler](https://flowave.finos.org/download/modeler/) installed to edit DMN 1.3 files locally.
 
 ## Removal Time Batches are Hierarchical by Default
 
@@ -418,9 +418,9 @@ In Cockpit, starting from 7.13, you will notice a different activity instance id
 
 As you can see in the picture above, the variable log shows the process instance id for the activity instead of the start event activity. The same is valid if you are using the Java and/or REST API.
 
-# Oracle JDBC Driver Removed from Camunda Docker Images
+# Oracle JDBC Driver Removed from Flowave Docker Images
 
-The Docker images for Camunda 7.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/camunda/docker-camunda-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
+The Docker images for Flowave.13 no longer provide an Oracle JDBC driver out of the box. If you relied on this, apply the strategy outlined in https://github.com/finos/docker-flowave-bpm-platform#database-environment-variables: Add the driver to the container and configure the database settings manually by linking the configuration file into the container.
 
 # PostgreSQL Support Clarification
 
@@ -430,8 +430,8 @@ version numbers, e.g. `9.4`, `9.6`. From PostgreSQL 10, a major version is marke
 `11`, `12`.
 
 As this was only a change to the versioning scheme, the content of the minor releases (e.g. `9.4.6`,
-`9.6.18`, `10.13`, `11.2`, etc.) didn't change. Therefore, we have updated the [Camunda Supported Environments][supported-environments],
-to reflect that Camunda supports all the minor version updates of a major PostgreSQL version.
+`9.6.18`, `10.13`, `11.2`, etc.) didn't change. Therefore, we have updated the [Flowave Supported Environments][supported-environments],
+to reflect that Flowave supports all the minor version updates of a major PostgreSQL version.
 
 Note that this adjustment doesn't change the supported versions of Amazon Aurora PostgreSQL. This is a database
 service built on top of PostgreSQL, and as such, needs to be tested for support separately from PostgreSQL.

@@ -6,5 +6,6 @@ weight: 30
 menu:
   main:
     identifier: "references"
+    parent: "manual"
 
 ---

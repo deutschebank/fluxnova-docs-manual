@@ -10,13 +10,13 @@ menu:
 ---
 
 This section documents the additional database configuration changes necessary to correctly use 
-Microsoft SQL Server or Microsoft Azure SQL databases with Camunda 7. It provides guides
+Microsoft SQL Server or Microsoft Azure SQL databases with Flowave. It provides guides
 on:
 
 * How to set the correct database transaction isolation level.
 * How different Microsoft SQL Server versions are supported in Azure SQL.
-* How Camunda supports Azure SQL.
-* How to configure a database on Azure SQL to be supported by Camunda.
+* How Flowave supports Azure SQL.
+* How to configure a database on Azure SQL to be supported by Flowave.
 
 To use these guides, you should have a basic understanding of (Microsoft's) T-SQL syntax. You should 
 also have access to a database administration tool that can interact with your Microsoft database.
@@ -45,7 +45,7 @@ SET READ_COMMITTED_SNAPSHOT ON
 ```
 where `[process-engine]` contains the name of your database.
 
-# Camunda support for Azure SQL
+# Flowave support for Azure SQL
 
 This section applies only to the following Microsoft database products:
 
@@ -60,13 +60,13 @@ Microsoft's *Azure SQL Managed Instance* and *Azure SQL Database* products alway
 stable version of the SQL Server database engine. In order to provide backward compatibility with
 earlier SQL Server versions, the Azure SQL products utilize the *Database Compatibility Level* setting.
 
-## Azure SQL compatibility levels supported by Camunda
+## Azure SQL compatibility levels supported by Flowave
 
 Microsoft associates each SQL Server version with a *Database Compatibility Level*. You can find a table
 of the SQL Server versions, and their associated compatibility level values 
 [at the Microsoft *Alter Compatibility Level* page](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
 
-Camunda supports the *Database Compatibility Level* values of the currently supported Microsoft 
+Flowave supports the *Database Compatibility Level* values of the currently supported Microsoft 
 SQL Server versions documented in our [Supported Database Products section]({{< ref "/introduction/supported-environments.md#supported-database-products" >}}).
 
 ## Configuring a database on Azure SQL
@@ -75,7 +75,7 @@ It is advised to explicitly set the *Database Compatibility Level* setting for e
 Azure SQL. The default value of the *Database Compatibility Level* setting is updated every time a new 
 SQL Server version is released. If a *Database Compatibility Level* value isn't explicitly set on a 
 database, the default value will be used. Using the default value may lead to unexpected behavior, or
-behavior unsupported by Camunda.
+behavior unsupported by Flowave.
 
 To set the *Database Compatibility Level* to a specific value, execute the following code:
 

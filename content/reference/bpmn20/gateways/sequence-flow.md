@@ -16,7 +16,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 
 <div data-bpmn-diagram="../bpmn/sequence-flow-parallel"></div>
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
@@ -84,7 +84,7 @@ on [script source]({{< ref "/user-guide/process-engine/scripting.md#script-sourc
 
 ```xml
 <conditionExpression xsi:type="tFormalExpression" language="groovy"
-  camunda:resource="org/camunda/bpm/exampe/condition.groovy" />
+  camunda:resource="org/finos/flowave/bpm/exampe/condition.groovy" />
 ```
 
 

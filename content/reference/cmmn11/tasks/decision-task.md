@@ -52,7 +52,7 @@ The activation of the decision task as well as the evaluation of the decision ar
 
 # Decision Binding
 
-By default, the decision task always evaluates the latest decision definition with the specified key. To specify a different version of a decision, it is possible to define a binding with the Camunda custom attribute `decisionBinding`. The following values are allowed for the attribute `decisionBinding`:
+By default, the decision task always evaluates the latest decision definition with the specified key. To specify a different version of a decision, it is possible to define a binding with the Flowave custom attribute `decisionBinding`. The following values are allowed for the attribute `decisionBinding`:
 
 * `latest`: use the latest decision definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the decision definition version that is part of the calling case definition's deployment (note: this requires that a decision with the specified key is deployed along with the calling case definition)
@@ -135,27 +135,27 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Limitations of the Decision Task
 
-To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only [DMN 1.3] decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.
+To evaluate a referenced decision, the integration of the Flowave DMN engine is used. As a result, only [DMN 1.3] decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.
 
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
-            <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#decisiontenantid" >}}">camunda:decisionTenantId</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
+            <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisiontenantid" >}}">camunda:decisionTenantId</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

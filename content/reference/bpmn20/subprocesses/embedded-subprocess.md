@@ -48,7 +48,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 ```
 
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
@@ -79,5 +79,5 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 
 # Additional Resources
 
-*   [Subprocesses](http://camunda.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+*   [Subprocesses](http://flowave.finos.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
 

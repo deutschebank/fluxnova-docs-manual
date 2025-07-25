@@ -17,16 +17,16 @@
 
   <meta name="viewport" content="width=device-width" />
 
-  <meta name="description" content="documentation of Camunda 7" />
-  <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
-  <meta name="author" content="Camunda 7 community" />
+  <meta name="description" content="documentation of FINOS Flowave" />
+  <meta name="keywords" content="flowave, finos, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda, bpm, BPMS, engine, platform, process, automation, community, documentation" />
+  <meta name="author" content="Flowave community" />
   {{ if ($.Site.Params.section.versions)}}
     {{ if (not (eq "latest" $.Site.Params.section.version))}}
       <meta name="robots" content="noindex" />
     {{ end }}
   {{ end }}
 
-  <title>{{ .Title }} | docs.camunda.org</title>
+  <title>{{ .Title }} | docs.flowave.finos.org</title>
 
   <meta name="generator" content="Hugo {{hugo.Version}}" />
   <link rel="icon" href="{{.Site.BaseURL}}img/Flowave_icon.svg" type="image/svg+xml">
@@ -60,9 +60,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
     </div><!-- / .navbar-header -->
 
+    {{ $currentPage := . }}
     <ul class="header-menu">
-      {{range $.Site.Params.sections }}
-      <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
+      {{range  .Site.Menus.main }}
+      <li {{ if or ($currentPage.IsMenuCurrent .Menu . ) ($currentPage.HasMenuCurrent .Menu . ) }} class="active" {{ end }} ><a href="{{.URL}}">{{.Name}}</a></li>
       {{ end }}
     </ul><!-- / .header-menu -->
 
@@ -103,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="search-underlay"></div>
 
 <nav class="site-menu">
-  {{ partialCached "menu.html" . }}
+  {{ partial "menu.html" . }}
 </nav>
 
 

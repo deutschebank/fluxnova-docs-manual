@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda `7.6.x` to `7.7.0`. It covers these use cases:
+This document guides you through the update from Flowave `7.6.x` to `7.7.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Rolling Update](#rolling-update)
@@ -23,7 +23,7 @@ This document guides you through the update from Camunda `7.6.x` to `7.7.0`. It 
 5. For administrators and developers: [Application with Embedded Process Engine Update](#application-with-embedded-process-engine)
 
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda 7.7.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Flowave.7.
 
 Noteworthy new Features and Changes in 7.7:
 
@@ -36,12 +36,12 @@ Noteworthy new Features and Changes in 7.7:
 
 # Database Updates
 
-Every Camunda installation requires a database schema update.
+Every Flowave installation requires a database schema update.
 
 ## Procedure
 
 1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/).
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Flowave Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.6_patch_?.sql`.
 
@@ -51,30 +51,30 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Camunda 7, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Flowave, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 
 # Rolling Update
 
-If you do not know what a rolling update in the context of Camunda means, please refer to the [Rolling Update documentation](../../rolling-update/).
+If you do not know what a rolling update in the context of Flowave means, please refer to the [Rolling Update documentation](../../rolling-update/).
 
-In the context of a rolling update, a user created with an engine `A` of Camunda version >= 7.7 cannot be authenticated with an engine `B` of Camunda version <= 7.6. The reason is that the Camunda version 7.7 adds [salt to password hashing](../../../user-guide/process-engine/password-hashing/), thus, the older engine `B` is not aware of salt and unable to create the same hashed password as engine `A`.
+In the context of a rolling update, a user created with an engine `A` of Flowave version >= 7.7 cannot be authenticated with an engine `B` of Flowave version <= 7.6. The reason is that the Flowave version 7.7 adds [salt to password hashing](../../../user-guide/process-engine/password-hashing/), thus, the older engine `B` is not aware of salt and unable to create the same hashed password as engine `A`.
 
 To circumvent that problem you can either update all engines to the version >= 7.7 or create all users exclusively in the engine with version <= 7.6.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server
+1. Update the Flowave libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda 7.7 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Flowave.7 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 
-## Camunda Libraries and Applications
+## Flowave Libraries and Applications
 
 Please choose the application server you are working with from the following list:
 
@@ -85,11 +85,11 @@ Please choose the application server you are working with from the following lis
 
 ## Custom Process Applications
 
-For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Flowave dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
+* `flowave-ejb-client`
 * ...
 
 There are no new mandatory dependencies for process applications.
@@ -128,7 +128,7 @@ The following labels must be added to the Tasklist locale file:
 * `SHOW_LESS`
 * `SHOW_MORE`
 
-Have a look at what changed in the [english translation file](https://github.com/camunda/camunda-tasklist-translations/commit/43a649eddc65e68b825454be8ee6418921d91e5d) for a basis to translate.
+Have a look at what changed in the [english translation file](https://github.com/finos/flowave-tasklist-translations/commit/43a649eddc65e68b825454be8ee6418921d91e5d) for a basis to translate.
 
 # Application with Embedded Process Engine
 
@@ -136,10 +136,10 @@ This section is applicable if you have a custom application with an **embedded p
 
 Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
-* `camunda-engine`
-* `camunda-bpmn-model`
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
+* `flowave-engine`
+* `flowave-bpmn-model`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
 * ...
 
 There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.

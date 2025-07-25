@@ -10,61 +10,61 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda 7.4 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to update the Flowave artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Flowave.4 Oracle WebLogic distribution](https://artifacts.camunda.com/artifactory/internal/org/finos/flowave/bpm/weblogic/camunda-bpm-weblogic/).
 
 The update procedure takes the following steps:
 
-1. Uninstall the Camunda Applications and Archives
-2. Replace Camunda Core Libraries
-3. Replace Optional Camunda Dependencies
-4. Maintain the Camunda 7 Configuration
+1. Uninstall the Flowave Applications and Archives
+2. Replace Flowave Core Libraries
+3. Replace Optional Flowave Dependencies
+4. Maintain the Flowave Configuration
 5. Maintain Process Engine Configuration
 6. Maintain Process Applications
-7. Install the Camunda Archive
+7. Install the Flowave Archive
 8. Install the Web Applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-# 1. Uninstall the Camunda Applications and Archives
+# 1. Uninstall the Flowave Applications and Archives
 
-First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
+First, uninstall the Flowave web applications, namely the Flowave REST API (artifact name like `flowave-engine-rest`) and the Flowave applications Cockpit, Tasklist and Admin (artifact name like `flowave-webapp`).
 
-Uninstall the Camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
+Uninstall the Flowave EAR. Its name should be `flowave-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
-# 2. Replace Camunda Core Libraries
+# 2. Replace Flowave Core Libraries
 
 After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with their equivalents from `$WLS_DISTRIBUTION/modules/lib`:
 
-* `camunda-engine-$PLATFORM_VERSION.jar`
-* `camunda-bpmn-model-$PLATFORM_VERSION.jar`
-* `camunda-cmmn-model-$PLATFORM_VERSION.jar`
-* `camunda-xml-model-$PLATFORM_VERSION.jar`
+* `flowave-engine-$PLATFORM_VERSION.jar`
+* `flowave-bpmn-model-$PLATFORM_VERSION.jar`
+* `flowave-cmmn-model-$PLATFORM_VERSION.jar`
+* `flowave-xml-model-$PLATFORM_VERSION.jar`
 
 Add or replace (if already present) the following libraries:
 
-* `camunda-engine-dmn-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
-* `camunda-dmn-model-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-$COMMONS_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `flowave-engine-dmn-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-api-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-juel-$PLATFORM_VERSION.jar`
+* `flowave-dmn-model-$PLATFORM_VERSION.jar`
+* `flowave-commons-logging-$COMMONS_VERSION.jar`
+* `flowave-commons-typed-values-$COMMONS_VERSION.jar`
+* `flowave-commons-utils-$COMMONS_VERSION.jar`
 
-# 3. Replace Optional Camunda Dependencies
+# 3. Replace Optional Flowave Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Flowave Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
 Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
-* `camunda-identity-ldap-$PLATFORM_VERSION.jar`
+* `flowave-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Spin
+## Flowave Spin
 
 Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`, if present:
 
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `flowave-spin-core-$SPIN_VERSION.jar`
 
 ## Groovy Scripting
 
@@ -72,9 +72,9 @@ Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder 
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-# 4. Maintain the Camunda 7 Configuration
+# 4. Maintain the Flowave Configuration
 
-If you have previously replaced the default Camunda 7 configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Flowave configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Maintain Process Engine Configuration
 
@@ -83,7 +83,7 @@ This section describes changes in the engine’s default behavior. While the cha
 ## Task Query Expressions
 
 As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
-This is already the default for Camunda 7 versions after and including 7.3.3 and 7.2.8.
+This is already the default for Flowave versions after and including 7.3.3 and 7.2.8.
 
 ## User Operation Log
 
@@ -99,22 +99,22 @@ This section describes changes in behavior of API methods that your process appl
 
 As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< ref "/user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< ref "/reference/cmmn11/migration/10-to-11.md" >}}).
 
-# 7. Install the Camunda Archive
+# 7. Install the Flowave Archive
 
-Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
+Install the Flowave EAR, i.e., the file `$WLS_DISTRIBUTION/modules/flowave-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
 # 8. Install the Web Applications
 
 ## REST API
 
-Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
+Deploy the web application `$WLS_DISTRIBUTION/webapps/flowave-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
 
 ## Cockpit, Tasklist, and Admin
 
-Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
+Deploy the web application `$WLS_DISTRIBUTION/webapps/flowave-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
-It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< ref "/reference/rest/overview/hal.md" >}}) for details.
+It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Flowave web applications make. This can be especially useful when you use Flowave in combination with LDAP. To activate caching, the Flowave webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< ref "/reference/rest/overview/hal.md" >}}) for details.
 {{< /note >}}
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}

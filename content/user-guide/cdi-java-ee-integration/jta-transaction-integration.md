@@ -15,9 +15,9 @@ menu:
 The process engine transaction management can integrate with JTA and Jakarta Transactions. 
 To use transaction manager integration, you need to use the
 
-* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only.
-* `org.camunda.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration` for Jakarta Transactions integration only.
-* `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
+* `org.finos.flowave.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only.
+* `org.finos.flowave.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration` for Jakarta Transactions integration only.
+* `org.finos.flowave.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
   
 The process engine requires access to an implementation of `javax.transaction.TransactionManager` or `jakarta.transaction.TransactionManager` respectively.
 Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation.
@@ -60,15 +60,15 @@ public class MyBean {
 
 ## Using JTA transaction integration with WebSphere Liberty
 
-Camunda 7 allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
-If this code is executed within a Camunda 7 Job, the Job is marked as failed, and can be retried.
+Flowave allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
+If this code is executed within a Flowave Job, the Job is marked as failed, and can be retried.
 
-WebSphere Liberty doesn't support this behavior of Camunda 7. When calling `UserTransaction#setRollbackOnly()`
-in WebSphere Liberty, the transaction is rolled back silently, and the Camunda process engine is unable to unlock the
+WebSphere Liberty doesn't support this behavior of Flowave. When calling `UserTransaction#setRollbackOnly()`
+in WebSphere Liberty, the transaction is rolled back silently, and the Flowave process engine is unable to unlock the
 job and decrease the job retry count.
 
-As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Camunda
+As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Flowave
 process engine will catch this `Exception` and handle the transaction rollback inside a job correctly.
 
-For more details on the WebSphere Liberty Camunda 7 integration, check
+For more details on the WebSphere Liberty Flowave integration, check
 out the [WebSphere Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}) section.

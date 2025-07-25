@@ -44,8 +44,8 @@ export default {
 
 # Localization
 
-Tasklist can be localized. Camunda maintains English and German translation files. 
-You can find and download community maintained translation files at the [Camunda webapp translations repository](https://github.com/camunda/camunda-webapp-translations).
+Tasklist can be localized. Flowave maintains English and German translation files. 
+You can find and download community maintained translation files at the [Flowave webapp translations repository](https://github.com/finos/flowave-webapp-translations).
 
 The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -88,9 +88,9 @@ export default {
     ['custom-module/module.js']
 }
 ```
-This includes a `custom-module/module.js` file. The path is relative to the `app/tasklist` folder in the Camunda webapp .war file.
+This includes a `custom-module/module.js` file. The path is relative to the `app/tasklist` folder in the Flowave webapp .war file.
 
-You can find a complete example about how to use `customScripts` to develop a Tasklist Plugin in the [Camunda 7 examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/tasklist/cats-plugin).
+You can find a complete example about how to use `customScripts` to develop a Tasklist Plugin in the [Flowave examples repository](https://github.com/finos/flowave-bpm-examples/tree/master/tasklist/cats-plugin).
 
 
 
@@ -111,7 +111,7 @@ and can override the standard styles.
 
 ```css
 .navbar-brand {
-  /* hides the "Camunda Tasklist" text */
+  /* hides the "Flowave Tasklist" text */
   text-indent: -999em;
   /* put your logo */
   background-image: url(./path/to/the/logo.png);
@@ -125,7 +125,7 @@ and can override the standard styles.
 }
 ```
 
-**Note:** you can also change the app name (*Tasklist*) and vendor (*Camunda*)
+**Note:** you can also change the app name (*Tasklist*) and vendor (*Flowave*)
 by changing the `app/tasklist/scripts/config.js` configuration file as follow:
 
 ```js
@@ -154,7 +154,7 @@ export default {
 
 # Disable Welcome Message for new Users
 
-First-time visitors are shown a message directing them to the camunda welcome page. If you do
+First-time visitors are shown a message directing them to the flowave welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
 export default {
@@ -188,14 +188,14 @@ using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
 If you want to customize the interface with `less`, you should probably start by having a look
 at the variables defined in the following files:
 
- - `node_modules/camunda-commons-ui/node_modules/bootstrap/less/variables.less`
+ - `node_modules/flowave-commons-ui/node_modules/bootstrap/less/variables.less`
    defines the original Bootstrap variables
- - `node_modules/camunda-commons-ui/resources/less/cam-variables.less`
+ - `node_modules/flowave-commons-ui/resources/less/cam-variables.less`
    overrides some Bootstrap variables (above) and add some custom ones
 
 ## Compiling with Grunt
 
-From within the `camunda-bpm-webapp` directory:
+From within the `flowave-bpm-webapp` directory:
 
 ```sh
 grunt build:tasklist
