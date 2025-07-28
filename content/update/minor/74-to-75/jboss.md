@@ -10,75 +10,75 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a JBoss AS
+The following steps describe how to update the Flowave artifacts on a JBoss AS
 7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda 7.5 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.5/), [Camunda 7.5 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.5/)
-or [Camunda 7.5 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.5/). In the following instructions
+already done, make sure to download the [Flowave.5 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.5/), [Flowave.5 Wildfly 8](https://downloads.camunda.cloud/release/camunda-bpm/wildfly8/7.5/)
+or [Flowave.5 Wildfly 10 distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly10/7.5/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The update procedure takes the following steps:
 
-1. Update the Camunda 7 Modules
-2. Update Optional Camunda 7 Modules
+1. Update the Flowave Modules
+2. Update Optional Flowave Modules
 3. Maintain Process Engine Configuration
 4. Maintain Process Applications
-5. Update Camunda Web Applications
+5. Update Flowave Web Applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
 {{< note title="Updated Wildfly Version" class="info" >}}
-The pre-built Camunda 7.5 distribution ships with Wildfly 8 and in addition with Wildfly 10, whereas 7.4 comes just with Wildfly 8. In particular, Camunda 7.5 is supported on Wildfly 8.2 and 10.1 such that a Wildfly update is not required when migrating from 7.4 to 7.5.
+The pre-built Flowave.5 distribution ships with Wildfly 8 and in addition with Wildfly 10, whereas 7.4 comes just with Wildfly 8. In particular, Flowave.5 is supported on Wildfly 8.2 and 10.1 such that a Wildfly update is not required when migrating from 7.4 to 7.5.
 
 See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
 {{< /note >}}
 
-# 1. Update the Camunda 7 Modules
+# 1. Update the Flowave Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
-* `org/camunda/bpm/camunda-engine`
-* `org/camunda/bpm/$APP_SERVER/camunda-$APP_SERVER-subsystem`
-* `org/camunda/bpm/model/camunda-bpmn-model`
-* `org/camunda/bpm/model/camunda-cmmn-model`
-* `org/camunda/bpm/model/camunda-dmn-model`
-* `org/camunda/bpm/model/camunda-xml-model`
-* `org/camunda/bpm/dmn/camunda-engine-dmn`
-* `org/camunda/bpm/dmn/camunda-engine-feel-api`
-* `org/camunda/bpm/dmn/camunda-engine-feel-juel`
-* `org/camunda/commons/camunda-commons-logging`
-* `org/camunda/commons/camunda-commons-typed-values`
-* `org/camunda/commons/camunda-commons-utils`
+* `org/finos/flowave/bpm/flowave-engine`
+* `org/finos/flowave/bpm/$APP_SERVER/flowave-$APP_SERVER-subsystem`
+* `org/finos/flowave/bpm/model/flowave-bpmn-model`
+* `org/finos/flowave/bpm/model/flowave-cmmn-model`
+* `org/finos/flowave/bpm/model/flowave-dmn-model`
+* `org/finos/flowave/bpm/model/flowave-xml-model`
+* `org/finos/flowave/bpm/dmn/flowave-engine-dmn`
+* `org/finos/flowave/bpm/dmn/flowave-engine-feel-api`
+* `org/finos/flowave/bpm/dmn/flowave-engine-feel-juel`
+* `org/finos/flowave/commons/flowave-commons-logging`
+* `org/finos/flowave/commons/flowave-commons-typed-values`
+* `org/finos/flowave/commons/flowave-commons-utils`
 
-# 2. Update Optional Camunda 7 Modules
+# 2. Update Optional Flowave Modules
 
-In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
+In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Flowave Connect, Flowave Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
 
 ## LDAP Integration
 
 Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/bpm/identity/camunda-identity-ldap`
+* `org/finos/flowave/bpm/identity/flowave-identity-ldap`
 
-## Camunda Connect
-
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
-
-* `org/camunda/connect/camunda-connect-core`
-* `org/camunda/connect/camunda-connect-http`
-* `org/camunda/connect/camunda-connect-soap-http`
-* `org/camunda/bpm/camunda-engine-plugin-connect`
-
-## Camunda Spin
+## Flowave Connect
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/spin/camunda-spin-core`
-* `org/camunda/spin/camunda-spin-dataformat-json-jackson`
-* `org/camunda/spin/camunda-spin-dataformat-xml-dom`
-* `org/camunda/bpm/camunda-engine-plugin-spin`
+* `org/finos/flowave/connect/flowave-connect-core`
+* `org/finos/flowave/connect/flowave-connect-http`
+* `org/finos/flowave/connect/flowave-connect-soap-http`
+* `org/finos/flowave/bpm/flowave-engine-plugin-connect`
+
+## Flowave Spin
+
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+
+* `org/finos/flowave/spin/flowave-spin-core`
+* `org/finos/flowave/spin/flowave-spin-dataformat-json-jackson`
+* `org/finos/flowave/spin/flowave-spin-dataformat-xml-dom`
+* `org/finos/flowave/bpm/flowave-engine-plugin-spin`
 
 Additionally, also replace the following dependent modules:
 
@@ -96,14 +96,14 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 This section describes changes in the engine’s default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored for shared process engines by explicitly setting a configuration option.
 
-## Configuration of Job Executor Thread Pool in Camunda Wildfly 8 subsystem
+## Configuration of Job Executor Thread Pool in Flowave Wildfly 8 subsystem
 
-Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Camunda 7 Wildfly subsystem instead of the JBoss Threads subsystem.
+Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Flowave Wildfly subsystem instead of the JBoss Threads subsystem.
 The reason is the deprecation and removal of the JBoss Threads subsystem since Wildfly 9. 
-To be compatible with Wildfly 8-10, Camunda rewrote the existing subsystem.   
-As a consequence, you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Camunda subsystem using the following steps.
+To be compatible with Wildfly 8-10, Flowave rewrote the existing subsystem.   
+As a consequence, you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Flowave subsystem using the following steps.
 
-1. First, transfer the JBoss Threads configuration to the Camunda 7 subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
+1. First, transfer the JBoss Threads configuration to the Flowave subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
 
 	 ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -116,11 +116,11 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </subsystem>
 	 ```
    Search for the configuration responsible for the Job Executor Thread Pool.
-   For each of the configuration elements and attributes of the JBoss Threads subsystem Job Executor configuration, a representation in the Camunda subsystem exists under the `job-executor`-element since 7.5.  
-   Using the above example snippet of the JBoss Threads configuration and the [`JBoss Threads to Camunda` subsystem mapping table][jboss-threads-to-camunda-mapping-table] at the end of this section, the new Camunda subsystem configuration would look like the following example snippet:
+   For each of the configuration elements and attributes of the JBoss Threads subsystem Job Executor configuration, a representation in the Flowave subsystem exists under the `job-executor`-element since 7.5.  
+   Using the above example snippet of the JBoss Threads configuration and the [`JBoss Threads to Flowave` subsystem mapping table][jboss-threads-to-flowave-mapping-table] at the end of this section, the new Flowave subsystem configuration would look like the following example snippet:
 
 	 ```xml
-   <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
+   <subsystem xmlns="urn:org.finos.flowave.bpm.jboss:1.1">
      <job-executor>
        <thread-pool-name>job-executor-tp</thread-pool-name>
        <core-threads>3</core-threads>
@@ -135,7 +135,7 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </subsystem>
 	 ```
 
-2. As second step, since you have now configured the Thread Pool in the Camunda subsystem, remove the JBoss Threads subsystem configuration entry related to the Camunda Job Executor Thread Pool. 
+2. As second step, since you have now configured the Thread Pool in the Flowave subsystem, remove the JBoss Threads subsystem configuration entry related to the Flowave Job Executor Thread Pool. 
    When there is no other thread-pool configuration entry left, you could also delete the JBoss Threads subsystem entirely.
    ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -162,14 +162,14 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </server>
    ```
 
-### JBoss Threads to Camunda subsystem mapping table
+### JBoss Threads to Flowave subsystem mapping table
 
-The following mapping table shows the JBoss Threads properties and their counterpart in the Camunda Subsystem to ease the transition of the Job Executor Thread Pool configuration to the Camunda subsystem. 
+The following mapping table shows the JBoss Threads properties and their counterpart in the Flowave Subsystem to ease the transition of the Job Executor Thread Pool configuration to the Flowave subsystem. 
 		
 <table class="table table-striped">
 <tr>
   <th>JBoss Threads Property name</th>
-  <th>Camunda Subsystem Property name</th>
+  <th>Flowave Subsystem Property name</th>
   <th>Description</th>
 </tr>
 <tr>
@@ -222,7 +222,7 @@ The following mapping table shows the JBoss Threads properties and their counter
 </tr>
 </table>
 
-For further information on available configuration for the Job Executor Thread Pool, see the docs for [Camunda JBoss/WildFly Subsystem][jboss-container-integration]
+For further information on available configuration for the Job Executor Thread Pool, see the docs for [Flowave JBoss/WildFly Subsystem][jboss-container-integration]
 
 # 4. Maintain Process Applications
 
@@ -234,38 +234,38 @@ The interface of an [Incident Handler]({{< ref "/user-guide/process-engine/incid
 
 ## Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="org/finos/flowave/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
 
 ## Job Handler
 
-The interface of a {{< javadocref page="org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="org/finos/flowave/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
-# 5. Update Camunda Web Applications
+# 5. Update Flowave Web Applications
 
 ## Update REST API
 
-The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to update the Flowave REST API on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-engine-rest`
+1. Undeploy an existing web application with a name like `flowave-engine-rest`
 2. Download the REST API web application archive from our [Artifact Repository][engine-rest]. Alternatively, switch to the private repository for
-   the enterprise version (username and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+   the enterprise version (username and password from license required). Choose the correct version named `$PLATFORM_VERSION/flowave-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 ## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to update the Flowave web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Artifact Repository][webapp-jboss].
+1. Undeploy an existing web application with a name like `flowave-webapp`
+2. Download the Flowave web application archive from our [Artifact Repository][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (username and password from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
+   Choose the correct version named `$PLATFORM_VERSION/flowave-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 
-[jboss-threads-to-camunda-mapping-table]: {{< ref "/update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
+[jboss-threads-to-flowave-mapping-table]: {{< ref "/update/minor/74-to-75/jboss.md#jboss-threads-to-flowave-subsystem-mapping-table" >}}
 [update-guide]: {{< ref "/update/minor/74-to-75/_index.md" >}}
-[jboss-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/jboss/camunda-bpm-jboss/
-[wildfly-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
-[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[jboss-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/jboss/camunda-bpm-jboss/
+[wildfly-distro]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/wildfly/camunda-bpm-wildfly/
+[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest/
+[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/webapp/camunda-webapp-jboss/
 [jboss-container-integration]: {{< ref "/user-guide/runtime-container-integration/jboss.md" >}}

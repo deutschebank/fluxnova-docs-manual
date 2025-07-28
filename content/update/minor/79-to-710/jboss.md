@@ -10,83 +10,83 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a JBoss AS
+The following steps describe how to update the Flowave artifacts on a JBoss AS
 7 and Wildfly server in a shared process engine scenario. For the entire
 procedure, refer to the [update guide][update-guide]. If not
-already done, make sure to download the [Camunda 7.10 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.10/)
-or [Camunda 7.10 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.10/). In the following instructions
+already done, make sure to download the [Flowave.10 JBoss distribution](https://downloads.camunda.cloud/release/camunda-bpm/jboss/7.10/)
+or [Flowave.10 Wildfly distribution](https://downloads.camunda.cloud/release/camunda-bpm/wildfly/7.10/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 {{< note title="WildFly 8 Modules" class="info" >}}
-From version 7.10, only a single **Camunda 7 WildFly distribution** is provided, packaged with the latest WildFly version. For WildFly 10+ users,
-the update guide remains the same. However, if you are a WildFly 8 user, please download the [Camunda WildFly 8 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive
-for updating the Camunda 7 Modules.
+From version 7.10, only a single **Flowave WildFly distribution** is provided, packaged with the latest WildFly version. For WildFly 10+ users,
+the update guide remains the same. However, if you are a WildFly 8 user, please download the [Flowave WildFly 8 Modules](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/wildfly/camunda-wildfly8-modules/) archive
+for updating the Flowave Modules.
 
-Furthermore, the Camunda subsystem extension in the application server's configuration file (in most cases `$WILDFLY_HOME/standalone/configuration/standalone.xml`) needs to be adjusted to:
+Furthermore, the Flowave subsystem extension in the application server's configuration file (in most cases `$WILDFLY_HOME/standalone/configuration/standalone.xml`) needs to be adjusted to:
 
 ```xml
 <server xmlns="urn:jboss:domain:2.1">
   <extensions>
     ...
-    <extension module="org.camunda.bpm.wildfly.camunda-wildfly8-subsystem"/>
+    <extension module="org.finos.flowave.bpm.wildfly.flowave-wildfly8-subsystem"/>
 ```
 
 {{< /note >}}
 
 The update procedure takes the following steps:
 
-1. Update the Camunda 7 Modules
-2. Update Optional Camunda 7 Modules
-3. Update Camunda Web Applications
+1. Update the Flowave Modules
+2. Update Optional Flowave Modules
+3. Update Flowave Web Applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-# 1. Update the Camunda 7 Modules
+# 1. Update the Flowave Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
-* `org/camunda/bpm/camunda-engine`
-* `org/camunda/bpm/$APP_SERVER/camunda-$APP_SERVER-subsystem`
-* `org/camunda/bpm/model/camunda-bpmn-model`
-* `org/camunda/bpm/model/camunda-cmmn-model`
-* `org/camunda/bpm/model/camunda-dmn-model`
-* `org/camunda/bpm/model/camunda-xml-model`
-* `org/camunda/bpm/dmn/camunda-engine-dmn`
-* `org/camunda/bpm/dmn/camunda-engine-feel-api`
-* `org/camunda/bpm/dmn/camunda-engine-feel-juel`
-* `org/camunda/commons/camunda-commons-logging`
-* `org/camunda/commons/camunda-commons-typed-values`
-* `org/camunda/commons/camunda-commons-utils`
+* `org/finos/flowave/bpm/flowave-engine`
+* `org/finos/flowave/bpm/$APP_SERVER/flowave-$APP_SERVER-subsystem`
+* `org/finos/flowave/bpm/model/flowave-bpmn-model`
+* `org/finos/flowave/bpm/model/flowave-cmmn-model`
+* `org/finos/flowave/bpm/model/flowave-dmn-model`
+* `org/finos/flowave/bpm/model/flowave-xml-model`
+* `org/finos/flowave/bpm/dmn/flowave-engine-dmn`
+* `org/finos/flowave/bpm/dmn/flowave-engine-feel-api`
+* `org/finos/flowave/bpm/dmn/flowave-engine-feel-juel`
+* `org/finos/flowave/commons/flowave-commons-logging`
+* `org/finos/flowave/commons/flowave-commons-typed-values`
+* `org/finos/flowave/commons/flowave-commons-utils`
 
-# 2. Update Optional Camunda 7 Modules
+# 2. Update Optional Flowave Modules
 
-In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting.
+In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Flowave Connect, Flowave Spin, and Groovy scripting.
 If you use any of these extensions, the following update steps apply:
 
 ## LDAP Integration
 
 Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/bpm/identity/camunda-identity-ldap`
+* `org/finos/flowave/bpm/identity/flowave-identity-ldap`
 
-## Camunda Connect
-
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
-
-* `org/camunda/connect/camunda-connect-core`
-* `org/camunda/connect/camunda-connect-http`
-* `org/camunda/connect/camunda-connect-soap-http`
-* `org/camunda/bpm/camunda-engine-plugin-connect`
-
-## Camunda Spin
+## Flowave Connect
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
-* `org/camunda/spin/camunda-spin-core`
-* `org/camunda/spin/camunda-spin-dataformat-json-jackson`
-* `org/camunda/spin/camunda-spin-dataformat-xml-dom`
-* `org/camunda/bpm/camunda-engine-plugin-spin`
+* `org/finos/flowave/connect/flowave-connect-core`
+* `org/finos/flowave/connect/flowave-connect-http`
+* `org/finos/flowave/connect/flowave-connect-soap-http`
+* `org/finos/flowave/bpm/flowave-engine-plugin-connect`
+
+## Flowave Spin
+
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+
+* `org/finos/flowave/spin/flowave-spin-core`
+* `org/finos/flowave/spin/flowave-spin-dataformat-json-jackson`
+* `org/finos/flowave/spin/flowave-spin-dataformat-xml-dom`
+* `org/finos/flowave/bpm/flowave-engine-plugin-spin`
 
 Additionally, also replace the following dependent modules:
 
@@ -100,29 +100,29 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 * `org/codehaus/groovy/groovy-all`
 
-# 3. Update Camunda Web Applications
+# 3. Update Flowave Web Applications
 
 ## Update REST API
 
-The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to update the Flowave REST API on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-engine-rest`
+1. Undeploy an existing web application with a name like `flowave-engine-rest`
 2. Download the REST API web application archive from our [Artifact Repository][engine-rest]. Alternatively, switch to the private repository for
-   the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-$CLASSIFIER.war`.
+   the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/flowave-engine-rest-$PLATFORM_VERSION-$CLASSIFIER.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 ## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to update the Flowave web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
-1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the Camunda web application archive from our [Artifact Repository][webapp-jboss].
+1. Undeploy an existing web application with a name like `flowave-webapp`
+2. Download the Flowave web application archive from our [Artifact Repository][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (credentials from license required).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
+   Choose the correct version named `$PLATFORM_VERSION/flowave-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 
 [update-guide]: {{< ref "/update/minor/79-to-710/_index.md" >}}
-[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/
-[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-jboss/
+[engine-rest]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest/
+[webapp-jboss]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/webapp/camunda-webapp-jboss/
 [jackson-update]: {{< ref "/update/minor/79-to-710/_index.md#jackson-version-update" >}}

@@ -8,7 +8,7 @@ menu:
   main:
     identifier: "webapps-csrf-prevention"
     parent: "webapps-shared-options"
-    pre: "A CSRF-Prevention Filter for the Camunda Web Applications"
+    pre: "A CSRF-Prevention Filter for the Flowave Web Applications"
 ---
 
 A CSRF filter is enabled by default, validating each modifying request performed through the webapps. The filter implements a (per-session) _Synchronization Token_ method for CSRF validation with an optional _Same Origin with Standard Headers_ verification.
@@ -22,7 +22,7 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
   <!-- CSRF Prevention filter -->
   <filter>
     <filter-name>CsrfPreventionFilter</filter-name>
-    <filter-class>org.camunda.bpm.webapp.impl.security.filter.CsrfPreventionFilter</filter-class>
+    <filter-class>org.finos.flowave.bpm.webapp.impl.security.filter.CsrfPreventionFilter</filter-class>
     <init-param>
       <param-name>targetOrigin</param-name>
       <param-value>http://example.com</param-value>

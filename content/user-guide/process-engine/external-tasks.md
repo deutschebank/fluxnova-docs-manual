@@ -65,7 +65,7 @@ In addition, other *service-task-like* elements such as send tasks, business rul
 
 ### Error Event Definitions
 
-External tasks allow for the definition of error events that throw a specified BPMN error. This can be done by adding a [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element to the task's definition. Compared to the `bpmn:errorEventDefinition`, the `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Within the expression, you have access to the {{< javadocref page="org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods
+External tasks allow for the definition of error events that throw a specified BPMN error. This can be done by adding a [camunda:errorEventDefinition]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}) extension element to the task's definition. Compared to the `bpmn:errorEventDefinition`, the `camunda:errorEventDefinition` elements accept an additional `expression` attribute which supports any JUEL expression. Within the expression, you have access to the {{< javadocref page="org/finos/flowave/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods
 for `errorMessage`, `errorDetails`, `workerId`, `retries` and more. 
 
 The expression is evaluated on invocations of `ExternalTaskService#complete` and
@@ -276,7 +276,7 @@ External task priorities can be specified in the BPMN model as well as overridde
 
 #### Priorities in BPMN XML
 
-External task priorities can be assigned at the process or the activity level. To achieve this, the Camunda extension attribute `camunda:taskPriority` can be used.
+External task priorities can be assigned at the process or the activity level. To achieve this, the Flowave extension attribute `camunda:taskPriority` can be used.
 
 For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. 
 When using a constant value, the same priority is assigned to all instances of the process or activity. 

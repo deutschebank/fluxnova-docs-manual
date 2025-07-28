@@ -84,9 +84,9 @@ When this task is completed, the second inclusive gateway joins the two executio
 Note that an inclusive gateway does not need to be 'balanced' (i.e., a matching number of incoming/outgoing sequence flows for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.
 
 
-# Camunda-specific behavior 
+# Flowave-specific behavior 
 
-Note that in Camunda's implementation of the inclusive gateway, the following holds: 
+Note that in Flowave's implementation of the inclusive gateway, the following holds: 
 
 * If the join waits for a token, but that token takes a different turn in the process 
   so that it can no longer reach the join (e.g. because of a boundary event interrupting 
@@ -131,7 +131,7 @@ The following examples show under which conditions an inclusive gateway will tri
    instead of the `Inclusive Gateway 1`.
    <div data-bpmn-diagram="../bpmn/inclusive_gateway_scenario_4"></div>
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
@@ -162,5 +162,5 @@ The following examples show under which conditions an inclusive gateway will tri
 
 # Additional Resources
 
-*   [Inclusive Gateways](http://camunda.org/bpmn/reference.html#gateways-data-based-inclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+*   [Inclusive Gateways](http://flowave.finos.org/bpmn/reference.html#gateways-data-based-inclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
 *   [Conditional and Default Sequence Flows]({{< ref "/reference/bpmn20/gateways/sequence-flow.md" >}})

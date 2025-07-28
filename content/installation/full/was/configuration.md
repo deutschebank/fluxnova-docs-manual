@@ -23,12 +23,12 @@ In order to set up LDAP for the IBM WebSphere distribution, you have to perform 
 
 ### Add the LDAP Library
 
-Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the shared library 'Camunda' folder.
+Make sure the `flowave-identity-ldap-$PLATFORM_VERSION.jar` is present in the shared library 'Flowave' folder.
 
 
 ### Adjust the Process Engine Configuration
 
-Edit the file `bpm-platform.xml` located inside the Camunda enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+Edit the file `bpm-platform.xml` located inside the Flowave enterprise archive at `flowave-ibm-websphere-ear-$VERSION.ear/flowave-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -40,14 +40,14 @@ Edit the file `bpm-platform.xml` located inside the Camunda enterprise archive a
     <properties>...</properties>
     <plugins>
       <plugin>
-        <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+        <class>org.finos.flowave.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
         <properties>
 
           <property name="serverUrl">ldap://localhost:4334/</property>
-          <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
+          <property name="managerDn">uid=jonny,ou=office-berlin,o=flowave,c=org</property>
           <property name="managerPassword">s3cr3t</property>
 
-          <property name="baseDn">o=camunda,c=org</property>
+          <property name="baseDn">o=flowave,c=org</property>
 
           <property name="userSearchBase"></property>
           <property name="userSearchFilter">(objectclass=person)</property>
@@ -68,7 +68,7 @@ Edit the file `bpm-platform.xml` located inside the Camunda enterprise archive a
         </properties>
       </plugin>
       <plugin>
-        <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+        <class>org.finos.flowave.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
         <properties>
           <property name="administratorUserName">admin</property>
         </properties>
@@ -86,9 +86,9 @@ See our user guide for complete documentation on the [LDAP Identity Provider Plu
 ## HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
-Users and Groups in the Camunda webapplication. In order to activate this, add the following
-configuration to the `web.xml` file of Camunda webapplication
-(`camunda-webapp-was-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
+Users and Groups in the Flowave webapplication. In order to activate this, add the following
+configuration to the `web.xml` file of Flowave webapplication
+(`flowave-webapp-was-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -99,20 +99,20 @@ configuration to the `web.xml` file of Camunda webapplication
   <!-- ... -->
 
   <listener>
-    <listener-class>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+    <listener-class>org.finos.flowave.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
   </listener>
 
   <context-param>
-    <param-name>org.camunda.bpm.engine.rest.hal.cache.config</param-name>
+    <param-name>org.finos.flowave.bpm.engine.rest.hal.cache.config</param-name>
     <param-value>
       {
-        "cacheImplementation": "org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
+        "cacheImplementation": "org.finos.flowave.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
         "caches": {
-          "org.camunda.bpm.engine.rest.hal.user.HalUser": {
+          "org.finos.flowave.bpm.engine.rest.hal.user.HalUser": {
             "capacity": 100,
             "secondsToLive": 900
           },
-          "org.camunda.bpm.engine.rest.hal.group.HalGroup": {
+          "org.finos.flowave.bpm.engine.rest.hal.group.HalGroup": {
             "capacity": 100,
             "secondsToLive": 900
           }
@@ -165,7 +165,7 @@ Please watch out for the following section:
 <filter>
   <filter-name>HttpHeaderSecurity</filter-name>
   <filter-class>
-    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+    org.finos.flowave.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
   </filter-class>
 </filter>
 
@@ -183,7 +183,7 @@ You can change the default behavior by adding configuration parameters to the se
 <filter>
   <filter-name>HttpHeaderSecurity</filter-name>
   <filter-class>
-    org.camunda.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+    org.finos.flowave.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
   </filter-class>
   
   <init-param>

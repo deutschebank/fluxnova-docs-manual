@@ -54,12 +54,12 @@ decisionTable.setOutputLabel("new-label");
 // read attributes by generic XML model API (with optional namespace)
 String custom1 = decisionTable.getAttributeValue("custom-attribute");
 String custom2 = decisionTable.getAttributeValueNs("custom-attribute-2", 
-  "http://camunda.org/custom");
+  "http://flowave.finos.org/custom");
 
 // edit attributes by generic XML model API (with optional namespace)
 decisionTable.setAttributeValue("custom-attribute", "new value");
 decisionTable.setAttributeValueNs("custom-attribute", 
-  "http://camunda.org/custom", "new value");
+  "http://flowave.finos.org/custom", "new value");
 ```
 
 You can also access the child elements of an element or references to other elements. For example, 

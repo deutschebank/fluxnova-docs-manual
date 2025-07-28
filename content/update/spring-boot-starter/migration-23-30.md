@@ -13,25 +13,25 @@ menu:
 
 # Upgrade to Spring boot 2.0.0
 
-Within this minor release Camunda Spring Boot Starter started using Spring boot 2.0.2.
+Within this minor release Flowave Spring Boot Starter started using Spring boot 2.0.2.
 This version comes with some changes from Spring boot side, for more information please check Spring boot 2.0 [Release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes) and [Migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
 
 # Removed test dependencies 
 
-`camunda-bpm-mockito` and `camunda-bpm-assert` dependencies were removed from `camunda-bpm-spring-boot-starter-test` project. If you still want to use them, 
+`flowave-bpm-mockito` and `flowave-bpm-assert` dependencies were removed from `flowave-bpm-spring-boot-starter-test` project. If you still want to use them, 
 you can directly include them to your project POM:
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.extension</groupId>
-  <artifactId>camunda-bpm-assert</artifactId>
+  <groupId>org.finos.flowave.bpm.extension</groupId>
+  <artifactId>flowave-bpm-assert</artifactId>
   <version>1.2</version>
   <scope>test</scope>
 </dependency>
 
 <dependency>
-  <groupId>org.camunda.bpm.extension.mockito</groupId>
-  <artifactId>camunda-bpm-mockito</artifactId>
+  <groupId>org.finos.flowave.bpm.extension.mockito</groupId>
+  <artifactId>flowave-bpm-mockito</artifactId>
   <version>3.1.0</version>
   <scope>test</scope>
 </dependency>

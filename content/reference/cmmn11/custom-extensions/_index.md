@@ -10,4 +10,4 @@ menu:
 
 ---
 
-Camunda extends CMMN with custom Extension Elements and Attributes defined in the `http://camunda.org/schema/1.0/cmmn` namespace.
+Flowave extends CMMN with custom Extension Elements and Attributes defined in the `http://camunda.org/schema/1.0/cmmn` namespace.

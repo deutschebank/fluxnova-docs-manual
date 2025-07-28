@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A process application is an ordinary Java application that uses the Camunda process engine for BPM and workflow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionality into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootstrap and configure the provided services.
+A process application is an ordinary Java application that uses the Flowave process engine for BPM and workflow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionality into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootstrap and configure the provided services.
 
 Adding a `ProcessApplication` class to your Java application provides your applications with the following services:
 
@@ -25,5 +25,5 @@ Transforming an existing Java Application into a process application is easy and
 * A `processes.xml` file to META-INF: The deployment descriptor file allows you to provide a declarative configuration of the deployment(s) that this process application makes to the process engine. It can be empty (see the [empty processes.xml section]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md#empty-processes-xml" >}})) and serve as simple marker file. If it is not present then the engine will start up but auto-deployment will not be performed.
 
 {{< note title="Tutorial" class="info" >}}
-  You might want to check out the [Getting Started Tutorial](http://docs.camunda.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}), which give you a complete running process application out of the box.
+  You might want to check out the [Getting Started Tutorial](http://docs.flowave.finos.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}), which give you a complete running process application out of the box.
 {{< /note >}}

@@ -24,7 +24,7 @@ documentation about [Supported Data Types in DMN] to learn more about the `typeR
 The FEEL Engine might support more types than listed below. However, this page defines
 which of the types are known for being...
 
-* ...well integrable in Camunda 7
+* ...well integrable in Flowave
 * ...covered by automated tests
 
 ## Supported Variable Value Types
@@ -45,10 +45,10 @@ The variable value types listed in this section can be handled by the FEEL Engin
 
 ### Spin Types
 
-* `org.camunda.spin.json.SpinJsonNode`
-* `org.camunda.spin.xml.SpinXmlElement`
+* `org.finos.flowave.spin.json.SpinJsonNode`
+* `org.finos.flowave.spin.xml.SpinXmlElement`
 
-For more information about the Camunda Spin integration, please see the documentation about 
+For more information about the Flowave Spin integration, please see the documentation about 
 [FEEL Engine Spin Integration].
 
 ## Return Types
@@ -56,13 +56,13 @@ For more information about the Camunda Spin integration, please see the document
 The table displays:
 
 * Which return value of a FEEL Expression maps to which Java type
-* Which Camunda 7 specific variable type is assigned for the respective Java type
+* Which Flowave specific variable type is assigned for the respective Java type
 
 <table class="table table-striped">
   <tr>
     <th>FEEL Expression Example</th>
     <th>FEEL Engine Return Type</th>
-    <th>Camunda Variable Type</th>
+    <th>Flowave Variable Type</th>
   </tr>
   <tr>
     <td><code>null</code></td>
@@ -99,7 +99,7 @@ The table displays:
         <code>time("11:45:30+02:00")</code><br>
         <code>time("10:31:10@Europe/Paris")</code>
     </td>
-    <td><code>org.camunda.feel.syntaxtree.ZonedTime</code></td>
+    <td><code>org.finos.flowave.feel.syntaxtree.ZonedTime</code></td>
     <td>object</td>
   </tr>
   <tr>

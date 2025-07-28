@@ -113,7 +113,7 @@ A multi-instance activity ends when all instances are finished. However, it is p
 In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
 
-## Camunda Extensions
+## Flowave Extensions
 
 <table class="table table-striped">
   <tr>
@@ -162,7 +162,7 @@ Be assured that we have the loop marker in our backlog to be added to the engine
 
 ## JSON Collections with Multi-Instance Collections
 
-JSON Arrays created with [Camunda SPIN]({{< ref "/reference/spin/_index.md">}}) can be used as a collection for multi-instance activities. 
+JSON Arrays created with [Flowave SPIN]({{< ref "/reference/spin/_index.md">}}) can be used as a collection for multi-instance activities. 
 Consider the following JavaScript example that initializes execution variable `collection`:
 
 ```javascript
@@ -204,5 +204,5 @@ To declare an activity to be a compensation handler, we need to set the attribut
 
 # Additional Resources
 
-* [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+* [Tasks](http://flowave.finos.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
 * [Transaction Subprocess]({{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}})

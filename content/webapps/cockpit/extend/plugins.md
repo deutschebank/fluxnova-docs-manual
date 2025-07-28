@@ -12,7 +12,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-Please note that we updated the frontend plugin interface with Camunda Runtime 7.14. Plugins written for Camunda Runtime 7.13 and earlier might no longer work with Camunda Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
+Please note that we updated the frontend plugin interface with Flowave Runtime 7.14. Plugins written for Flowave Runtime 7.13 and earlier might no longer work with Flowave Runtime 7.14. Checkout the [update guide]({{< ref "/update/minor/713-to-714" >}}) for more details.
 {{< /note >}}
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
@@ -45,7 +45,7 @@ The basic skeleton of a Cockpit plugin looks as follows:
     |   |   |       └── MyPlugin.java                                     (1)
     |   |   └── resources/
     |   |       ├── META-INF/services/
-    |   |       |   └── org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
+    |   |       |   └── org.finos.flowave.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
     |   |       ├── org/my/plugin/queries/                                (6)
     |   |       |   └── sample.xml
     |   |       └── plugin-webapp/MyPlugin/                               (7)
@@ -58,7 +58,7 @@ The basic skeleton of a Cockpit plugin looks as follows:
     |       |   └── org/my/plugin/
     |       |       └── MyPluginTest.java
     |       └── resources/
-    |           └── camunda.cfg.xml
+    |           └── flowave.cfg.xml
     └── pom.xml
 
 As runtime relevant resource it defines
@@ -81,7 +81,7 @@ As runtime relevant resource it defines
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes)
+  [How to develop a Cockpit plugin](https://github.com/finos/flowave-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes)
 {{< /note >}}
 
 ## Structure of a Frontend Module
@@ -152,11 +152,11 @@ In this example we deactivate the cancel action in the Cockpit process instance 
 ```
 
 # Legacy Plugins
-Plugins created for Camunda 7.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `cockpit.plugin.legacy-*`.
+Plugins created for Flowave.13 or earlier can be included for compatibility. To achieve this, simply prefix your Plugin ID with `legacy-`. The AngularJS module name for the entry module will be `cockpit.plugin.legacy-*`.
 
 Please note that all Plugins with this prefix will be included using the 7.13 plugin mechanism. You cannot create new Plugins with IDs starting with `legacy`.
 
-For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.camunda.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Camunda **7.13** .
+For more details about legacy Plugins, check out the legacy [Plugin documentation](https://docs.flowave.finos.org/manual/7.13/webapps/cockpit/extend/plugins/). Please note that this link will take you to the documentation of Flowave **7.13** .
 
 # Plugin points
 
@@ -165,7 +165,7 @@ To configure where you place your plugin, enter the ID into the `pluginPoint` at
 
 Plugin Points describe where a Plugin will be rendered and define which additional data is passed into the second argument of the render function.
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/finos/flowave-bpm-examples/tree/master/cockpit/cockpit-fullstack-count-processes).
 
 ## Data
 
@@ -176,7 +176,7 @@ The first argument of the `#result` function is a (`Promise`).
 ### Login Data
 
 **Name:** `cockit.login.data`\
-**REST Endpoint:** `POST /camunda/api/admin/auth/user/default/login/cockpit`
+**REST Endpoint:** `POST /flowave/api/admin/auth/user/default/login/cockpit`
 
 When a user clicks on the **Login** button of the login form, the plugin points `#result` function is called.
 Your [Login Plugin](#login) can react to the data that this data plugin will retrieve.

@@ -69,13 +69,13 @@ HistoricCaseActivityInstance milestoneInstance = historyService
 milestoneInstance.isCompleted(); // true if milestone occurred
 ```
 
-## Camunda Extensions
+## Flowave Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>
     </td>
   </tr>
 </table>

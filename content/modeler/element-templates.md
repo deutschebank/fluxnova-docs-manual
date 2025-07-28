@@ -6,7 +6,7 @@ weight: 28
 menu:
   main:
     name: "Element Templates"
-    identifier: "camunda-modeler-element-templates"
+    identifier: "flowave-modeler-element-templates"
     parent: "modeler"
     pre: "Extend the modeler with custom elements."
 

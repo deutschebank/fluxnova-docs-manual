@@ -6,7 +6,8 @@ weight: 20
 menu:
   main:
     identifier: "user-guide"
+    parent: "manual"
 
 ---
 
-This document targets Developers who want to use Camunda Process Engine in their applications.
+This document targets Developers who want to use Flowave Process Engine in their applications.

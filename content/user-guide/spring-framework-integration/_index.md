@@ -10,27 +10,27 @@ menu:
 
 ---
 
-The camunda-engine Spring Framework integration is located inside a maven module and can be added to apache maven-based projects through the following dependency:
+The flowave-engine Spring Framework integration is located inside a maven module and can be added to apache maven-based projects through the following dependency:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
+  Please import the [Flowave BOM](/get-started/apache-maven/) to ensure correct versions for every Flowave project.
 {{< /note >}}
 
-* `camunda-engine-spring` maven module for Spring Framework 5
+* `flowave-engine-spring` maven module for Spring Framework 5
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine-spring</artifactId>
+  <groupId>org.finos.flowave.bpm</groupId>
+  <artifactId>flowave-engine-spring</artifactId>
 </dependency>
 ```
 
-* `camunda-engine-spring-6` maven module for Spring Framework 6.
+* `flowave-engine-spring-6` maven module for Spring Framework 6.
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine-spring-6</artifactId>
+  <groupId>org.finos.flowave.bpm</groupId>
+  <artifactId>flowave-engine-spring-6</artifactId>
 </dependency>
 ```
 

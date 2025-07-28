@@ -11,67 +11,67 @@ menu:
 ---
 
 {{< note title="ENVIRONMENT OUT OF SUPPORT" class="warning">}}
-  From Camunda 7.5 onwards Glassfish Application Server is not supported anymore. Please have a look at the list of [Supported Environments]({{< ref "/introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
+  From Flowave.5 onwards Glassfish Application Server is not supported anymore. Please have a look at the list of [Supported Environments]({{< ref "/introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-flowave-cycle" >}}).
 {{< /note >}}
 
 
-The following steps describe how to update the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda 7.5 Glassfish distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
+The following steps describe how to update the Flowave artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Flowave.5 Glassfish distribution](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/glassfish/camunda-bpm-glassfish/).
 
 The update procedure takes the following steps:
 
-1. Uninstall the Camunda Applications and Archives
-2. Replace Camunda Core Libraries
-3. Replace Optional Camunda Libraries
-4. Maintain the Camunda 7 Configuration
+1. Uninstall the Flowave Applications and Archives
+2. Replace Flowave Core Libraries
+3. Replace Optional Flowave Libraries
+4. Maintain the Flowave Configuration
 5. Maintain Process Applications
-6. Install the Camunda Archive
+6. Install the Flowave Archive
 7. Install the Web Applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-# 1. Uninstall the Camunda Applications and Archives
+# 1. Uninstall the Flowave Applications and Archives
 
-First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
+First, uninstall the Flowave web applications, namely the Flowave REST API (artifact name like `flowave-engine-rest`) and the Flowave applications Cockpit, Tasklist and Admin (artifact name like `flowave-webapp`).
 
-Uninstall the Camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
+Uninstall the Flowave EAR. Its name should be `flowave-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Flowave job executor adapter, called `flowave-jobexecutor-rar-$PLATFORM_VERSION.rar`.
 
-# 2. Replace Camunda Core Libraries
+# 2. Replace Flowave Core Libraries
 
 After shutting down the server, replace the following libraries in `$GLASSFISH_HOME/glassfish/lib` with their equivalents from `$GLASSFISH_DISTRIBUTION/modules/lib`:
 
-* `camunda-engine-$PLATFORM_VERSION.jar`
-* `camunda-bpmn-model-$PLATFORM_VERSION.jar`
-* `camunda-cmmn-model-$PLATFORM_VERSION.jar`
-* `camunda-dmn-model-$PLATFORM_VERSION.jar`
-* `camunda-xml-model-$PLATFORM_VERSION.jar`
-* `camunda-engine-dmn-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-api-$PLATFORM_VERSION.jar`
-* `camunda-engine-feel-juel-$PLATFORM_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
-* `camunda-commons-typed-values-$COMMONS_VERSION.jar`
-* `camunda-commons-utils-$COMMONS_VERSION.jar`
+* `flowave-engine-$PLATFORM_VERSION.jar`
+* `flowave-bpmn-model-$PLATFORM_VERSION.jar`
+* `flowave-cmmn-model-$PLATFORM_VERSION.jar`
+* `flowave-dmn-model-$PLATFORM_VERSION.jar`
+* `flowave-xml-model-$PLATFORM_VERSION.jar`
+* `flowave-engine-dmn-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-api-$PLATFORM_VERSION.jar`
+* `flowave-engine-feel-juel-$PLATFORM_VERSION.jar`
+* `flowave-commons-logging-$COMMONS_VERSION.jar`
+* `flowave-commons-typed-values-$COMMONS_VERSION.jar`
+* `flowave-commons-utils-$COMMONS_VERSION.jar`
 
-# 3. Replace Optional Camunda Dependencies
+# 3. Replace Optional Flowave Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$GLASSFISH_HOME/glassfish/lib` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
+In addition to the core libraries, there may be optional artifacts in `$GLASSFISH_HOME/glassfish/lib` for LDAP integration, Flowave Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
 Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`, if present:
 
-* `camunda-identity-ldap-$PLATFORM_VERSION.jar`
+* `flowave-identity-ldap-$PLATFORM_VERSION.jar`
 
-## Camunda Connect
-
-Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`, if present:
-
-* `camunda-connect-core-$CONNECT_VERSION.jar`
-
-## Camunda Spin
+## Flowave Connect
 
 Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`, if present:
 
-* `camunda-spin-core-$SPIN_VERSION.jar`
+* `flowave-connect-core-$CONNECT_VERSION.jar`
+
+## Flowave Spin
+
+Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`, if present:
+
+* `flowave-spin-core-$SPIN_VERSION.jar`
 
 ## Groovy Scripting
 
@@ -79,9 +79,9 @@ Copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the fol
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-# 4. Maintain the Camunda 7 Configuration
+# 4. Maintain the Flowave Configuration
 
-If you have previously replaced the default Camunda 7 configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
+If you have previously replaced the default Flowave configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Maintain Process Applications
 
@@ -93,30 +93,30 @@ The interface of an [Incident Handler]({{< ref "/user-guide/process-engine/incid
 
 ## Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="org/finos/flowave/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
 
 ## Job Handler
 
-The interface of a {{< javadocref page="org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
+The interface of a {{< javadocref page="org/finos/flowave/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
 
-# 6. Install the Camunda Archive
+# 6. Install the Flowave Archive
 
-First, install the Camunda job executor resource adapter, namely the file `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`. Then install the Camunda EAR, i.e., the file `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear`.
+First, install the Flowave job executor resource adapter, namely the file `$GLASSFISH_DISTRIBUTION/modules/flowave-jobexecutor-rar-$PLATFORM_VERSION.rar`. Then install the Flowave EAR, i.e., the file `$GLASSFISH_DISTRIBUTION/modules/flowave-glassfish-ear-$PLATFORM_VERSION.ear`.
 
 # 7. Install the Web Applications
 
 ## REST API
 
-The following steps are required to update the Camunda REST API on a Glassfish instance:
+The following steps are required to update the Flowave REST API on a Glassfish instance:
 
-1. Download the REST API web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/camunda-engine-rest/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+1. Download the REST API web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
 ## Cockpit, Tasklist, and Admin
 
-The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
+The following steps are required to update the Flowave web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
 
-1. Download the Camunda web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/webapp/camunda-webapp-glassfish/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
+1. Download the Flowave web application archive from our [Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/webapp/camunda-webapp-glassfish/). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
 [configuration-location]: {{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}

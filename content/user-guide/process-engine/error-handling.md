@@ -104,7 +104,7 @@ Having a failed jobs list instead of using the "normal" task list feels like a m
 
 Sometimes an API call doesn't succeed because a problem occurs. The Java programming model uses exceptions
 to handle these situations. Exceptions that occur on the process engine's application level are 
-of the type `{{< javadocref page="org/camunda/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`.
+of the type `{{< javadocref page="org/finos/flowave/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`.
 
 Here are two examples of everyday situations in which the engine throws a `ProcessEngineException`:
 
@@ -134,7 +134,7 @@ error code to the exception. You can look up the built-in codes in the [Categori
 
 ## Custom codes
 
-Sometimes you may want to assign codes to specific errors Camunda hasn't covered so far.
+Sometimes you may want to assign codes to specific errors Flowave hasn't covered so far.
 You can either define custom codes from delegation code or by [registering your custom `ExceptionCodeProvider`](#register-a-custom-code-provider).
 
 ### Delegation code
@@ -153,7 +153,7 @@ You can configure the exception error codes feature in your [process engine conf
 
 ### Register a Custom Code Provider
 
-With the help of a [`ProcessEnginePlugin`]({{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}) you can register a custom `{{< javadocref page="org/camunda/bpm/engine/impl/errorcode/ExceptionCodeProvider.html" text="ExceptionCodeProvider" >}}`:
+With the help of a [`ProcessEnginePlugin`]({{< ref "/user-guide/process-engine/process-engine-plugins.md" >}}) you can register a custom `{{< javadocref page="org/finos/flowave/bpm/engine/impl/errorcode/ExceptionCodeProvider.html" text="ExceptionCodeProvider" >}}`:
 
 ```java
 engineConfig.setCustomExceptionCodeProvider(new ExceptionCodeProvider() {

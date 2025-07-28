@@ -11,19 +11,19 @@ menu:
 
 ---
 
-The auto starter uses the  `org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin` mechanism to configure the engine.
+The auto starter uses the  `org.finos.flowave.bpm.engine.impl.cfg.ProcessEnginePlugin` mechanism to configure the engine.
 
 The configuration is divided into _sections_. These _sections_ are represented by the marker interfaces:
 
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaProcessEngineConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaDatasourceConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaHistoryConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaHistoryLevelAutoHandlingConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaJobConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaDeploymentConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaAuthorizationConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaFailedJobConfiguration`
-* `org.camunda.bpm.spring.boot.starter.configuration.CamundaMetricsConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveProcessEngineConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveDatasourceConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveHistoryConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveHistoryLevelAutoHandlingConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveJobConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveDeploymentConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveAuthorizationConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveFailedJobConfiguration`
+* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveMetricsConfiguration`
 
 ## Default Configurations
 
@@ -35,11 +35,11 @@ Sets the process engine name and automatically adds all `ProcessEnginePlugin` be
 
 ### `DefaultDatasourceConfiguration`
 
-Configures the Camunda data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
+Configures the Flowave data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
 
 If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources)
 and don't want to use the `@Primary` one for the process engine, then you can create a separate
-data source with name `camundaBpmDataSource` that will be automatically wired with Camunda instead.
+data source with name `flowaveBpmDataSource` that will be automatically wired with Flowave instead.
 
 ```java
 @Bean
@@ -49,7 +49,7 @@ public DataSource primaryDataSource() {
   return DataSourceBuilder.create().build();
 }
 
-@Bean(name="camundaBpmDataSource")
+@Bean(name="flowaveBpmDataSource")
 @ConfigurationProperties(prefix="datasource.secondary")
 public DataSource secondaryDataSource() {
   return DataSourceBuilder.create().build();
@@ -57,8 +57,8 @@ public DataSource secondaryDataSource() {
 ```
 
 If you don't want to use the `@Primary` transaction manager, it is possible to create a separate
-transaction manager with the name `camundaBpmTransactionManager` that will be wired with the data
-source used for Camunda (either `@Primary` or `camundaBpmDataSource`):
+transaction manager with the name `flowaveBpmTransactionManager` that will be wired with the data
+source used for Flowave (either `@Primary` or `flowaveBpmDataSource`):
 
 ```java
 @Bean
@@ -67,14 +67,14 @@ public PlatformTransactionManager primaryTransactionManager() {
   return new JpaTransactionManager();
 }
 
-@Bean(name="camundaBpmTransactionManager")
-public PlatformTransactionManager camundaTransactionManager(@Qualifier("camundaBpmDataSource") DataSource dataSource) {
+@Bean(name="flowaveBpmTransactionManager")
+public PlatformTransactionManager flowaveTransactionManager(@Qualifier("flowaveBpmDataSource") DataSource dataSource) {
   return new DataSourceTransactionManager(dataSource);
 }
 ```
 
 {{< note title="" class="warning" >}}
-  The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Camunda data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
+  The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Flowave data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
 {{< /note >}}
 
 ### `DefaultHistoryConfiguration`
@@ -90,11 +90,11 @@ public HistoryEventHandler customHistoryEventHandler() {
 ```
 
 ### `DefaultHistoryLevelAutoHandlingConfiguration`
-As camunda version >= 7.4 supports `history-level auto`, this configuration adds support for versions <= 7.3.
+As flowave version >= 7.4 supports `history-level auto`, this configuration adds support for versions <= 7.3.
 
 To have more control over the handling, you can provide your own
 
-- `org.camunda.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator` with name `historyLevelDeterminator`
+- `org.finos.flowave.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator` with name `historyLevelDeterminator`
 
 IMPORTANT: The default configuration is applied after all other default configurations using the ordering mechanism.
 
@@ -104,22 +104,22 @@ Applies the job execution properties to the process engine.
 
 To have more control over the execution itself, you can provide your own
 
-- `org.camunda.bpm.engine.impl.jobexecutor.JobExecutor`
-- `org.springframework.core.task.TaskExecutor` named `camundaTaskExecutor`
+- `org.finos.flowave.bpm.engine.impl.jobexecutor.JobExecutor`
+- `org.springframework.core.task.TaskExecutor` named `flowaveTaskExecutor`
 
 beans.
 
 IMPORTANT: The job executor is not enabled in the configuration.
-This is done after the spring context successfully loaded (see `org.camunda.bpm.spring.boot.starter.runlistener`).
+This is done after the spring context successfully loaded (see `org.finos.flowave.bpm.spring.boot.starter.runlistener`).
 
 ### `DefaultDeploymentConfiguration`
 
 If auto deployment is enabled (this is the case by default), all processes found in the classpath are deployed.
-The resource pattern can be changed using properties (see [properties](#camunda-engine-properties)).
+The resource pattern can be changed using properties (see [properties](#flowave-engine-properties)).
 
 ### `DefaultAuthorizationConfiguration`
 
-Applies the authorization configuration to the process engine. If not configured, the `camunda` default values are used (see [properties](#camunda-engine-properties)).
+Applies the authorization configuration to the process engine. If not configured, the `flowave` default values are used (see [properties](#flowave-engine-properties)).
 
 ## Overriding the Default Configuration
 
@@ -127,11 +127,11 @@ Provide a bean implementing one of the marker interfaces. For example to customi
 
 ```java
 @Configuration
-public class MyCamundaConfiguration {
+public class MyFlowaveConfiguration {
 
 	@Bean
-	public static CamundaDatasourceConfiguration camundaDatasourceConfiguration() {
-		return new MyCamundaDatasourceConfiguration();
+	public static FlowaveDatasourceConfiguration flowaveDatasourceConfiguration() {
+		return new MyFlowaveDatasourceConfiguration();
 	}
 
 }
@@ -139,15 +139,15 @@ public class MyCamundaConfiguration {
 
 ## Adding Additional Configurations
 
-You just have to provide one or more beans implementing the `org.camunda.bpm.engine.impl.cfg.ProcessEnginePlugin` interface
-(or extend from `org.camunda.bpm.spring.boot.starter.configuration.impl.AbstractCamundaConfiguration`).
+You just have to provide one or more beans implementing the `org.finos.flowave.bpm.engine.impl.cfg.ProcessEnginePlugin` interface
+(or extend from `org.finos.flowave.bpm.spring.boot.starter.configuration.impl.AbstractFlowaveConfiguration`).
 The configurations are applied ordered using the spring ordering mechanism (`@Order` annotation and `Ordered` interface).
 So if you want your configuration to be applied before the default configurations, add a `@Order(Ordering.DEFAULT_ORDER - 1)` annotation to your class.
 If you want your configuration to be applied after the default configurations, add a `@Order(Ordering.DEFAULT_ORDER + 1)` annotation to your class.
 
 ```java
 @Configuration
-public class MyCamundaConfiguration {
+public class MyFlowaveConfiguration {
 
 	@Bean
 	@Order(Ordering.DEFAULT_ORDER + 1)
@@ -181,7 +181,7 @@ or
 
 @Component
 @Order(Ordering.DEFAULT_ORDER + 1)
-public class MyCustomConfiguration extends AbstractCamundaConfiguration {
+public class MyCustomConfiguration extends AbstractFlowaveConfiguration {
 
 	@Override
 	public void preInit(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
@@ -193,10 +193,10 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 }
 ```
 
-## Camunda Engine Properties
+## Flowave Engine Properties
 In addition to the bean-based way of overriding process engine configuration properties, it is also possible
 to set those properties via an <code>application.yaml</code> configuration file. Instructions on how to use it
-can be found in the <a href="https://docs.camunda.org/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.
+can be found in the <a href="https://docs.flowave.finos.org/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.
 
 The available properties are as follows:
 
@@ -209,16 +209,16 @@ The available properties are as follows:
   </tr>
 <tr><td colspan="4"><b>General</b></td></tr>
 
-<tr><td rowspan="15"><code>camunda.bpm</code></td>
+<tr><td rowspan="15"><code>flowave.bpm</code></td>
 <td><code>.enabled</code></td>
-<td>Switch to disable the Camunda auto-configuration. Use to exclude Camunda in integration tests.</td>
+<td>Switch to disable the Flowave auto-configuration. Use to exclude Flowave in integration tests.</td>
 <td><code>true</code></td>
 </tr>
 
 <tr>
 <td><code>.process-engine-name</code></td>
 <td>Name of the process engine</td>
-<td>Camunda default value</td>
+<td>Flowave default value</td>
 </tr>
 
 <tr>
@@ -236,18 +236,18 @@ The available properties are as follows:
 <tr>
 <td><code>.default-serialization-format</code></td>
 <td>Default serialization format</td>
-<td>Camunda default value</td>
+<td>Flowave default value</td>
 </tr>
 
 <tr>
 <td><code>.history-level</code></td>
-<td>Camunda history level</td>
+<td>Flowave history level</td>
 <td>FULL</td>
 </tr>
 
 <tr>
 <td><code>.history-level-default</code></td>
-<td>Camunda history level to use when <code>history-level</code> is <code>auto</code>, but the level can not determined automatically</td>
+<td>Flowave history level to use when <code>history-level</code> is <code>auto</code>, but the level can not determined automatically</td>
 <td>FULL</td>
 </tr>
 
@@ -271,14 +271,14 @@ The available properties are as follows:
 
 <tr>
 <td><a name="license-file"></a><code>.license-file</code></td>
-<td>Provides a URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
-<b>Note:</b> This property is only available when using the <a href="{{<ref "/user-guide/spring-boot-integration/webapps.md#enterprise-webapps" >}}">camunda-bpm-spring-boot-starter-webapp-ee</a>
+<td>Provides a URL to your Flowave license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
+<b>Note:</b> This property is only available when using the <a href="{{<ref "/user-guide/spring-boot-integration/webapps.md#enterprise-webapps" >}}">flowave-bpm-spring-boot-starter-webapp-ee</a>
 </td>
 <td>By default, the license key will be loaded:
  <ol>
   <li>from the URL provided via the this property (if present)</li>
-  <li>from the file with the name <code>camunda-license.txt</code> from the classpath (if present)</li>
-  <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
+  <li>from the file with the name <code>flowave-license.txt</code> from the classpath (if present)</li>
+  <li>from path <i>${user.home}/.flowave/license.txt</i> (if present)</li>
  </ol>
  The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind
  that for some licenses there is a minimum <a href="{{<ref "/user-guide/license-use.md#license-compatibility" >}}">version requirement</a>.
@@ -312,7 +312,7 @@ The available properties are as follows:
 <tr><td colspan="4"><b>Job Execution</b></td></tr>
 
 <tr>
-<td rowspan="14"><code>camunda.bpm.job-execution</code></td>
+<td rowspan="14"><code>flowave.bpm.job-execution</code></td>
 <td><code>.enabled</code></td>
 <td>If set to <code>false</code>, no JobExecutor bean is created at all. Maybe used for testing.</td>
 <td><code>true</code></td>
@@ -387,7 +387,7 @@ The available properties are as follows:
 <tr><td colspan="4"><b>Datasource</b></td></tr>
 
 <tr>
-<td rowspan="5"><code>camunda.bpm.database</code></td>
+<td rowspan="5"><code>flowave.bpm.database</code></td>
 <td><code>.schema-update</code></td>
 <td>If automatic schema update should be applied, use one of [true, false, create, create-drop, drop-create]</td>
 <td><code>true</code></td>
@@ -401,14 +401,14 @@ The available properties are as follows:
 
 <tr>
 <td><code>.table-prefix</code></td>
-<td>Prefix of the camunda database tables. Attention: The table prefix will <b>not</b> be applied if you  are using <code>schema-update</code>!</td>
-<td><i>Camunda default value</i></td>
+<td>Prefix of the flowave database tables. Attention: The table prefix will <b>not</b> be applied if you  are using <code>schema-update</code>!</td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
 <td><code>.schema-name</code></td>
 <td>The dataBase schema name</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
@@ -416,12 +416,12 @@ The available properties are as follows:
 <td>Controls if the engine executes the jdbc statements as Batch or not.
 It has to be disabled for some databases.
 See the <a href="{{<ref "/user-guide/process-engine/database/database-configuration.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
-<td><i>Camunda default value: true</i></td>
+<td><i>Flowave default value: true</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Eventing</b></td></tr>
 <tr>
-<td rowspan="4"><code>camunda.bpm.eventing</code></td>
+<td rowspan="4"><code>flowave.bpm.eventing</code></td>
 <td><code>.execution</code></td>
 <td>Enables eventing of delegate execution events.
 See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
@@ -452,37 +452,37 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 
 <tr><td colspan="4"><b>Management</b></td></tr>
 <tr>
-<td><code>camunda.bpm.management</code></td>
-<td><code>.health.camunda.enabled</code></td>
-<td>Enables default camunda health indicators</td>
+<td><code>flowave.bpm.management</code></td>
+<td><code>.health.flowave.enabled</code></td>
+<td>Enables default flowave health indicators</td>
 <td><code>true</code></td>
 </tr>
 
 <tr><td colspan="4"><b>Metrics</b></td></tr>
 <tr>
-<td rowspan="2"><code>camunda.bpm.metrics</code></td>
+<td rowspan="2"><code>flowave.bpm.metrics</code></td>
 <td><code>.enabled</code></td>
 <td>Enables metrics reporting</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
 <td><code>.db-reporter-activate</code></td>
 <td>Enables db metrics reporting</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
 <tr>
-<td rowspan="3"><code>camunda.bpm.webapp</code></td>
+<td rowspan="3"><code>flowave.bpm.webapp</code></td>
 <td><code>.enabled</code></td>
-<td>Switch to disable the Camunda Webapp auto-configuration.</td>
+<td>Switch to disable the Flowave Webapp auto-configuration.</td>
 <td><code>true</code></td>
 </tr>
 
 <tr>
 <td><code>.index-redirect-enabled</code></td>
-<td>Registers a redirect from <code>/</code> to camunda's bundled <code>index.html</code>.
+<td>Registers a redirect from <code>/</code> to flowave's bundled <code>index.html</code>.
 <br/>
 If this property is set to <code>false</code>, the
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
@@ -494,13 +494,13 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.application-path</code></td>
 <td>Changes the application path of the webapp.
 <br/>
-When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Starter <= 3.4.x is restored.
+When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Starter <= 3.4.x is restored.
 </td>
-<td><code>/camunda</code></td>
+<td><code>/flowave</code></td>
 </tr>
 
 <tr id="csrf">
-  <td rowspan="10"><code>camunda.bpm.webapp.csrf</code></td>
+  <td rowspan="10"><code>flowave.bpm.webapp.csrf</code></td>
 </tr>
 <tr>
 <td><code>.target-origin</code></td>
@@ -572,7 +572,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 </tr>
 
 <tr id="session-cookie">
-  <td rowspan="6"><code>camunda.bpm.webapp.session-cookie</code></td>
+  <td rowspan="6"><code>flowave.bpm.webapp.session-cookie</code></td>
 </tr>
 <tr>
   <td><code>.enable-secure-cookie</code></td>
@@ -626,7 +626,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 </tr>
 
 <tr id="header-security">
-  <td rowspan="12"><code>camunda.bpm.webapp.header-security</code></td>
+  <td rowspan="12"><code>flowave.bpm.webapp.header-security</code></td>
 </tr>
 <tr>
   <td><code>.xss-protection-disabled</code></td>
@@ -745,7 +745,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 </tr>
 
 <tr id="auth-cache">
-  <td rowspan="3"><code>camunda.bpm.webapp.auth.cache</code></td>
+  <td rowspan="3"><code>flowave.bpm.webapp.auth.cache</code></td>
 </tr>
 <tr>
   <td><code>.ttl-enabled</code></td>
@@ -771,22 +771,22 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 
 <tr><td colspan="4"><b>Authorization</b></td></tr>
 <tr>
-<td rowspan="4"><code>camunda.bpm.authorization</code></td>
+<td rowspan="4"><code>flowave.bpm.authorization</code></td>
 <td><code>.enabled</code></td>
 <td>Enables authorization</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
 <td><code>.enabled-for-custom-code</code></td>
 <td>Enables authorization for custom code</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
 <td><code>.authorization-check-revokes</code></td>
 <td>Configures authorization check revokes</td>
-<td><i>Camunda default value</i></td>
+<td><i>Flowave default value</i></td>
 </tr>
 
 <tr>
@@ -797,7 +797,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 
 <tr><td colspan="4"><b>Admin User</b></td></tr>
 <tr>
-<td rowspan="3"><code>camunda.bpm.admin-user</code></td>
+<td rowspan="3"><code>flowave.bpm.admin-user</code></td>
 <td><code>.id</code></td>
 <td>The username (e.g., 'admin')</td>
 <td>-</td>
@@ -817,7 +817,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
 
 <tr><td colspan="4"><b>Filter</b></td></tr>
 <tr>
-<td><code>camunda.bpm.filter</code></td>
+<td><code>flowave.bpm.filter</code></td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
@@ -829,7 +829,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   </td>
 </tr>
 <tr>
-  <td rowspan="3"><code>camunda.bpm.oauth2.identity-provider</code></td>
+  <td rowspan="3"><code>flowave.bpm.oauth2.identity-provider</code></td>
   <td><code>.enabled</code></td>
   <td>Enables the OAuth2 identity provider.</td>
   <td><code>true</code></td>
@@ -848,7 +848,7 @@ When setting to <code>/</code>, the legacy behavior of Camunda Spring Boot Start
   <td><code>,</code> (comma)</td>
 </tr>
 <tr>
-  <td rowspan="2"><code>camunda.bpm.oauth2.sso-logout</code></td>
+  <td rowspan="2"><code>flowave.bpm.oauth2.sso-logout</code></td>
   <td><code>.enabled</code></td>
   <td>Activates the client initiated OIDC logout feature.</td>
   <td><code>false</code></td>
@@ -885,7 +885,7 @@ camunda:
 Override configuration using exposed properties:
 
 ```yaml
-camunda.bpm:
+flowave.bpm:
   admin-user:
     id: kermit
     password: superSecret
@@ -907,7 +907,7 @@ camunda:
 
 You can configure the **Session Cookie** for the Spring Boot application via the `application.yaml` configuration file.
 
-Camunda Spring Boot Starter versions <= 2.3 (Spring Boot version 1.x)
+Flowave Spring Boot Starter versions <= 2.3 (Spring Boot version 1.x)
 
 ```yaml
 server:
@@ -917,7 +917,7 @@ server:
       http-only: true # Not possible for versions before 1.5.14
 ```
 
-Camunda Spring Boot Starter versions >= 3.0 (Spring Boot version 2.x)
+Flowave Spring Boot Starter versions >= 3.0 (Spring Boot version 2.x)
 
 ```yaml
 server:
@@ -929,14 +929,14 @@ server:
 ```
 
 Further details of the session cookie like the `SameSite` flag can be configured via
-[camunda.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
+[flowave.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
 
 # Configuring Spin DataFormats
 
-The Camunda Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
-`camunda-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
+The Flowave Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
+`flowave-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
 `DataFormatConfigurator` for the desired Jackson Java 8 module, the appropriate dependency needs
-to be included on the classpath as well. Note that `camunda-engine-plugin-spin`
+to be included on the classpath as well. Note that `flowave-engine-plugin-spin`
 needs to be included as a dependency as well for the auto-configurators to work.
 
 Auto-configuration is currently supported for the following [Jackson Java 8 modules](https://github.com/FasterXML/jackson-modules-java8):
@@ -947,9 +947,9 @@ Auto-configuration is currently supported for the following [Jackson Java 8 modu
 
 {{< note title="Heads Up!" class="warning" >}}
 The Spin Jackson Json DataFormat auto-configuration is disabled when using
-`camunda-spin-dataformat-all` as a dependency. The `camunda-spin-dataformat-all` artifact shades the
+`flowave-spin-dataformat-all` as a dependency. The `flowave-spin-dataformat-all` artifact shades the
 Jackson libraries, which breaks compatibility with the regular Jackson modules. If usage of
-`camunda-spin-dataformat-all` is necessary, please use the standard method for
+`flowave-spin-dataformat-all` is necessary, please use the standard method for
 [Spin Custom DataFormat configuration]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}).
 {{< /note >}}
 
@@ -960,12 +960,12 @@ appropriate version tags, will need to be added in the Spring Boot Application's
  ```xml
 <dependencies>
     <dependency>
-      <groupId>org.camunda.bpm</groupId>
-      <artifactId>camunda-engine-plugin-spin</artifactId>
+      <groupId>org.finos.flowave.bpm</groupId>
+      <artifactId>flowave-engine-plugin-spin</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.camunda.spin</groupId>
-      <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
+      <groupId>org.finos.flowave.spin</groupId>
+      <artifactId>flowave-spin-dataformat-json-jackson</artifactId>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -979,7 +979,7 @@ configure the Jackson `ObjectMapper`. They can be found [here](https://docs.spri
 
 To provide additional configurations, the following actions need to be performed:
 
-1. Provide a custom implementation of `org.camunda.spin.spi.DataFormatConfigurator`;
+1. Provide a custom implementation of `org.finos.flowave.spin.spi.DataFormatConfigurator`;
 1. Add the appropriate key-value pair of the fully qualified classnames of the interface and the
    implementation to the `META-INF/spring.factories` file;
 1. Ensure that the artifact containing the configurator is reachable from Spin’s classloader.

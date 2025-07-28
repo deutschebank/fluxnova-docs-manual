@@ -13,13 +13,13 @@ menu:
 
 ---
 
-This document guides you through the update from Camunda `7.10.x` to `7.11.0`. It covers these use cases:
+This document guides you through the update from Flowave `7.10.x` to `7.11.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
 1. For administrators and developers: [Full Distribution Update](#full-distribution)
 1. For administrators: [Standalone Web Application](#standalone-web-application)
 1. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
-1. For developers: [camunda-engine-spring Update](#camunda-engine-spring-update)
+1. For developers: [flowave-engine-spring Update](#flowave-engine-spring-update)
 1. For developers: [External Task Client Update](#external-task-client-update)
 1. For developers: [Changes Affecting Custom Permissions/Resources](#changes-affecting-custom-permissions-resources)
 1. For administrators and developers: [User Operation Log Permissions](#user-operation-log-permissions)
@@ -28,17 +28,17 @@ This document guides you through the update from Camunda `7.10.x` to `7.11.0`. I
 1. For developers: [Updated Front End Libraries](#updated-front-end-libraries)
 1. For developers: [HTTP Header Security in Webapps](#http-header-security-in-webapps)
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda 7.11.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Flowave.11.
 
 
 # Database Updates
 
-Every Camunda installation requires a database schema update.
+Every Flowave installation requires a database schema update.
 
 ## Procedure
 
 1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
- Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/distro/camunda-sql-scripts/).
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Flowave Artifact Repository](https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.10_patch_?.sql`.
 
@@ -48,28 +48,28 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Camunda 7, e.g., `7.11.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of Flowave, e.g., `7.11.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ### MySQL/MariaDB Specifics
 
 MySQL and MariaDB represent the `TIMESTAMP` data type with a signed 32-bit integer. This limits the maximum date that can be stored to `03:14:07 on 19 January 2038 (UTC)` (also referred to as the [Y2K38 problem](https://en.wikipedia.org/wiki/Year_2038_problem)).
 
-For this reason, all the `TIMESTAMP` columns that the Camunda engine uses to store future dates were migrated to the `DATETIME` data type with a much larger time range.
+For this reason, all the `TIMESTAMP` columns that the Flowave engine uses to store future dates were migrated to the `DATETIME` data type with a much larger time range.
 
 Be aware that `DATETIME` does not store time zone information. This means that, when applying the `[MySQL|MariaDB]_engine_7.10_to_7.11.sql` script, the database server time zone will be used to convert the `TIMESTAMP` into `DATETIME` values. Any future time zone changes on the database server will offset the time stored in these columns causing an incorrect operation of the engine.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-flowave.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
-1. Update the Camunda libraries and applications inside the application server
+1. Update the Flowave libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda 7.11 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Flowave.11 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
-## Camunda Libraries and Applications
+## Flowave Libraries and Applications
 
 Please choose the application server you are working with from the following list:
 
@@ -80,14 +80,14 @@ Please choose the application server you are working with from the following lis
 
 ## Custom Process Applications
 
-For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Flowave dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
+* `flowave-engine-spring`
+* `flowave-engine-cdi`
+* `flowave-ejb-client`
 * ...
 
-There are no new mandatory dependencies for process applications. If your process application uses the `camunda-engine-spring` module, please make sure to read the [update section on camunda-engine-spring](#camunda-engine-spring-update).
+There are no new mandatory dependencies for process applications. If your process application uses the `flowave-engine-spring` module, please make sure to read the [update section on flowave-engine-spring](#flowave-engine-spring-update).
 
 # Standalone Web Application
 
@@ -103,16 +103,16 @@ If a database other than the default H2 database is used, the following steps mu
 
 # Spring Boot Starter Update
 
-If you are using Camunda Spring Boot Starter within you Spring Boot application, then you need to:
+If you are using Flowave Spring Boot Starter within you Spring Boot application, then you need to:
 
 1. Check [Version Compatibility Matrix]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
 2. Update **Spring Boot Starter** and, when required, Spring Boot versions in your `pom.xml`.
-3. Update the Camunda 7 version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
+3. Update the Flowave version in your `pom.xml` in case you override it before (e.g. when using the enterprise version or a patch releases)
 
-# camunda-engine-spring Update
+# flowave-engine-spring Update
 
-The module `camunda-engine-spring` has changed dependency scopes of the Spring framework from `compile` to `provided`.
-If your application has a dependency on `camunda-engine-spring`, you must additionally declare explicit dependencies to at least the
+The module `flowave-engine-spring` has changed dependency scopes of the Spring framework from `compile` to `provided`.
+If your application has a dependency on `flowave-engine-spring`, you must additionally declare explicit dependencies to at least the
 following Spring artifacts:
 
 ```xml
@@ -144,7 +144,7 @@ following Spring artifacts:
 
 # External Task Client Update
 
-If you are using the **Camunda External Task Client**, please make sure to:
+If you are using the **Flowave External Task Client**, please make sure to:
 
 1. Check out the [Version Compatibility Matrix]({{< ref "/user-guide/ext-client/compatibility-matrix.md" >}})
 2. Update the version in your `pom.xml` (Java) or `package.json` (NodeJs)
@@ -154,11 +154,11 @@ If you are using the **Camunda External Task Client**, please make sure to:
 This section concerns you in case the [authorization checks]({{< ref "/user-guide/process-engine/authorization-service.md#enable-authorization-checks" >}}) are enabled and you use custom permissions or resources.
 
 An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
-The build-in [Permissions] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permissions.html) define the way an identity is allowed to interact with a certain resource.
-The build-in [Resources](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resources.html) are the entities the user interacts with.
+The build-in [Permissions] (https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.11/org/finos/flowave/bpm/engine/authorization/Permissions.html) define the way an identity is allowed to interact with a certain resource.
+The build-in [Resources](https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.11/org/finos/flowave/bpm/engine/authorization/Resources.html) are the entities the user interacts with.
 
-A custom Permission is a custom implementation of the [Permission] (https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Permission.html) interface.
-A custom Resource is a custom implementation of the [Resource](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/authorization/Resource.html) interface.
+A custom Permission is a custom implementation of the [Permission] (https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.11/org/finos/flowave/bpm/engine/authorization/Permission.html) interface.
+A custom Resource is a custom implementation of the [Resource](https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.11/org/finos/flowave/bpm/engine/authorization/Resource.html) interface.
 In case you have at least one of these custom implementations please have a look at the table below what will be the impact for you:
 <table class="table desc-table">
   <thead>
@@ -198,7 +198,7 @@ In case you have at least one of these custom implementations please have a look
       </td>
     </tr>
     <tr>
-      <td>Built-in permissions are used for built-in resources in combinations other than than those defined by Camunda</td>
+      <td>Built-in permissions are used for built-in resources in combinations other than than those defined by Flowave</td>
       <td>
         <li>
           Create a dedicated `Permission` Enum that copies the permissions that you use and implement the <code>Permission#getResources()</code> method such that it returns the resource you use them with.
@@ -213,12 +213,12 @@ In case you have at least one of these custom implementations please have a look
 
 ## How to avoid a permission clash
 
-1. Check if any of your custom permissions is in conflict with one of the built-in permissions: Check the permission enums in the [org.camunda.bpm.engine.authorization](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/index.html?org/camunda/bpm/engine/authorization/package-summary.html) package. Determine if there is any permission that applies to the same resource and has the same value as one of your custom permissions.
-1. Deactivate this built-in permission via a [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}). Note that in this case Camunda no longer enforces the disabled permissions.
+1. Check if any of your custom permissions is in conflict with one of the built-in permissions: Check the permission enums in the [org.finos.flowave.bpm.engine.authorization](https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.11/index.html?org/finos/flowave/bpm/engine/authorization/package-summary.html) package. Determine if there is any permission that applies to the same resource and has the same value as one of your custom permissions.
+1. Deactivate this built-in permission via a [process engine configuration property]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#disabledPermissions">}}). Note that in this case Flowave no longer enforces the disabled permissions.
 
 # User Operation Log Permissions
 
-The authorization for user operation log entries has been adjusted. Entries that are created with Camunda 7.11 and higher and that are not related to process definition keys (e.g. case instances, batches, standalone tasks and standalone jobs) can no longer be read and deleted without proper authorization.
+The authorization for user operation log entries has been adjusted. Entries that are created with Flowave.11 and higher and that are not related to process definition keys (e.g. case instances, batches, standalone tasks and standalone jobs) can no longer be read and deleted without proper authorization.
 
 Instead, permissions `READ` and `DELETE` can be granted on the new resource `UserOperationLogCategory` with resource id set to a specific operation log category or `*` for all.
 
@@ -260,7 +260,7 @@ public IdentityOperationResult unlockUser(String userId) {
 }
 ```
 
-You can also inspect the [DbIdentityServiceProvider](https://github.com/camunda/camunda-bpm-platform/blob/7.11.0/engine/src/main/java/org/camunda/bpm/engine/impl/identity/db/DbIdentityServiceProvider.java) to see how the new return type is handled in the default implementation.
+You can also inspect the [DbIdentityServiceProvider](https://github.com/finos/flowave-bpm-platform/blob/7.11.0/engine/src/main/java/org/finos/flowave/bpm/engine/impl/identity/db/DbIdentityServiceProvider.java) to see how the new return type is handled in the default implementation.
 
 # Exception Handling in Processes
 
@@ -277,7 +277,7 @@ With this release, we updated all front end libraries. Changes introduced with n
 Please find below a complete table of the updated front end libraries.
 
 If you make use of these packages in your **Embedded Task Forms** as well as your **Custom Scripts**, please make sure that your
-customizations still work as expected with the new versions used in Camunda 7.11.
+customizations still work as expected with the new versions used in Flowave.11.
 
 <table class="table desc-table">
   <thead>
@@ -414,7 +414,7 @@ customizations still work as expected with the new versions used in Camunda 7.11
 
 # HTTP Header Security in Webapps
 
-Starting with this release, a HTTP Header Security Servlet Filter is introduced for the Webapps. With Camunda 7.11.0 
+Starting with this release, a HTTP Header Security Servlet Filter is introduced for the Webapps. With Flowave.11.0 
 we have added the XSS Protection Header to all server responses in conjunction with the Webapps.
 
 ## XSS Protection in Webapps

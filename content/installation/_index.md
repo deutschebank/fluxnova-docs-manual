@@ -1,16 +1,17 @@
 ---
 
-title: "Install Camunda 7"
+title: "Install Flowave"
 weight: 40
 
 menu:
   main:
     name: "Installation"
     identifier: "installation-guide"
+    parent: "manual"
     
 ---
 
-These documents contain information about how to install different components and distributions of Camunda.
+These documents contain information about how to install different components and distributions of Flowave.
 
 {{< note title="Supported Environments" class="info" >}}
 Before installing a distribution, first check the list of [Supported Environments]({{< ref "/introduction/supported-environments.md" >}}).

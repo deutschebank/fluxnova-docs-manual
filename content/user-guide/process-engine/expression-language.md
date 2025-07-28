@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Camunda 7 supports the Unified Expression Language (EL), specified by the [Jakarta Expression
+Flowave supports the Unified Expression Language (EL), specified by the [Jakarta Expression
 Language 4.0 standard][JakartaEL]. To do so, it maintains a custom version of the open source [JUEL][] implementation.
 
 Note, compared to EL 4.0 this JUEL implementation has the following limitations: 
@@ -28,7 +28,7 @@ To get more general information about the usage of Expression Language,
 please read the [official documentation][]. It provides examples that give a good overview of 
 the syntax of expressions.
 
-Within Camunda 7, EL can be used in many circumstances to evaluate small script-like
+Within Flowave, EL can be used in many circumstances to evaluate small script-like
 expressions. The following table provides an overview of the BPMN elements which support
 usage of EL.
 
@@ -86,7 +86,7 @@ usage of EL.
 
 ## Delegation Code
 
-Besides Java code, Camunda 7 also supports the evaluation of expressions as delegation code. For
+Besides Java code, Flowave also supports the evaluation of expressions as delegation code. For
 general information about delegation code, see the corresponding
 [section]({{< ref "/user-guide/process-engine/delegation-code.md" >}}).
 
@@ -170,7 +170,7 @@ For usage of expression language on conditional events, see the following exampl
 
 ## inputOutput Parameters
 
-With the Camunda `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
+With the Flowave `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
 with expression language.
 
 Inside the expression some special variables are available which enable the access of the current
@@ -181,7 +181,7 @@ The following example shows an `inputParameter` which uses expression language t
 a bean.
 
 ```xml
-  <serviceTask id="task" camunda:class="org.camunda.bpm.example.SumDelegate">
+  <serviceTask id="task" camunda:class="org.finos.flowave.bpm.example.SumDelegate">
     <extensionElements>
       <camunda:inputOutput>
         <camunda:inputParameter name="x">
@@ -200,7 +200,7 @@ elements which can be provided with a JUEL expression. The expression is evaluat
 `ExternalTaskService#handleFailure`. If the expression evaluates to `true`, a BPMN error is thrown which can be caught by an
 [Error Boundary Event]({{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
-In the scope of an External Task, expressions have access to the {{< javadocref page="org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
+In the scope of an External Task, expressions have access to the {{< javadocref page="org/finos/flowave/bpm/engine/externaltask/ExternalTask.html" text="ExternalTaskEntity" >}} object via the key `externalTask` which provides getter methods for `errorMessage`, `errorDetails`, `workerId`, `retries` and more.
 
 **Examples:**
 
@@ -264,7 +264,7 @@ evaluating expressions:
   <tbody>
     <tr>
       <td><code>execution</code></td>
-      <td><code>{{< javadocref page="org/camunda/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}</code></td>
+      <td><code>{{< javadocref page="org/finos/flowave/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}</code></td>
       <td>
         Available in a BPMN execution context like a service task, execution listener or sequence
         flow.
@@ -272,17 +272,17 @@ evaluating expressions:
     </tr>
     <tr>
       <td><code>task</code></td>
-      <td><code>{{< javadocref page="org/camunda/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}</code></td>
+      <td><code>{{< javadocref page="org/finos/flowave/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}</code></td>
       <td>Available in a task context like a task listener.</td>
     </tr>
     <tr>
       <td><code>externalTask</code></td>
-      <td><code>{{< javadocref page="org/camunda/bpm/engine/externaltask/ExternalTask.html" text="ExternalTask" >}}</code></td>
+      <td><code>{{< javadocref page="org/finos/flowave/bpm/engine/externaltask/ExternalTask.html" text="ExternalTask" >}}</code></td>
       <td>Available during an external task context activity (e.g. in <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#erroreventdefinition" >}}">camunda:errorEventDefinition</a> expressions).</td>
     </tr>
     <tr>
       <td><code>caseExecution</code></td>
-      <td><code>{{< javadocref page="org/camunda/bpm/engine/delegate/DelegateCaseExecution.html" text="DelegateCaseExecution" >}}</code></td>
+      <td><code>{{< javadocref page="org/finos/flowave/bpm/engine/delegate/DelegateCaseExecution.html" text="DelegateCaseExecution" >}}</code></td>
       <td>Available in a CMMN execution context.</td>
     </tr>
     <tr>
@@ -376,9 +376,9 @@ of the task.
 ```
 
 
-## Built-In Camunda Spin Functions
+## Built-In Flowave Spin Functions
 
-If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
+If the Flowave Spin process engine plugin is activated, the Spin functions `S`,
 `XML` and `JSON` are also available inside of an expression. See the [Data Formats section][spin-section] for a detailed explanation.
 
 ```xml

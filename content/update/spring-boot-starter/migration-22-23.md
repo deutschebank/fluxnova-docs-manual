@@ -13,12 +13,12 @@ menu:
 
 # Maven dependencies
 
-The `groupId` for Maven dependencies has changed, it is now `org.camunda.bpm.springboot`. For example:
+The `groupId` for Maven dependencies has changed, it is now `org.finos.flowave.bpm.springboot`. For example:
 
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.springboot</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+  <groupId>org.finos.flowave.bpm.springboot</groupId>
+  <artifactId>flowave-bpm-spring-boot-starter-webapp</artifactId>
   <version>2.3.0</version>
 </dependency>
 ```
@@ -29,13 +29,13 @@ For Enterprise users, the way to use the Spring Boot Starter has changed. Instea
  
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.springboot</groupId>
-  <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
+  <groupId>org.finos.flowave.bpm.springboot</groupId>
+  <artifactId>flowave-bpm-spring-boot-starter-webapp-ee</artifactId>
   <version>2.3.0</version>
 </dependency>
 ```
 
-The same as before, you will also need to define the appropriate Camunda 7 version with the `-ee` suffix. See the documentation [here](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/#overriding-camunda-version).
+The same as before, you will also need to define the appropriate Flowave version with the `-ee` suffix. See the documentation [here](https://docs.flowave.finos.org/manual/latest/user-guide/spring-boot-integration/#overriding-flowave-version).
  
 # Default configuration values changed
 
@@ -44,4 +44,4 @@ Some default configuration values changed. This means that if you relied on the 
 * The history level is now FULL by default
 * The UUID-Generator is used for id generation by default.
 
-Also, the property `camunda.bpm.job-execution.active` was removed. The job executor is activated whenever it is enabled.
+Also, the property `flowave.bpm.job-execution.active` was removed. The job executor is activated whenever it is enabled.

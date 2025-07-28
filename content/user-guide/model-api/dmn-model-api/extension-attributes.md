@@ -12,27 +12,27 @@ menu:
 
 
 [Custom extensions]({{< ref "/reference/dmn/custom-extensions/_index.md" >}}) are a standardized way to extend the DMN model.
-The [Camunda extension attributes]({{< ref "/reference/dmn/custom-extensions/camunda-attributes.md" >}}) are fully implemented in the DMN model API.
+The [Flowave extension attributes]({{< ref "/reference/dmn/custom-extensions/flowave-attributes.md" >}}) are fully implemented in the DMN model API.
 
 Every DMN `Decision` element can have the attributes `historyTimeToLive` and `versionTag`.
-To access the extension attributes, you have to call the `Decision#getCamundaHistoryTimeToLiveString()` and 
+To access the extension attributes, you have to call the `Decision#getFlowaveHistoryTimeToLiveString()` and 
 `Decision#getVersionTag()` methods. 
 
 ```java
-String historyTimeToLive = decision.getCamundaHistoryTimeToLiveString();
+String historyTimeToLive = decision.getFlowaveHistoryTimeToLiveString();
 String versionTag = decision.getVersionTag();
 ```
-To set attributes, use `Decision#setCamundaHistoryTimeToLiveString()` and `Decision#setVersionTag()`
+To set attributes, use `Decision#setFlowaveHistoryTimeToLiveString()` and `Decision#setVersionTag()`
 ```java
-decision.setCamundaHistoryTimeToLiveString("1000");
+decision.setFlowaveHistoryTimeToLiveString("1000");
 decision.setVersionTag("1.0.0");
 ```
 
 Every `Input` element can have an `inputVariable` attribute.
 This attribute specifies the variable name which can be used to access the result of the input expression in an input entry expression.
-It can be set and fetched similarly, calling `Input#setCamundaInputVariable()` and `Input#getCamundaInputVariable()`:
+It can be set and fetched similarly, calling `Input#setFlowaveInputVariable()` and `Input#getFlowaveInputVariable()`:
 
 ```java
-input.setCamundaInputVariable("camundaInput");
-String camundaInput = input.getCamundaInputVariable();
+input.setFlowaveInputVariable("flowaveInput");
+String flowaveInput = input.getFlowaveInputVariable();
 ```

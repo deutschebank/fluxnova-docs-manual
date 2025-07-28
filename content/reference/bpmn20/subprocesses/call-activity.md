@@ -203,7 +203,7 @@ There are two possible ways to use delegation for variable mapping.
 
 ### Delegate Variable Mapping via Reference
 
-The first one is to set the Camunda extension property `variableMappingClass` and reference the implementation of the `DelegateVariableMapping` interface via the whole class name.
+The first one is to set the Flowave extension property `variableMappingClass` and reference the implementation of the `DelegateVariableMapping` interface via the whole class name.
 
 
 ```xml
@@ -213,7 +213,7 @@ The first one is to set the Camunda extension property `variableMappingClass` an
 
     <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
 
-    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingClass="org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingClass="org.finos.flowave.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
 
     <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
 
@@ -228,7 +228,7 @@ The first one is to set the Camunda extension property `variableMappingClass` an
 
 ### Delegate Variable Mapping via Expression
 
-The second one is to set the Camunda extension property `variableMappingDelegateExpression` with an expression.
+The second one is to set the Flowave extension property `variableMappingDelegateExpression` with an expression.
 This allows to specify an expression that resolves to an object implementing the `DelegateVariableMapping` interface.
 
 ```xml
@@ -339,7 +339,7 @@ An expression also allows using the tenant id of the calling process instance in
 </callActivity>
 ```
 
-# Camunda Extensions
+# Flowave Extensions
 
 <table class="table table-striped">
   <tr>
@@ -402,5 +402,5 @@ An expression also allows using the tenant id of the calling process instance in
 
 # Additional Resources
 
-*   [Call Activity](http://camunda.org/bpmn/reference.html#activities-call-activity) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+*   [Call Activity](http://flowave.finos.org/bpmn/reference.html#activities-call-activity) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
 

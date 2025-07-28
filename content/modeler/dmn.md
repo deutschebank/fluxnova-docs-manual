@@ -1,12 +1,12 @@
 ---
 
-title: 'Editing DMN in Camunda Modeler'
+title: 'Editing DMN in Flowave Modeler'
 weight: 20
 
 menu:
   main:
     name: "DMN"
-    identifier: "camunda-modeler-dmn"
+    identifier: "flowave-modeler-dmn"
     parent: "modeler"
     pre: "How to model executable DMN 1.3 decision diagrams (DRD) and tables."
 

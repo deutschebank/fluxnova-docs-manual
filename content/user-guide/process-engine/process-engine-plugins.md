@@ -15,17 +15,17 @@ The process engine configuration can be extended through process engine plugins.
 extension to the [process engine configuration]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md" >}}).
 
 A plugin must provide an implementation of the 
-{{< javadocref page="org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
+{{< javadocref page="org/finos/flowave/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}} interface.
 
 
 # Configure Process Engine Plugins
 
 Process engine plugins can be configured
 
-* in the [Camunda Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
+* in the [Flowave Deployment Descriptors]({{< ref "/reference/deployment-descriptors/_index.md" >}}) (bpm-platform.xml/processes.xml),
 * in the [Wildfly configuration file]({{< ref "/user-guide/runtime-container-integration/jboss.md" >}}) (standalone.xml/domain.xml),
 * using [Spring Beans XML]({{< ref "/user-guide/spring-framework-integration/_index.md#configure-a-process-engine-plugin-in-spring" >}}),
-* in the [Camunda Run YAML configuration files]({{< ref "/user-guide/camunda-bpm-run.md#process-engine-plugin-registration" >}})
+* in the [Flowave Run YAML configuration files]({{< ref "/user-guide/flowave-bpm-run.md#process-engine-plugin-registration" >}})
 * programatically.
 
 The following is an example of how to configure a process engine plugin in a bpm-platform.xml file:
@@ -42,12 +42,12 @@ The following is an example of how to configure a process engine plugin in a bpm
 
   <process-engine name="default">
     <job-acquisition>default</job-acquisition>
-    <configuration>org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</configuration>
+    <configuration>org.finos.flowave.bpm.engine.impl.cfg.JtaProcessEngineConfiguration</configuration>
     <datasource>jdbc/ProcessEngine</datasource>
 
     <plugins>
       <plugin>
-        <class>org.camunda.bpm.engine.MyCustomProcessEnginePlugin</class>
+        <class>org.finos.flowave.bpm.engine.MyCustomProcessEnginePlugin</class>
         <properties>
           <property name="boost">10</property>
           <property name="maxPerformance">true</property>

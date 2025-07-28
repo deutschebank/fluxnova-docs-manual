@@ -11,7 +11,7 @@ menu:
 ---
 
 {{< note title="Plugin Compatibility" class="info" >}}
-  Please note that the code of Tasklist plugins might need to be migrated when updating Camunda 7 to a higher version (e.g. CSS styles).
+  Please note that the code of Tasklist plugins might need to be migrated when updating Flowave to a higher version (e.g. CSS styles).
 {{< /note >}}
 
 Tasklist uses the concept of plugins to add own functionality without having to extend or hack the Tasklist web application.
@@ -19,7 +19,7 @@ Tasklist uses the concept of plugins to add own functionality without having to 
 For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< ref "/webapps/cockpit/extend/plugins.md" >}}).
 
 {{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
-  * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
+  * To publish the plugin with Tasklist, its class name must be put into a file called ```org.finos.flowave.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
   * The plugin mechanism of Tasklist does not allow to provide additional SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
 {{< /note >}}
 
@@ -94,5 +94,5 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 For more information on creating and configuring your own plugin, please have a look at the following examples:
 
-* [How to build the server side](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/assembly/src/main/java/org/camunda/bpm/tasklist/impl/plugin)
-* [How to build the client side](https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/frontend/ui/tasklist/plugins/standaloneTask/app)
+* [How to build the server side](https://github.com/finos/flowave-bpm-platform/tree/master/webapps/assembly/src/main/java/org/finos/flowave/bpm/tasklist/impl/plugin)
+* [How to build the client side](https://github.com/finos/flowave-bpm-platform/tree/master/webapps/frontend/ui/tasklist/plugins/standaloneTask/app)

@@ -61,7 +61,7 @@ The empty processes.xml will scan for process definitions and perform a single d
 
 # Location of the processes.xml File
 
-The default location of the processes.xml file is `META-INF/processes.xml`. Camunda 7 will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
+The default location of the processes.xml file is `META-INF/processes.xml`. Flowave will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
 
 In an apache maven based project, add the the processes.xml file to the `src/main/resources/META-INF` folder.
 
@@ -95,7 +95,7 @@ xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <process-engine name="my-engine">
-    <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration</configuration>
+    <configuration>org.finos.flowave.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration</configuration>
   </process-engine>
 
   <process-archive name="loan-approval">
