@@ -17,7 +17,7 @@ comprehensive reference section.
 
 ## Getting Started
 
-The Guide [Get started with Flowave]("/get-started/quick-start/") is the quickest and easiest way to get up and running with Flowave. Alternatives include:
+The Guide [Get started with Flowave](/get-started/quick-start/) is the quickest and easiest way to get up and running with Flowave. Alternatives include:
 
 <div class="row">
   <div class="col-xs-6 col-md-4">
@@ -41,16 +41,16 @@ Once you completed a Getting Started Guide, you may find the following topics us
       <strong>Introduction</strong>
       <ul class="list-unstyled">
         <li>
-          <a href="{{ ref . "/introduction/_index.md" }}">Overview</a>
+          <a href="/introduction/">Overview</a>
         </li>
         <li>
-          <a href="{{ ref . "/introduction/downloading-flowave.md" }}">Download</a>
+          <a href="/introduction/downloading-flowave/">Download</a>
         </li>
         <li>
-          <a href="{{ ref . "/introduction/architecture.md" }}">Architecture</a>
+          <a href="/introduction/architecture/">Architecture</a>
         </li>
         <li>
-          <a href="{{ ref . "/introduction/supported-environments.md" }}">Supported Environments</a>
+          <a href="/introduction/supported-environments/">Supported Environments</a>
         </li>
       </ul>
     </div>
@@ -58,19 +58,19 @@ Once you completed a Getting Started Guide, you may find the following topics us
       <strong>Guides</strong>
       <ul class="list-unstyled">
         <li>
-          <a href="{{ ref . "/installation/_index.md" }}">Installation</a>
+          <a href="/installation/">Installation</a>
         </li>
         <li>
-          <a href="{{ ref . "/user-guide/_index.md" }}">User Guide</a>
+          <a href="/user-guide/">User Guide</a>
         </li>
         <li>
-          <a href="{{ ref . "/modeler/_index.md" }}">Modeler</a>
+          <a href="/modeler/">Modeler</a>
         </li>
         <li>
-          <a href="{{ ref . "/webapps/_index.md" }}">Web Applications</a>
+          <a href="/webapps/">Web Applications</a>
         </li>
         <li>
-          <a href="{{ ref . "/update/_index.md" }}">Update &amp; Migration</a>
+          <a href="/update/">Update &amp; Migration</a>
         </li>
       </ul>
     </div>
@@ -78,22 +78,22 @@ Once you completed a Getting Started Guide, you may find the following topics us
       <strong>References</strong>
       <ul class="list-unstyled">
         <li>
-          <a href="{{ ref . "/reference/rest/_index.md" }}">REST Api</a>
+          <a href="/reference/rest/">REST Api</a>
         </li>
         <li>
-          <a href="{{ ref . "/reference/javadoc.md" }}">Javadoc</a>
+          <a href="/reference/javadoc/">Javadoc</a>
         </li>
         <li>
-          <a href="{{ ref . "/reference/bpmn20/_index.md" }}">BPMN 2.0</a>
+          <a href="/reference/bpmn20/">BPMN 2.0</a>
         </li>
         <li>
-          <a href="{{ ref . "/reference/cmmn11/_index.md" }}">CMMN 1.1</a>
+          <a href="/reference/cmmn11/">CMMN 1.1</a>
         </li>
         <li>
-          <a href="{{ ref . "/reference/dmn/_index.md" }}">DMN 1.3</a>
+          <a href="/reference/dmn/">DMN 1.3</a>
         </li>
         <li>
-          <a href="{{ ref . "/reference/forms/embedded-forms/_index.md" }}">HTML Forms</a>
+          <a href="/reference/forms/embedded-forms/">HTML Forms</a>
         </li>
       </ul>
     </div>
@@ -102,9 +102,9 @@ Once you completed a Getting Started Guide, you may find the following topics us
 
 ## Getting Help
 
-In case you get stuck on a problem make sure to [ask for Help in the Forums]("https://forum.camunda.io") or on [Stack Overflow]("http://stackoverflow.com/questions/tagged/camunda")
+In case you get stuck on a problem make sure to [ask for Help in the Forums](https://forum.camunda.io) or on [Stack Overflow](http://stackoverflow.com/questions/tagged/camunda)
 
 ## Community Extensions
 
-A number of [Community Extensions]({{ ref . "/introduction/extensions.md" }}) enhance Flowave with additional capabilities.
-Browse the [Flowave Community Hub]("https://github.com/flowave-community-hub") for information on [building a Flowave Community Extension](https://github.com/flowave-community-hub/community"), discover new Flowave Community Extension open source projects to contribute to, and more.
+A number of [Community Extensions](/introduction/extensions/) enhance Flowave with additional capabilities.
+Browse the [Flowave Community Hub](https://github.com/flowave-community-hub) for information on [building a Flowave Community Extension](https://github.com/flowave-community-hub/community), discover new Flowave Community Extension open source projects to contribute to, and more.
