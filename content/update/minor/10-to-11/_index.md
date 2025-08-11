@@ -1,15 +1,16 @@
 ---
 
-title: "Update from 7.0 to 7.1"
+title: "Update from 1.0 to 1.1"
 weight: 120
 layout: "single"
+draft: true
 
 menu:
   main:
-    name: "7.0 to 7.1"
-    identifier: "migration-guide-70"
+    name: "1.0 to 1.1"
+    identifier: "migration-guide-10"
     parent: "migration-guide-minor"
-    pre: "Update from `7.0.x` to `7.1.0`."
+    pre: "Update from `1.0.x` to `1.1.0`."
 
 ---
 

@@ -73,7 +73,7 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ## Enabling auto-storing of Script Variables
 
-By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Flowave.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< ref "/update/_index.md" >}}) for more information).
+By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< ref "/update/_index.md" >}}) for more information).
 
 To use this feature, you have to
 
@@ -140,4 +140,3 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
 
 [script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
 [user-guide]: {{< ref "/user-guide/_index.md" >}}
-[autostore-variables]: {{< ref "/update/minor/71-to-72/_index.md#script-variable-storing" >}}

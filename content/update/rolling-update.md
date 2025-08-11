@@ -13,9 +13,7 @@ menu:
 ---
 
 {{< note title="Limits for Rolling Updates" class="warning" >}}
-Rolling updates are not possible prior to Version `7.5`. Or in other words: the first update that can be done in the way described on this page is the update from version `7.5.x` to `7.6.y`.
-
-Also note that it is only possible to update from one minor version to the next. For example, it is possible to update from `7.5.3` to `7.6.2` in a rolling fashion but it is not possible to update from `7.5.3` to `7.7.2` in one go.
+Note that it is only possible to update from one minor version to the next. For example, it is possible to update from `1.0.3` to `1.1.2` in a rolling fashion but it is not possible to update from `1.0.3` to `1.2.1` in one go.
 Before the rolling update from one minor to another can be executed, the latest patch, of the current used minor version, must be applied to all nodes before proceeding to the next minor version.
 
 More considerations for rolling updates can be found at the bottom of this page. Make sure to read them.
@@ -110,7 +108,7 @@ In this step an updated node is re-integrated into the cluster. This usually mea
 To facilitate updates, Flowave ensures backwards compatibility of the database schema.
 Backwards compatibility makes it possible to operate an older version of the process engine on a newer version of the database schema. This property is crucial in the first step of the rolling update process: after the database has been updated, the process engine libraries are still at the previous version.
 
-## On-line applicability of Db Migration Script
+## On-line applicability of DB Migration Script
 
 Note that Flowave does not guarantee that the migration script is applicable on-line (concurrently to in-flight transactions).
 While Flowave does its best effort to ensure this property, it is not guaranteed. It is therefore strongly recommended to _test the database migration script_ on a test database with a similar load to the production database.
@@ -121,8 +119,5 @@ During the rolling update process, it is not permitted to use new features of th
 
 ## One Minor Releases Only
 
-It is only possible to update from one minor version to the next. For example, it is possible to update from `7.5.3` to `7.6.2` in a rolling fashion but it is not possible to update from `7.5.3` to `7.7.2` in one go.
+It is only possible to update from one minor version to the next. For example, it is possible to update from `1.0.3` to `1.1.2` in a rolling fashion but it is not possible to update from `1.0.3` to `1.2.2` in one go.
 
-## Required Version
-
-Rolling updates are not possible prior to Version `7.5`. Or in other words: the first update that can be done in the way described on this page is the update from version `7.5.x` to `7.6.y`.
