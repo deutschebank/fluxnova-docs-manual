@@ -90,7 +90,8 @@ public HistoryEventHandler customHistoryEventHandler() {
 ```
 
 ### `DefaultHistoryLevelAutoHandlingConfiguration`
-As flowave version >= 7.4 supports `history-level auto`, this configuration adds support for versions <= 7.3.
+
+This configuration is for backwards-compatiblitiy only as Flowave supports `history-level auto` by default.
 
 To have more control over the handling, you can provide your own
 
@@ -267,22 +268,6 @@ The available properties are as follows:
 <td><code>.job-executor-acquire-by-priority</code></td>
 <td>If set to true, the job executor will acquire the jobs with the highest priorities</td>
 <td><code>false</code></td>
-</tr>
-
-<tr>
-<td><a name="license-file"></a><code>.license-file</code></td>
-<td>Provides a URL to your Flowave license file and is automatically inserted into the DB when the application starts (but only if no valid license key is found in the DB).</br></br>
-<b>Note:</b> This property is only available when using the <a href="{{<ref "/user-guide/spring-boot-integration/webapps.md#enterprise-webapps" >}}">flowave-bpm-spring-boot-starter-webapp-ee</a>
-</td>
-<td>By default, the license key will be loaded:
- <ol>
-  <li>from the URL provided via the this property (if present)</li>
-  <li>from the file with the name <code>flowave-license.txt</code> from the classpath (if present)</li>
-  <li>from path <i>${user.home}/.flowave/license.txt</i> (if present)</li>
- </ol>
- The license must be exactly in the format as we sent it to you including the header and footer line. Bear in mind
- that for some licenses there is a minimum <a href="{{<ref "/user-guide/license-use.md#license-compatibility" >}}">version requirement</a>.
-</td>
 </tr>
 
 <tr>

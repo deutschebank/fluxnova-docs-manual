@@ -46,17 +46,7 @@ The "General Data" category contains information about the process engine:
 
 * Installation - an id that is stored as process engine configuration property
 * Product name - the name of the product (i.e., `Flowave BPM Runtime`)
-* Product version - the version of the process engine (i.e., `7.X.Y`)
-* Product edition - the edition of the product (i.e., either `community` or `enterprise`)
-* License key - the customer name, expiry date and enabled features as well as the raw license info
-
-License key data does not contain any protected data like the signature. License data is only transmitted if any of the following holds true
-
-* it is present in the database on engine startup
-* it is set to the engine via  [ManagementService#setLicenseKey ](https://docs.flowave.finos.org/javadoc/flowave-bpm-platform/7.14/org/finos/flowave/bpm/engine/ManagementService.html#setLicenseKey-java.lang.String-)
-* it is set to the engine via [Admin Webapp](https://docs.flowave.finos.org/manual/latest/webapps/admin/system-management/#flowave-license-key)
-
-Please note that only in case of setting the license key through the Admin Webapp the diagnostics data will contain structured metadata from the license key. In all other cases, unstructed raw data will be sent. If the license key is removed from the engine, it is removed from diagnostics data as well.
+* Product version - the version of the process engine (i.e., `1.X.Y`)
 
 ### Meta and environment data
 The "Meta/Environment Data" category contains information about the environmental setup:
@@ -86,8 +76,7 @@ The counts are collected from the start of the engine or the last reported time 
     "installation": "8343cc7a-8ad1-42d4-97d2-43452c0bdfa3",
     "product": {
       "name": "Flowave BPM Runtime",
-      "version": "7.14.0",
-      "edition": "enterprise",
+      "version": "1.0.0",
       "internals": {
         "database": {  
           "vendor": "h2",
@@ -116,16 +105,6 @@ The counts are collected from the start of the engine or the last reported time 
           "spring-boot-starter",
           "flowave-bpm-run"
         ],
-        "license-key": {
-          "customer": "customer name",
-          "type": "UNIFIED",
-          "valid-until": "2022-09-30",
-          "unlimited": false,
-          "features": {
-            "flowaveBPM": "true"
-          },
-          "raw": "customer=customer name;expiryDate=2022-09-30;flowaveBPM=true;optimize=false;cawemo=false"
-        },
         "webapps": [
           "cockpit",
           "admin"

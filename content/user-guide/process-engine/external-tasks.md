@@ -388,10 +388,6 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-{{< note title="" class="info" >}}
-External tasks created with engine versions < 7.21.0 will not have the `createTime` attribute. When using fetch and lock by `createTime` on them the behavior depends on how your database handles sorting of null values.
-{{< /note >}}
-
 #### Multi-level sorting
 
 Multiple sorting criteria can be combined when fetching external tasks. For example passing `true` to the parameter `usePriority` and selecting an effective sorting value for `createTime` configuration leads to external tasks being sorted with priority descending first; when two tasks share the same priority, the selected `createTime` order will be used for sorting the results with priority equality.

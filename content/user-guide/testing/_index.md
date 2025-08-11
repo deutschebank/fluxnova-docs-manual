@@ -21,7 +21,7 @@ Flowave provides helper classes to write unit tests for JUnit versions 3, 4 and 
 
 ## JUnit 5
 
-Flowave version 7.17.0+ ships with a {{< javadocref page="org/finos/flowave/bpm/engine/test/junit5/ProcessEngineExtension.html" text="JUnit 5 extension" >}} that provides access to the process engine and services through getter methods.
+Flowave version 1.0.0+ ships with a {{< javadocref page="org/finos/flowave/bpm/engine/test/junit5/ProcessEngineExtension.html" text="JUnit 5 extension" >}} that provides access to the process engine and services through getter methods.
 
 The extensions process engine is configured by the default configuration file called `flowave.cfg.xml`, which needs to be placed on the classpath. A custom configuration file can be passed to the extension when creating the `ProcessEngineExtension` object.
 
@@ -282,8 +282,8 @@ the AssertJ dependency will be present in your project already.
 
 Each version of Flowave Assert is bound to a specific version of Flowave and AssertJ. Only these default combinations are recommended (and supported) by Flowave.
 Nevertheless, each version of Flowave Assert can be combined with newer patch versions of the Flowave engine, though such combinations must be thoroughly tested before being used in production.
-All versions prior to 3.0.0 belong to the community extension are not part of the official Flowave product support.
-With Flowave.17.0 the project was moved into the [Flowave repository](https://github.com/finos/flowave-bpm-platform) and will use the same versioning as Flowave in the future.
+
+Flowave Assert is part of [Flowave repository](https://github.com/finos/flowave-bpm-platform) and uses the same versioning as Flowave.
 
 <table class="table table-striped">
   <tr>
@@ -294,128 +294,9 @@ With Flowave.17.0 the project was moved into the [Flowave repository](https://gi
   </tr>
   <tr>
     <td>flowave-bpm-assert</td>
-    <td>1.5.0</td>
-    <td>1.0&#42;</td>
-    <td>7.0.0 - 7.6.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>1.6.1</td>
-	<td>1.1&#42;</td>
-    <td>7.0.0 - 7.6.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>1.7.0</td>
-	<td>1.2&#42;</td>
-    <td>7.0.0 - 7.6.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>1.7.1</td>
-	<td>2.0-alpha1&#42;&#42;</td>
-    <td>7.0.0 - 7.9.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>1.7.1</td>
-	<td>2.0-alpha2&#42;&#42;</td>
-    <td>7.0.0 - 7.9.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</br>flowave-bpm-assert-assertj2</br>flowave-bpm-assert-assertj3-9-1</td>
-    <td>3.11.1</br>2.9.0</br>3.9.1</td>
-    <td>3.0.0&#42;&#42;&#42;</td>
-    <td>7.10.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</br>flowave-bpm-assert-assertj2</br>flowave-bpm-assert-assertj3-11-1</td>
-    <td>3.12.2</br>2.9.0</br>3.11.1</td>
-    <td>4.0.0&#42;&#42;&#42;</td>
-    <td>7.11.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.13.2</td>
-    <td>5.0.0&#42;&#42;&#42;</td>
-    <td>7.12.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.13.2</td>
-    <td>6.0.0&#42;&#42;&#42;</td>
-    <td>7.13.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.16.1</td>
-    <td>7.0.0&#42;&#42;&#42;</td>
-    <td>7.13.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.16.1</td>
-    <td>8.0.0&#42;&#42;&#42;</td>
-    <td>7.14.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.18.1</td>
-    <td>9.0.0&#42;&#42;&#42;</td>
-    <td>7.14.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.18.1</td>
-    <td>10.0.0&#42;&#42;&#42;</td>
-    <td>7.15.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.19.0</td>
-    <td>11.0.0&#42;&#42;&#42;</td>
-    <td>7.15.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.19.0</td>
-    <td>12.0.0&#42;&#42;&#42;</td>
-    <td>7.16.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.20.2</td>
-    <td>13.0.0&#42;&#42;&#42;</td>
-    <td>7.16.0</td>
-  </tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.21.0</td>
-    <td>15.0.0&#42;&#42;&#42;</td>
-    <td>7.16.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.21.0</td>
-    <td>7.17.0</td>
-    <td>7.17.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.22.0</td>
-    <td>7.18.0<br/>7.19.0</td>
-    <td>7.18.0<br/>7.19.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
-    <td>3.24.2</td>
-    <td>7.20.0<br/>7.21.0</td>
-    <td>7.20.0<br/>7.21.0</td>
-  </tr>
-  <tr>
-    <td>flowave-bpm-assert</td>
     <td>3.25.3</td>
-    <td>7.22.0</td>
-    <td>7.22.0</td>
+    <td>1.0.0</td>
+    <td>1.0.0</td>
   </tr>
 </table>
 
@@ -451,18 +332,6 @@ For these versions, use the following Maven coordinates:
   <version>${version.flowave-assert}</version> <!-- set correct version here -->
   <scope>test</scope>
 </dependency>
-```
-
-## Migration from a version prior to 7.17.0
-
-In order to migrate from an earlier Flowave Assert version to a version 7.17.0 or higher, the following points have to be considered:
-
-* The groupId for Maven dependencies has changed, it is now `org.finos.flowave.bpm`. Project dependencies have to be adjusted accordingly.
-* There might be multiple artifacts available for a specific version as shown in the compatibility overview above. The artifact that matches the other project dependencies has to be chosen by `artifactId` and `version`.
-* The inheritance from AssertJ's `Assertions` has been cut. In case AssertJ assertions are used in test code besides BPM Assert assertions, the imports have to be adjusted to also include:
-
-```java
-import static org.assertj.core.api.Assertions.*;
 ```
 
 # Community extensions to support testing

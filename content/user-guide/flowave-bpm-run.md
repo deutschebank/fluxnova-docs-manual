@@ -176,12 +176,6 @@ You can reference forms and scripts in the BPMN diagram with `embedded:deploymen
 
 Deployments via the {{< restref page="createDeployment" text="REST API" tag="Deployment" >}} are still possible.
 
-## Automatic License Pickup
-
-If you downloaded the enterprise version of Flowave Run, you will need a license key to enable the enterprise 
-features. Please see the [dedicated License section]({{< ref "/user-guide/license-use.md#with-the-flowave-spring-boot-starter-flowave-run" >}}) 
-of the docs, to learn more.
-
 # Configure Flowave Run
 
 Just like all the other distros, you can tailor Flowave Run to your needs. To do this, you only have to edit one of the [configuration files](#choose-between-default-and-production-configuration) that you can find in the configuration folder.

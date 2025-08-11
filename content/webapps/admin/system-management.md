@@ -63,31 +63,3 @@ This part has been truncated in the example.
   }
 }
 ```
-
-# Flowave License Key
-
-{{< enterprise >}}
-  Please note that this feature is only included in the enterprise edition of Flowave, it is not 
-  available in the community edition.
-{{< /enterprise >}}
-
-Some features of the Flowave Webapps (e.g. enterprise plugins) require a license key. To read more about the Flowave
-license key, please see the [dedicated section]({{< ref "/user-guide/license-use.md" >}}) of the docs. The following 
-section explains how to activate a license through the Flowave Admin Webapp UI.
-
-Whenever you see one of the following messages, a valid license key must be entered.
-
-{{< img src="../img/admin-license-prompt.png" title="License Prompt for Admins" >}}
-{{< img src="../img/admin-license-prompt-noAdmin.png" title="License Prompt for Non-Admins" >}}
-
-If you have administrator authorizations, insert your company's license key for Flowave and view 
-some License Key details such as the Company Id and the validity of the license key. The Admin system setting menu 
-offers the possibility to enter additional licenses, for instance when your existing license is expiring and you want 
-to enter a new license key.
-
-If you do not have administrator authorizations, please contact your administrator so that they can enter the license.
-
-In case you are running Flowave locally, you can use this URL to enter the license key:
-http://localhost:8080/flowave/app/admin/default/#/system?section=system-settings-license
-
-{{< img src="../img/admin-license-key.png" title="License Key" >}}
