@@ -9,19 +9,18 @@ menu:
     parent: "user-guide-introduction"
 
 ---
+{{< note title="Flowave Update Required" class="warning" >}}
+This section originally referred to Camunda as legal entity and needs to be updated accordingly to refer to FINOS or Flowave Project.
+{{< /note >}}
 
 
 # Flowave 
 
 Flowave is a Java-based framework.
 
-## Community Edition
+## License
 
-If you are using the community edition, the entire software is provided under various open source licenses (mainly Apache 2.0 and MIT). Which components are published under an open source license is clearly stated in the licensing header of a source file or a LICENSE file present in the root directory of the software source code repository.
-
-## Enterprise Edition
-
-If you are using the Enterprise Platform, additionally to the Community components, the software contains additional Enterprise components that are protected by intellectual property laws and provided to you under a license agreement containing restrictions on use and disclosure. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish the Enterprise components, or display any part in any form, or by any means. Reverse engineering, disassembly, or decompilation of the Enterprise components, unless required by law for interoperability, is prohibited.
+The entire software is provided under various open source licenses (mainly Apache 2.0 and MIT). Which components are published under an open source license is clearly stated in the licensing header of a source file or a LICENSE file present in the root directory of the software source code repository.
 
 ## Third-Party Libraries
 

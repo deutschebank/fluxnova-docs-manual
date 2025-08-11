@@ -14,6 +14,8 @@ menu:
 
 Welcome to the Flowave Manual! Flowave is a Java-based framework supporting BPMN for workflow and process automation, CMMN for Case Management and DMN for Business Decision Management. Also see: [Implemented Standards]({{< ref "/introduction/implemented-standards.md" >}}).
 
+Flowave is a fork of Camunda 7 Community Edition framework, which was [announced to be end-of-life and discontinued in October 2025](https://forum.camunda.io/t/important-update-camunda-7-community-edition-end-of-life-announced/50921) by its original maintainer Camunda Services GmbH. Flowave builds upon the forked version and provides continued improvements, extensions, and security fixes as a FINOS open source project.
+
 This document contains information about the features provided by Flowave.
 
 To give you an overview of Flowave, the following illustration shows the most important components along with some typical user roles.
