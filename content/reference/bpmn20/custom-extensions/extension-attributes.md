@@ -75,7 +75,6 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -84,17 +83,13 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -137,7 +132,6 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -146,18 +140,14 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -1034,7 +1024,6 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -1043,18 +1032,14 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Boundary Event,
       <a href="{{< ref "/reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
       <a href="{{< ref "/reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
@@ -1415,7 +1400,6 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">End Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
       <a href="{{< ref "/reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
-
       Task,
       <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
@@ -1424,17 +1408,13 @@ The following attributes are extension attributes for the `flowave` namespace `h
       <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">Script Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a>,
       <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">Manual Task</a>,
-
       <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
-
       <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">Parallel Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
-
       <a href="{{< ref "/reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
-
       Process
     </td>
   </tr>

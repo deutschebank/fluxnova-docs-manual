@@ -223,18 +223,16 @@ The following is a list of all supported configuration properties.
       (if <code>isScanForProcessDefinitions</code> is set to true).
       <p> The path is interpreted as
       <ul>
-
         <li>
           <strong>local to the root of the classpath.</strong>
           By default or if the prefix <code>classpath:</code> is used, the path is interpreted as relative to the root
           of the classloader. Example: <code>path/to/my/processes</code> or <code>classpath:path/to/my/processes</code>)
         </li>
-
         <li>
           <strong>relative to the parent folder of the process archive's deployment descriptor file (processes.xml).</strong>
           If the prefix <code>pa:</code> is used, the path is interpreted as relative to the deployment descriptor defining the
           process archive. Consider the situation of a process application packaged as a WAR file:
-
+          <p/>
           The deployment structure could look like this:
           <pre>
 |-- My-Application.war
@@ -244,7 +242,6 @@ The following is a list of all supported configuration properties.
                 |-- META-INF/processes.xml  (1)
                 |-- opps/openOpportunity.bpmn
                 |-- leads/openLead.bpmn
-
             |-- Invoice-Processes.jar
                 |-- META-INF/processes.xml  (2)
          </pre>
