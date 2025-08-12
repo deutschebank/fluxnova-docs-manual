@@ -57,18 +57,3 @@ public class MyBean {
 
 }
 ```
-
-## Using JTA transaction integration with WebSphere Liberty
-
-Flowave allows to mark a transaction as "rollback only" by calling `UserTransaction#setRollbackOnly()`.
-If this code is executed within a Flowave Job, the Job is marked as failed, and can be retried.
-
-WebSphere Liberty doesn't support this behavior of Flowave. When calling `UserTransaction#setRollbackOnly()`
-in WebSphere Liberty, the transaction is rolled back silently, and the Flowave process engine is unable to unlock the
-job and decrease the job retry count.
-
-As a workaround, you can throw a `RuntimeException` after invoking the `UserTransaction#setRollbackOnly()`. The Flowave
-process engine will catch this `Exception` and handle the transaction rollback inside a job correctly.
-
-For more details on the WebSphere Liberty Flowave integration, check
-out the [WebSphere Liberty installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}) section.

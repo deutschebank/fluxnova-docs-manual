@@ -34,9 +34,6 @@ Run Flowave in every Java-runnable environment. Flowave is supported with our QA
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
 * WildFly Application Server 23.0 / 26.0 / 33.0 / 35.0
-* IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://flowave.finos.org/enterprise/), 
-  see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
-* Oracle WebLogic Server 14c (14.1.1.0.0) ([Enterprise Edition only](http://flowave.finos.org/enterprise/))
 
 # Databases
 
