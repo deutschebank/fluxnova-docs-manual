@@ -118,8 +118,6 @@ Here you can find how to configure the session cookie for the following containe
 
 * [Tomcat]({{< ref "/installation/full/tomcat/configuration.md#session-cookie-in-webapps" >}})
 * [JBoss EAP & Wildfly]({{< ref "/installation/full/jboss/configuration.md#session-cookie-in-webapps" >}})
-* [IBM WebSphere Application Server]({{< ref "/installation/full/was/configuration.md#session-cookie-in-webapps" >}})
-* [Oracle WebLogic Server]({{< ref "/installation/full/wls/configuration.md#session-cookie-in-webapps" >}})
 * [Spring Boot]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}})
 
 ### CSRF Cookie

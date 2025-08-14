@@ -99,7 +99,7 @@ Strengths:
 
 Limitations:
 
-* Can only remove data for which a removal time is set. This is especially not the case for data which has been created with Flowave versions < 7.10.0.
+* Can only remove data for which a removal time is set.
 * Changing the TTL of a definition only applies to history data that is created in the future. It does not dynamically update the removal time of already written history data. However, it is possible to [Set a Removal Time via Batch Operations]({{< ref "/user-guide/process-engine/batch-operations.md#set-a-removal-time">}}).
 * History data of case instances is not cleaned up.
 
@@ -243,10 +243,6 @@ The property accepts values in the ISO-8601 date format. Note that only the nota
 ```xml
 <property name="taskMetricsTimeToLive">P540D</property>
 ```
-
-{{< note title="Heads Up!" class="warning" >}}
-If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store task metrics from `ACT_RU_TASK_METER_LOG` for at least 18 months until they were reported.
-{{< /note >}}
 
 ### Cleanup window
 

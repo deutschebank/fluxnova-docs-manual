@@ -20,27 +20,7 @@ Only these default combinations are recommended (and supported) by Flowave.
     <th>Quarkus version</th>
   </tr>
   <tr>
-    <td>7.16.x, 7.17.x</td>
-    <td>2.1.x.Final</td>
-  </tr>
-  <tr>
-    <td>7.18.x</td>
-    <td>2.8.x.Final</td>
-  </tr>
-  <tr>
-    <td>7.19.x</td>
-    <td>2.16.x.Final</td>
-  </tr>
-  <tr>
-    <td>7.20.x</td>
-    <td>3.2.x.Final</td>
-  </tr>
-  <tr>
-    <td>7.21.x</td>
-    <td>3.8.x</td>
-  </tr>
-  <tr>
-    <td>7.22.x</td>
+    <td>1.0.x</td>
     <td>3.15.x</td>
   </tr>
 </table>

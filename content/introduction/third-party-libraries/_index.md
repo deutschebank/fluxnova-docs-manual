@@ -17,6 +17,11 @@ For legal reference and any other license-related aspects please refer to [Licen
 
 # Web Applications (Cockpit, Tasklist, Admin)
 
+{{< note title="Flowave Update Required" class="warning" >}}
+Please update this section to reflect the current situation with Flowave.
+{{< /note >}}
+
+
 ## XLTS for AngularJS
 Starting with versions 7.18.0-alpha2, 7.17.2, 7.16.9, 7.15.15 and up to including 7.20.8, 7.21.5, 7.22.0, and 7.23.0-alpha1 the Flowave web applications used a set of third-party libraries provided by XLTS.dev
 

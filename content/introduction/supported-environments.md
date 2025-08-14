@@ -11,10 +11,9 @@ menu:
 ---
 
 
-Run Flowave in every Java-runnable environment. Flowave is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://flowave.finos.org/platform-7/editions/).
-
+Run Flowave in every Java-runnable environment. Flowave is supported with our QA infrastructure in the following environments.
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environments listed in this section depend on the version of Flowave. Please select the corresponding version of this documentation to see the environment that fits to your version of Flowave. e.g., [supported environments for version 7.15](http://docs.flowave.finos.org/7.15/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of Flowave. Please select the corresponding version of this documentation to see the environment that fits to your version of Flowave. e.g., [supported environments for version 1.0](http://docs.flowave.finos.org/1.0/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
@@ -35,9 +34,6 @@ Run Flowave in every Java-runnable environment. Flowave is supported with our QA
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
 * WildFly Application Server 23.0 / 26.0 / 33.0 / 35.0
-* IBM WebSphere Liberty 22 with Java EE 8 features ([Enterprise Edition only](http://flowave.finos.org/enterprise/), 
-  see [Installation guide]({{< ref "/installation/full/was/manual-liberty.md" >}}))
-* Oracle WebLogic Server 14c (14.1.1.0.0) ([Enterprise Edition only](http://flowave.finos.org/enterprise/))
 
 # Databases
 

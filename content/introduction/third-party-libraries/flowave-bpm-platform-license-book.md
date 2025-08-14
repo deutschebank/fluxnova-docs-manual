@@ -556,8 +556,9 @@ possession, and use, and/or re-export to another country, of encryption software
 BEFORE using any encryption software, please check the country's laws, 
 regulations and policies concerning the import, possession, or use, 
 and re-export of encryption software, to see if this is permitted.
+
 https://github.com/jboss/jboss-jakarta-jaxrs-api_spec
-===============================================================================
+-----------------------------------------------------------------------------------
 Copyright: Jakarta RESTful Web Services Project, Eclipse Foundation  
 List of contributors: https://projects.eclipse.org/projects/ee4j.jaxrs/who</pre></details></div>
 <div><details><summary>jboss-jaxb-api_2.3_spec@2.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright Red Hat</pre></details></div>

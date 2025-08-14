@@ -35,18 +35,6 @@ Other starters that can be used are:
 * [`flowave-bpm-spring-boot-starter-webapp`](webapps)
 * [`flowave-bpm-spring-boot-starter-external-task-client`]({{< ref "/user-guide/ext-client/spring-boot-starter.md" >}})
 
-# Using Enterprise Edition
-
-To use Flowave Spring Boot Starter with Flowave EE you need to define the EE version of the webapp (`flowave-bpm-spring-boot-starter-webapp-ee` instead of `flowave-bpm-spring-boot-starter-webapp`), see also [Web Applications](webapps/):
-
-```xml
-<dependency>
-  <groupId>org.finos.flowave.bpm.springboot</groupId>
-  <artifactId>flowave-bpm-spring-boot-starter-webapp-ee</artifactId>
-  <version>{{< minor-version >}}.0-ee</version>
-</dependency>
-```
-
 # Requirements
 
 Flowave Spring Boot Starter requires Java 17.

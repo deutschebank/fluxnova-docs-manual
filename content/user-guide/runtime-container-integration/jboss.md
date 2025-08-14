@@ -29,8 +29,7 @@ The most prominent features are:
 
 # Configure the Job Executor in standalone.xml/domain.xml
 
-Since Flowave.5, the configuration of the thread pool used by the Job Executor is done in the Flowave subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
-The thread pool creation and shutdown is now controlled through the Flowave subsystem.  
+The configuration of the thread pool used by the Job Executor is done in the Flowave subsystem, which also controls the thread pool creation and shutdown.  
 You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem XML configuration.
 
 Mandatory configuration elements are:  

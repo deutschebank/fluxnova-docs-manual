@@ -1,5 +1,5 @@
 ---
-baseURL: "/manual"
+baseURL: "/"
 languageCode: "en-us"
 title: "Flowave documentation"
 theme: "flowave"

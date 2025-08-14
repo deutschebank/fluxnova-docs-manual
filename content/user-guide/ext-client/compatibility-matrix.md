@@ -21,35 +21,7 @@ Each version of Flowave is bound to a specific version of the **External Task Cl
     <th>NodeJS client</th>
   </tr>
   <tr>
-    <td>7.15.x</td>
-    <td>2.1.x</td>
-  </tr>
-  <tr>
-    <td>7.16.x</td>
-    <td>2.1.x</td>
-  </tr>
-  <tr>
-    <td>7.17.x</td>
-    <td>2.2.x</td>
-  </tr>
-  <tr>
-    <td>7.18.x</td>
-    <td>2.3.x</td>
-  </tr>
-  <tr>
-    <td>7.19.x</td>
-    <td>3.0.x</td>
-  </tr>
-  <tr>
-    <td>7.20.x</td>
-    <td>3.0.x</td>
-  </tr>
-  <tr>
-    <td>7.21.x</td>
-    <td>3.1.x</td>
-  </tr>
-  <tr>
-    <td>7.22.x</td>
+    <td>1.0.x</td>
     <td>3.1.x</td>
   </tr>
 </table>

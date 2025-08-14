@@ -11,7 +11,7 @@ menu:
 
 ---
 
-As a core infrastructure component of our customers, the security of Flowave Platform (also referred to as the 'software') takes top priority and is maintained constantly.
+The security of Flowave Platform (also referred to as the 'software') takes top priority for us and is maintained constantly.
 
 For information on our Flowave Security Policy, visit the [Flowave Trust Center](https://flowave.finos.org/trust-center/). 
 
@@ -22,6 +22,8 @@ Flowave has contracted an independent, external security advisor to regularly co
 
 Any vulnerabilities detected are handled according to our [process for security issue management](https://flowave.finos.org/security#security-issue-management).
 
+Further details on previously conducted security reviews on the ancestor software can be found at [Camunda 7 CE Security Policy](https://docs.camunda.org/security/security-policy/)
+
 Test history:
 
 <table class="table table-striped">
@@ -31,111 +33,9 @@ Test history:
     <th>Result Summary</th>
   </tr>
   <tr>
-    <td><p>April 2023</p></td>
+    <td><p>TBD</p></td>
     <td>
-      <p>Flowave Automation Platform Version: 7.19.0-ee</p>
-      <p>External security assessment using the graybox approach to test the Flowave Automation Platform web applications and REST API.</p>
+      <p>Flowave Version: 1.0.0</p>
+      <p>External security assessment using the graybox approach to test the Flowave Platform web applications and REST API.</p>
     </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Three lesser vulnerabilities were detected and submitted for treatment to our security issue process:
-      <ul>
-        <li>One issues has been fixed.</li>
-        <li>One issues has been partially fixed, work in progress.</li>
-        <li>One issue was given as general security advice.</li>
-      </ul> 
-      </p>       
-    </td>
-  </tr>
-  <tr>
-    <td><p>June 2022</p></td>
-    <td>
-      <p>Flowave Automation Platform Version: 7.17.0-ee Flowave Optimize Version 3.8.0</p>
-      <p>External security assessment using the graybox approach to test the Flowave Automation Platform web applications and REST API plus Flowave Optimize.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Two lesser vulnerabilities were detected and submitted for treatment to our security issue process:
-      <ul>
-        <li>One issues have been fixed.</li>
-        <li>One issues have been partially fixed, work in progress.</li>
-      </ul>        
-      </p>
-      <p>One general security advice was given.</p>
-    </td>
-  </tr>
-  <tr>
-    <td><p>December 2021</p></td>
-    <td>
-      <p>Flowave Automation Platform Version: 7.16.0-ee Flowave Optimize Version 3.6.0</p>
-      <p>Whitebox test with focus on (but not limited to) the Flowave Automation Platform web applications and REST API plus Flowave Optimize.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Two lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Two issues have been partially fixed, work in progress.</p>
-    </td> 
-  </tr>
-  <tr>
-    <td><p>December 2021</p></td>
-    <td>
-      <p>Cawemo</p>
-      <p>Whitebox test with focus on (but not limited to) the Cawemo application and the underlying infrastructure.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Seven lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Seven issues have been partially fixed, work in progress.</p>
-    </td> 
-  </tr>   
-  <tr>
-    <td><p>June 2021</p></td>
-    <td>
-      <p>Cawemo</p>
-      <p>Whitebox test with focus on (but not limited to) the Cawemo application and the underlying infrastructure.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Five lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Five issues have been partially fixed, work in progress.</p>
-    </td> 
-  </tr>  
-  <tr>
-    <td><p>March 2021</p></td>
-    <td>
-      <p>Flowave Platform Version: 7.14.5-ee Flowave Optimize Version 3.3.0</p>
-      <p>Whitebox test with focus on (but not limited to) Flowave Platform web applications and REST API.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Three lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Three issues have been partially fixed, work in progress.</p>
-    </td> 
-  </tr>
-  <tr>
-    <td><p>January 2020</p></td>
-    <td>
-      <p>Flowave Platform Version: 7.12.1-ee Flowave Optimize Version 2.7.0</p>
-      <p>Whitebox test with focus on (but not limited to) Flowave Platform web applications and REST API.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Seven lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Two issues have been fixed. </p>
-      <p>Five issues have been partially fixed, work in progress.</p>
-    </td>
-  </tr>  
-  <tr>
-    <td><p>January 2019</p></td>
-    <td>
-      <p>Flowave Platform version: 7.10.1</p>
-      <p>Whitebox test with focus on (but not limited to) Flowave Platform web applications and REST API.</p>
-    </td>
-    <td>
-      <p>No critical vulnerabilities were detected.</p>
-      <p>Five lesser vulnerabilities were detected and submitted for treatment to our security issue process.</p>
-      <p>Two issues have been fixed. </p>
-      <p>Three issues have been partially fixed. </p>
-    </td>
-  </tr> 
 </table>

@@ -3,19 +3,19 @@
 
 name = "Flowave"
 license = "ASF2"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = "http://siteforthistheme.com/"
-tags = ["", ""]
-features = ["", ""]
-min_version = 0.13
+licenselink = "https://github.com/finos/flowave-docs-theme/blob/main/LICENSE"
+description = "Flowave Documentation Theme"
+homepage = "https://github.com/finos/flowave-docs-theme"
+tags = ["flowave", "finos"]
+features = ["documentation", "manual"]
+min_version = 0.145
 
 [author]
-  name = ""
-  homepage = ""
+  name = "Flowave Project"
+  homepage = "https://flowave.finos.org/"
 
 # If porting an existing theme
 [original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "Camunda"
+  homepage = "https://github.com/camunda/camunda-docs-theme"
+  repo = "https://github.com/camunda/camunda-docs-theme"

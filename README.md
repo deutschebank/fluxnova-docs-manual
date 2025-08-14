@@ -11,9 +11,9 @@ Have a look at our [contribution guide](https://github.com/finos/flowave-bpm-pla
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install [Hugo][Hugo] [v0.54][Hugo v0.54]. Newer versions _may_ work, but please note that some issues have been reported on v61.0+.
+In order to build this documentation, you first need to install [Hugo][Hugo] [v0.145][Hugo v0.145]. Newer versions _may_ work, but please note that there were significant changes in v0.146+.
 
-See the [Hugo installation guide][Hugo Installation] for more details on how to install Hugo. Issues have been reported when installing v0.54 via a package manager; install via tarball instead. The v0.54 tarball can be downloaded from [the corresponding Hugo release page][Hugo v0.54].
+See the [Hugo installation guide][Hugo Installation] for more details on how to install Hugo. Issues have been reported when installing v0.145 via a package manager; install via tarball instead. The v0.145 tarball can be downloaded from [the corresponding Hugo release page][Hugo v0.145].
 
 ## Building the Documentation
 
@@ -84,18 +84,6 @@ Supported classes:
 * `info`
 * `warning`
 
-
-### How can I add an "EE only note"?
-
-Sometimes you want to flag a feature as an Enterprise Feature.
-
-You can achieve this by using the `enterprise` shortcode:
-
-```html
-{{< enterprise >}}
-The FOO Feature is only available in the Enterprise Edition.
-{{< /enterprise >}}
-```
 
 ### How can I highlight code lines?
 
@@ -179,7 +167,7 @@ _Note: For screenshot of the enterprise webapps, you can use the automatic scree
 
 
 [Hugo]: http://gohugo.io/
-[Hugo v0.54]: https://github.com/gohugoio/hugo/releases/tag/v0.54.0
+[Hugo v0.145]: https://github.com/gohugoio/hugo/releases/tag/v0.145.0
 [Hugo Installation]: https://gohugo.io/getting-started/installing/#install-hugo-from-tarball
 [OpenOffice]: https://www.openoffice.org/download/index.html
 [OpenSans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans

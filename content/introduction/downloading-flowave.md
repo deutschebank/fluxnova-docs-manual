@@ -21,19 +21,10 @@ Before downloading Flowave, make sure you have a JRE (Java Runtime Environment),
 
 # Download the Runtime
 
-Flowave is a flexible framework which can be used in different contexts. See [Architecture Overview]
-({{< ref "/introduction/architecture.md" >}}) for more details. Based on how you want
-to use Flowave, you can choose a different distribution.
+Flowave is a flexible framework which can be used in different contexts. See [Architecture Overview]({{< ref "/introduction/architecture.md" >}}) for more details. Based on how you want
+to use Flowave, you can choose a different distribution or runtime environment like [Spring Boot][run-with-spring-boot] or [Docker][run-with-docker].
 
-
-## Community vs. Enterprise Edition
-
-Flowave provides separate runtime downloads for community users and enterprise subscription customers:
-
-* [Community download page][community-download-page]
-* [Enterprise download page][enterprise-download-page]
-
-It is also possible to run Flowave with [Spring Boot][run-with-spring-boot] and [Docker][run-with-docker].
+* [Download page][community-download-page]
 
 
 ## Full Distribution

@@ -11,8 +11,7 @@ menu:
 
 On this page, Flowave Project publishes security notices _after_ fixes are available.
 
-Security notices of the ancestor software product Flowave can be found at 
-- https://docs.flowave.finos.org/security/
+Security notices of the ancestor software product can be found at [Camunda 7 CE Security Notices](https://docs.camunda.org/security/).
 
 
 # Notices
