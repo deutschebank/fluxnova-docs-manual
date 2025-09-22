@@ -145,7 +145,7 @@ The following example shows usage of scripts as execution listeners.
   <sequenceFlow id="flow1" startRef="start" targetRef="task">
     <extensionElements>
       <camunda:executionListener>
-        <camunda:script scriptFormat="groovy" resource="org/finos/flowave/bpm/transition.groovy" />
+        <camunda:script scriptFormat="groovy" resource="org/finos/fluxnova/bpm/transition.groovy" />
       </camunda:executionListener>
     </extensionElements>
   </sequenceFlow>
@@ -176,7 +176,7 @@ The following example shows usage of scripts as task listeners.
       <camunda:script scriptFormat="groovy">println task.eventName</camunda:script>
     </camunda:taskListener>
     <camunda:taskListener event="assignment">
-      <camunda:script scriptFormat="groovy" resource="org/finos/flowave/bpm/assignemnt.groovy" />
+      <camunda:script scriptFormat="groovy" resource="org/finos/fluxnova/bpm/assignemnt.groovy" />
     </camunda:taskListener>
   </extensionElements>
 </userTask>
@@ -202,7 +202,7 @@ process variable which is available inside the script.
 
 <sequenceFlow>
   <conditionExpression xsi:type="tFormalExpression" language="groovy"
-      camunda:resource="org/finos/flowave/bpm/condition.groovy" />
+      camunda:resource="org/finos/fluxnova/bpm/condition.groovy" />
 </sequenceFlow>
 ```
 
@@ -227,7 +227,7 @@ the Groovy variable `sum` to the process variable `x` for a Java delegate.
   <process id="process" isExecutable="true">
     <startEvent id="start"/>
     <sequenceFlow id="sequenceFlow1" sourceRef="start" targetRef="task"/>
-    <serviceTask id="task" camunda:class="org.finos.flowave.bpm.example.SumDelegate">
+    <serviceTask id="task" camunda:class="org.finos.fluxnova.bpm.example.SumDelegate">
       <extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="x">
@@ -274,7 +274,7 @@ for [script tasks]({{< relref "#script-source" >}}).
 ```xml
 <camunda:inputOutput>
   <camunda:inputParameter name="x">
-     <camunda:script scriptFormat="groovy" resource="org/finos/flowave/bpm/example/sum.groovy"/>
+     <camunda:script scriptFormat="groovy" resource="org/finos/fluxnova/bpm/example/sum.groovy"/>
   </camunda:inputParameter>
 </camunda:inputOutput>
 ```
@@ -451,7 +451,7 @@ There are also special variables:
 
 1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ({{< javadocref page="org/finos/fluxnova/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}}).
 1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ({{< javadocref page="org/finos/fluxnova/bpm/engine/delegate/DelegateTask.html" text="DelegateTask" >}}).
-1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ({{< javadocref page="org/finos/flowave/connect/plugin/impl/ConnectorVariableScope.html" text="ConnectorVariableScope" >}}).
+1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ({{< javadocref page="org/finos/fluxnova/connect/plugin/impl/ConnectorVariableScope.html" text="ConnectorVariableScope" >}}).
 
 These variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means that it can be used to get and set variables or access process engine services.
@@ -552,22 +552,22 @@ classpath. This means that the first two script task elements in the following e
 
 ```xml
 <!-- on a script task -->
-<scriptTask scriptFormat="groovy" camunda:resource="org/finos/flowave/bpm/task.groovy"/>
-<scriptTask scriptFormat="groovy" camunda:resource="classpath://org/finos/flowave/bpm/task.groovy"/>
-<scriptTask scriptFormat="groovy" camunda:resource="deployment://org/finos/flowave/bpm/task.groovy"/>
+<scriptTask scriptFormat="groovy" camunda:resource="org/finos/fluxnova/bpm/task.groovy"/>
+<scriptTask scriptFormat="groovy" camunda:resource="classpath://org/finos/fluxnova/bpm/task.groovy"/>
+<scriptTask scriptFormat="groovy" camunda:resource="deployment://org/finos/fluxnova/bpm/task.groovy"/>
 
 <!-- in an execution listener -->
 <camunda:executionListener>
-  <camunda:script scriptFormat="groovy" resource="deployment://org/finos/flowave/bpm/listener.groovy"/>
+  <camunda:script scriptFormat="groovy" resource="deployment://org/finos/fluxnova/bpm/listener.groovy"/>
 </camunda:executionListener>
 
 <!-- on a conditionExpression -->
 <conditionExpression xsi:type="tFormalExpression" language="groovy"
-    camunda:resource="org/finos/flowave/bpm/condition.groovy" />
+    camunda:resource="org/finos/fluxnova/bpm/condition.groovy" />
 
 <!-- in an inputParameter -->
 <camunda:inputParameter name="x">
-  <camunda:script scriptFormat="groovy" resource="org/finos/flowave/bpm/mapX.groovy" />
+  <camunda:script scriptFormat="groovy" resource="org/finos/fluxnova/bpm/mapX.groovy" />
 </camunda:inputParameter>
 ```
 

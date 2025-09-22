@@ -157,7 +157,7 @@ export default {
   // …
   bpmnJs: {
     moddleExtensions: {
-      camunda: 'my-custom-moddle/flowave'
+      camunda: 'my-custom-moddle/fluxnova'
     }
   }
 }

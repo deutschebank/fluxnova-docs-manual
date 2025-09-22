@@ -18,7 +18,7 @@ The Send Task has the same behavior as a Service Task.
 {{< bpmn-symbol type="send-task" >}}
 
 ```xml
-<sendTask id="sendTask" camunda:class="org.finos.flowave.bpm.MySendTaskDelegate" />
+<sendTask id="sendTask" camunda:class="org.finos.fluxnova.bpm.MySendTaskDelegate" />
 ```
 
 

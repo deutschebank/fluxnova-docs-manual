@@ -172,7 +172,7 @@ The following is an example of a BPMN ScriptTask used to execute an XSLT Templat
 ```xml
 <bpmn2:scriptTask id="ScriptTask_1" name="convert input"
                   scriptFormat="xslt"
-                  camunda:resource="org/finos/flowave/bpm/example/xsltexample/example.xsl"
+                  camunda:resource="org/finos/fluxnova/bpm/example/xsltexample/example.xsl"
                   camunda:resultVariable="xmlOutput">
 
   <bpmn2:extensionElements>

@@ -438,7 +438,7 @@ parameters. It then calculates three values, `pessimisticForecast`, `realisticFo
 which are different forecasts of the future costs a customer faces. In a first process, both input variables are available as process variables but with different names (`id`, `sum`). From the three results, the process only uses `realisticForecast` which it depends on by the name `forecast` in follow-up activities. A corresponding input/output mapping looks as follows:
 
 ```xml
-<serviceTask camunda:class="org.finos.flowave.bpm.example.ComplexCalculation">
+<serviceTask camunda:class="org.finos.fluxnova.bpm.example.ComplexCalculation">
   <extensionElements>
     <camunda:inputOutput>
       <camunda:inputParameter name="userId">${id}</camunda:inputParameter>
@@ -453,7 +453,7 @@ In a second process, let us assume the `costSum` variable has to be calculated f
 depends on a variable `avgForecast` as the average value of the three forecasts. In this case, the mapping looks as follows:
 
 ```xml
-<serviceTask camunda:class="org.finos.flowave.bpm.example.ComplexCalculation">
+<serviceTask camunda:class="org.finos.fluxnova.bpm.example.ComplexCalculation">
   <extensionElements>
     <camunda:inputOutput>
       <camunda:inputParameter name="userId">${id}</camunda:inputParameter>

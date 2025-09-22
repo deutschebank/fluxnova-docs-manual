@@ -231,7 +231,7 @@ It is also possible to use [task listeners]({{< ref "/user-guide/process-engine/
 ```xml
 <userTask id="task1" name="My task" >
   <extensionElements>
-    <camunda:taskListener event="create" class="org.finos.flowave.bpm.MyAssignmentHandler" />
+    <camunda:taskListener event="create" class="org.finos.fluxnova.bpm.MyAssignmentHandler" />
   </extensionElements>
 </userTask>
 ```
