@@ -22,7 +22,7 @@ to the newly created empty model instance.
 
 ```java
 Definitions definitions = modelInstance.newInstance(Definitions.class);
-definitions.setTargetNamespace("http://flowave.finos.org/examples");
+definitions.setTargetNamespace("http://fluxnova.finos.org/examples");
 modelInstance.setDefinitions(definitions);
 ```
 

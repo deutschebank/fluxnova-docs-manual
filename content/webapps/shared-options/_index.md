@@ -11,4 +11,4 @@ menu:
 ---
 
 
-The Flowave Web Applications come with several common configuration options. These options cover the operation on all the available Flowave web applications.
+The Fluxnova Web Applications come with several common configuration options. These options cover the operation on all the available Fluxnova web applications.

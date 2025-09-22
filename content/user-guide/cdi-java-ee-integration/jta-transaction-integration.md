@@ -15,9 +15,9 @@ menu:
 The process engine transaction management can integrate with JTA and Jakarta Transactions. 
 To use transaction manager integration, you need to use the
 
-* `org.finos.flowave.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only.
-* `org.finos.flowave.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration` for Jakarta Transactions integration only.
-* `org.finos.flowave.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
+* `org.finos.fluxnova.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA integration only.
+* `org.finos.fluxnova.bpm.engine.impl.cfg.JakartaTransactionProcessEngineConfiguration` for Jakarta Transactions integration only.
+* `org.finos.fluxnova.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI expression resolution support.
   
 The process engine requires access to an implementation of `javax.transaction.TransactionManager` or `jakarta.transaction.TransactionManager` respectively.
 Not all application servers provide such an implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this  implementation.

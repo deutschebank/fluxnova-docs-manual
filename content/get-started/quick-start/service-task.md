@@ -8,15 +8,15 @@ menu:
     name: "Executable Process"
     parent: "get-started-quick-start"
     identifier: "get-started-quick-start-java-service-task"
-    pre: "Learn the basics of handling the Flowave Modeler, learn how to model and configure a fully executable process and learn how to integrate your own business logic."
+    pre: "Learn the basics of handling the Fluxnova Modeler, learn how to model and configure a fully executable process and learn how to integrate your own business logic."
 
 ---
 
-In this section, you'll learn how to create your first BPMN 2.0 process with the Flowave Modeler and how to execute automated steps. Start by opening up Flowave Modeler.
+In this section, you'll learn how to create your first BPMN 2.0 process with the Fluxnova Modeler and how to execute automated steps. Start by opening up Fluxnova Modeler.
 
 # Create a new BPMN Diagram
 
-Create a new BPMN diagram by clicking *File > New File > BPMN Diagram (Flowave Platform)*.
+Create a new BPMN diagram by clicking *File > New File > BPMN Diagram (Fluxnova Platform)*.
 
 {{< img src="../img/modeler-new-bpmn-diagram.png" >}}
 
@@ -43,8 +43,8 @@ Add an End Event named *Payment Received*.
 
 ## Configure the Service Task
 
-There are different ways to [execute service tasks](https://docs.flowave.finos.org/manual/latest/reference/bpmn20/tasks/service-task/) using Flowave Platform. In this guide, we'll use the external [task pattern](https://docs.flowave.finos.org/manual/latest/user-guide/process-engine/external-tasks/).
-Open the Properties Panel within the Flowave Modeler and click on the Service Task you just created. Change the Implementation to `External` and use `charge-card` as the Topic.
+There are different ways to [execute service tasks](https://docs.fluxnova.finos.org/manual/latest/reference/bpmn20/tasks/service-task/) using Fluxnova Platform. In this guide, we'll use the external [task pattern](https://docs.fluxnova.finos.org/manual/latest/user-guide/process-engine/external-tasks/).
+Open the Properties Panel within the Fluxnova Modeler and click on the Service Task you just created. Change the Implementation to `External` and use `charge-card` as the Topic.
 
 {{< img src="../img/modeler-step4.png" >}}
 
@@ -64,16 +64,16 @@ Finally, make sure the box next to the *Executable* property is checked. If you 
 
 When you're done, save your changes by clicking *File > Save File As..*. In the dialogue that appears, navigate to a folder of your choice and save the diagram as something like `payment.bpmn`.
 
-{{< get-tag repo="flowave-get-started-quickstart" tag="Step-1" >}}
+{{< get-tag repo="fluxnova-get-started-quickstart" tag="Step-1" >}}
 
 # Implement an external task worker
 
 After modeling the process, we want to execute some business logic.
 
-Flowave Platform is built so that your business logic can be implemented in different languages.
+Fluxnova Platform is built so that your business logic can be implemented in different languages.
 You have the choice which language suits your project best.
 
-In this quick start, we'll show you how to use Flowave's ready-to-go task clients in:
+In this quick start, we'll show you how to use Fluxnova's ready-to-go task clients in:
 
 - [Java](#a-using-java)
 - [JavaScript (NodeJS)](#b-using-javascript-nodejs)
@@ -81,7 +81,7 @@ In this quick start, we'll show you how to use Flowave's ready-to-go task client
 If you've never worked with Java before, we recommend using the JavaScript (NodeJS) task client in this tutorial.
 
 {{< note title="Hint" class="info" >}}
-If you prefer a different programming language, you can also use Flowave's [REST API](/manual/latest/user-guide/process-engine/external-tasks/#rest-api) to access API operations via HTTP.
+If you prefer a different programming language, you can also use Fluxnova's [REST API](/manual/latest/user-guide/process-engine/external-tasks/#rest-api) to access API operations via HTTP.
 {{< /note >}}
 
 ## a) Using Java
@@ -109,7 +109,7 @@ On the second page (see screenshot), configure the Maven coordinates for the pro
 
 When you're done, click Finish. Eclipse will set up a new Maven project. The project appears in the Project Explorer View.
 
-### Add Flowave External Task Client Dependency
+### Add Fluxnova External Task Client Dependency
 
 The next step consists of setting up the Maven dependency to the external task client for your new process application.
 Your pom.xml file of your project should look like this:
@@ -119,21 +119,21 @@ Your pom.xml file of your project should look like this:
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.finos.flowave.bpm.getstarted</groupId>
+	<groupId>org.finos.fluxnova.bpm.getstarted</groupId>
 	<artifactId>charge-card-worker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<flowave.external-task-client.version>7.23.0</flowave.external-task-client.version>
+		<fluxnova.external-task-client.version>7.23.0</fluxnova.external-task-client.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.finos.flowave.bpm</groupId>
-			<artifactId>flowave-external-task-client</artifactId>
-			<version>${flowave.external-task-client.version}</version>
+			<groupId>org.finos.fluxnova.bpm</groupId>
+			<artifactId>fluxnova-external-task-client</artifactId>
+			<version>${fluxnova.external-task-client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -154,18 +154,18 @@ Your pom.xml file of your project should look like this:
 Next, we will create a new ExternalTaskClient which subscribes to the `charge-card` topic.
 
 When the process engine encounters a service task that is configured to be externally handled, it creates an external task instance on which our handler will react.
-We are using [Long Polling](https://docs.flowave.finos.org/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks) in the ExternalTaskClient to make the communication more efficient.
+We are using [Long Polling](https://docs.fluxnova.finos.org/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks) in the ExternalTaskClient to make the communication more efficient.
 
-Next, you need to create a package, e.g., *org.finos.flowave.bpm.getstarted.chargecard* and add a Java class, e.g. *ChargeCardWorker*, to it.
+Next, you need to create a package, e.g., *org.finos.fluxnova.bpm.getstarted.chargecard* and add a Java class, e.g. *ChargeCardWorker*, to it.
 
 ```java
-package org.finos.flowave.bpm.getstarted.chargecard;
+package org.finos.fluxnova.bpm.getstarted.chargecard;
 
 import java.util.logging.Logger;
 import java.awt.Desktop;
 import java.net.URI;
 
-import org.finos.flowave.bpm.client.ExternalTaskClient;
+import org.finos.fluxnova.bpm.client.ExternalTaskClient;
 
 public class ChargeCardWorker {
   private final static Logger LOGGER = Logger.getLogger(ChargeCardWorker.class.getName());
@@ -189,7 +189,7 @@ public class ChargeCardWorker {
           LOGGER.info("Charging credit card with an amount of '" + amount + "'€ for the item '" + item + "'...");
 
           try {
-              Desktop.getDesktop().browse(new URI("https://docs.flowave.finos.org/get-started/quick-start/complete"));
+              Desktop.getDesktop().browse(new URI("https://docs.fluxnova.finos.org/get-started/quick-start/complete"));
           } catch (Exception e) {
               e.printStackTrace();
           }
@@ -212,7 +212,7 @@ Note that the worker should remain running throughout the entirety of this quick
 Once your worker is running, you can [continue to deploy your process and start some instances](/get-started/quick-start/deploy/).
 {{< /note >}}
 
-{{< get-tag repo="flowave-get-started-quickstart" tag="Step-2a" >}}
+{{< get-tag repo="fluxnova-get-started-quickstart" tag="Step-2a" >}}
 
 ## b) Using JavaScript (NodeJS)
 
@@ -248,10 +248,10 @@ Add the following "type" field to your package.json file:
 }
 ```
 
-### Add Flowave External Task Client JS library
+### Add Fluxnova External Task Client JS library
 
 ```sh
-npm install flowave-external-task-client-js
+npm install fluxnova-external-task-client-js
 npm install -D open
 ```
 
@@ -260,12 +260,12 @@ npm install -D open
 Next, we'll create a new ExternalTaskClient that subscribes to the `charge-card` topic.
 
 When the process engine encounters a service task that's configured to be externally handled, it creates an external task instance on which our handler will react.
-We use [Long Polling](https://docs.flowave.finos.org/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks) in the ExternalTaskClient to make the communication more efficient.
+We use [Long Polling](https://docs.fluxnova.finos.org/manual/latest/user-guide/process-engine/external-tasks/#long-polling-to-fetch-and-lock-external-tasks) in the ExternalTaskClient to make the communication more efficient.
 
 Next, you need to create a new JavaScript file, e.g. `worker.js`, that looks like the following:
 
 ```javascript
-import { Client, logger } from 'flowave-external-task-client-js';
+import { Client, logger } from 'fluxnova-external-task-client-js';
 import open from 'open';
 
 // configuration for the Client:
@@ -287,7 +287,7 @@ client.subscribe('charge-card', async function({ task, taskService }) {
 
   console.log(`Charging credit card with an amount of ${amount}€ for the item '${item}'...`);
 
-  open('https://docs.flowave.finos.org/get-started/quick-start/success');
+  open('https://docs.fluxnova.finos.org/get-started/quick-start/success');
 
   // Complete the task
   await taskService.complete(task);
@@ -309,4 +309,4 @@ Note that the worker should remain running throughout the entirety of this quick
 Once your worker is running, you can move onto the next step to [deploy your process and start some instances](/get-started/quick-start/deploy/).
 {{< /note >}}
 
-{{< get-tag repo="flowave-get-started-quickstart" tag="Step-2b" >}}
+{{< get-tag repo="fluxnova-get-started-quickstart" tag="Step-2b" >}}

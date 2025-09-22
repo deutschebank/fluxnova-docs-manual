@@ -10,11 +10,11 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of Flowave. Metrics are reported in the database tables `ACT_RU_METER_LOG` and `ACT_RU_TASK_METER_LOG`. Single metric entries in `ACT_RU_METER_LOG` consist of a metric identifier, a value as natural number in the Java `long` range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in `ACT_RU_TASK_METER_LOG` comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of Fluxnova. Metrics are reported in the database tables `ACT_RU_METER_LOG` and `ACT_RU_TASK_METER_LOG`. Single metric entries in `ACT_RU_METER_LOG` consist of a metric identifier, a value as natural number in the Java `long` range that the metric took in a certain timespan and a name identifying the metric reporter. Task metric entries in `ACT_RU_TASK_METER_LOG` comprise a fixed-length, pseudonymized assignee value and the point in time it was assigned at. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 
-The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="org/finos/flowave/bpm/engine/management/Metrics.html" text="org.finos.flowave.bpm.engine.management.Metrics" >}}.
+The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class {{< javadocref page="org/finos/fluxnova/bpm/engine/management/Metrics.html" text="org.finos.fluxnova.bpm.engine.management.Metrics" >}}.
 
 <table class="table table-striped">
   <tr>
@@ -120,7 +120,7 @@ The following table describes the built-in metrics. The identifiers of all built
 
 # Querying
 
-Metrics can be queried by making a {{< javadocref page="org/finos/flowave/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
+Metrics can be queried by making a {{< javadocref page="org/finos/fluxnova/bpm/engine/management/MetricsQuery.html" text="MetricsQuery" >}} offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
 
 ```java
 long numCompletedActivityInstances = managementService
@@ -173,12 +173,12 @@ Metrics are reported with an identifier of the reporting party. This identifier 
 reports to individual engine instances when making a metrics query. For example in a cluster, load 
 metrics can be related to individual cluster nodes. By default the process engine generates a 
 reporter id as `<local IP>$<engine name>`. The generation can be customized by implementing the 
-interface {{< javadocref page="org/finos/flowave/bpm/engine/impl/history/event/HostnameProvider.html" text="org.finos.flowave.bpm.engine.impl.history.event.HostnameProvider" >}}
+interface {{< javadocref page="org/finos/fluxnova/bpm/engine/impl/history/event/HostnameProvider.html" text="org.finos.fluxnova.bpm.engine.impl.history.event.HostnameProvider" >}}
 and setting the engine property `hostnameProvider` to an instance of that class.
 
 {{< note title="Heads Up!" class="info" >}}
 The 
-{{< javadocref page="org/finos/flowave/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.finos.flowave.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
+{{< javadocref page="org/finos/fluxnova/bpm/engine/impl/metrics/MetricsReporterIdProvider.html" text="org.finos.fluxnova.bpm.engine.impl.metrics.MetricsReporterIdProvider" >}}
 interface and the corresponding `metricsReporterIdProvider` engine property have been deprecated. 
 {{< /note >}}
 

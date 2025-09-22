@@ -12,7 +12,7 @@ menu:
 
 
 [Custom extension elements]({{< ref "/reference/bpmn20/custom-extensions/_index.md" >}}) are a standardized way to extend the BPMN model.
-The [Flowave extension elements]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API, but unknown extension elements can also easily be accessed and added.
+The [Fluxnova extension elements]({{< ref "/reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API, but unknown extension elements can also easily be accessed and added.
 
 Every BPMN `BaseElement` can have a child element of the type `extensionElements`.
 This element can contain all sorts of extension elements. To access the
@@ -32,7 +32,7 @@ Collection<ModelElementInstance> elements = extensionElements.getElements();
 After that you can add or remove extension elements to the collection.
 
 ```java
-FlowaveFormData formData = modelInstance.newInstance(FlowaveFormData.class);
+FluxnovaFormData formData = modelInstance.newInstance(FluxnovaFormData.class);
 extensionElements.getElements().add(formData);
 extensionElements.getElements().remove(formData);
 ```
@@ -43,25 +43,25 @@ You can also access a query-like interface to filter the extension elements.
 extensionElements.getElementsQuery().count();
 extensionElements.getElementsQuery().list();
 extensionElements.getElementsQuery().singleResult();
-extensionElements.getElementsQuery().filterByType(FlowaveFormData.class).singleResult();
+extensionElements.getElementsQuery().filterByType(FluxnovaFormData.class).singleResult();
 ```
 
 Additionally, there are some shortcuts to add new extension elements. You can use
 the `namespaceUri` and the `elementName` to add your own extension elements. Or
-you can use the `class` of a known extension element type, e.g., the flowave
+you can use the `class` of a known extension element type, e.g., the fluxnova
 extension elements. The extension element is added to the BPMN element and returned
 so that you can set attributes or add child elements.
 
 ```java
 ModelElementInstance element = extensionElements.addExtensionElement("http://example.com/bpmn", "myExtensionElement");
-FlowaveExecutionListener listener = extensionElements.addExtensionElement(FlowaveExecutionListener.class);
+FluxnovaExecutionListener listener = extensionElements.addExtensionElement(FluxnovaExecutionListener.class);
 ```
 
 Another helper method exists for the fluent builder API which allows you to add prior defined extension elements.
 
 ```java
-FlowaveExecutionListener flowaveExecutionListener = modelInstance.newInstance(FlowaveExecutionListener.class);
-flowaveExecutionListener.setFlowaveClass("org.finos.flowave.bpm.MyJavaDelegte");
+FluxnovaExecutionListener fluxnovaExecutionListener = modelInstance.newInstance(FluxnovaExecutionListener.class);
+fluxnovaExecutionListener.setFluxnovaClass("org.finos.fluxnova.bpm.MyJavaDelegte");
 startEvent.builder()
-  .addExtensionElement(flowaveExecutionListener);
+  .addExtensionElement(fluxnovaExecutionListener);
 ```

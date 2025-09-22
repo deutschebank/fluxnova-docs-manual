@@ -8,14 +8,14 @@ menu:
     name: "Create a Decision Table"
     parent: "get-started-dmn"
     identifier: "get-started-dmn-model"
-    pre: "Learn the basics of handling the Flowave Modeler and learn how to create and configure a fully executable decision table."
+    pre: "Learn the basics of handling the Fluxnova Modeler and learn how to create and configure a fully executable decision table."
 
 aliases: [/dmn11/model/]
 ---
 
-In this section you learn how to create your first [DMN Decision Table](/manual/latest/reference/dmn11/decision-table/) with the Flowave Modeler. The table will contain the decision logic about the desired dish for a given season and guest count.
+In this section you learn how to create your first [DMN Decision Table](/manual/latest/reference/dmn11/decision-table/) with the Fluxnova Modeler. The table will contain the decision logic about the desired dish for a given season and guest count.
 
-Now start up the Flowave Modeler.
+Now start up the Fluxnova Modeler.
 
 # Create a new Decision Diagram
 
@@ -98,6 +98,6 @@ Return to Eclipse. Right-click the project folder and click *Refresh*. This sync
 
 For Eclipse to automatically synchronize the workspace with the filesystem, consider [configuring auto-sync in eclipse][auto-sync].
 
-{{< get-tag repo="flowave-get-started-dmn" tag="Step-3" >}}
+{{< get-tag repo="fluxnova-get-started-dmn" tag="Step-3" >}}
 
 [auto-sync]: /manual/latest/modeler/tips/#eclipse-project-synchronization

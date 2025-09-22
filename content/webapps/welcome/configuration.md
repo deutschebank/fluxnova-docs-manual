@@ -27,7 +27,7 @@ export default {
   // …
   links: [
     {
-      label: 'Flowave Forum',
+      label: 'Fluxnova Forum',
       href: 'https://forum.camunda.org',
       description: 'Forum for Camnuda BPM users and developers'
     },
@@ -44,7 +44,7 @@ and can override the standard styles.
 
 ```css
 .navbar-brand {
-  /* hides the "Flowave Welcome" text */
+  /* hides the "Fluxnova Welcome" text */
   text-indent: -999em;
   /* put your logo */
   background-image: url(./path/to/the/logo.png);
@@ -58,7 +58,7 @@ and can override the standard styles.
 }
 ```
 
-**Note:** you can also change the app name (*Welcome*) and vendor (*Flowave*)
+**Note:** you can also change the app name (*Welcome*) and vendor (*Fluxnova*)
 by changing the `app/welcome/scripts/config.js` configuration file as follow:
 
 ```js
@@ -73,8 +73,8 @@ export default {
 
 # Localization
 
-Welcome can be localized. Flowave maintains English and German translation files. 
-You can find and download community maintained translation files at the [Flowave webapp translations repository](https://github.com/flowave-community-hub/flowave-7-webapp-translations).
+Welcome can be localized. Fluxnova maintains English and German translation files. 
+You can find and download community maintained translation files at the [Fluxnova webapp translations repository](https://github.com/fluxnova-community-hub/fluxnova-7-webapp-translations).
 
 The localization of the Welcome application is contained in the `app/welcome/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -118,7 +118,7 @@ export default {
 
 # Disable Welcome Message for new Users
 
-First-time visitors are shown a message directing them to the flowave welcome page. If you do
+First-time visitors are shown a message directing them to the fluxnova welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 ```javascript
 export default {

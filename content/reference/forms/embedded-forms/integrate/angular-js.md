@@ -17,7 +17,7 @@ Make sure you include the AngularJS build of the Forms SDK:
 
 ```html
 <script src="angular.min.js" type="text/javascript"></script>
-<script src="flowave-bpm-sdk-angular.js" type="text/javascript"></script>
+<script src="fluxnova-bpm-sdk-angular.js" type="text/javascript"></script>
 ```
 
 

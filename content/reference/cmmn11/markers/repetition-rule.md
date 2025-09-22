@@ -196,7 +196,7 @@ In our example, the following steps might take place:
 10. From now on, no more repetitions of *A* or *B* can occur.
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>

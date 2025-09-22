@@ -43,7 +43,7 @@ The XML representation of an exclusive gateway is straightforward: one line defi
 ```
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -75,4 +75,4 @@ The XML representation of an exclusive gateway is straightforward: one line defi
 # Additional Resources
 
 *   [Conditional and Default Sequence Flows]({{< ref "/reference/bpmn20/gateways/sequence-flow.md" >}})
-*   [Exclusive Gateways](http://flowave.finos.org/bpmn/reference.html#gateways-data-based-exclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
+*   [Exclusive Gateways](http://fluxnova.finos.org/bpmn/reference.html#gateways-data-based-exclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)

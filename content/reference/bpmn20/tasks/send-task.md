@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A Send Task is used to send a message. In Flowave this is done by calling Java code.
+A Send Task is used to send a message. In Fluxnova this is done by calling Java code.
 
 The Send Task has the same behavior as a Service Task.
 
@@ -22,7 +22,7 @@ The Send Task has the same behavior as a Service Task.
 ```
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>

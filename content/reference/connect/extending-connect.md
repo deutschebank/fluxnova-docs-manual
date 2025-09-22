@@ -16,7 +16,7 @@ The connectors available to Connect may not always suit your needs. Sometimes,
 it is necessary to provide configuration.
 
 To configure a connector detected by Spin, the SPI
-`org.finos.flowave.connect.spi.ConnectorConfigurator` can be implemented.  A
+`org.finos.fluxnova.connect.spi.ConnectorConfigurator` can be implemented.  A
 configurator specifies which classes it can configure. Connect discovers a
 configurator by employing Java's service loader mechanism and will then provide
 it with all connectors that match the specified class (or are a subclass
@@ -26,27 +26,27 @@ that the connector uses.
 
 To provide a custom configurator, you have to
 
-* Provide a custom implementation of `org.finos.flowave.connect.spi.ConnectorConfigurator`
-* Add the configurator's fully qualified classname to a file named `META-INF/services/org.finos.flowave.connect.spi.ConnectorConfigurator`
+* Provide a custom implementation of `org.finos.fluxnova.connect.spi.ConnectorConfigurator`
+* Add the configurator's fully qualified classname to a file named `META-INF/services/org.finos.fluxnova.connect.spi.ConnectorConfigurator`
 * Ensure that the artifact containing the configurator is reachable from Connect's classloader
 
 
 # Custom Connector
 
 A connector is an implementation of the interface
-`org.finos.flowave.connect.spi.Connector`. An implementation of this interface can be
-registered by implementing the SPI `org.finos.flowave.connect.spi.ConnectorProvider`.
+`org.finos.fluxnova.connect.spi.Connector`. An implementation of this interface can be
+registered by implementing the SPI `org.finos.fluxnova.connect.spi.ConnectorProvider`.
 Connect uses the Java platform's service loader mechanism to lookup provider
 implementations at runtime.
 
 To provide a custom connector, you have to
 
-* Provide a custom implementation of `org.finos.flowave.connect.spi.Connector`
-* Provide a custom implementation of `org.finos.flowave.connect.spi.ConnectorProvider`
-* Add the provider's fully qualified classname to a file named `META-INF/services/org.finos.flowave.connect.spi.ConnectorProvider`
+* Provide a custom implementation of `org.finos.fluxnova.connect.spi.Connector`
+* Provide a custom implementation of `org.finos.fluxnova.connect.spi.ConnectorProvider`
+* Add the provider's fully qualified classname to a file named `META-INF/services/org.finos.fluxnova.connect.spi.ConnectorProvider`
 * Ensure that the artifact containing the provider is reachable from Connect's classloader
 
-If you now call `org.finos.flowave.connect.Connectors.getAvailableConnectors()`, then
+If you now call `org.finos.fluxnova.connect.Connectors.getAvailableConnectors()`, then
 the custom connector is returned along with the built-in connectors.
-Furthermore, `org.finos.flowave.connect.Connectors.getConnector(String connectorId)`
+Furthermore, `org.finos.fluxnova.connect.Connectors.getConnector(String connectorId)`
 can be used to explicity retrieve the connector by a specific provider.

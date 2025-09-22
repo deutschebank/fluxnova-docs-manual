@@ -24,20 +24,20 @@ Once the event has reached the History Event Handler, it can be processed and st
 
 Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. To do so, two main steps are required:
 
-* Provide a custom implementation of the {{< javadocref page="org/finos/flowave/bpm/engine/impl/history/handler/HistoryEventHandler.html" text="HistoryEventHandler" >}} interface.
+* Provide a custom implementation of the {{< javadocref page="org/finos/fluxnova/bpm/engine/impl/history/handler/HistoryEventHandler.html" text="HistoryEventHandler" >}} interface.
 * Wire the custom implementation in the process engine configuration.
 
 {{< note title="Composite History Handling" class="info" >}}
-  Note that if you provide a custom implementation of the HistoryEventHandler and wire it to the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.finos.flowave.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
+  Note that if you provide a custom implementation of the HistoryEventHandler and wire it to the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.finos.fluxnova.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
 {{< /note >}}
 {{< note title="Spring Boot" class="info" >}}
 
-Note that providing your custom `HistoryEventHandler` in a Spring Boot Starter environment works slightly differently. By default, the Flowave Spring Boot starter uses a `CompositeHistoryEventHandler` which wraps a list of HistoryEventHandler implementations that you can provide via the `customHistoryEventHandlers` engine configuration property. If you want to override the default `DbHistoryEventHandler`, you have to explicitly set the `enableDefaultDbHistoryEventHandler` engine configuration property to `false`.
+Note that providing your custom `HistoryEventHandler` in a Spring Boot Starter environment works slightly differently. By default, the Fluxnova Spring Boot starter uses a `CompositeHistoryEventHandler` which wraps a list of HistoryEventHandler implementations that you can provide via the `customHistoryEventHandlers` engine configuration property. If you want to override the default `DbHistoryEventHandler`, you have to explicitly set the `enableDefaultDbHistoryEventHandler` engine configuration property to `false`.
 {{< /note >}}
 
 ## Implement a custom history level
 
-To provide a custom history level the interface `org.finos.flowave.bpm.engine.impl.history.HistoryLevel` has to be implemented. The custom history level implementation
+To provide a custom history level the interface `org.finos.fluxnova.bpm.engine.impl.history.HistoryLevel` has to be implemented. The custom history level implementation
 then has to be added to the process engine configuration, either by configuration or a process engine plugin.
 
 ```xml
@@ -46,11 +46,11 @@ then has to be added to the process engine configuration, either by configuratio
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="processEngineConfiguration" class="org.finos.flowave.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration" >
+  <bean id="processEngineConfiguration" class="org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration" >
 
     <property name="customHistoryLevels">
       <list>
-        <bean class="org.finos.flowave.bpm.example.CustomHistoryLevel" />
+        <bean class="org.finos.fluxnova.bpm.example.CustomHistoryLevel" />
       </list>
     </property>
 
@@ -78,7 +78,7 @@ boolean isHistoryEventProduced(HistoryEventType eventType, Object entity)
 ```
 
 is called for every history event to determine if the event should be saved to the history. The event types used in the
-engine can be found in `org.finos.flowave.bpm.engine.impl.history.event.HistoryEventTypes` (see [Javadocs][1]).
+engine can be found in `org.finos.fluxnova.bpm.engine.impl.history.event.HistoryEventTypes` (see [Javadocs][1]).
 
 The second argument is the entity for which the event is triggered, e.g., a process instance, activity
 instance or variable instance. If the `entity` is null the engine tests if the history level in general
@@ -115,5 +115,5 @@ public boolean isHistoryEventProduced(HistoryEventType eventType, Object entity)
 
 
 
-[1]: http://docs.flowave.finos.org/latest/api-references/javadoc/org/finos/flowave/bpm/engine/impl/history/event/HistoryEventTypes.html
-[2]: https://github.com/finos/flowave-bpm-examples/tree/master/process-engine-plugin/custom-history-level
+[1]: http://docs.fluxnova.finos.org/latest/api-references/javadoc/org/finos/fluxnova/bpm/engine/impl/history/event/HistoryEventTypes.html
+[2]: https://github.com/finos/fluxnova-bpm-examples/tree/master/process-engine-plugin/custom-history-level

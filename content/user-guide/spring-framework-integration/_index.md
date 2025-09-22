@@ -10,27 +10,27 @@ menu:
 
 ---
 
-The flowave-engine Spring Framework integration is located inside a maven module and can be added to apache maven-based projects through the following dependency:
+The fluxnova-engine Spring Framework integration is located inside a maven module and can be added to apache maven-based projects through the following dependency:
 
 {{< note title="" class="info" >}}
-  Please import the [Flowave BOM](/get-started/apache-maven/) to ensure correct versions for every Flowave project.
+  Please import the [Fluxnova BOM](/get-started/apache-maven/) to ensure correct versions for every Fluxnova project.
 {{< /note >}}
 
-* `flowave-engine-spring` maven module for Spring Framework 5
+* `fluxnova-engine-spring` maven module for Spring Framework 5
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-spring</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-spring</artifactId>
 </dependency>
 ```
 
-* `flowave-engine-spring-6` maven module for Spring Framework 6.
+* `fluxnova-engine-spring-6` maven module for Spring Framework 6.
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-spring-6</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-spring-6</artifactId>
 </dependency>
 ```
 

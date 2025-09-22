@@ -1,6 +1,6 @@
 ---
 
-title: 'JNDI Bindings for Flowave Services'
+title: 'JNDI Bindings for Fluxnova Services'
 weight: 20
 
 menu:
@@ -10,10 +10,10 @@ menu:
 
 ---
 
-The Flowave Services (i.e., Process Engine Service and Process Application Service) are provided via JNDI Bindings with the following JNDI names:
+The Fluxnova Services (i.e., Process Engine Service and Process Application Service) are provided via JNDI Bindings with the following JNDI names:
 
-* Process Engine Service: `java:global/flowave-bpm-platform/process-engine/ProcessEngineService!org.finos.flowave.bpm.ProcessEngineService`
-* Process Application Service: `java:global/flowave-bpm-platform/process-engine/ProcessApplicationService!org.finos.flowave.bpm.ProcessApplicationService`
+* Process Engine Service: `java:global/fluxnova-bpm-platform/process-engine/ProcessEngineService!org.finos.fluxnova.bpm.ProcessEngineService`
+* Process Application Service: `java:global/fluxnova-bpm-platform/process-engine/ProcessApplicationService!org.finos.fluxnova.bpm.ProcessApplicationService`
 
-On JBoss EAP and WildFly, you are able to get any of these Flowave Services through a JNDI lookup. 
-However, on Apache Tomcat you have to do quite a bit more to be able to do a lookup to get one of these Flowave Services.
+On JBoss EAP and WildFly, you are able to get any of these Fluxnova Services through a JNDI lookup. 
+However, on Apache Tomcat you have to do quite a bit more to be able to do a lookup to get one of these Fluxnova Services.

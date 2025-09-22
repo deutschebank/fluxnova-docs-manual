@@ -33,7 +33,7 @@ This plugin provides you with a list of deployed decision requirements definitio
 # Search
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/dmn/decision-instance-search.png" title="Decision Instance Search" >}}

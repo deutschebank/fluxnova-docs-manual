@@ -11,13 +11,13 @@ menu:
 ---
 
 
-Flowave provides Spring Security OAuth2 integration with the `flowave-bpm-spring-boot-starter-security` library.
+Fluxnova provides Spring Security OAuth2 integration with the `fluxnova-bpm-spring-boot-starter-security` library.
 This library contains the Spring Security and Spring Security OAuth2 dependencies along with
-configuration classes that integrate Spring Security with Flowave Webapp's authentication.
+configuration classes that integrate Spring Security with Fluxnova Webapp's authentication.
 
-This is available both for Spring Boot and Flowave Run.
+This is available both for Spring Boot and Fluxnova Run.
 
-Flowave's integration comes with multiple components and configurations. In the next sections you can find more details to each of them.
+Fluxnova's integration comes with multiple components and configurations. In the next sections you can find more details to each of them.
 
 # Activate OAuth2
 
@@ -27,15 +27,15 @@ In order to enable the Spring Security OAuth2 integration in Spring Boot, add th
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm.springboot</groupId>
-  <artifactId>flowave-bpm-spring-boot-starter-security</artifactId>
+  <groupId>org.finos.fluxnova.bpm.springboot</groupId>
+  <artifactId>fluxnova-bpm-spring-boot-starter-security</artifactId>
 </dependency>
 ```
 
-## Flowave Run
+## Fluxnova Run
 
-Flowave Run already contains the required libraries, all you need to do is to activate them.
-In order to enable the Spring Security OAuth2 integration in Flowave Run, start Run with an extra `--oauth2` argument:
+Fluxnova Run already contains the required libraries, all you need to do is to activate them.
+In order to enable the Spring Security OAuth2 integration in Fluxnova Run, start Run with an extra `--oauth2` argument:
 
 ```shell
 ./start.sh --webapps --rest --oauth2
@@ -43,23 +43,23 @@ In order to enable the Spring Security OAuth2 integration in Flowave Run, start 
 
 # Auto Configuration
 
-The Flowave integration has two default auto configurations. Depending on the OAuth2 client
+The Fluxnova integration has two default auto configurations. Depending on the OAuth2 client
 registration in the application properties (`spring.security.oauth2.client.registration`) either the
-`FlowaveSpringSecurityOAuth2AutoConfiguration` or the `FlowaveBpmSpringSecurityDisableAutoConfiguration` will be activated.
+`FluxnovaSpringSecurityOAuth2AutoConfiguration` or the `FluxnovaBpmSpringSecurityDisableAutoConfiguration` will be activated.
 
 ## OAuth2 Enabled Configuration
 
 Configuration activates if there is OAuth2 client registration configured. This class configures the Spring
-Security filter chain to secure the Flowave Webapps.
+Security filter chain to secure the Fluxnova Webapps.
 
-Spring auto configuration class: {{< javadocref page="org/finos/flowave/bpm/spring/boot/starter/security/oauth2/impl/FlowaveSpringSecurityOAuth2AutoConfiguration.html" text="FlowaveSpringSecurityOAuth2AutoConfiguration" >}}
+Spring auto configuration class: {{< javadocref page="org/finos/fluxnova/bpm/spring/boot/starter/security/oauth2/impl/FluxnovaSpringSecurityOAuth2AutoConfiguration.html" text="FluxnovaSpringSecurityOAuth2AutoConfiguration" >}}
 
 ## Spring Security Disabled Auto Configuration
 
 Configuration activates if there is **no** OAuth2 client registration configured. This class configures the Spring
 Security filter chain to a permit all mode.
 
-Spring auto configuration class: {{< javadocref page="org/finos/flowave/bpm/spring/boot/starter/security/oauth2/impl/FlowaveBpmSpringSecurityDisableAutoConfiguration.html" text="FlowaveBpmSpringSecurityDisableAutoConfiguration" >}}
+Spring auto configuration class: {{< javadocref page="org/finos/fluxnova/bpm/spring/boot/starter/security/oauth2/impl/FluxnovaBpmSpringSecurityDisableAutoConfiguration.html" text="FluxnovaBpmSpringSecurityDisableAutoConfiguration" >}}
 
 # OAuth2 Client Registration
 
@@ -67,16 +67,16 @@ For the client registration, please refer to the official Spring
 Security's [OAuth2 Core Configuration][OAuth2Config] documentation to configure your choice of
 identity provider.
 
-Once there is an OAuth2 client registration configured and the Flowave Spring Security OAuth2
+Once there is an OAuth2 client registration configured and the Fluxnova Spring Security OAuth2
 integration is enabled, the Webapps will use the configured OAuth2 provider for
 authentication.
 
 # User Name Mapping
 
-Flowave's integration uses the **name** field from Spring Security's principal object as the User ID
+Fluxnova's integration uses the **name** field from Spring Security's principal object as the User ID
 in the Webapps.
 
-Spring Security by default uses the subject (`sub`) claim as the principal name. As the User ID in Flowave is
+Spring Security by default uses the subject (`sub`) claim as the principal name. As the User ID in Fluxnova is
 an important part for authorizations, it's important that the right claim is used. 
 
 Spring Security provides a way to change the default attribute used for the username.
@@ -91,9 +91,9 @@ Make sure to correctly configure which token attribute should be used as the Use
 
 For creating initial authorizations in your application, you have the following options available:
 
-1. The `flowave.bpm.admin-user` property to create an administrator user with authorizations:
+1. The `fluxnova.bpm.admin-user` property to create an administrator user with authorizations:
    ```yaml
-   flowave.bpm:
+   fluxnova.bpm:
      admin-user:
        id: demo
        password: demo
@@ -101,21 +101,21 @@ For creating initial authorizations in your application, you have the following 
        lastName: Demo
    ```
 
-  - See [Flowave Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#flowave-engine-properties" >}}) documentation for more details.
+  - See [Fluxnova Engine Properties]({{< ref "/user-guide/spring-boot-integration/configuration#fluxnova-engine-properties" >}}) documentation for more details.
 2. The [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
 to grant administrator authorizations for a particular OAuth2 user or group.
 
 # OAuth2 Identity Provider
 
-Additionally to the OAuth2 login, Flowave also provides support to use groups from OAuth2.
-This is achieved with a custom [identity service]({{< ref "/user-guide/process-engine/identity-service.md" >}}), called {{< javadocref page="org/finos/flowave/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html" text="OAuth2IdentityProvider" >}}.
+Additionally to the OAuth2 login, Fluxnova also provides support to use groups from OAuth2.
+This is achieved with a custom [identity service]({{< ref "/user-guide/process-engine/identity-service.md" >}}), called {{< javadocref page="org/finos/fluxnova/bpm/spring/boot/starter/security/oauth2/impl/OAuth2IdentityProvider.html" text="OAuth2IdentityProvider" >}}.
 
 This is a read-only identity provider that configures user's groups from the [Spring Security's granted authorities][Authorities].
-This identity provider also supports the default Flowave Database Identity Service as a fallback for authentications for the REST API.
+This identity provider also supports the default Fluxnova Database Identity Service as a fallback for authentications for the REST API.
 
 The identity provider is activated by default. You can override this with the following properties:
 ```yaml
-flowave.bpm.oauth2:
+fluxnova.bpm.oauth2:
   identity-provider:
     enabled: false
 ```
@@ -129,7 +129,7 @@ authorities, that are by default populated with the scope (`scp`) claim.
 
 This mapper can be enabled with the `group-name-attribute` property:
 ```yaml
-flowave.bpm.oauth2:
+fluxnova.bpm.oauth2:
   identity-provider:
     enabled: true
     group-name-attribute: cognito:groups
@@ -148,12 +148,12 @@ Alternatively, you can also define your own [GrantedAuthoritiesMapper][GrantedAu
 
 In Spring Boot this can be done by registering your own `GrantedAuthoritiesMapper` bean.
 
-In Flowave Run a JAR file needs to be built and copied into the `userlib` folder.
+In Fluxnova Run a JAR file needs to be built and copied into the `userlib` folder.
 This needs to contain a [Spring auto configuration][AutoConfig] with the custom granted authorities mapper bean.
 
 ## Configuration
 
-All configuration properties of the identity provider start with the prefix `flowave.bpm.oauth2.identity-provider`.
+All configuration properties of the identity provider start with the prefix `fluxnova.bpm.oauth2.identity-provider`.
 The following properties are available:
 
 <table class="table table-striped">
@@ -192,13 +192,13 @@ Due to the fallback to DB Identity Service this provider is still defined as wri
 
 OAuth2 doesn't return information about other users or groups. This means users and even admins can only see their own user and groups on the Admin pages.
 
-Furthermore, it only shows groups from OAuth2 and doesn't show groups configured in Flowave database.
+Furthermore, it only shows groups from OAuth2 and doesn't show groups configured in Fluxnova database.
 
 ## Disabling Identity Provider
 
 With the [above-mentioned property](#configuration), the identity provider can be deactivated.
 Without identity provider OAuth2 is only used for authentication. This means, that the user needs to
-be also configured with the matching User ID in Flowave database.
+be also configured with the matching User ID in Fluxnova database.
 
 If the user is not available or doesn't have sufficient authorizations, they won't be able to access
 the Webapps.
@@ -206,8 +206,8 @@ the Webapps.
 # Logout
 
 We provide support for local and client initiated SSO logout as well.
-In order to support both logouts, the Flowave integration also contains a Frontend Plugin that overrides the Webapps default logout behaviour.
-As a consequence, when the Webapp user clicks on the logout, it invokes Spring's logout endpoint (`/logout`) instead of Flowave's.
+In order to support both logouts, the Fluxnova integration also contains a Frontend Plugin that overrides the Webapps default logout behaviour.
+As a consequence, when the Webapp user clicks on the logout, it invokes Spring's logout endpoint (`/logout`) instead of Fluxnova's.
 
 ## Client Initiated SSO Logout
 
@@ -217,15 +217,15 @@ Please refer Spring's [OpenID Connect 1.0 Client-Initiated Logout][SSOLogout] se
 In order to configure this feature, use the following properties:
 
 ```yaml
-flowave.bpm.oauth2:
+fluxnova.bpm.oauth2:
   sso-logout:
     enabled: true
-    postLogoutRedirectUri: https://flowave.finos.org/
+    postLogoutRedirectUri: https://fluxnova.finos.org/
 ```
 
 ## Configuration
 
-All configuration properties of the identity provider start with the prefix `flowave.bpm.oauth2.sso-logout`.
+All configuration properties of the identity provider start with the prefix `fluxnova.bpm.oauth2.sso-logout`.
 The following properties are available:
 
 <table class="table table-striped">
@@ -252,9 +252,9 @@ Currently, it's not possible to change the default Spring logout endpoint, which
 
 # Security Recommendations
 
-Flowave's integration heavily relies on Spring Security's OAuth2 support.
+Fluxnova's integration heavily relies on Spring Security's OAuth2 support.
 
-If you decide to use OAuth2 for login in Flowave, we highly recommend to consult and implement the current industry recommended security standards.
+If you decide to use OAuth2 for login in Fluxnova, we highly recommend to consult and implement the current industry recommended security standards.
 Additionally, also follow the security recommendations specified by your identity provider.
 
 ## Token Lifetime
@@ -276,7 +276,7 @@ Logging can be enabled for the package via the following property:
 ```yaml
 logging:
   level:
-    org.finos.flowave.bpm.spring.boot.starter.security.oauth2: DEBUG
+    org.finos.fluxnova.bpm.spring.boot.starter.security.oauth2: DEBUG
 ```
 
 # Example
@@ -285,10 +285,10 @@ In this section we provide an example configuration with OKTA as OIDC provider.
 Additionally, we also mark and explain a few lines:
 
 ```yaml
-flowave.bpm.oauth2:
+fluxnova.bpm.oauth2:
  sso-logout: # 1
    enabled: true
-   postLogoutRedirectUri: https://flowave.finos.org/
+   postLogoutRedirectUri: https://fluxnova.finos.org/
  identity-provider:
    group-name-attribute: okta-groups # 2
 
@@ -313,21 +313,21 @@ spring.security: # 3
    - Alternatively, `okta-spring-security-oauth2` library and its properties could be used too.
 4. Defines the `openid,profile,email,offline_access` scopes.
    - Scopes are provider dependent. `openid` is required usually.
-   - In case of OKTA, `profile` and `email` are useful to access firstname, lastname and email in Flowave but not mandatory.
+   - In case of OKTA, `profile` and `email` are useful to access firstname, lastname and email in Fluxnova but not mandatory.
    - `offline_access` activates the refresh_token grant, not mandatory.
-5. Configures the `preferred_username` as the username attribute, which is also used as the Flowave User ID.
+5. Configures the `preferred_username` as the username attribute, which is also used as the Fluxnova User ID.
 
 # Disable Auto Configuration
 
-If you wish to use Spring Security but without Flowave's integration classes, you can do so by
+If you wish to use Spring Security but without Fluxnova's integration classes, you can do so by
 excluding the two auto configuration classes:
 
 Either with the `@EnableAutoConfiguration` annotation:
 
 ```java
 @EnableAutoConfiguration(exclude={
-    FlowaveSpringSecurityOAuth2AutoConfiguration.class,
-    FlowaveBpmSpringSecurityDisableAutoConfiguration.class
+    FluxnovaSpringSecurityOAuth2AutoConfiguration.class,
+    FluxnovaBpmSpringSecurityDisableAutoConfiguration.class
 });
 ```
 
@@ -337,8 +337,8 @@ Or in the application properties:
 spring:
   autoconfigure:
     exclude:
-      - org.finos.flowave.bpm.spring.boot.starter.security.oauth2.FlowaveSpringSecurityOAuth2AutoConfiguration
-      - org.finos.flowave.bpm.spring.boot.starter.security.oauth2.FlowaveBpmSpringSecurityDisableAutoConfiguration
+      - org.finos.fluxnova.bpm.spring.boot.starter.security.oauth2.FluxnovaSpringSecurityOAuth2AutoConfiguration
+      - org.finos.fluxnova.bpm.spring.boot.starter.security.oauth2.FluxnovaBpmSpringSecurityDisableAutoConfiguration
 ```
 
 For more information, please refer to Spring's [Disabling Specific Auto-configuration Classes][DisableAutoConfig] documentation.

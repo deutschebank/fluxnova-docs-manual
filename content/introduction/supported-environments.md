@@ -11,9 +11,9 @@ menu:
 ---
 
 
-Run Flowave in every Java-runnable environment. Flowave is supported with our QA infrastructure in the following environments.
+Run Fluxnova in every Java-runnable environment. Fluxnova is supported with our QA infrastructure in the following environments.
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environments listed in this section depend on the version of Flowave. Please select the corresponding version of this documentation to see the environment that fits to your version of Flowave. e.g., [supported environments for version 1.0](http://docs.flowave.finos.org/1.0/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of Fluxnova. Please select the corresponding version of this documentation to see the environment that fits to your version of Fluxnova. e.g., [supported environments for version 1.0](http://docs.fluxnova.finos.org/1.0/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
@@ -22,14 +22,14 @@ Run Flowave in every Java-runnable environment. Flowave is supported with our QA
 ## Application-Embedded Process Engine
 
 * All Java application servers
-* Flowave Spring Boot Starter: Embedded Tomcat
+* Fluxnova Spring Boot Starter: Embedded Tomcat
   * [Supported versions]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}})
   * [Deployment scenarios]({{< ref "/user-guide/spring-boot-integration/_index.md#supported-deployment-scenarios" >}})
-* Flowave Engine Quarkus Extension
+* Fluxnova Engine Quarkus Extension
   * [Supported versions]({{< ref "/user-guide/quarkus-integration/version-compatibility.md" >}})
   * [Deployment scenarios]({{< ref "/user-guide/quarkus-integration/_index.md#supported-deployment-scenarios" >}})
 
-## Container-Managed Process Engine and Flowave Cockpit, Tasklist, Admin
+## Container-Managed Process Engine and Fluxnova Cockpit, Tasklist, Admin
 
 * Apache Tomcat 9.0 / 10.1
 * JBoss EAP 7.4 / 8.0
@@ -45,8 +45,8 @@ Run Flowave in every Java-runnable environment. Flowave is supported with our QA
 * PostgreSQL 14 / 15 / 16 / 17
 * Amazon Aurora PostgreSQL compatible with PostgreSQL 14 / 15 / 16
 * Microsoft SQL Server 2017 / 2019 / 2022 (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md" >}}))
-* Microsoft Azure SQL with Flowave-supported SQL Server compatibility levels 
-  (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-flowave" >}})): 
+* Microsoft Azure SQL with Fluxnova-supported SQL Server compatibility levels 
+  (see [Configuration Note]({{< ref "/user-guide/process-engine/database/mssql-configuration.md#azure-sql-compatibility-levels-supported-by-fluxnova" >}})): 
   * SQL Server on Azure Virtual Machines
   * Azure SQL Managed Instance
   * Azure SQL Database
@@ -54,7 +54,7 @@ Run Flowave in every Java-runnable environment. Flowave is supported with our QA
 
 ## Database Clustering & Replication
 
-Clustered or replicated databases are supported given the following conditions. The communication between Flowave and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
+Clustered or replicated databases are supported given the following conditions. The communication between Fluxnova and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level.
 
 
 # Web Browser
@@ -69,9 +69,9 @@ Clustered or replicated databases are supported given the following conditions. 
 * Java 11 / 17 / 21 (Compatibility is tested with Eclipse Temurin JDK)
 
 
-# Flowave Modeler
+# Fluxnova Modeler
 
-[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Flowave Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
+[Supported environments](https://docs.camunda.io/docs/reference/supported-environments/#camunda-modeler) for Fluxnova Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
 
 # Maintenance Policy
 
@@ -79,7 +79,7 @@ Check our [Enterprise Announcements page](/enterprise/announcement/) for confirm
 
 ## Adding Environments
 
-Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Flowave. A new released environment has to be available three months before the next Flowave minor release to be considered.
+Whenever a new version of one of the following environments is released, we target support of that new version with the next minor release of Fluxnova. A new released environment has to be available three months before the next Fluxnova minor release to be considered.
 
 * Java Language (LTS)
 * Spring Boot

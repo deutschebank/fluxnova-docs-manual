@@ -52,19 +52,19 @@ in your `@SpringBootTest` annotation:
 @SpringBootTest(
   // ...other parameters...
   properties = {
-    "flowave.bpm.generate-unique-process-engine-name=true",
+    "fluxnova.bpm.generate-unique-process-engine-name=true",
     // this is only needed if a SpringBootProcessApplication 
     // is used for the test
-    "flowave.bpm.generate-unique-process-application-name=true",
+    "fluxnova.bpm.generate-unique-process-application-name=true",
     "spring.datasource.generate-unique-name=true",
     // additional properties...
   }
 )
 ```
 
-* The `flowave.bpm.generate-unique-process-engine-name=true` property will generate
+* The `fluxnova.bpm.generate-unique-process-engine-name=true` property will generate
 a unique name for the Process Engine (ex. 'processEngine2Sc4bg2s1g').
-* The `flowave.bpm.generate-unique-process-application-name=true` property will generate
+* The `fluxnova.bpm.generate-unique-process-application-name=true` property will generate
 a unique name for the Process Application (ex. 'processApplication2Sc4bg2s1g'). This is useful
 if you want to deploy and test a Process Application multiple times with multiple configurations.
 * The `spring.datasource.generate-unique-name=true` property will generate a new datasource for
@@ -80,30 +80,30 @@ If a static accessor needs to be used (e.g. processEngines.getProcessEngine(name
 @SpringBootTest(
   // other parameters
   properties = {
-    "flowave.bpm.process-engine-name=foo",
+    "fluxnova.bpm.process-engine-name=foo",
     // this is only needed if a SpringBootProcessApplication 
     // is used for the test
-    "flowave.bpm.generate-unique-process-application-name=true",
+    "fluxnova.bpm.generate-unique-process-application-name=true",
     "spring.datasource.generate-unique-name=true",
     // additional properties
   }
 )
 ```
-Here, the `flowave.bpm.process-engine-name=foo` will set (a unique name) "foo" as the Process Engine name.
+Here, the `fluxnova.bpm.process-engine-name=foo` will set (a unique name) "foo" as the Process Engine name.
 
-## Flowave Assertions
+## Fluxnova Assertions
 
-The [Flowave Assertions]({{< ref 
-"/user-guide/testing/_index.md#flowave-assertions" >}}) library is 
-integrated with the Flowave Spring Boot Starter in
+The [Fluxnova Assertions]({{< ref 
+"/user-guide/testing/_index.md#fluxnova-assertions" >}}) library is 
+integrated with the Fluxnova Spring Boot Starter in
 order to make testing processes in your Spring Boot application easier.
 
 ### Using Assertions with Context Caching
 
-Out of the box, the Flowave Assertions library tries to use the
+Out of the box, the Fluxnova Assertions library tries to use the
 default engine or the (single) one that is available. Since when using
 Context Caching multiple engines are used in different contexts, binding
-the correct Process Engine to the Flowave Assertions library is required
+the correct Process Engine to the Fluxnova Assertions library is required
 for both caching and assertions to work correctly. This can be done
 through the following initialization code in the test class:
 

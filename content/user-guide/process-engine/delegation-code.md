@@ -26,7 +26,7 @@ You can create generic Delegation Code and configure this via the BPMN 2.0 XML u
 
 # Java Delegate
 
-To implement a class that can be called during process execution, this class needs to implement the `org.finos.flowave.bpm.engine.delegate.JavaDelegate`
+To implement a class that can be called during process execution, this class needs to implement the `org.finos.fluxnova.bpm.engine.delegate.JavaDelegate`
 interface and provide the required logic in the `execute`
 method. When process execution arrives at this particular step, it
 will execute this logic defined in that method and leave the activity
@@ -34,12 +34,12 @@ in the default BPMN 2.0 way.
 
 As an example let's create a Java class that can be used to change a
 process variable String to uppercase. This class needs to implement
-the `org.finos.flowave.bpm.engine.delegate.JavaDelegate`
+the `org.finos.fluxnova.bpm.engine.delegate.JavaDelegate`
 interface, which requires us to implement the `execute(DelegateExecution)`
 method. It's this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
-manipulated through the {{< javadocref page="org/finos/flowave/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}} interface (click on the link for a detailed Javadoc of its operations).
+manipulated through the {{< javadocref page="org/finos/fluxnova/bpm/engine/delegate/DelegateExecution.html" text="DelegateExecution" >}} interface (click on the link for a detailed Javadoc of its operations).
 
 ```java
   public class ToUppercase implements JavaDelegate {
@@ -68,7 +68,7 @@ environment.
 
 # Activity Behavior
 
-Instead of writing a Java Delegate, it is also possible to provide a class that implements the `org.finos.flowave.bpm.engine.impl.pvm.delegate.ActivityBehavior`
+Instead of writing a Java Delegate, it is also possible to provide a class that implements the `org.finos.fluxnova.bpm.engine.impl.pvm.delegate.ActivityBehavior`
 interface. Implementations then have access to the more powerful `ActivityExecution` that for example also allows to influence the control flow of the process. However, note that this is not a very good practice and should be avoided as much as possible. So, it is advised to only use the `ActivityBehavior` interface for advanced use cases and if you know exactly what you're doing.
 
 
@@ -86,7 +86,7 @@ If no setter is available for that field, the value of private
 member will be set on the delegate (but using private fields is **not** recommended - see warning below).
 
 **Regardless of the type of value declared in the process-definition, the type of the
-setter/private field on the injection target should always be `org.finos.flowave.bpm.engine.delegate.Expression`**.
+setter/private field on the injection target should always be `org.finos.fluxnova.bpm.engine.delegate.Expression`**.
 
 {{< note title="" class="warning" >}}
   Private fields cannot always be modified! It does **not work** with e.g.,
@@ -110,7 +110,7 @@ declarations, which is a requirement of the BPMN 2.0 XML Schema.
 ```
 
 The class `ToUpperCaseFieldInjected` has a field
-`text` which is of type `org.finos.flowave.bpm.engine.delegate.Expression`.
+`text` which is of type `org.finos.fluxnova.bpm.engine.delegate.Expression`.
 When calling `text.getValue(execution)`, the configured string value
 `Hello World` will be returned.
 
@@ -136,7 +136,7 @@ can be used. Those expressions can use process variables, CDI or Spring
 beans. As already noted, a separate instance of the Java class will be created
 each time the service task is executed. To have dynamic injection of
 values in fields, you can inject value and method expressions in an
-`org.finos.flowave.bpm.engine.delegate.Expression`
+`org.finos.fluxnova.bpm.engine.delegate.Expression`
 which can be evaluated/invoked using the `DelegateExecution`
 passed in the `execute` method.
 
@@ -191,7 +191,7 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
 
 # Delegate Variable Mapping
 
-To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the `org.finos.flowave.bpm.engine.delegate.DelegateVariableMapping`
+To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the `org.finos.fluxnova.bpm.engine.delegate.DelegateVariableMapping`
 interface. The implementation must provide the methods `mapInputVariables(DelegateExecution, VariableMap)` and `mapOutputVariables(DelegateExecution, VariableScope)`.
 See the following example:
 
@@ -235,7 +235,7 @@ The following process definition contains 3 execution listeners:
     <extensionElements>
       <camunda:executionListener
           event="start"
-          class="org.finos.flowave.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne" />
+          class="org.finos.fluxnova.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne" />
     </extensionElements>
 
     <startEvent id="theStart" />
@@ -270,7 +270,7 @@ The following process definition contains 3 execution listeners:
   </process>
 ```
 
-The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the `org.finos.flowave.bpm.engine.delegate.ExecutionListener` interface. When the event occurs (in this case end event) the method `notify(DelegateExecution execution)` is called.
+The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the `org.finos.fluxnova.bpm.engine.delegate.ExecutionListener` interface. When the event occurs (in this case end event) the method `notify(DelegateExecution execution)` is called.
 
 ```java
   public class ExampleExecutionListenerOne implements ExecutionListener {
@@ -282,7 +282,7 @@ The first execution listener is notified when the process starts. The listener i
   }
 ```
 
-It is also possible to use a delegation class that implements the `org.finos.flowave.bpm.engine.delegate.JavaDelegate` interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.
+It is also possible to use a delegation class that implements the `org.finos.fluxnova.bpm.engine.delegate.JavaDelegate` interface. These delegation classes can then be reused in other constructs, such as a delegation for a service task.
 
 The second execution listener is called when the transition is taken. Note that the listener element
 doesn't define an event, since only take events are fired on transitions. Values in the event
@@ -316,7 +316,7 @@ Execution listeners also support using a delegateExpression, similar to a servic
 
 # Task Listener
 
-A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the Flowave namespace, since a task listener is a construct specifically for the Flowave engine.
+A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the Fluxnova namespace, since a task listener is a construct specifically for the Fluxnova engine.
 
 ```xml
   <userTask id="myTask" name="My Task" >
@@ -401,7 +401,7 @@ A task listener supports the following attributes:
     Note that the **timeout** event requires a [timerEventDefinition][timerEventDefinition] child
     element in the task listener and will only be fired if the [Job Executor][job-executor] is enabled.
 
-* **class**: the delegation class that must be called. This class must implement the `org.finos.flowave.bpm.engine.impl.pvm.delegate.TaskListener` interface.
+* **class**: the delegation class that must be called. This class must implement the `org.finos.fluxnova.bpm.engine.impl.pvm.delegate.TaskListener` interface.
 
     ```java
     public class MyTaskCreateListener implements TaskListener {
@@ -513,7 +513,7 @@ The class `ExampleFieldInjectedExecutionListener` concatenates the 2 injected fi
 
 ```java
   @Deployment(resources = {
-    "org/finos/flowave/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml"
+    "org/finos/fluxnova/bpm/examples/bpmn/executionListener/ExecutionListenersFieldInjectionProcess.bpmn20.xml"
   })
   public void testExecutionListenerFieldInjection() {
     Map<String, Object> variables = new HashMap<String, Object>();
@@ -611,7 +611,7 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 # Exception codes
 
-You can throw a `{{< javadocref page="org/finos/flowave/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`
+You can throw a `{{< javadocref page="org/finos/fluxnova/bpm/engine/ProcessEngineException.html" text="ProcessEngineException" >}}`
 from your delegation code and define your custom error code by passing it to the constructor or by
 calling `ProcessEngineException#setCode`.
 
@@ -640,7 +640,7 @@ public class MyJavaDelegate implements JavaDelegate {
 ```
 
 Setting a custom error code via Delegation Code allows your business logic to react to it by getting 
-the code via `ProcessEngineException#getCode` when calling Flowave Java API or by evaluating the 
+the code via `ProcessEngineException#getCode` when calling Fluxnova Java API or by evaluating the 
 `code` property in the response of an [erroneous REST API call]({{< ref "/reference/rest/overview/_index.md#exception-codes" >}}).
 
 If you don't set any code, the engine assigns `0`, which a custom or built-in error code provider can override.

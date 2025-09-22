@@ -68,7 +68,7 @@ Two optional attributes can be added to the escalation start event, <code>escala
 * If a start event has no `escalationRef` or `escalationCode` of referenced escalation then another event sub-process with an escalation start event is not supported.
 {{< /note >}}
 
-### Flowave Extensions
+### Fluxnova Extensions
 
 The following extensions are supported for `escalationEventDefinition`.
 
@@ -114,7 +114,7 @@ Two optional attributes can be added to the escalation boundary event, <code>esc
 * If a boundary event has no `escalationRef` or `escalationCode` of referenced escalation then another escalation boundary event is not supported.
 {{< /note >}}
 
-### Flowave Extensions
+### Fluxnova Extensions
 
 The following extensions are supported for `escalationEventDefinition`.
 

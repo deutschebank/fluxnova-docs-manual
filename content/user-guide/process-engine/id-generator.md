@@ -39,7 +39,7 @@ internally.
   Always use the StrongUuidGenerator for production setups.
 {{< /note >}}
 
-In the [Flowave Full Distributions][2], the
+In the [Fluxnova Full Distributions][2], the
 StrongUuidGenerator is preconfigured and the default Id Generator used by the process engine.
 
 If you use an embedded process engine configuration and configure the process engine using Spring,
@@ -47,12 +47,12 @@ you need to add the following lines to the Spring configuration to enable the
 `StrongUuidGenerator`:
 
 ```xml
-<bean id="processEngineConfiguration" class="org.finos.flowave.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+<bean id="processEngineConfiguration" class="org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 
   [...]
 
   <property name="idGenerator">
-    <bean class="org.finos.flowave.bpm.engine.impl.persistence.StrongUuidGenerator" />
+    <bean class="org.finos.fluxnova.bpm.engine.impl.persistence.StrongUuidGenerator" />
   </property>
 
 </bean>
@@ -70,4 +70,4 @@ Additionally, you need the following maven dependency:
 ```
 
 [1]: https://mvnrepository.com/artifact/com.fasterxml.uuid/java-uuid-generator
-[2]: {{< ref "/introduction/downloading-flowave.md#full-distribution" >}}
+[2]: {{< ref "/introduction/downloading-fluxnova.md#full-distribution" >}}

@@ -201,7 +201,7 @@ or integrate with a platform transaction manager.
 If the process engine is configured to perform standalone transaction management, it always opens a
 new transaction for each command which is executed. To configure the process engine to use
 standalone transaction management, use the
-`org.finos.flowave.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`:
+`org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`:
 
 ```java
 ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration()
@@ -293,11 +293,11 @@ try {
 
 # Optimistic Locking
 
-The Flowave Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.
+The Fluxnova Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.
 
-Flowave Engine uses a well known technique called "Optimistic Locking" (or Optimistic Concurrently Control) to detect and resolve such situations.
+Fluxnova Engine uses a well known technique called "Optimistic Locking" (or Optimistic Concurrently Control) to detect and resolve such situations.
 
-This section is structured in two parts: The first part introduces Optimistic Locking as a concept. You can skip this section in case you are already familiar with Optimistic Locking as such. The second part explains the usage of Optimistic Locking in Flowave.
+This section is structured in two parts: The first part introduces Optimistic Locking as a concept. You can skip this section in case you are already familiar with Optimistic Locking as such. The second part explains the usage of Optimistic Locking in Fluxnova.
 
 ## What is Optimistic Locking?
 
@@ -360,9 +360,9 @@ However, since pessimistic locks are exclusive, concurrency is reduced, degradin
 * [\[1\] Wikipedia: Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
 * [\[2\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 
-## Optimistic Locking in Flowave
+## Optimistic Locking in Fluxnova
 
-Flowave uses Optimistic Locking for concurrency control. If a concurrency conflict is detected, 
+Fluxnova uses Optimistic Locking for concurrency control. If a concurrency conflict is detected, 
 an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed. 
 The execution of delete or update statements return an affected rows count. 
 If this count is equal to zero, it indicates that the row was previously updated or deleted.
@@ -384,7 +384,7 @@ Job execution can also cause an `OptimisticLockingException` to be thrown. Since
 
 In case the current Command is triggered by the Job Executor, `OptimisticLockingException`s are handled automatically using retries. Since this exception is expected to occur, it does not decrement the retry count.
 
-If the current Command is triggered by an external API call, the Flowave Engine rolls back the current transaction to the last save point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
+If the current Command is triggered by an external API call, the Fluxnova Engine rolls back the current transaction to the last save point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
 
 To control the scope of transactions, explicit save points can be added before and after activities using Asynchronous Continuations.
 
@@ -416,5 +416,5 @@ There are several solutions to this problem, the most common one is eventual con
 
 ### Internal Implementation Details
 
-Most of the Flowave Engine database tables contain a column called `REV_`. This column represents the revision version.
+Most of the Fluxnova Engine database tables contain a column called `REV_`. This column represents the revision version.
 When reading a row, data is read at a given "revision". Modifications (UPDATEs and DELETEs) always attempt to update the revision which was read by the current command. Updates increment the revision. After executing a modification statement, the affected rows count is checked. If the count is `1` it is deduced that the version read was still current when executing the modification. In case the affected rows count is `0`, other transaction modified the same data while this transaction was running. This means that a concurrency conflict is detected and this transaction must not be allowed to commit. Subsequently, the transaction is rolled back (or marked rollback-only) and an `OptimisticLockingException` is thrown.

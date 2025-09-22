@@ -147,8 +147,8 @@ LDAP), every request will access this external system which is an
 unnecessary overhead. To reduce such expensive requests, the REST API can be
 configured to use a cache to temporary store such relations.
 
-This caching can be configured in the `web.xml` file of the REST API (or the Flowave Web Application in
-case the REST API is embedded into the Flowave Web Application).
+This caching can be configured in the `web.xml` file of the REST API (or the Fluxnova Web Application in
+case the REST API is embedded into the Fluxnova Web Application).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -159,24 +159,24 @@ case the REST API is embedded into the Flowave Web Application).
   <!-- ... -->
 
   <listener>
-    <listener-class>org.finos.flowave.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+    <listener-class>org.finos.fluxnova.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
   </listener>
 
   <context-param>
-    <param-name>org.finos.flowave.bpm.engine.rest.hal.cache.config</param-name>
+    <param-name>org.finos.fluxnova.bpm.engine.rest.hal.cache.config</param-name>
     <param-value>
       {
-        "cacheImplementation": "org.finos.flowave.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
+        "cacheImplementation": "org.finos.fluxnova.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
         "caches": {
-          "org.finos.flowave.bpm.engine.rest.hal.user.HalUser": {
+          "org.finos.fluxnova.bpm.engine.rest.hal.user.HalUser": {
             "capacity": 100,
             "secondsToLive": 900
           },
-          "org.finos.flowave.bpm.engine.rest.hal.group.HalGroup": {
+          "org.finos.fluxnova.bpm.engine.rest.hal.group.HalGroup": {
             "capacity": 100,
             "secondsToLive": 900
           },
-          "org.finos.flowave.bpm.engine.rest.hal.processDefinition.HalProcessDefinition": {
+          "org.finos.fluxnova.bpm.engine.rest.hal.processDefinition.HalProcessDefinition": {
             "capacity": 100,
             "secondsToLive": 600
           }
@@ -197,12 +197,12 @@ used:
 
 ```xml
 <listener>
-  <listener-class>org.finos.flowave.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+  <listener-class>org.finos.fluxnova.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
 </listener>
 ```
 
 It is configured by the context parameter
-`org.finos.flowave.bpm.engine.rest.hal.cache.config`. The configuration is provided
+`org.finos.fluxnova.bpm.engine.rest.hal.cache.config`. The configuration is provided
 as JSON and consists of two properties:
 
 <table class="table table-striped">
@@ -214,9 +214,9 @@ as JSON and consists of two properties:
     <td>cacheImplementation</td>
     <td>
       The class which is used as cache. The class has to implement the
-      <code>org.finos.flowave.bpm.engine.rest.cache.Cache</code> interface.
+      <code>org.finos.fluxnova.bpm.engine.rest.cache.Cache</code> interface.
       A simple default implementation is provided by the
-      <code>org.finos.flowave.bpm.engine.rest.hal.cache.DefaultHalResourceCache</code> class.
+      <code>org.finos.fluxnova.bpm.engine.rest.hal.cache.DefaultHalResourceCache</code> class.
     </td>
   </tr>
   <tr>
@@ -256,9 +256,9 @@ options:
 
 ## List of Resources Which Support Caching
 
-* Case Definition: `org.finos.flowave.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition`
-* Group: `org.finos.flowave.bpm.engine.rest.hal.group.HalGroup`
-* Identity Links (of a Task): `org.finos.flowave.bpm.engine.rest.hal.identitylink.HalIdentityLink`
-* Process Definition: `org.finos.flowave.bpm.engine.rest.hal.processDefinition.HalProcessDefinition`
-* Task: `org.finos.flowave.bpm.engine.rest.hal.task.HalTask`
-* User: `org.finos.flowave.bpm.engine.rest.hal.user.HalUser`
+* Case Definition: `org.finos.fluxnova.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition`
+* Group: `org.finos.fluxnova.bpm.engine.rest.hal.group.HalGroup`
+* Identity Links (of a Task): `org.finos.fluxnova.bpm.engine.rest.hal.identitylink.HalIdentityLink`
+* Process Definition: `org.finos.fluxnova.bpm.engine.rest.hal.processDefinition.HalProcessDefinition`
+* Task: `org.finos.fluxnova.bpm.engine.rest.hal.task.HalTask`
+* User: `org.finos.fluxnova.bpm.engine.rest.hal.user.HalUser`

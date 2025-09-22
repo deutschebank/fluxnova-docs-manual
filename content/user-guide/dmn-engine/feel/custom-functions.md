@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Flowave provides a wrapper for the FEEL Scala Engine to implement Custom Functions, which can be 
+Fluxnova provides a wrapper for the FEEL Scala Engine to implement Custom Functions, which can be 
 called in expressions and unary tests. 
 
 {{< note title="Custom Function Behavior" class="warning" >}}
@@ -30,8 +30,8 @@ To implement a Custom Function, create a sub-class of `FeelCustomFunctionProvide
 The following code example shows how to implement a Custom Function:
 
 ```java
-import org.finos.flowave.bpm.dmn.feel.impl.scala.function.CustomFunction;
-import org.finos.flowave.bpm.dmn.feel.impl.scala.function.FeelCustomFunctionProvider;
+import org.finos.fluxnova.bpm.dmn.feel.impl.scala.function.CustomFunction;
+import org.finos.fluxnova.bpm.dmn.feel.impl.scala.function.FeelCustomFunctionProvider;
 
 import java.util.Collection;
 import java.util.HashMap;

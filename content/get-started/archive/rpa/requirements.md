@@ -22,10 +22,10 @@ with the requirements already.
 In order to succeed with this getting started guide, we expect that you already know
 
 * How to create and trigger robots with your RPA vendor (UiPath or AutomationAnywhere)
-* How to model and execute BPMN process diagrams with the Flowave stack
+* How to model and execute BPMN process diagrams with the Fluxnova stack
 * How to work with process variables as part of JUEL expressions
 
-If you never executed a process model with the Flowave engine, we recommend starting with the [Quick Start Guide](../../quick-start) first.
+If you never executed a process model with the Fluxnova engine, we recommend starting with the [Quick Start Guide](../../quick-start) first.
 
 # Hardware Requirements
 

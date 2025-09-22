@@ -15,10 +15,10 @@ menu:
 
 There are different types of forms which are primarily used in Tasklist. To implement a task form in your application, you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling tasks forms are the [StartEvent][start-event] and the [UserTask][user-tasks].
 
-Forms are referenced using Form Keys or Form References and can either be embedded in Flowave Tasklist or handled by a custom application. Depending on your use-case, different Form Types can be used:
+Forms are referenced using Form Keys or Form References and can either be embedded in Fluxnova Tasklist or handled by a custom application. Depending on your use-case, different Form Types can be used:
 
 1. [Embedded Task Forms](#embedded-task-forms) allow you to embed custom HTML and JavaScript forms into Tasklist.
-2. [Flowave Forms](#flowave-forms) offer visual editing of forms in the Flowave Modeler and can be used for less complex forms. Flowave Forms are the only form type that can be referenced either by Form Key or by Form Reference.
+2. [Fluxnova Forms](#fluxnova-forms) offer visual editing of forms in the Fluxnova Modeler and can be used for less complex forms. Fluxnova Forms are the only form type that can be referenced either by Form Key or by Form Reference.
 3. [External Task Forms](#external-task-forms) can be used to link to custom applications. The Form will not be embedded in Tasklist.
 
 If no form key is present, a [Generic Task Form](#generic-task-forms) will be shown.
@@ -34,13 +34,13 @@ Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.
   </tr>
   <tr>
     <td>FORM-TYPE</td>
-    <td>Can be <code>embedded</code> or <code>flowave-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
+    <td>Can be <code>embedded</code> or <code>fluxnova-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
   </tr>
   <tr>
     <td>LOCATION</td>
     <td>Can be either <code>deployment</code> or <code>app</code>:
     <ul>
-      <li><em>deployment</em>: The file is part of your deployment (e.g., <a href="{{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}">by adding it to your process archive</a> or <a href="https://docs.flowave.finos.org/get-started/quick-start/deploy/#use-the-flowave-modeler-to-deploy-the-process">by deploying from the Flowave Modeler</a>), which means that it is stored in the Flowave database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.</li>
+      <li><em>deployment</em>: The file is part of your deployment (e.g., <a href="{{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}">by adding it to your process archive</a> or <a href="https://docs.fluxnova.finos.org/get-started/quick-start/deploy/#use-the-fluxnova-modeler-to-deploy-the-process">by deploying from the Fluxnova Modeler</a>), which means that it is stored in the Fluxnova database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.</li>
       <li><em>app</em>: Add the file to your development project in a folder <code>src/main/webapp/forms</code>. The form file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.</li>
     </ul>
   </td>
@@ -52,7 +52,7 @@ Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.
 </table>
 
 
-To configure the form in your process, open the process with the [Flowave Modeler](http://flowave.finos.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:
+To configure the form in your process, open the process with the [Fluxnova Modeler](http://fluxnova.finos.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:
 
 ```xml
 <userTask id="theTask" camunda:formKey="flowave-forms:deployment:forms/userTask.form"
@@ -86,9 +86,9 @@ To add an embedded form to your application, simply create an HTML file and refe
 
 The form key for this file could be `embedded:deployment:FORM_NAME.html` or `embedded:app:forms/FORM_NAME.html`.
 
-# Flowave Forms
+# Fluxnova Forms
 
-Flowave Forms are created as separate files using the Flowave Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Flowave Forms in the [Flowave Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Flowave Forms Reference](https://docs.camunda.io/docs/guides/utilizing-forms/) to explore all configuration options for form elements.
+Fluxnova Forms are created as separate files using the Fluxnova Modeler and can be deployed together with the process models. The form schema is stored in `.form` files.  You can find out how to build Fluxnova Forms in the [Fluxnova Modeler documentation]({{< ref "/modeler/forms.md" >}}) or refer to the [Fluxnova Forms Reference](https://docs.camunda.io/docs/guides/utilizing-forms/) to explore all configuration options for form elements.
 
 [Process variables]({{< ref "/user-guide/process-engine/variables.md" >}}) are mapped to form fields where the field's key matches the variable name.
 
@@ -105,8 +105,8 @@ With Form References, Flowave Forms provide a flexible way of linking an element
 
 Valid values are:
 
-* `deployment`, which references the Flowave Form with the given key that was deployed with the same deployment as the referencing process.
-* `latest`, which will refer to the latest deployed version of the Flowave Form.
+* `deployment`, which references the Fluxnova Form with the given key that was deployed with the same deployment as the referencing process.
+* `latest`, which will refer to the latest deployed version of the Fluxnova Form.
 *  `version`, which allows you to specify a specific version to be referenced from the BPMN element with the `camunda:formRefVersion` attribute.
 
 ```xml
@@ -129,14 +129,14 @@ The attributes `camunda:formRef` and `camunda:formRefVersion` can be specified a
 </bpmn:userTask>
 ```
 
-{{< img src="img/reference-flowave-form.png" title="Provide Form Key for Flowave Forms" >}}
+{{< img src="img/reference-fluxnova-form.png" title="Provide Form Key for Fluxnova Forms" >}}
 
 ## Form Key
 
-Aa an alternative to `formRef` you can reference a Flowave Form file with a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
+Aa an alternative to `formRef` you can reference a Fluxnova Form file with a `deployment` or `app` [form key]({{< ref "/user-guide/task-forms/_index.md#form-key-details" >}}):
 
-* `flowave-forms:deployment:FORM_NAME.form`
-* `flowave-forms:app:forms/FORM_NAME.form`
+* `fluxnova-forms:deployment:FORM_NAME.form`
+* `fluxnova-forms:app:forms/FORM_NAME.form`
 
 To enter the `formKey` in the Modeler,  you have to select `Embedded or External Task Forms` as Type in the dropdown. 
 
@@ -146,7 +146,7 @@ From the form developers point of view, `formRef` offers more flexibility than `
 
 To define a default value for a form field, a process variable with the same name as the form field key needs to be defined. Local variables (e.g. created by defining an [Input Parameter](../process-engine/variables/#input-output-variable-mapping) for the User Task) take precedence over process variables.
 
-{{< img src="img/variable-mapping-flowave-form.png" title="User Input/Output Mappings for default values for form fields" >}}
+{{< img src="img/variable-mapping-fluxnova-form.png" title="User Input/Output Mappings for default values for form fields" >}}
 
 The submitted values of a form are returned as variables to the process engine:
 
@@ -157,16 +157,16 @@ The submitted values of a form are returned as variables to the process engine:
 ## Dynamic Components
 
 You can bind the available options of some component types (Select, Radio Buttons, Checklist, and Taglist) to a variable.
-Like this, Flowave Forms show available options dynamically based on process data (variables).
+Like this, Fluxnova Forms show available options dynamically based on process data (variables).
 
-To bind a variable to a dynamic component, define its name in Flowave Modeler's form builder in the Properties Panel under **Options Source** -> **Type** -> **Input Data** -> **Dynamic options** -> **Input values key** for the respective component.
+To bind a variable to a dynamic component, define its name in Fluxnova Modeler's form builder in the Properties Panel under **Options Source** -> **Type** -> **Input Data** -> **Dynamic options** -> **Input values key** for the respective component.
 
-Flowave Forms support the following variable types that can represent JSON:
+Fluxnova Forms support the following variable types that can represent JSON:
 
 * `Json`
 * `Object` with the `serializationDataFormat: application/json`
 
-Flowave Forms store and retrieve user selections for each component in a variable whose name equals the component key.
+Fluxnova Forms store and retrieve user selections for each component in a variable whose name equals the component key.
 If a variable supposed to store the user selection for multi-select components (Checklist or Taglist) doesn't exist yet, a new one is created on form submission with the same type as the variable that defines the available options.
 
 The format to define available options looks as follows:
@@ -191,21 +191,21 @@ If you are about to prototype your application, you can also use the shortcut fo
 ```
 
 ## Deployment
-If you want to include your Flowave Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Flowave Modeler (since Modeler Version 5.0.0).
+If you want to include your Fluxnova Form as part of the `deployment`, then you need to deploy the `.form` file in the same deployment as the respective `.bpmn` diagram - for example using the Fluxnova Modeler (since Modeler Version 5.0.0).
 
 {{< note title="Automatic deployment" class="warning" >}}
-Flowave Forms are not automatically deployed as part of a [process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}) by default. 
+Fluxnova Forms are not automatically deployed as part of a [process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}}) by default. 
 You need to configure it accordingly by adding it as a resource directly or by adding `form` to the list of `additionalResourceSuffixes`.
-Using [Flowave Run]({{< ref "/user-guide/flowave-bpm-run.md#starting-with-flowave-platform-run" >}}), all additional resources - including Flowave Forms - 
+Using [Fluxnova Run]({{< ref "/user-guide/fluxnova-bpm-run.md#starting-with-fluxnova-platform-run" >}}), all additional resources - including Fluxnova Forms - 
 placed inside the `configuration/resources/` directory are automatically deployed.
 {{< /note >}}
 
-{{< img src="img/deploy-form.png" title="Deploy your Flowave Form file" >}}
+{{< img src="img/deploy-form.png" title="Deploy your Fluxnova Form file" >}}
 
-You can also include Flowave Forms from other deployments by using [form references](#form-reference).
+You can also include Fluxnova Forms from other deployments by using [form references](#form-reference).
 
 # External Task Forms
-{{< note title="Using Task Forms outside of Flowave Tasklist" class="info" >}}
+{{< note title="Using Task Forms outside of Fluxnova Tasklist" class="info" >}}
   When embedding the process engine into a custom application, you can use any value in the form key property as a reference to your custom form. This way, your front-end can ensure to render the correct form for each user task.
 {{< /note >}}
 
@@ -252,12 +252,12 @@ You can also retrieve already existing variables of the process instance by clic
 
 ## Generated Task Forms
 
-{{< note title="Flowave Forms or Generated Task Forms?" class="info" >}}
-  The feature set of Flowave Forms and Generated Task Forms are similar. For new projects, we recommend to use Flowave Forms, as they offer more flexibility and are easier to create.
+{{< note title="Fluxnova Forms or Generated Task Forms?" class="info" >}}
+  The feature set of Fluxnova Forms and Generated Task Forms are similar. For new projects, we recommend to use Fluxnova Forms, as they offer more flexibility and are easier to create.
 {{< /note >}}
 
 
-The Flowave process engine supports generating HTML task forms based on Form Data Metadata provided in the BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by Flowave, allowing you to define form fields directly in the BPMN 2.0 XML:
+The Fluxnova process engine supports generating HTML task forms based on Form Data Metadata provided in the BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by Fluxnova, allowing you to define form fields directly in the BPMN 2.0 XML:
 
 ```xml
 <userTask id="usertask" name="Task">
@@ -284,7 +284,7 @@ The Flowave process engine supports generating HTML task forms based on Form Dat
 </userTask>
 ```
 
-Form metadata can be graphically edited using the [Flowave Modeler](https://flowave.finos.org/products/flowave-platform/modeler/).
+Form metadata can be graphically edited using the [Fluxnova Modeler](https://fluxnova.finos.org/products/fluxnova-platform/modeler/).
 
 This form would look like this in Tasklist:
 
@@ -356,7 +356,7 @@ A form field can have the following attributes:
 
 ### Form Field Validation
 
-Validation can be used for specifying frontend and backend validation of form fields. Flowave provides a set of built-in form field validators and an extension point for plugging in custom validators.
+Validation can be used for specifying frontend and backend validation of form fields. Fluxnova provides a set of built-in form field validators and an extension point for plugging in custom validators.
 
 Validation can be configured for each form field in the BPMN 2.0 XML:
 
@@ -450,7 +450,7 @@ The following built-in validators are supported out of the box:
   </tbody>
 </table>
 
-Flowave supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
+Fluxnova supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
 
 ```xml
 <camunda:formField
@@ -466,7 +466,7 @@ Flowave supports custom validators. Custom validators are referenced using their
   The name attribute must be set to "validator" in order to use custom form field validator.
 {{< /note >}}
 
-A custom validator implements the `org.finos.flowave.bpm.engine.impl.form.validator.FormFieldValidator` interface:
+A custom validator implements the `org.finos.fluxnova.bpm.engine.impl.form.validator.FormFieldValidator` interface:
 
 ```java
 public class CustomValidator implements FormFieldValidator {

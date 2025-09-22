@@ -43,8 +43,8 @@ XML element.
 # Input Id
 
 The input id is a unique identifier of the decision table input. It is used by
-Flowave to reference the input in the history of evaluated
-decisions. Therefore, it is required by the Flowave DMN engine. It is set as
+Fluxnova to reference the input in the history of evaluated
+decisions. Therefore, it is required by the Fluxnova DMN engine. It is set as
 the `id` attribute of the `input` XML element.
 
 ```xml
@@ -149,7 +149,7 @@ The name of the variable can be specified by the `camunda:inputVariable`
 [extension attribute][inputVariable] on the `input` element. By default, the
 name is `cellInput`.
 
-To use the attribute you have to define the Flowave DMN namespace
+To use the attribute you have to define the Fluxnova DMN namespace
 `xmlns:camunda="http://camunda.org/schema/1.0/dmn` in the XML.
 
 ```xml
@@ -178,5 +178,5 @@ FEEL expression `currentSeason != "Fall"` checks if the season input is not
 [supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
 [supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
-[inputVariable]: {{< ref "/reference/dmn/custom-extensions/flowave-attributes.md#inputvariable" >}}
+[inputVariable]: {{< ref "/reference/dmn/custom-extensions/fluxnova-attributes.md#inputvariable" >}}
 [input entry]: {{< ref "/reference/dmn/decision-table/rule.md#input-entry-condition" >}}

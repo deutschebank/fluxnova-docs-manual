@@ -11,12 +11,12 @@ menu:
 
 ---
 
-Each version of the Flowave Engine Quarkus Extension is bound to a specific version of Flowave and Quarkus. 
-Only these default combinations are recommended (and supported) by Flowave.
+Each version of the Fluxnova Engine Quarkus Extension is bound to a specific version of Fluxnova and Quarkus. 
+Only these default combinations are recommended (and supported) by Fluxnova.
 
 <table class="table table-striped">
   <tr>
-    <th>Flowave version</th>
+    <th>Fluxnova version</th>
     <th>Quarkus version</th>
   </tr>
   <tr>
@@ -26,7 +26,7 @@ Only these default combinations are recommended (and supported) by Flowave.
 </table>
 
 In case a certain Quarkus version has a bug, you can override the existing Quarkus version by adding the following
-inside your `pom.xml`. Note that this new Flowave/Quarkus version combination should also be supported by Flowave.
+inside your `pom.xml`. Note that this new Fluxnova/Quarkus version combination should also be supported by Fluxnova.
 
 ```xml
 <dependencyManagement>

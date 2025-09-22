@@ -11,5 +11,5 @@ menu:
 ---
 
 This section explains how to integrate the Forms SDK into a custom HTML 5 Application. (*Note: If
-you are using Flowave Tasklist you can skip this section. Flowave Tasklist readily integrates the
+you are using Fluxnova Tasklist you can skip this section. Fluxnova Tasklist readily integrates the
 Forms SDK.*)

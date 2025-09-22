@@ -1,6 +1,6 @@
 ---
 
-title: 'Extend and customize Flowave Cockpit'
+title: 'Extend and customize Fluxnova Cockpit'
 weight: 80
 layout: 'section-list'
 
@@ -9,8 +9,8 @@ menu:
     identifier: "user-guide-cockpit-extend"
     parent: "user-guide-cockpit"
     name: "Extending"
-    pre: "Extend and customize Flowave Cockpit"
+    pre: "Extend and customize Fluxnova Cockpit"
 
 ---
 
-It is possible to extend and customize Flowave Cockpit.
+It is possible to extend and customize Fluxnova Cockpit.

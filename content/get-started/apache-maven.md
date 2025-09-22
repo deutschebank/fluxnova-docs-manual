@@ -8,23 +8,23 @@ menu:
     name: "Maven Coordinates"
     identifier: "get-started-maven"
     parent: "get-started"
-    pre: "The most commonly used Apache Maven Coordinates for Flowave."
+    pre: "The most commonly used Apache Maven Coordinates for Fluxnova."
 
 ---
 
-This page lists the most commonly used Apache Maven Coordinates for Flowave.
+This page lists the most commonly used Apache Maven Coordinates for Fluxnova.
 
-Most Flowave artifacts are pushed to [maven central](https://central.sonatype.com/).
+Most Fluxnova artifacts are pushed to [maven central](https://central.sonatype.com/).
 
 
-# Flowave BOM (Bill of Materials)
+# Fluxnova BOM (Bill of Materials)
 
 ```xml
 <dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-bom</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-bom</artifactId>
       <version>1.0.0</version>
       <scope>import</scope>
       <type>pom</type>
@@ -34,57 +34,57 @@ Most Flowave artifacts are pushed to [maven central](https://central.sonatype.co
 ```
 
 {{< note title="Use the BOM!" class="info" >}}
-  Please import the Flowave BOM if you use multiple Flowave projects. The BOM defines versions for all Flowave projects. This way it is ensured that no incompatible versions are imported.
+  Please import the Fluxnova BOM if you use multiple Fluxnova projects. The BOM defines versions for all Fluxnova projects. This way it is ensured that no incompatible versions are imported.
 {{< /note >}}
 
 
-# Flowave Engine
+# Fluxnova Engine
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine</artifactId>
 </dependency>
 ```
 
 
-# Flowave Engine Spring Integration
+# Fluxnova Engine Spring Integration
 
-The `flowave-engine` Spring integration for Spring Framework 5:
-
-```xml
-<dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-spring</artifactId>
-</dependency>
-```
-
-The `flowave-engine` Spring integration for Spring Framework 6:
+The `fluxnova-engine` Spring integration for Spring Framework 5:
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-spring-6</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-spring</artifactId>
 </dependency>
 ```
 
-# Flowave Engine CDI Integration
+The `fluxnova-engine` Spring integration for Spring Framework 6:
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-cdi</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-spring-6</artifactId>
 </dependency>
 ```
 
-# Flowave DMN Engine BOM (Bill of Materials)
-This BOM allows to use the DMN engine standalone without the BPMN engine and the rest of the Flowave Platform.
+# Fluxnova Engine CDI Integration
+
+```xml
+<dependency>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-cdi</artifactId>
+</dependency>
+```
+
+# Fluxnova DMN Engine BOM (Bill of Materials)
+This BOM allows to use the DMN engine standalone without the BPMN engine and the rest of the Fluxnova Platform.
 
 ```xml
 <dependencyManagement>
   <dependency>
-    <groupId>org.finos.flowave.bpm.dmn</groupId>
-    <artifactId>flowave-engine-dmn-bom</artifactId>
+    <groupId>org.finos.fluxnova.bpm.dmn</groupId>
+    <artifactId>fluxnova-engine-dmn-bom</artifactId>
     <version>1.0.0</version>
     <type>pom</type>
     <scope>import</scope>
@@ -92,14 +92,14 @@ This BOM allows to use the DMN engine standalone without the BPMN engine and the
 </dependencyManagement>
 ```
 
-# Flowave DMN
-This dependency allows to use DMN engine standalone without the BPMN engine and the rest of the Flowave Platform.
-It is not needed when using `flowave-engine` because that already contains the DMN engine.
+# Fluxnova DMN
+This dependency allows to use DMN engine standalone without the BPMN engine and the rest of the Fluxnova Platform.
+It is not needed when using `fluxnova-engine` because that already contains the DMN engine.
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm.dmn</groupId>
-  <artifactId>flowave-engine-dmn</artifactId>
+  <groupId>org.finos.fluxnova.bpm.dmn</groupId>
+  <artifactId>fluxnova-engine-dmn</artifactId>
 </dependency>
 ```
 
@@ -107,22 +107,22 @@ It is not needed when using `flowave-engine` because that already contains the D
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm.javaee</groupId>
-  <artifactId>flowave-ejb-client</artifactId>
+  <groupId>org.finos.fluxnova.bpm.javaee</groupId>
+  <artifactId>fluxnova-ejb-client</artifactId>
 </dependency>
 ```
 
-# Flowave Artifact Storage
+# Fluxnova Artifact Storage
 
 ## Artifactory
 
-Flowave relies on JFrog Artifactory to provide Flowave artifacts to users at [artifacts.camunda.com](https://artifacts.camunda.com/). The artifact data is stored in [Amazon S3](https://aws.amazon.com/s3/) storage and gets served by [artifacts.camunda.com](https://artifacts.camunda.com/) via redirects to AWS S3. Users must be able to connect to both endpoints for artifact retrieval.
+Fluxnova relies on JFrog Artifactory to provide Fluxnova artifacts to users at [artifacts.camunda.com](https://artifacts.camunda.com/). The artifact data is stored in [Amazon S3](https://aws.amazon.com/s3/) storage and gets served by [artifacts.camunda.com](https://artifacts.camunda.com/) via redirects to AWS S3. Users must be able to connect to both endpoints for artifact retrieval.
 
 ```xml
 <repositories>
   <repository>
-    <id>flowave-bpm-nexus</id>
-    <name>flowave-bpm-nexus</name>
+    <id>fluxnova-bpm-nexus</id>
+    <name>fluxnova-bpm-nexus</name>
     <url>
       https://artifacts.camunda.com/artifactory/public/
     </url>
@@ -130,8 +130,8 @@ Flowave relies on JFrog Artifactory to provide Flowave artifacts to users at [ar
 </repositories>
 ```
 
-### Browse Flowave Artifact Storage
-In order to browse the Flowave artifacts, here are the links which you can use.
+### Browse Fluxnova Artifact Storage
+In order to browse the Fluxnova artifacts, here are the links which you can use.
 
 https://artifacts.camunda.com/ui/native/camunda-bpm
 
@@ -142,13 +142,13 @@ The files are hosted in AWS S3, therefore, Artifactory rewrites the requests to 
 
 Example:
 ```
-curl -LO https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest/7.23.0/camunda-engine-rest-7.23.0.war
+curl -LO https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/fluxnova/bpm/camunda-engine-rest/7.23.0/camunda-engine-rest-7.23.0.war
 ```
 
-# Other Flowave Modules:
+# Other Fluxnova Modules:
 
 * [DMN Engine](/manual/latest/user-guide/dmn-engine/embed/#maven-coordinates)
-* [Flowave Spin](/manual/latest/reference/spin)
-* [Flowave Connect](/manual/latest/reference/connect/#maven-coordinates)
+* [Fluxnova Spin](/manual/latest/reference/spin)
+* [Fluxnova Connect](/manual/latest/reference/connect/#maven-coordinates)
 * [Templating Engines](/manual/latest/user-guide/process-engine/templating/#install-a-template-engine-for-an-embedded-process-engine)
 * [Spring Boot Integration](/manual/latest/user-guide/spring-boot-integration/)

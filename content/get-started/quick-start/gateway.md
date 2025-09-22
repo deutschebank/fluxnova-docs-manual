@@ -17,7 +17,7 @@ In this section, you'll learn how to make your process more dynamic by using BPM
 # Add Two Gateways
 We want to modify our process so that it's more dynamic.
 
-To do so, open the process in the Flowave Modeler.
+To do so, open the process in the Fluxnova Modeler.
 
 Next, from the Modeler's left-hand menu, select the gateway shape (diamond) and drag it into position between the Start Event and the Service Task. Use the create space tool again as needed. Move the User Task down and add another Gateway after it. Lastly, adjust the Sequence Flows so that the model looks like this:
 {{< img src="../img/modeler-gateway1.png" >}}
@@ -29,7 +29,7 @@ Now also name the new elements accordingly:
 
 Next, open the properties panel and select the `<1000 €` Sequence Flow after the Gateway on the canvas. This will update the selection in the properties panel.
 Scroll to the property named `Condition Type` and change it to `Expression`. Then input `${amount<1000}` as the Expression.
-We are using the [Java Unified Expression Language](https://docs.flowave.finos.org/manual/latest/user-guide/process-engine/expression-language/) to evaluate the Gateway.
+We are using the [Java Unified Expression Language](https://docs.fluxnova.finos.org/manual/latest/user-guide/process-engine/expression-language/) to evaluate the Gateway.
 
 {{< img src="../img/modeler-gateway3.png" >}}
 
@@ -47,11 +47,11 @@ For the `No` Sequence Flow, use the Expression `${!approved}`:
 
 # Deploy the Process
 
-Use the `Deploy` Button in the Flowave Modeler to deploy the updated process to Flowave.
+Use the `Deploy` Button in the Fluxnova Modeler to deploy the updated process to Fluxnova.
 
 # Work on the Task
 
-Go to Tasklist ([http://localhost:8080/flowave/app/tasklist/](http://localhost:8080/flowave/app/tasklist/)) and log in with the credentials "demo / demo".
+Go to Tasklist ([http://localhost:8080/fluxnova/app/tasklist/](http://localhost:8080/fluxnova/app/tasklist/)) and log in with the credentials "demo / demo".
 Click on the {{< glyphicon name="list-alt" text=" Start process" >}} button to start a process instance for the *Payment Retrieval* Process.
 Next, set variables for the process instance using the generic form as we learned in the *User Tasks* section.
 
@@ -71,4 +71,4 @@ Next, repeat the same steps, and this time, reject the payment. You should also 
 Now you're ready for Decision Automation. Let's have a look how you can [add Business Rules to your Process](/get-started/quick-start/decision-automation/).
 {{< /note >}}
 
-{{< get-tag repo="flowave-get-started-quickstart" tag="Step-4" >}}
+{{< get-tag repo="fluxnova-get-started-quickstart" tag="Step-4" >}}

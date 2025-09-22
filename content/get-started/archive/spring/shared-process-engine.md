@@ -27,14 +27,14 @@ engine. You can also re-deploy individual applications independently from the pr
 In order to configure the loanapproval-spring example to work with a shared process engine, you 
 have to change three things:
 
-Firstly, we need to set the scope of the Maven dependency of the flowave-engine dependency to 
-`provided`. On the Flowave Platform the process engine library is provided as a shared library 
+Firstly, we need to set the scope of the Maven dependency of the fluxnova-engine dependency to 
+`provided`. On the Fluxnova Platform the process engine library is provided as a shared library 
 and does not need to be bundled with the application:
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine</artifactId>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine</artifactId>
   <scope>provided</scope>
 </dependency>
 ```
@@ -66,17 +66,17 @@ And thirdly, the `LoanApplicationContext` class is adjusted so that the shared p
 looked up and a `SpringServletProcessApplication` is bootstrapped:
 
 ```java
-package org.finos.flowave.bpm.getstarted.loanapproval;
+package org.finos.fluxnova.bpm.getstarted.loanapproval;
 
-import org.finos.flowave.bpm.BpmPlatform;
-import org.finos.flowave.bpm.ProcessEngineService;
-import org.finos.flowave.bpm.engine.HistoryService;
-import org.finos.flowave.bpm.engine.ManagementService;
-import org.finos.flowave.bpm.engine.ProcessEngine;
-import org.finos.flowave.bpm.engine.RepositoryService;
-import org.finos.flowave.bpm.engine.RuntimeService;
-import org.finos.flowave.bpm.engine.TaskService;
-import org.finos.flowave.bpm.engine.spring.application.SpringProcessApplication;
+import org.finos.fluxnova.bpm.BpmPlatform;
+import org.finos.fluxnova.bpm.ProcessEngineService;
+import org.finos.fluxnova.bpm.engine.HistoryService;
+import org.finos.fluxnova.bpm.engine.ManagementService;
+import org.finos.fluxnova.bpm.engine.ProcessEngine;
+import org.finos.fluxnova.bpm.engine.RepositoryService;
+import org.finos.fluxnova.bpm.engine.RuntimeService;
+import org.finos.fluxnova.bpm.engine.TaskService;
+import org.finos.fluxnova.bpm.engine.spring.application.SpringProcessApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -143,4 +143,4 @@ You will see in Tomcat logfile:
 Spring Bean invoked
 </pre>
 
-{{< get-tag repo="flowave-get-started-spring" tag="Bonus" >}}
+{{< get-tag repo="fluxnova-get-started-spring" tag="Bonus" >}}

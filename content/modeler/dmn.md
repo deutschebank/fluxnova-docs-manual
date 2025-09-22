@@ -1,12 +1,12 @@
 ---
 
-title: 'Editing DMN in Flowave Modeler'
+title: 'Editing DMN in Fluxnova Modeler'
 weight: 20
 
 menu:
   main:
     name: "DMN"
-    identifier: "flowave-modeler-dmn"
+    identifier: "fluxnova-modeler-dmn"
     parent: "modeler"
     pre: "How to model executable DMN 1.3 decision diagrams (DRD) and tables."
 

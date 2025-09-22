@@ -9,14 +9,14 @@ menu:
     parent: "user-guide-introduction"
 
 ---
-{{< note title="Flowave Update Required" class="warning" >}}
-This section originally referred to Camunda as legal entity and needs to be updated accordingly to refer to FINOS or Flowave Project.
+{{< note title="Fluxnova Update Required" class="warning" >}}
+This section originally referred to Camunda as legal entity and needs to be updated accordingly to refer to FINOS or Fluxnova Project.
 {{< /note >}}
 
 
-# Flowave 
+# Fluxnova 
 
-Flowave is a Java-based framework.
+Fluxnova is a Java-based framework.
 
 ## License
 
@@ -24,52 +24,52 @@ The entire software is provided under various open source licenses (mainly Apach
 
 ## Third-Party Libraries
 
-Flowave (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
+Fluxnova (Community and Enterprise Edition) includes libraries developed by third parties. See the following resources:
 
-* [Third-Party Libraries][third-party-libraries]: An overview of the dependencies Flowave distributes. Additionally, this page points out particularly important third-party licenses to be aware of.
-* [HTML License Book Flowave]({{< ref "/introduction/third-party-libraries/flowave-bpm-platform-license-book.md" >}}): A list of all dependencies Flowave distributes with the Flowave artifacts, including their licenses and notices.
-* [Plain text license book Flowave][license-book]: A plain text version of the license book.
+* [Third-Party Libraries][third-party-libraries]: An overview of the dependencies Fluxnova distributes. Additionally, this page points out particularly important third-party licenses to be aware of.
+* [HTML License Book Fluxnova]({{< ref "/introduction/third-party-libraries/fluxnova-bpm-platform-license-book.md" >}}): A list of all dependencies Fluxnova distributes with the Fluxnova artifacts, including their licenses and notices.
+* [Plain text license book Fluxnova][license-book]: A plain text version of the license book.
 
 [third-party-libraries]: {{< ref "/introduction/third-party-libraries/_index.md" >}}
-[license-book]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/license-book/{{< minor-version >}}.0/license-book-{{< minor-version >}}.0.txt
+[license-book]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/fluxnova/bpm/license-book/{{< minor-version >}}.0/license-book-{{< minor-version >}}.0.txt
 
 
-# Flowave Modeler
+# Fluxnova Modeler
 
-The Flowave Modeler is a desktop modeling application.
+The Fluxnova Modeler is a desktop modeling application.
 
 ## License 
 
-[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Flowave Modeler has moved to [docs.camunda.io](https://docs.camunda.io/).
+[License information](https://docs.camunda.io/docs/reference/licenses/#camunda-modeler) for Fluxnova Modeler has moved to [docs.camunda.io](https://docs.camunda.io/).
 
 ## Third-Party Libraries
 
-[Third-Party libraries](https://docs.camunda.io/docs/reference/dependencies/) for Flowave Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
+[Third-Party libraries](https://docs.camunda.io/docs/reference/dependencies/) for Fluxnova Modeler have moved to [docs.camunda.io](https://docs.camunda.io/).
 
 # GPL Cooperation Commitment
 
 ## Our Commitment
 
-Before filing or continuing to prosecute any legal proceeding or claim (other than a Defensive Action) arising from termination of a Covered License, Flowave commits to extend to the person or entity (“you”) accused of violating the Covered License the following provisions regarding cure and reinstatement, taken from GPL version 3. As used here, the term ‘this License’ refers to the specific Covered License being enforced.
+Before filing or continuing to prosecute any legal proceeding or claim (other than a Defensive Action) arising from termination of a Covered License, Fluxnova commits to extend to the person or entity (“you”) accused of violating the Covered License the following provisions regarding cure and reinstatement, taken from GPL version 3. As used here, the term ‘this License’ refers to the specific Covered License being enforced.
 
 However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.
 
 Moreover, your license from a particular copyright holder is reinstated permanently if the copyright holder notifies you of the violation by some reasonable means, this is the first time you have received notice of violation of this License (for any work) from that copyright holder, and you cure the violation prior to 30 days after your receipt of the notice.
 
-Flowave intends this Commitment to be irrevocable, and binding and enforceable against Flowave and assignees of or successors to Flowave’s copyrights.
+Fluxnova intends this Commitment to be irrevocable, and binding and enforceable against Fluxnova and assignees of or successors to Fluxnova’s copyrights.
 
-Flowave may modify this Commitment by publishing a new edition on this page or a successor location.
+Fluxnova may modify this Commitment by publishing a new edition on this page or a successor location.
 
 ## Definitions
 
 ‘Covered License’ means the GNU General Public License, version 2 (GPLv2), the GNU Lesser General Public License, version 2.1 (LGPLv2.1), or the GNU Library General Public License, version 2 (LGPLv2), all as published by the Free Software Foundation.
 
-‘Defensive Action’ means a legal proceeding or claim that Flowave brings against you in response to a prior proceeding or claim initiated by you or your affiliate.
+‘Defensive Action’ means a legal proceeding or claim that Fluxnova brings against you in response to a prior proceeding or claim initiated by you or your affiliate.
 
-‘Flowave’ means Flowave and its subsidiaries.
+‘Fluxnova’ means Fluxnova and its subsidiaries.
 
 This work is available under a [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
 
 # Contact
 
-If you have a question specifically about the licensing or distribution of Flowave’s software and it has not been answered by this page, please contact the Open Source Compliance team at [foss@flowave.com](mailto:foss@flowave.com).
+If you have a question specifically about the licensing or distribution of Fluxnova’s software and it has not been answered by this page, please contact the Open Source Compliance team at [foss@fluxnova.com](mailto:foss@fluxnova.com).

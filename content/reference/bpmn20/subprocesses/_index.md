@@ -10,4 +10,4 @@ menu:
 
 ---
 
-A subprocess in Flowave allows modeling based on reusability and grouping. Below are the different types of subprocesses supported by Flowave.
+A subprocess in Fluxnova allows modeling based on reusability and grouping. Below are the different types of subprocesses supported by Fluxnova.

@@ -59,7 +59,7 @@ In case the variable does not yet exist (for instance in a Start Form), you have
         // indicate that object is serialized as json
         serializationDataFormat: 'application/json',
         // provide classname of java object to map to
-        objectTypeName: 'org.finos.flowave.bpm.example.CustomerData'
+        objectTypeName: 'org.finos.fluxnova.bpm.example.CustomerData'
       }
     });
 
@@ -71,4 +71,4 @@ In case the variable does not yet exist (for instance in a Start Form), you have
 
 # Full Example
 
-A full example of this feature can be found in the [Flowave Examples Repository](https://github.com/finos/flowave-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object).
+A full example of this feature can be found in the [Fluxnova Examples Repository](https://github.com/finos/fluxnova-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object).

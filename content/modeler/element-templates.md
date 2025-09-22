@@ -6,7 +6,7 @@ weight: 28
 menu:
   main:
     name: "Element Templates"
-    identifier: "flowave-modeler-element-templates"
+    identifier: "fluxnova-modeler-element-templates"
     parent: "modeler"
     pre: "Extend the modeler with custom elements."
 

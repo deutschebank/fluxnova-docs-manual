@@ -16,9 +16,9 @@ A Business Rule Task is used to synchronously execute one or more rules. It is a
 {{< bpmn-symbol type="business-rule-task" >}}
 
 
-# Using Flowave DMN Engine
+# Using Fluxnova DMN Engine
 
-You can use the Flowave DMN engine integration to evaluate a DMN decision. You have
+You can use the Fluxnova DMN engine integration to evaluate a DMN decision. You have
 to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally, 
 the `camunda:decisionRefBinding` specifies which version of the decision should be evaluated.
 Valid values are:
@@ -131,7 +131,7 @@ information on this please see the [Service Tasks]({{< relref "service-task.md" 
 In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< ref "/user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks]({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -205,5 +205,5 @@ In addition to the above, a Business Rule Task can be implemented via the [Exter
 
 * [Decisions]({{< ref "/user-guide/process-engine/decisions/_index.md" >}})
 * [Service Tasks]({{< ref "/reference/bpmn20/tasks/service-task.md" >}})
-* [Tasks](http://flowave.finos.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
-* [Demo using Drools on the Business Rule Task](https://github.com/finos/flowave-consulting/tree/master/one-time-examples/order-confirmation-rules)
+* [Tasks](http://fluxnova.finos.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)
+* [Demo using Drools on the Business Rule Task](https://github.com/finos/fluxnova-consulting/tree/master/one-time-examples/order-confirmation-rules)

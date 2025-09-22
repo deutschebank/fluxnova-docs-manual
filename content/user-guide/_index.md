@@ -10,4 +10,4 @@ menu:
 
 ---
 
-This document targets Developers who want to use Flowave Process Engine in their applications.
+This document targets Developers who want to use Fluxnova Process Engine in their applications.

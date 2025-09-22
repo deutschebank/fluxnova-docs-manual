@@ -56,7 +56,7 @@ Serializing Object into JSON format:
 	         "value": "{\"somekey\": \"somevalue\"}",
 	         "type": "Object",
 	         "valueInfo": {
-	            "objectTypeName": "com.flowave.SomeClass",
+	            "objectTypeName": "com.fluxnova.SomeClass",
 	            "serializationDataFormat": "application/json"
 	         }
 	      }
@@ -73,7 +73,7 @@ Serializing Object into XML format:
 	         "value": "<somekey>somevalue</somekey>",
 	         "type": "Object",
 	         "valueInfo": {
-	            "objectTypeName": "com.flowave.SomeClass",
+	            "objectTypeName": "com.fluxnova.SomeClass",
 	            "serializationDataFormat": "application/xml"
 	         }
 	      }

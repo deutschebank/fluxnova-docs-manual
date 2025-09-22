@@ -8,11 +8,11 @@ menu:
     name: "Model a Process"
     parent: "get-started-pa"
     identifier: "get-started-pa-model"
-    pre: "Learn the basics of handling the Flowave Modeler and learn how to model and configure a fully executable process."
+    pre: "Learn the basics of handling the Fluxnova Modeler and learn how to model and configure a fully executable process."
 
 ---
 
-In this section you learn how to create your first BPMN 2.0 process with the Flowave Modeler. Start up the Flowave Modeler now.
+In this section you learn how to create your first BPMN 2.0 process with the Fluxnova Modeler. Start up the Fluxnova Modeler now.
 
 # Create a new BPMN Diagram
 
@@ -99,4 +99,4 @@ Adjust the `META-INF/processes.xml` deployment descriptor file by adding the BPM
 </process-application>
 ```
 
-{{< get-tag repo="flowave-get-started-java" tag="Step-3" >}}
+{{< get-tag repo="fluxnova-get-started-java" tag="Step-3" >}}

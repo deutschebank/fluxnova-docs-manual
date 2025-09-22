@@ -20,4 +20,4 @@ The [Full Distribution][full-distribution] includes a Shared Process engine and 
 
 The distribution is supported on a broad range of containers:
 
-[full-distribution]: {{< ref "/introduction/downloading-flowave.md" >}}
+[full-distribution]: {{< ref "/introduction/downloading-fluxnova.md" >}}

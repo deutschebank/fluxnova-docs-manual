@@ -69,7 +69,7 @@ HistoricCaseActivityInstance milestoneInstance = historyService
 milestoneInstance.isCompleted(); // true if milestone occurred
 ```
 
-## Flowave Extensions
+## Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>

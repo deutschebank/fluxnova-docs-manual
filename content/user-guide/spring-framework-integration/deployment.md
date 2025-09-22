@@ -18,7 +18,7 @@ Here's an example:
 
 ```xml
 <bean id="processEngineConfiguration"
-      class="org.finos.flowave.bpm.engine.spring.SpringProcessEngineConfiguration">
+      class="org.finos.fluxnova.bpm.engine.spring.SpringProcessEngineConfiguration">
   ...
   <property name="deploymentResources"
             value="classpath*:/mytest/autodeploy.*.bpmn20" />
@@ -31,7 +31,7 @@ Here's an example:
 </bean>
 
 <bean id="processEngine"
-      class="org.finos.flowave.bpm.engine.spring.ProcessEngineFactoryBean">
+      class="org.finos.fluxnova.bpm.engine.spring.ProcessEngineFactoryBean">
   <property name="processEngineConfiguration" ref="processEngineConfiguration" />
 </bean>
 ```

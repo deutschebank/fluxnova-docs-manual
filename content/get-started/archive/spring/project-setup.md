@@ -20,7 +20,7 @@ Now you are ready to set up your first process application project in Eclipse or
 We will start by setting up a Spring web application as an Apache Maven Project inside Eclipse. This consists of four steps:
 
 1. Create a new Maven Project in Eclipse
-2. Add the Flowave & Spring framework dependencies
+2. Add the Fluxnova & Spring framework dependencies
 3. Add the web.xml file for bootstrapping the Spring container
 4. Add a Spring Java configuration to set up the application context
 
@@ -34,20 +34,20 @@ First, we set up a new Apache Maven based project in Eclipse. Let's call it *loa
 
 When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the *Project Explorer* view.
 
-## Add Flowave Platform & Spring Framework Dependencies
+## Add Fluxnova Platform & Spring Framework Dependencies
 
-The next step consists of setting up the Maven dependencies for the new project. Maven dependencies need to be added to the `pom.xml` file of the project. We add both the Flowave Platform and the Spring Framework dependencies:
+The next step consists of setting up the Maven dependencies for the new project. Maven dependencies need to be added to the `pom.xml` file of the project. We add both the Fluxnova Platform and the Spring Framework dependencies:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.finos.flowave.bpm.getstarted</groupId>
+  <groupId>org.finos.fluxnova.bpm.getstarted</groupId>
   <artifactId>loanapproval-spring</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
-    <flowave.version>7.18.0</flowave.version>
+    <fluxnova.version>7.18.0</fluxnova.version>
     <spring.version>5.3.22</spring.version>
     <h2.version>2.1.214</h2.version>
     <slf4j.version>1.7.36</slf4j.version>
@@ -58,9 +58,9 @@ The next step consists of setting up the Maven dependencies for the new project.
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.finos.flowave.bpm</groupId>
-        <artifactId>flowave-bom</artifactId>
-        <version>${flowave.version}</version>
+        <groupId>org.finos.fluxnova.bpm</groupId>
+        <artifactId>fluxnova-bom</artifactId>
+        <version>${fluxnova.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -76,12 +76,12 @@ The next step consists of setting up the Maven dependencies for the new project.
 
   <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine-spring</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine-spring</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -145,7 +145,7 @@ Next, we add a `web.xml` file for bootstrapping the spring container. In order t
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>org.finos.flowave.bpm.getstarted.loanapproval.LoanApplicationContext</param-value>
+    <param-value>org.finos.fluxnova.bpm.getstarted.loanapproval.LoanApplicationContext</param-value>
   </context-param>
 
   <listener>
@@ -159,12 +159,12 @@ Now you can perform the first build. Select the `pom.xml` in the Package Explore
 
 ## Add a Spring Application Context XML Configuration File
 
-Next, we add a Spring ApplicationContext configuration class to the project. Create a Java class called `LoanApplicationContext` in the package `org.finos.flowave.bpm.getstarted.loanapproval`.
+Next, we add a Spring ApplicationContext configuration class to the project. Create a Java class called `LoanApplicationContext` in the package `org.finos.fluxnova.bpm.getstarted.loanapproval`.
 
 We start with an empty class:
 
 ```java
-package org.finos.flowave.bpm.getstarted.loanapproval;
+package org.finos.fluxnova.bpm.getstarted.loanapproval;
 
 import org.springframework.context.annotation.Configuration;
 
@@ -188,7 +188,7 @@ Root WebApplicationContext: initialization started
 INFORMATION org.springframework.web.context.support.AnnotationConfigWebApplicationContext.prepareRefresh
 Refreshing Root WebApplicationContext: startup date [DATE]; root of context hierarchy
 INFORMATION org.springframework.web.context.support.AnnotationConfigWebApplicationContext.loadBeanDefinitions
-Successfully resolved class for [org.finos.flowave.bpm.getstarted.loanapproval.LoanApplicationContext]
+Successfully resolved class for [org.finos.fluxnova.bpm.getstarted.loanapproval.LoanApplicationContext]
 INFORMATION org.springframework.web.context.ContextLoader.initWebApplicationContext
 Root WebApplicationContext: initialization completed in 891 ms
 INFORMATION org.apache.catalina.startup.HostConfig.deployWAR
@@ -197,4 +197,4 @@ Deployment of web application archive [..\webapps\loanapproval-spring-0.1.0-SNAP
 
 This means that you have set up your Spring web application correctly.
 
-{{< get-tag repo="flowave-get-started-spring" tag="Step-1" >}}
+{{< get-tag repo="fluxnova-get-started-spring" tag="Step-1" >}}

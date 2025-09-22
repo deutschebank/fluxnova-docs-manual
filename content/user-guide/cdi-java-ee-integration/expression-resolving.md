@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The `flowave-engine-cdi` and `flowave-engine-cdi-jakarta` libraries expose CDI beans via Expression Language, 
+The `fluxnova-engine-cdi` and `fluxnova-engine-cdi-jakarta` libraries expose CDI beans via Expression Language, 
 using a custom resolver. This makes it possible to reference beans from the process:
 
 ```xml

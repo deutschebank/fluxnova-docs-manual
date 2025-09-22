@@ -1,6 +1,6 @@
 ---
 
-title: "The Flowave Manual"
+title: "The Fluxnova Manual"
 weight: 60
 layout: "single"
 
@@ -11,13 +11,13 @@ menu:
 
 ---
 
-Welcome to the Flowave Manual! Flowave is a light-weight, open-source platform for Business Process
-Management. The Manual introduces key concepts in Flowave, provides installation procedures as well as a
+Welcome to the Fluxnova Manual! Fluxnova is a light-weight, open-source platform for Business Process
+Management. The Manual introduces key concepts in Fluxnova, provides installation procedures as well as a
 comprehensive reference section.
 
 ## Getting Started
 
-The Guide [Get started with Flowave](/get-started/quick-start/) is the quickest and easiest way to get up and running with Flowave. Alternatives include:
+The Guide [Get started with Fluxnova](/get-started/quick-start/) is the quickest and easiest way to get up and running with Fluxnova. Alternatives include:
 
 <div class="row">
   <div class="col-xs-6 col-md-4">
@@ -44,7 +44,7 @@ Once you completed a Getting Started Guide, you may find the following topics us
           <a href="/introduction/">Overview</a>
         </li>
         <li>
-          <a href="/introduction/downloading-flowave/">Download</a>
+          <a href="/introduction/downloading-fluxnova/">Download</a>
         </li>
         <li>
           <a href="/introduction/architecture/">Architecture</a>
@@ -106,5 +106,5 @@ In case you get stuck on a problem make sure to [ask for Help in the Forums](htt
 
 ## Community Extensions
 
-A number of [Community Extensions](/introduction/extensions/) enhance Flowave with additional capabilities.
-Browse the [Flowave Community Hub](https://github.com/flowave-community-hub) for information on [building a Flowave Community Extension](https://github.com/flowave-community-hub/community), discover new Flowave Community Extension open source projects to contribute to, and more.
+A number of [Community Extensions](/introduction/extensions/) enhance Fluxnova with additional capabilities.
+Browse the [Fluxnova Community Hub](https://github.com/fluxnova-community-hub) for information on [building a Fluxnova Community Extension](https://github.com/fluxnova-community-hub/community), discover new Fluxnova Community Extension open source projects to contribute to, and more.

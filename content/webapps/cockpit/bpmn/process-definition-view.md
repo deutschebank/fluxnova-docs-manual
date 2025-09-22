@@ -94,7 +94,7 @@ Add a filter for process instances by filtering for a `numeric` (double, integer
 Add a filter to the [process definition history view][process-definition-history-view]. Select filters for variables, the start date and time, the activity ID or the business key of process instances as in [the runtime view](#runtime-view). In addition, select filters for completed, running or process instances with a certain end date and time.
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 **Filtering for completed and running process instances**
@@ -118,7 +118,7 @@ Add a filter for process instances by end date. Please note that the date must b
 # Delete Multiple Running Process Instances
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-bulk-delete.png" title="Batch Delete Running Process Instances" >}}
@@ -128,7 +128,7 @@ Delete multiple running process instances at once by using this feature. In the 
 # Delete A Process Definition Version
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 Delete the current process definition version by using this feature. In the process definition view, hit the {{< glyphicon name="trash" >}} button on the right side. This opens a confirmation screen in which you can select flags to apply to the delete. You can always choose to enable/disable skipping custom listeners. However, if the process definition version has process instances running, enabling the cascading flag becomes mandatory.
@@ -136,12 +136,12 @@ Delete the current process definition version by using this feature. In the proc
 # BPMN Documentation
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../../img/cockpit-documentation.png" title="Set Job Priority" >}}
 
-This feature allows you to inspect documentation added in the Flowave Modeler. To do so, open the Documentation tab. Elements with a documentation are indicated with a {{< glyphicon name="info-sign" >}} in the diagram. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.
+This feature allows you to inspect documentation added in the Fluxnova Modeler. To do so, open the Documentation tab. Elements with a documentation are indicated with a {{< glyphicon name="info-sign" >}} in the diagram. The documentation table lists all documented elements. Click on a table row to highlight the element in the diagram.
 
 To view long documentations, click on the {{< glyphicon name="info-sign" >}} on the element or the documentation link in the table. This opens a modal which displays the formated documentation in a textbox. To copy the documentation to the clipboard, click on {{< glyphicon name="copy" >}} button.
 

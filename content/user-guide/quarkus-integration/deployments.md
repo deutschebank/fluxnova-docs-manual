@@ -12,11 +12,11 @@ menu:
 ---
 
 This section documents how to perform process engine deployments with a Quarkus application containing an embedded
-process engine. The documentation assumes some familiarity with [Quarkus CDI support][quarkus-cdi] and the Flowave 
-{{< javadocref page="org/finos/flowave/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}} API.
+process engine. The documentation assumes some familiarity with [Quarkus CDI support][quarkus-cdi] and the Fluxnova 
+{{< javadocref page="org/finos/fluxnova/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}} API.
 
-The Flowave Engine Quarkus Extension only supports programmatic deployments. A user can observe for the
-`FlowaveEngineStartupEvent` CDI event. The `FlowaveEngineStartupEvent` signals that a process engine has been
+The Fluxnova Engine Quarkus Extension only supports programmatic deployments. A user can observe for the
+`FluxnovaEngineStartupEvent` CDI event. The `FluxnovaEngineStartupEvent` signals that a process engine has been
 successfully bootstrapped, and a deployment can be performed.
 
 The following example shows how a single process engine deployment can be performed in a Quarkus application:
@@ -28,7 +28,7 @@ public class MyConfig {
   @Inject
   RepositoryService repositoryService;
 
-  public void createDeployment(@Observes FlowaveEngineStartupEvent event) {
+  public void createDeployment(@Observes FluxnovaEngineStartupEvent event) {
     repositoryService.createDeployment()
         .addClasspathResource("resources/bpmn/simpleProcess.bpmn")
         .deploy();
@@ -38,7 +38,7 @@ public class MyConfig {
 ```
 
 However, a Quarkus application doesn't have to be limited to a single process engine deployment. You can observe for
-the `FlowaveEngineStartupEvent` in multiple methods, and perform multiple deployments with a finer-grained control
+the `FluxnovaEngineStartupEvent` in multiple methods, and perform multiple deployments with a finer-grained control
 over the deployed resources.
 
 ```java
@@ -48,14 +48,14 @@ public class MyConfig {
   @Inject
   RepositoryService repositoryService;
 
-  public void createDeployment1(@Observes FlowaveEngineStartupEvent event) {
+  public void createDeployment1(@Observes FluxnovaEngineStartupEvent event) {
     repositoryService.createDeployment()
         .name("deployment-1")
         .addClasspathResource("resources/bpmn/one/simpleProcess1.bpmn")
         .deploy();
   }
 
-  public void createDeployment2(@Observes FlowaveEngineStartupEvent event) {
+  public void createDeployment2(@Observes FluxnovaEngineStartupEvent event) {
     repositoryService.createDeployment()
         .name("deployment-2")
         .addClasspathResource("resources/bpmn/two/simpleProcess2.bpmn")
