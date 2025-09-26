@@ -12,7 +12,7 @@ menu:
 ---
 
 
-The Flowave REST API has an OpenAPI description that follows the
+The Fluxnova REST API has an OpenAPI description that follows the
 [OpenAPI Specification 3.0.2][spec-3.0.2]. OpenAPI is a standard, language-agnostic interface to RESTful APIs which allows 
 both humans and computers to discover and understand the capabilities of the service without access to source code, 
 documentation, or through network traffic inspection.
@@ -25,18 +25,18 @@ Providing flexibility for adoption of the process engine in many languages and p
 Improving the getting started experience for the users with the option to try out the REST API following along with the documentation and examples.
 
 The documentation is shipped as a single `openapi.json` file archived in a jar artifact.
-Download the Flowave REST API artifact containing the OpenAPI documentation [here][artifact-link]. Choose the correct version and then download the `jar` file.
+Download the Fluxnova REST API artifact containing the OpenAPI documentation [here][artifact-link]. Choose the correct version and then download the `jar` file.
 
 [spec-3.0.2]: https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md
-[artifact-link]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/flowave/bpm/camunda-engine-rest-openapi/
+[artifact-link]: https://artifacts.camunda.com/artifactory/camunda-bpm/org/finos/fluxnova/bpm/camunda-engine-rest-openapi/
 
 Alternatively, you can obtain this artifact with the following Maven coordinates:
 
 ```xml
 <dependency>
-  <groupId>org.finos.flowave.bpm</groupId>
-  <artifactId>flowave-engine-rest-openapi</artifactId>
-  <version>${version.flowave}</version>
+  <groupId>org.finos.fluxnova.bpm</groupId>
+  <artifactId>fluxnova-engine-rest-openapi</artifactId>
+  <version>${version.fluxnova}</version>
 </dependency>
 ```
 
@@ -63,7 +63,7 @@ Start a Process engine with enabled cross-origin requests, and you will be able 
 Some API Tools also support import of endpoints via upload of a OpenAPI document.
 For example, [Postman][postman-site] users can [import the OpenAPI documentation][postman-import] and work with the REST endpoints from a single place.
 
-[cam-platform-run]: {{< ref "/user-guide/flowave-bpm-run.md" >}}
+[cam-platform-run]: {{< ref "/user-guide/fluxnova-bpm-run.md" >}}
 [swagger-ui]: https://github.com/swagger-api/swagger-ui
 [swagger-editor]: https://editor.swagger.io/
 [postman-site]: https://www.postman.com/

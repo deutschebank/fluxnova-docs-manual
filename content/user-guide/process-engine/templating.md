@@ -11,16 +11,16 @@ menu:
 ---
 
 
-Flowave supports template engines which are implemented as script engines compatible with
+Fluxnova supports template engines which are implemented as script engines compatible with
 JSR-223. As a result, templates can be used everywhere where scripts can be used.
 
-In community distributions of Flowave, the following template engine is provided out of the
+In community distributions of Fluxnova, the following template engine is provided out of the
 box:
 
 * [FreeMarker][freemarker]
 
 The script engine Freemarker wrapper implementation can be found in the
-[flowave-bpmn-platform](https://github.com/finos/flowave-bpm-platform/tree/master/freemarker-template-engine) repository.
+[fluxnova-bpmn-platform](https://github.com/finos/fluxnova-bpm-platform/tree/master/freemarker-template-engine) repository.
 
 The following template engines are provided as optional community extensions:
 
@@ -29,7 +29,7 @@ The following template engines are provided as optional community extensions:
 * [Saxon XSLT](https://www.saxonica.com/html/documentation12/using-xsl/)
 
 The script engine wrapper implementations can be found in the
-[flowave-7-template-engines-jsr223][flowave-7-template-engines-jsr223] community hub repository.
+[fluxnova-7-template-engines-jsr223][fluxnova-7-template-engines-jsr223] community hub repository.
 
 # Install a Template Engine
 
@@ -43,7 +43,7 @@ application deployment. When using the process engine in a maven `war` project, 
 dependencies must be added as dependencies to the maven `pom.xml` file:
 
 {{< note title="" class="info" >}}
-  The [Flowave BOM](/get-started/apache-maven/) only contains the officially supported freemarker template engine.
+  The [Fluxnova BOM](/get-started/apache-maven/) only contains the officially supported freemarker template engine.
   For the community-driven template engines, please check the Maven coordinates below. 
 {{< /note >}}
 
@@ -52,8 +52,8 @@ dependencies must be added as dependencies to the maven `pom.xml` file:
 
   <!-- freemarker -->
   <dependency>
-    <groupId>org.finos.flowave.template-engines</groupId>
-    <artifactId>flowave-template-engines-freemarker</artifactId>
+    <groupId>org.finos.fluxnova.template-engines</groupId>
+    <artifactId>fluxnova-template-engines-freemarker</artifactId>
   </dependency>
 
 </dependencies>
@@ -66,20 +66,20 @@ Here are the Maven coordinates of the community extensions:
 
   <!-- saxon xquery -->
   <dependency>
-    <groupId>org.finos.flowave.community.template.engine</groupId>
-    <artifactId>flowave-7-template-engine-xquery</artifactId>
+    <groupId>org.finos.fluxnova.community.template.engine</groupId>
+    <artifactId>fluxnova-7-template-engine-xquery</artifactId>
   </dependency>
 
   <!-- saxon xslt -->
   <dependency>
-    <groupId>org.finos.flowave.community.template.engine</groupId>
-    <artifactId>flowave-7-template-engine-xslt</artifactId>
+    <groupId>org.finos.fluxnova.community.template.engine</groupId>
+    <artifactId>fluxnova-7-template-engine-xslt</artifactId>
   </dependency>
 
   <!-- apache velocity -->
   <dependency>
-    <groupId>org.finos.flowave.community.template.engine</groupId>
-    <artifactId>flowave-7-template-engine-velocity</artifactId>
+    <groupId>org.finos.fluxnova.community.template.engine</groupId>
+    <artifactId>fluxnova-7-template-engine-velocity</artifactId>
   </dependency>
 
 </dependencies>
@@ -93,7 +93,7 @@ classpath. The procedure for this depends on the application server. In Apache T
 libraries have to be added to the shared `lib/` folder.
 
 {{< note title="" class="info" >}}
-  [FreeMarker](http://freemarker.org/) is pre-installed in the Flowave pre-packaged distribution.
+  [FreeMarker](http://freemarker.org/) is pre-installed in the Fluxnova pre-packaged distribution.
 {{< /note >}}
 
 
@@ -101,7 +101,7 @@ libraries have to be added to the shared `lib/` folder.
 
 If the template engine library is in the classpath, you can use templates everywhere in the BPMN
 process where you can [use scripts][use-scripts], for example as a script task or inputOutput mapping.
-The FreeMarker template engine is part of the Flowave distribution.
+The FreeMarker template engine is part of the Fluxnova distribution.
 
 Inside the template, all process variables of the BPMN element scope are available. The
 template can also be loaded from an external resource as described in the [script source
@@ -115,10 +115,10 @@ The following example shows a FreeMarker template, of which the result is saved 
   <script>
     Dear ${customer},
 
-    thank you for working with Flowave ${version}.
+    thank you for working with Fluxnova ${version}.
 
     Greetings,
-    Flowave Developers
+    Fluxnova Developers
   </script>
 </scriptTask>
 ```
@@ -158,8 +158,8 @@ dependency must be added as dependencies to the maven `pom.xml` file:
 
   <!-- XSLT -->
   <dependency>
-    <groupId>org.finos.flowave.community.template.engine</groupId>
-    <artifactId>flowave-7-template-engine-xslt</artifactId>
+    <groupId>org.finos.fluxnova.community.template.engine</groupId>
+    <artifactId>fluxnova-7-template-engine-xslt</artifactId>
   </dependency>
 
 </dependencies>
@@ -191,16 +191,16 @@ described for [script tasks][script-source].
 The result of the transformation can be mapped to a variable using the `camunda:resultVariable`
 attribute.
 
-Finally, the input of the transformation must be mapped using the special variable `flowave_source`
+Finally, the input of the transformation must be mapped using the special variable `fluxnova_source`
 using a `<camunda:inputParameter ... />` mapping.
 
-A [full example of the XSLT Template Engine][xslt-example] in Flowave can be found in the
+A [full example of the XSLT Template Engine][xslt-example] in Fluxnova can be found in the
 examples' repository.
 
 
 [freemarker]: http://freemarker.org/
 [velocity]: http://velocity.apache.org/
-[flowave-7-template-engines-jsr223]: https://github.com/flowave-community-hub/flowave-7-template-engines-jsr223
+[fluxnova-7-template-engines-jsr223]: https://github.com/fluxnova-community-hub/fluxnova-7-template-engines-jsr223
 [use-scripts]: {{< ref "/user-guide/process-engine/scripting.md" >}}
 [script-source]: {{< ref "/user-guide/process-engine/scripting.md#script-source" >}}
-[xslt-example]: https://github.com/finos/flowave-bpm-examples/tree/master/scripttask/xslt-scripttask
+[xslt-example]: https://github.com/finos/fluxnova-bpm-examples/tree/master/scripttask/xslt-scripttask

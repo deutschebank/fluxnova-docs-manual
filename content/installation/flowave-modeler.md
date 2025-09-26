@@ -1,14 +1,14 @@
 ---
 
-title: "Install the Flowave Modeler"
+title: "Install the Fluxnova Modeler"
 weight: 01
 
 menu:
   main:
-    name: "Flowave Modeler"
+    name: "Fluxnova Modeler"
     identifier: "installation-guide-modeler"
     parent: "installation-guide"
-    pre: "Install the Flowave Modeler for BPMN 2.0, DMN 1.3 and Flowave Forms"
+    pre: "Install the Fluxnova Modeler for BPMN 2.0, DMN 1.3 and Fluxnova Forms"
 
 ---
 

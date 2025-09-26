@@ -11,9 +11,9 @@ menu:
 ---
 This chapter is about configuring and using a password policy for engine-managed user accounts. A password policy makes sure that only passwords that meet certain criteria are allowed. A policy can consist of any number of rules. Violation of one of the policy's rules results in an error and the user not being saved.
 
-The Flowave engine comes with a standard password policy that is disabled by default and must be configured to use.
+The Fluxnova engine comes with a standard password policy that is disabled by default and must be configured to use.
 
-**Note:** This only applies to users that are managed within the Flowave engine. If you use LDAP for your user management a password policy has no effect on these users.
+**Note:** This only applies to users that are managed within the Fluxnova engine. If you use LDAP for your user management a password policy has no effect on these users.
 
 # Built-In Password Policy
 
@@ -28,11 +28,11 @@ The built-in password policy requires all passwords to meet the following criter
 
 # Customize the Password Policy
 
-You can use the process engine configuration to enable / disable the password policy or plug in a custom policy. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on how to set properties for your Flowave environment.
+You can use the process engine configuration to enable / disable the password policy or plug in a custom policy. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on how to set properties for your Fluxnova environment.
 
 To enable or disable the password policy checks you need to set the `enablePasswordPolicy` property.
 
-If you want to use a custom password policy you can do this by implementing the `PasswordPolicy` and `PasswordPolicyRule` interfaces from the `org.finos.flowave.bpm.engine.identity` package and provide your implementation to the process engine configuration by setting the `passwordPolicy` property.
+If you want to use a custom password policy you can do this by implementing the `PasswordPolicy` and `PasswordPolicyRule` interfaces from the `org.finos.fluxnova.bpm.engine.identity` package and provide your implementation to the process engine configuration by setting the `passwordPolicy` property.
 
 ```java
 public class MyPasswordPolicy implements PasswordPolicy {

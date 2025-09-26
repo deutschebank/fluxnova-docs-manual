@@ -1,6 +1,6 @@
 ---
 
-title: "Flowave Security Guide"
+title: "Fluxnova Security Guide"
 weight: 80
 
 menu:
@@ -10,4 +10,4 @@ menu:
     
 ---
 
-This page describes Flowave (also referred to as the 'software')  from a security perspective. It has the parts:
+This page describes Fluxnova (also referred to as the 'software')  from a security perspective. It has the parts:

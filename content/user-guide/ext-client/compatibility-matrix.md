@@ -11,13 +11,13 @@ menu:
 
 ---
 
-Each version of Flowave is bound to a specific version of the **External Task Clients**.
+Each version of Fluxnova is bound to a specific version of the **External Task Clients**.
 
-  Flowave and its compatible **Java** External Task Client always share the same version.
+  Fluxnova and its compatible **Java** External Task Client always share the same version.
 
 <table class="table table-striped">
   <tr>
-    <th>Flowave version</th>
+    <th>Fluxnova version</th>
     <th>NodeJS client</th>
   </tr>
   <tr>
@@ -26,5 +26,5 @@ Each version of Flowave is bound to a specific version of the **External Task Cl
   </tr>
 </table>
 
-Only these default combinations are recommended (and supported) by Flowave. Nevertheless, each version of the External
-Task Clients can be combined with newer patch versions of the Flowave Workflow Engine.
+Only these default combinations are recommended (and supported) by Fluxnova. Nevertheless, each version of the External
+Task Clients can be combined with newer patch versions of the Fluxnova Workflow Engine.

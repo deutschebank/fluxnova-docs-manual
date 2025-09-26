@@ -7,9 +7,9 @@ menu:
   main:
     identifier: "dmn-ref-extensions-attributes"
     parent: "dmn-ref-extensions"
-    pre: "Reference of Flowave Extension Attributes for DMN."
+    pre: "Reference of Fluxnova Extension Attributes for DMN."
 
-aliases: [reference/dmn11/custom-extensions/flowave-attributes/]
+aliases: [reference/dmn11/custom-extensions/fluxnova-attributes/]
 ---
 
 The following attributes are extension attributes for the `flowave` namespace `http://camunda.org/schema/1.0/dmn`.

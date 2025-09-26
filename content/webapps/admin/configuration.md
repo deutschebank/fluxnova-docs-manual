@@ -16,7 +16,7 @@ available:
 
 # LDAP
 
-If you connect Flowave with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
+If you connect Fluxnova with the LDAP identity service, you have read-only access to the users and groups. Create new users and groups via the LDAP system, but not in the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}).
 
 # Logo and header color
 
@@ -26,7 +26,7 @@ and can override the standard styles.
 
 ```css
 .navbar-brand {
-  /* hides the "Flowave Admin" text */
+  /* hides the "Fluxnova Admin" text */
   text-indent: -999em;
   /* put your logo */
   background-image: url(./path/to/the/logo.png);
@@ -40,7 +40,7 @@ and can override the standard styles.
 }
 ```
 
-**Note:** you can also change the app name (*Admin*) and vendor (*Flowave*)
+**Note:** you can also change the app name (*Admin*) and vendor (*Fluxnova*)
 by changing the `app/admin/scripts/config.js` configuration file as follow:
 
 ```js
@@ -55,8 +55,8 @@ export default {
 
 # Localization
 
-Admin can be localized. Flowave maintains English and German translation files. 
-You can find and download community maintained translation files at the [Flowave webapp translations repository](https://github.com/finos/flowave-webapp-translations).
+Admin can be localized. Fluxnova maintains English and German translation files. 
+You can find and download community maintained translation files at the [Fluxnova webapp translations repository](https://github.com/finos/fluxnova-webapp-translations).
 
 The localization of Admin is contained in the `app/admin/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -97,7 +97,7 @@ export default {
     ['custom-module/module.js']
 }
 ```
-This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Flowave webapp .war file.
+This includes a `custom-module/module.js` file. The path is relative to the `app/admin` folder in the Fluxnova webapp .war file.
 
 # Change CSRF cookie name
 
@@ -115,7 +115,7 @@ export default {
 
 # Disable welcome message for new users
 
-First-time visitors are shown a message directing them to the Flowave welcome page. If you do
+First-time visitors are shown a message directing them to the Fluxnova welcome page. If you do
 not want this message to be shown, you can disable it by adjusting the `config.js` as follows:
 
 ```javascript
@@ -161,14 +161,14 @@ using [less](http://lesscss.org/) to change the overall appearance of Admin.
 To customize the interface with `less`, start by having a look
 at the variables defined in the following files:
 
- - `node_modules/flowave-commons-ui/node_modules/bootstrap/less/variables.less`
+ - `node_modules/fluxnova-commons-ui/node_modules/bootstrap/less/variables.less`
    defines the original Bootstrap variables
- - `node_modules/flowave-commons-ui/resources/less/cam-variables.less`
+ - `node_modules/fluxnova-commons-ui/resources/less/cam-variables.less`
    overrides some Bootstrap variables (above) and add some custom ones
 
 ## Compiling with Grunt
 
-From within the `flowave-bpm-webapp` directory:
+From within the `fluxnova-bpm-webapp` directory:
 
 ```sh
 grunt build:admin

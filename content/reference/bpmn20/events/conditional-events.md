@@ -15,7 +15,7 @@ The conditional event defines an event which is triggered if a given condition i
 It can be used as start event of an event sub process, as intermediate event and boundary event.
 The start and boundary event can be interrupting and non interrupting.
 
-In Flowave, conditional events are triggered with the help of process variables.
+In Fluxnova, conditional events are triggered with the help of process variables.
 See the [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) section for details.
 
 In the following BPMN model, all supported conditional events are used.
@@ -242,7 +242,7 @@ If we have started the process above and `UserTask B` and `UserTask A` are activ
 
 If a variable is set in the context of the `SubProcess` instance, then only the conditional boundary event of `UserTask B` is evaluated. The boundary event of `UserTask A` cannot trigger as the variable is not *visible* in its context. The user guide section on [variable scopes and variable visibility]({{< ref "/user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility">}}) provides details on the general concept.
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -266,4 +266,4 @@ If a variable is set in the context of the `SubProcess` instance, then only the 
 
 # Additional Resources
 
-* [Conditional Events](http://flowave.finos.org/bpmn/reference.html#events-conditional) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
+* [Conditional Events](http://fluxnova.finos.org/bpmn/reference.html#events-conditional) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)

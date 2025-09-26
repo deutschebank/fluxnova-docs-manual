@@ -26,20 +26,20 @@ In order to setup LDAP for the JBoss EAP/WildFly Application Server distribution
 Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/WildFly Application Server and add the [LDAP Identity Provider Plugin]({{< ref "/user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
-<subsystem xmlns="urn:org.finos.flowave.bpm.jboss:1.1">
+<subsystem xmlns="urn:org.finos.fluxnova.bpm.jboss:1.1">
   <process-engines>
     <process-engine name="default" default="true"> ...
       <properties>...</properties>
       <plugins>
         <plugin>
-          <class>org.finos.flowave.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+          <class>org.finos.fluxnova.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
           <properties>
 
             <property name="serverUrl">ldap://localhost:4334/</property>
-            <property name="managerDn">uid=jonny,ou=office-berlin,o=flowave,c=org</property>
+            <property name="managerDn">uid=jonny,ou=office-berlin,o=fluxnova,c=org</property>
             <property name="managerPassword">s3cr3t</property>
 
-            <property name="baseDn">o=flowave,c=org</property>
+            <property name="baseDn">o=fluxnova,c=org</property>
 
             <property name="userSearchBase">ou=employees</property>
             <property name="userSearchFilter">(objectclass=person)</property>
@@ -60,7 +60,7 @@ Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss EAP/WildF
           </properties>
         </plugin>
         <plugin>
-          <class>org.finos.flowave.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+          <class>org.finos.fluxnova.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
           <properties>
             <property name="administratorUserName">admin</property>
           </properties>
@@ -80,9 +80,9 @@ See our user guide for complete documentation on the [LDAP Identity Provider Plu
 ## HAL Resource Caching
 
 If you use LDAP as Identity Provider, you should consider [activating caching]({{< ref "/reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
-Users and Groups in the Flowave web application. In order to activate this, add the following
-configuration to the `web.xml` file of the Flowave web application
-(`flowave-webapp-wildfly-$PLATFORM_VERSION.war/WEB-INF/lib` or `flowave-webapp-jboss-$PLATFORM_VERSION.war/WEB-INF/lib`):
+Users and Groups in the Fluxnova web application. In order to activate this, add the following
+configuration to the `web.xml` file of the Fluxnova web application
+(`fluxnova-webapp-wildfly-$PLATFORM_VERSION.war/WEB-INF/lib` or `fluxnova-webapp-jboss-$PLATFORM_VERSION.war/WEB-INF/lib`):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,20 +93,20 @@ configuration to the `web.xml` file of the Flowave web application
   <!-- ... -->
 
   <listener>
-    <listener-class>org.finos.flowave.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+    <listener-class>org.finos.fluxnova.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
   </listener>
 
   <context-param>
-    <param-name>org.finos.flowave.bpm.engine.rest.hal.cache.config</param-name>
+    <param-name>org.finos.fluxnova.bpm.engine.rest.hal.cache.config</param-name>
     <param-value>
       {
-        "cacheImplementation": "org.finos.flowave.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
+        "cacheImplementation": "org.finos.fluxnova.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
         "caches": {
-          "org.finos.flowave.bpm.engine.rest.hal.user.HalUser": {
+          "org.finos.fluxnova.bpm.engine.rest.hal.user.HalUser": {
             "capacity": 100,
             "secondsToLive": 900
           },
-          "org.finos.flowave.bpm.engine.rest.hal.group.HalGroup": {
+          "org.finos.fluxnova.bpm.engine.rest.hal.group.HalGroup": {
             "capacity": 100,
             "secondsToLive": 900
           }
@@ -123,18 +123,18 @@ configuration to the `web.xml` file of the Flowave web application
 ## Add Custom Engine Plugins
  
 1.  Add an additional engine plugin as a module to the folder $WILDFLY_HOME/modules/
-2.  Add the module dependency to the file `$WILDFLY_HOME/modules/org/finos/flowave/bpm/flowave-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Flowave's subsystem
+2.  Add the module dependency to the file `$WILDFLY_HOME/modules/org/finos/fluxnova/bpm/fluxnova-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Fluxnova's subsystem
       ```xml
     <module xmlns="urn:jboss:module:1.0"
-            name="org.finos.flowave.bpm.flowave-engine-plugins">
+            name="org.finos.fluxnova.bpm.fluxnova-engine-plugins">
       <dependencies>
         <!-- ... -->
-        <module name="org.finos.flowave.bpm.flowave-custom-engine-plugin" export="true" />
+        <module name="org.finos.fluxnova.bpm.fluxnova-custom-engine-plugin" export="true" />
       </dependencies>
     </module>
       ```
       
-    The `module.xml` file is included in the Flowave distribution. If you install Flowave on a vanilla WildFly container, this file needs to be created manually.
+    The `module.xml` file is included in the Fluxnova distribution. If you install Fluxnova on a vanilla WildFly container, this file needs to be created manually.
 3. [Configure the process engine plugin]({{< ref "/user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
 
 ## Session Cookie in Webapps
@@ -169,7 +169,7 @@ Please watch out for the following section:
 <filter>
   <filter-name>HttpHeaderSecurity</filter-name>
   <filter-class>
-    org.finos.flowave.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+    org.finos.fluxnova.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
   </filter-class>
 </filter>
 
@@ -187,7 +187,7 @@ You can change the default behavior by adding configuration parameters to the se
 <filter>
   <filter-name>HttpHeaderSecurity</filter-name>
   <filter-class>
-    org.finos.flowave.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
+    org.finos.fluxnova.bpm.webapp.impl.security.filter.headersec.HttpHeaderSecurityFilter
   </filter-class>
   
   <init-param>

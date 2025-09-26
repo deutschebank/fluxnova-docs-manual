@@ -31,7 +31,7 @@ To perform such an operation, the process engine offers the *process instance mo
 {{< /note >}}
 
 {{< enterprise >}}
-  The Flowave enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Flowave Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md" >}})
+  The Fluxnova enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Fluxnova Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md" >}})
 {{< /enterprise >}}
 
 # Process Instance Modification by Example

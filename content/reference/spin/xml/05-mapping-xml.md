@@ -18,12 +18,12 @@ Spin can deserialize XML to Java objects and serialize the annotated Java object
 Assume we have a class `Customer` defined as follows:
 
 ```java
-@XmlRootElement(name="customer", namespace="http://flowave.finos.org/test")
+@XmlRootElement(name="customer", namespace="http://fluxnova.finos.org/test")
 public class Customer {
 
   private String name;
 
-  @XmlElement(namespace="http://flowave.finos.org/test")
+  @XmlElement(namespace="http://fluxnova.finos.org/test")
   public String getName() {
     return name;
   }
@@ -40,7 +40,7 @@ We can map the following XML object
 
  ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<customer xmlns="http://flowave.finos.org/example">
+<customer xmlns="http://fluxnova.finos.org/example">
   <name>Kermit</name>
 </customer>
  ```
@@ -48,9 +48,9 @@ We can map the following XML object
  to an instance of `Customer` in the following way:
 
 ```java
-import static org.finos.flowave.spin.Spin.XML;
+import static org.finos.fluxnova.spin.Spin.XML;
 
-String xmlInput = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><customer xmlns=\"http://flowave.finos.org/example\"><name>Kermit</name></customer>";
+String xmlInput = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><customer xmlns=\"http://fluxnova.finos.org/example\"><name>Kermit</name></customer>";
 
 Customer customer = XML(xmlInput).mapTo(Customer.class);
 ```
@@ -60,7 +60,7 @@ Customer customer = XML(xmlInput).mapTo(Customer.class);
 We can map the `customer` back to XML as follows:
 
 ```java
-import static org.finos.flowave.spin.Spin.XML;
+import static org.finos.fluxnova.spin.Spin.XML;
 
 String xml = XML(customer).toString();
 ```

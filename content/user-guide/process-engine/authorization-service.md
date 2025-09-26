@@ -10,32 +10,32 @@ menu:
 
 ---
 
-Flowave allows users to authorize access to the data it manages. This makes it possible to configure which user can access which process instances, tasks, etc...
+Fluxnova allows users to authorize access to the data it manages. This makes it possible to configure which user can access which process instances, tasks, etc...
 
 Authorization has a performance cost and introduces some complexity. It should only be used if required.
 
 # When is Authorization required?
 
-Not every Flowave setup needs to enable authorization. In many scenarios, Flowave is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine API directly. If you embed the process engine into a Java application, you usually do not need to enable authorization. The application can control how the API is accessed.
+Not every Fluxnova setup needs to enable authorization. In many scenarios, Fluxnova is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine API directly. If you embed the process engine into a Java application, you usually do not need to enable authorization. The application can control how the API is accessed.
 
 Situations in which authorization is required:
 
-* Flowave Rest API is made accessible to users who should not have full access, even after authentication.
-* Flowave Webapplication is made accessible to users who should not have full access, even after authentication.
+* Fluxnova Rest API is made accessible to users who should not have full access, even after authentication.
+* Fluxnova Webapplication is made accessible to users who should not have full access, even after authentication.
 * Other situations in which an untrusted user can directly construct the queries and commands executed on the process engine.
 
 Situations in which authorization is *not* required
 
 * An application completely controls the API methods invoked on the process engine.
-* Flowave Webapplication is made accessible to users who can have full access after authentication.
+* Fluxnova Webapplication is made accessible to users who can have full access after authentication.
 
 **Example**
 
 Assume that you have the following authorization requirement: *As a regular user, I can only see the tasks that are assigned to me.*
 
-If the engine is embedded into a Java application, the application can easily ensure this by restricting the task query on the `assignee` property. The application can guarantee this since the Flowave API is not directly exposed to the user.
+If the engine is embedded into a Java application, the application can easily ensure this by restricting the task query on the `assignee` property. The application can guarantee this since the Fluxnova API is not directly exposed to the user.
 
-By contrast, if the Flowave Rest API is directly exposed over the network to a Javascript application, then a malicious user, once authenticated, can send a request to the server querying all tasks, even the ones that are not assigned to this user. In this case, authorization needs to be turned on to ensure the user only sees the tasks which he is authorized to see, regardless of the query parameters.
+By contrast, if the Fluxnova Rest API is directly exposed over the network to a Javascript application, then a malicious user, once authenticated, can send a request to the server querying all tasks, even the ones that are not assigned to this user. In this case, authorization needs to be turned on to ensure the user only sees the tasks which he is authorized to see, regardless of the query parameters.
 
 # Basic Principles
 
@@ -51,7 +51,7 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 
 ## Identities
 
-Flowave distinguishes between two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual user or a group of users.
+Fluxnova distinguishes between two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual user or a group of users.
 
 
 ## Permissions
@@ -254,7 +254,7 @@ Authorizations are checked if
 The last item means that even if authorization is enabled, authorization checks are only performed if a user is currently authenticated.
 If no user is authenticated, then the engine does not perform any checks.
 
-When using the Flowave Webapps, it is always ensured that a user is authenticated before the user can access any restricted resources.
+When using the Fluxnova Webapps, it is always ensured that a user is authenticated before the user can access any restricted resources.
 When embedding the process engine into a custom application, the application needs to take care of authentication if it needs authorization checks to be performed.
 
 {{< note class="info" title="Authentication vs. Authorization" >}}
@@ -653,7 +653,7 @@ In case of Process Definitions
 ## Application Permissions
 
 The resource "Application" uniquely supports the **Access** permission.
-The **Access** permission controls whether a user has access to a Flowave web application or not. Out of the box, it can be granted for the following applications (resource ids):
+The **Access** permission controls whether a user has access to a Fluxnova web application or not. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -873,16 +873,16 @@ The following table gives an overview of the features that the system permission
 
 # Administrators
 
-Flowave has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
+Fluxnova has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
 
-## The "flowave-admin" Group
+## The "fluxnova-admin" Group
 
-When downloading the Flowave distribution, the invoice example application creates a group with id `flowave-admin` and grants all authorizations on all resources to this group.
+When downloading the Fluxnova distribution, the invoice example application creates a group with id `fluxnova-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Flowave Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Flowave webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `flowave-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Fluxnova Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Fluxnova webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `fluxnova-admin` group is created and granted all permissions on all resources. 
 
 {{< note title="LDAP" class="info" >}}
-The group "flowave-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
+The group "fluxnova-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
 {{< /note >}}
 
 ## The Administrator Authorization Plugin
@@ -898,7 +898,7 @@ The following is an example of how to configure the administrator authorization 
   ...
   <plugins>
     <plugin>
-      <class>org.finos.flowave.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+      <class>org.finos.fluxnova.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
       <properties>
         <property name="administratorUserName">admin</property>
       </properties>
@@ -1013,9 +1013,9 @@ authProcessInstance.addPermission(Permissions.CREATE);
 authorizationService.saveAuthorization(authProcessDefinition);
 authorizationService.saveAuthorization(authProcessInstance);
 ```
-# Flowave Admin Webapp
+# Fluxnova Admin Webapp
 
-The Flowave Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< ref "/webapps/admin/authorization-management.md" >}}).
+The Fluxnova Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< ref "/webapps/admin/authorization-management.md" >}}).
 
 # Performance Considerations
 

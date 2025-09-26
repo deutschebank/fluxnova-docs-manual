@@ -14,7 +14,7 @@ menu:
 
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of Flowave, it is not available in the community edition.
+Please note that this feature is only included in the enterprise edition of Fluxnova, it is not available in the community edition.
 {{< /enterprise >}}
 
 At the top of the process definition view and the process instance view, you can hit the _History_ button to access the history view.

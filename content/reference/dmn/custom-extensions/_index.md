@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "dmn-ref-extensions"
     parent: "dmn-ref"
-    pre: "Custom Extensions supported by Flowave"
+    pre: "Custom Extensions supported by Fluxnova"
 
 aliases: [reference/dmn11/custom-extensions/]
 ---

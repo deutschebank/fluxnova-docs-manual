@@ -1,6 +1,6 @@
 ---
 
-title: "Run Flowave using Spring Boot"
+title: "Run Fluxnova using Spring Boot"
 weight: 24
 
 menu:
@@ -8,8 +8,8 @@ menu:
     name: "Spring Boot"
     identifier: "installation-guide-spring-boot"
     parent: "installation-guide"
-    pre: "Run Flowave with Spring Boot"
+    pre: "Run Fluxnova with Spring Boot"
 
 ---
 
-To learn how to run Flowave with Spring Boot, please consult the [Spring Boot user guide]({{< ref "/user-guide/spring-boot-integration/_index.md" >}}).
+To learn how to run Fluxnova with Spring Boot, please consult the [Spring Boot user guide]({{< ref "/user-guide/spring-boot-integration/_index.md" >}}).

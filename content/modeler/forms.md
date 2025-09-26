@@ -1,14 +1,14 @@
 ---
 
-title: 'Building Forms in Flowave Modeler'
+title: 'Building Forms in Fluxnova Modeler'
 weight: 25
 
 menu:
   main:
     name: "Forms"
-    identifier: "flowave-modeler-forms"
+    identifier: "fluxnova-modeler-forms"
     parent: "modeler"
-    pre: "How to build Flowave Forms using the Flowave Modeler."
+    pre: "How to build Fluxnova Forms using the Fluxnova Modeler."
 
 ---
 

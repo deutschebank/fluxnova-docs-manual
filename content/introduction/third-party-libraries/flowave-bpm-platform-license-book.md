@@ -1,13 +1,13 @@
 ---
 
-title: 'Flowave License Book'
+title: 'Fluxnova License Book'
 weight: 20
 
 menu:
   main:
     identifier: "user-guide-introduction-third-party-libraries-license-book-platform"
     parent: "user-guide-introduction-third-party-libraries"
-    pre: "All third-party dependencies distributed with Flowave artifacts"
+    pre: "All third-party dependencies distributed with Fluxnova artifacts"
 
 ---
 
@@ -701,11 +701,11 @@ This software includes projects with other licenses -- see `doc/LICENSE.md`.</pr
 <div><details><summary>wildfly-galleon-pack@33.0.1.Final(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright The WildFly Authors</pre></details></div>
 <div><details><summary>snakeyaml@2.2(<a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>)</summary><pre>Copyright (c) 2008, SnakeYAML</pre></details></div>
 
-# Flowave Web Applications Javascript Dependencies
+# Fluxnova Web Applications Javascript Dependencies
 
 <div><details><summary><a href="https://github.com/bpmn-io/align-to-origin">@bpmn-io/align-to-origin@0.7.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2019-present Flowave Services GmbH
+Copyright (c) 2019-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -724,7 +724,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="">@bpmn-io/cm-theme@0.1.0-alpha.2</a> (MIT)</summary><pre>Copyright (c) 2023-present Flowave Services GmbH
+<div><details><summary><a href="">@bpmn-io/cm-theme@0.1.0-alpha.2</a> (MIT)</summary><pre>Copyright (c) 2023-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -752,7 +752,7 @@ THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/diagram-js-ui">@bpmn-io/diagram-js-ui@0.2.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2022-present Flowave Services GmbH
+Copyright (c) 2022-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -773,7 +773,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/dmn-migrate">@bpmn-io/dmn-migrate@0.5.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2020-present Flowave Services GmbH
+Copyright (c) 2020-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -795,7 +795,7 @@ THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="">@bpmn-io/dmn-variable-resolver@0.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2023-present Flowave Services GmbH
+Copyright (c) 2023-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -838,7 +838,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/feel-editor">@bpmn-io/feel-editor@1.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2015 flowave Services GmbH
+Copyright (c) 2015 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -859,7 +859,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/feel-linter">@bpmn-io/feel-lint@1.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2022 flowave Services GmbH
+Copyright (c) 2022 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -878,7 +878,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -911,7 +911,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-editor@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-editor@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -944,7 +944,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-playground@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-playground@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -977,7 +977,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-viewer@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/form-js">@bpmn-io/form-js-viewer@1.8.7</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2021-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -1012,7 +1012,7 @@ THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/properties-panel">@bpmn-io/properties-panel@3.18.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2021-present Flowave Services GmbH
+Copyright (c) 2021-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1874,7 +1874,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/bpmn-font">bpmn-font@0.12.1</a> (SIL)</summary><pre>Copyright (c) 2014-present, Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/bpmn-font">bpmn-font@0.12.1</a> (SIL)</summary><pre>Copyright (c) 2014-present, Fluxnova Services GmbH
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
@@ -1967,7 +1967,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js">bpmn-js@16.5.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/bpmn-js">bpmn-js@16.5.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2003,7 +2003,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/bpmn-moddle">bpmn-moddle@8.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014 flowave Services GmbH
+Copyright (c) 2014 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2044,10 +2044,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="">flowave-bpm-webapp@7.22.0-SNAPSHOT</a> ()</summary><pre>Copyright Flowave Services GmbH and/or licensed to Flowave Services GmbH
+<div><details><summary><a href="">fluxnova-bpm-webapp@7.22.0-SNAPSHOT</a> ()</summary><pre>Copyright Fluxnova Services GmbH and/or licensed to Fluxnova Services GmbH
 under one or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information regarding copyright
-ownership. Flowave licenses this file to you under the Apache License,
+ownership. Fluxnova licenses this file to you under the Apache License,
 Version 2.0; you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
@@ -2059,9 +2059,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/finos/flowave-dmn-js">flowave-dmn-js@1.8.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/finos/fluxnova-dmn-js">fluxnova-dmn-js@1.8.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2022-present Flowave Services GmbH
+Copyright (c) 2022-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2080,9 +2080,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/finos/flowave-dmn-moddle">flowave-dmn-moddle@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
+<div><details><summary><a href="https://github.com/finos/fluxnova-dmn-moddle">fluxnova-dmn-moddle@1.3.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014-2018 flowave Services GmbH
+Copyright (c) 2014-2018 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2187,7 +2187,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js">cmmn-js@0.20.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/cmmn-js">cmmn-js@0.20.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2223,7 +2223,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/cmmn-moddle">cmmn-moddle@5.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014 flowave Services GmbH
+Copyright (c) 2014 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2332,7 +2332,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/diagram-js">diagram-js@13.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014-present Flowave Services GmbH
+Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2353,7 +2353,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/diagram-js-direct-editing">diagram-js-direct-editing@2.1.2</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014-2017 flowave Services GmbH
+Copyright (c) 2014-2017 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2374,7 +2374,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/diagram-js-grid">diagram-js-grid@0.2.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2023-present flowave Services GmbH
+Copyright (c) 2023-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2437,7 +2437,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-font">dmn-font@0.6.2</a> (SIL)</summary><pre>Copyright (c) 2014, flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-font">dmn-font@0.6.2</a> (SIL)</summary><pre>Copyright (c) 2014, fluxnova Services GmbH
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
@@ -2530,7 +2530,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2563,7 +2563,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-decision-table@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-decision-table@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2596,7 +2596,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-drd@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-drd@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2629,7 +2629,7 @@ CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-literal-expression@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-literal-expression@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2664,7 +2664,7 @@ THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/dmn-js-properties-panel">dmn-js-properties-panel@3.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2015-2018 flowave Services GmbH
+Copyright (c) 2015-2018 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2683,7 +2683,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
-<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-shared@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Flowave Services GmbH
+<div><details><summary><a href="https://github.com/bpmn-io/dmn-js">dmn-js-shared@15.1.0</a> (SEE LICENSE IN LICENSE)</summary><pre>Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -2718,7 +2718,7 @@ THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/dmn-moddle">dmn-moddle@10.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2015-2017 flowave Services GmbH
+Copyright (c) 2015-2017 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -3443,7 +3443,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </pre></details></div>
-<div><details><summary><a href="">feelers@1.3.1</a> (MIT)</summary><pre>Copyright (c) 2023-present Flowave Services GmbH
+<div><details><summary><a href="">feelers@1.3.1</a> (MIT)</summary><pre>Copyright (c) 2023-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -3869,7 +3869,7 @@ See the License for the specific language governing permissions and
 limitations under the License.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/ids">ids@1.0.5</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014 flowave Services GmbH
+Copyright (c) 2014 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4132,7 +4132,7 @@ software, even if advised of the possibility of such damage.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/min-dash">min-dash@4.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2017-present flowave Services GmbH
+Copyright (c) 2017-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4154,7 +4154,7 @@ THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/min-dom">min-dom@3.2.1</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 Nico Rehwaldt
-Copyright (c) 2015-present flowave Services GmbH
+Copyright (c) 2015-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4197,7 +4197,7 @@ SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/moddle">moddle@4.1.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014 flowave Services GmbH
+Copyright (c) 2014 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4218,7 +4218,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/moddle-xml">moddle-xml@7.5.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014-present Flowave Services GmbH
+Copyright (c) 2014-present Fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4478,7 +4478,7 @@ SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/object-refs">object-refs@0.4.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2014-present flowave Services GmbH
+Copyright (c) 2014-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4499,7 +4499,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/path-intersection">path-intersection@3.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2017 flowave Services GmbH
+Copyright (c) 2017 fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4743,7 +4743,7 @@ SOFTWARE.
 </pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/table-js">table-js@9.0.0</a> (MIT)</summary><pre>The MIT License (MIT)
 
-Copyright (c) 2017-present flowave Services GmbH
+Copyright (c) 2017-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4765,7 +4765,7 @@ THE SOFTWARE.</pre></details></div>
 <div><details><summary><a href="https://github.com/bpmn-io/tiny-svg">tiny-svg@2.2.4</a> (MIT)</summary><pre>The MIT License (MIT)
 
 Copyright (c) 2014 Nico Rehwaldt
-Copyright (c) 2015-present flowave Services GmbH
+Copyright (c) 2015-present fluxnova Services GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

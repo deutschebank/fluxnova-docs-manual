@@ -11,7 +11,7 @@ menu:
     pre: "Get more insights about cookie security settings"
 ---
 
-Flowaves Web applications use cookies to preserve user sessions and to prevent CSRF attacks. This page explains how these cookies should be configured to increase the security.
+Fluxnovas Web applications use cookies to preserve user sessions and to prevent CSRF attacks. This page explains how these cookies should be configured to increase the security.
 
 The Web applications set the following cookies:
 

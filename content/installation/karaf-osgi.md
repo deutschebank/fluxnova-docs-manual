@@ -1,6 +1,6 @@
 ---
 
-title: "Run Flowave using Karaf / OSGi"
+title: "Run Fluxnova using Karaf / OSGi"
 weight: 39
 
 menu:
@@ -14,4 +14,4 @@ menu:
 
 # Community Edition
 
-If you want to run Flowave with Karaf / OSGi, you can find the corresponding distributions on [GitHub](https://github.com/finos/flowave-bpm-platform-osgi/releases).
+If you want to run Fluxnova with Karaf / OSGi, you can find the corresponding distributions on [GitHub](https://github.com/finos/fluxnova-bpm-platform-osgi/releases).

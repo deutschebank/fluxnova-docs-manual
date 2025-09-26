@@ -48,7 +48,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 ```
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -79,5 +79,5 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 
 # Additional Resources
 
-*   [Subprocesses](http://flowave.finos.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
+*   [Subprocesses](http://fluxnova.finos.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)
 

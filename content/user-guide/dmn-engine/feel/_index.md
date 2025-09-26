@@ -23,7 +23,7 @@ You can use the Expression Language in the following DMN Notation Elements:
 * [Literal Expressions]
 
 This documentation covers everything integration-specific about the 
-[FEEL Scala Engine][] (opens external link) in the Flowave DMN Engine.
+[FEEL Scala Engine][] (opens external link) in the Fluxnova DMN Engine.
 
 [FEEL Scala Engine]: https://github.com/finos/feel-scala
 [input entries]: {{< ref "/reference/dmn/decision-table/rule.md#input-entry-condition" >}}

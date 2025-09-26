@@ -11,19 +11,19 @@ menu:
 
 ---
 
-The auto starter uses the  `org.finos.flowave.bpm.engine.impl.cfg.ProcessEnginePlugin` mechanism to configure the engine.
+The auto starter uses the  `org.finos.fluxnova.bpm.engine.impl.cfg.ProcessEnginePlugin` mechanism to configure the engine.
 
 The configuration is divided into _sections_. These _sections_ are represented by the marker interfaces:
 
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveProcessEngineConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveDatasourceConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveHistoryConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveHistoryLevelAutoHandlingConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveJobConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveDeploymentConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveAuthorizationConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveFailedJobConfiguration`
-* `org.finos.flowave.bpm.spring.boot.starter.configuration.FlowaveMetricsConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaProcessEngineConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaDatasourceConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaHistoryConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaHistoryLevelAutoHandlingConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaJobConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaDeploymentConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaAuthorizationConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaFailedJobConfiguration`
+* `org.finos.fluxnova.bpm.spring.boot.starter.configuration.FluxnovaMetricsConfiguration`
 
 ## Default Configurations
 
@@ -35,11 +35,11 @@ Sets the process engine name and automatically adds all `ProcessEnginePlugin` be
 
 ### `DefaultDatasourceConfiguration`
 
-Configures the Flowave data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
+Configures the Fluxnova data source and enables [transaction integration]({{< ref "/user-guide/spring-framework-integration/transactions.md" >}}). By default, the primary `DataSource` and `PlatformTransactionManager` beans are wired with the process engine configuration.
 
 If you want to [configure more than one datasource](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources)
 and don't want to use the `@Primary` one for the process engine, then you can create a separate
-data source with name `flowaveBpmDataSource` that will be automatically wired with Flowave instead.
+data source with name `fluxnovaBpmDataSource` that will be automatically wired with Fluxnova instead.
 
 ```java
 @Bean
@@ -49,7 +49,7 @@ public DataSource primaryDataSource() {
   return DataSourceBuilder.create().build();
 }
 
-@Bean(name="flowaveBpmDataSource")
+@Bean(name="fluxnovaBpmDataSource")
 @ConfigurationProperties(prefix="datasource.secondary")
 public DataSource secondaryDataSource() {
   return DataSourceBuilder.create().build();
@@ -57,8 +57,8 @@ public DataSource secondaryDataSource() {
 ```
 
 If you don't want to use the `@Primary` transaction manager, it is possible to create a separate
-transaction manager with the name `flowaveBpmTransactionManager` that will be wired with the data
-source used for Flowave (either `@Primary` or `flowaveBpmDataSource`):
+transaction manager with the name `fluxnovaBpmTransactionManager` that will be wired with the data
+source used for Fluxnova (either `@Primary` or `fluxnovaBpmDataSource`):
 
 ```java
 @Bean
@@ -67,14 +67,14 @@ public PlatformTransactionManager primaryTransactionManager() {
   return new JpaTransactionManager();
 }
 
-@Bean(name="flowaveBpmTransactionManager")
-public PlatformTransactionManager flowaveTransactionManager(@Qualifier("flowaveBpmDataSource") DataSource dataSource) {
+@Bean(name="fluxnovaBpmTransactionManager")
+public PlatformTransactionManager fluxnovaTransactionManager(@Qualifier("fluxnovaBpmDataSource") DataSource dataSource) {
   return new DataSourceTransactionManager(dataSource);
 }
 ```
 
 {{< note title="" class="warning" >}}
-  The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Flowave data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
+  The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Fluxnova data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
 {{< /note >}}
 
 ### `DefaultHistoryConfiguration`
@@ -91,11 +91,11 @@ public HistoryEventHandler customHistoryEventHandler() {
 
 ### `DefaultHistoryLevelAutoHandlingConfiguration`
 
-This configuration is for backwards-compatiblitiy only as Flowave supports `history-level auto` by default.
+This configuration is for backwards-compatiblitiy only as Fluxnova supports `history-level auto` by default.
 
 To have more control over the handling, you can provide your own
 
-- `org.finos.flowave.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator` with name `historyLevelDeterminator`
+- `org.finos.fluxnova.bpm.spring.boot.starter.jdbc.HistoryLevelDeterminator` with name `historyLevelDeterminator`
 
 IMPORTANT: The default configuration is applied after all other default configurations using the ordering mechanism.
 
@@ -105,22 +105,22 @@ Applies the job execution properties to the process engine.
 
 To have more control over the execution itself, you can provide your own
 
-- `org.finos.flowave.bpm.engine.impl.jobexecutor.JobExecutor`
-- `org.springframework.core.task.TaskExecutor` named `flowaveTaskExecutor`
+- `org.finos.fluxnova.bpm.engine.impl.jobexecutor.JobExecutor`
+- `org.springframework.core.task.TaskExecutor` named `fluxnovaTaskExecutor`
 
 beans.
 
 IMPORTANT: The job executor is not enabled in the configuration.
-This is done after the spring context successfully loaded (see `org.finos.flowave.bpm.spring.boot.starter.runlistener`).
+This is done after the spring context successfully loaded (see `org.finos.fluxnova.bpm.spring.boot.starter.runlistener`).
 
 ### `DefaultDeploymentConfiguration`
 
 If auto deployment is enabled (this is the case by default), all processes found in the classpath are deployed.
-The resource pattern can be changed using properties (see [properties](#flowave-engine-properties)).
+The resource pattern can be changed using properties (see [properties](#fluxnova-engine-properties)).
 
 ### `DefaultAuthorizationConfiguration`
 
-Applies the authorization configuration to the process engine. If not configured, the `flowave` default values are used (see [properties](#flowave-engine-properties)).
+Applies the authorization configuration to the process engine. If not configured, the `fluxnova` default values are used (see [properties](#fluxnova-engine-properties)).
 
 ## Overriding the Default Configuration
 
@@ -128,11 +128,11 @@ Provide a bean implementing one of the marker interfaces. For example to customi
 
 ```java
 @Configuration
-public class MyFlowaveConfiguration {
+public class MyFluxnovaConfiguration {
 
 	@Bean
-	public static FlowaveDatasourceConfiguration flowaveDatasourceConfiguration() {
-		return new MyFlowaveDatasourceConfiguration();
+	public static FluxnovaDatasourceConfiguration fluxnovaDatasourceConfiguration() {
+		return new MyFluxnovaDatasourceConfiguration();
 	}
 
 }
@@ -140,15 +140,15 @@ public class MyFlowaveConfiguration {
 
 ## Adding Additional Configurations
 
-You just have to provide one or more beans implementing the `org.finos.flowave.bpm.engine.impl.cfg.ProcessEnginePlugin` interface
-(or extend from `org.finos.flowave.bpm.spring.boot.starter.configuration.impl.AbstractFlowaveConfiguration`).
+You just have to provide one or more beans implementing the `org.finos.fluxnova.bpm.engine.impl.cfg.ProcessEnginePlugin` interface
+(or extend from `org.finos.fluxnova.bpm.spring.boot.starter.configuration.impl.AbstractFluxnovaConfiguration`).
 The configurations are applied ordered using the spring ordering mechanism (`@Order` annotation and `Ordered` interface).
 So if you want your configuration to be applied before the default configurations, add a `@Order(Ordering.DEFAULT_ORDER - 1)` annotation to your class.
 If you want your configuration to be applied after the default configurations, add a `@Order(Ordering.DEFAULT_ORDER + 1)` annotation to your class.
 
 ```java
 @Configuration
-public class MyFlowaveConfiguration {
+public class MyFluxnovaConfiguration {
 
 	@Bean
 	@Order(Ordering.DEFAULT_ORDER + 1)
@@ -182,7 +182,7 @@ or
 
 @Component
 @Order(Ordering.DEFAULT_ORDER + 1)
-public class MyCustomConfiguration extends AbstractFlowaveConfiguration {
+public class MyCustomConfiguration extends AbstractFluxnovaConfiguration {
 
 	@Override
 	public void preInit(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
@@ -194,10 +194,10 @@ public class MyCustomConfiguration extends AbstractFlowaveConfiguration {
 }
 ```
 
-## Flowave Engine Properties
+## Fluxnova Engine Properties
 In addition to the bean-based way of overriding process engine configuration properties, it is also possible
 to set those properties via an <code>application.yaml</code> configuration file. Instructions on how to use it
-can be found in the <a href="https://docs.flowave.finos.org/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.
+can be found in the <a href="https://docs.fluxnova.finos.org/get-started/spring-boot/configuration/">Spring Boot Starter Guide</a>.
 
 The available properties are as follows:
 
@@ -210,16 +210,16 @@ The available properties are as follows:
   </tr>
 <tr><td colspan="4"><b>General</b></td></tr>
 
-<tr><td rowspan="15"><code>flowave.bpm</code></td>
+<tr><td rowspan="15"><code>fluxnova.bpm</code></td>
 <td><code>.enabled</code></td>
-<td>Switch to disable the Flowave auto-configuration. Use to exclude Flowave in integration tests.</td>
+<td>Switch to disable the Fluxnova auto-configuration. Use to exclude Fluxnova in integration tests.</td>
 <td><code>true</code></td>
 </tr>
 
 <tr>
 <td><code>.process-engine-name</code></td>
 <td>Name of the process engine</td>
-<td>Flowave default value</td>
+<td>Fluxnova default value</td>
 </tr>
 
 <tr>
@@ -237,18 +237,18 @@ The available properties are as follows:
 <tr>
 <td><code>.default-serialization-format</code></td>
 <td>Default serialization format</td>
-<td>Flowave default value</td>
+<td>Fluxnova default value</td>
 </tr>
 
 <tr>
 <td><code>.history-level</code></td>
-<td>Flowave history level</td>
+<td>Fluxnova history level</td>
 <td>FULL</td>
 </tr>
 
 <tr>
 <td><code>.history-level-default</code></td>
-<td>Flowave history level to use when <code>history-level</code> is <code>auto</code>, but the level can not determined automatically</td>
+<td>Fluxnova history level to use when <code>history-level</code> is <code>auto</code>, but the level can not determined automatically</td>
 <td>FULL</td>
 </tr>
 
@@ -297,7 +297,7 @@ The available properties are as follows:
 <tr><td colspan="4"><b>Job Execution</b></td></tr>
 
 <tr>
-<td rowspan="14"><code>flowave.bpm.job-execution</code></td>
+<td rowspan="14"><code>fluxnova.bpm.job-execution</code></td>
 <td><code>.enabled</code></td>
 <td>If set to <code>false</code>, no JobExecutor bean is created at all. Maybe used for testing.</td>
 <td><code>true</code></td>
@@ -372,7 +372,7 @@ The available properties are as follows:
 <tr><td colspan="4"><b>Datasource</b></td></tr>
 
 <tr>
-<td rowspan="5"><code>flowave.bpm.database</code></td>
+<td rowspan="5"><code>fluxnova.bpm.database</code></td>
 <td><code>.schema-update</code></td>
 <td>If automatic schema update should be applied, use one of [true, false, create, create-drop, drop-create]</td>
 <td><code>true</code></td>
@@ -386,14 +386,14 @@ The available properties are as follows:
 
 <tr>
 <td><code>.table-prefix</code></td>
-<td>Prefix of the flowave database tables. Attention: The table prefix will <b>not</b> be applied if you  are using <code>schema-update</code>!</td>
-<td><i>Flowave default value</i></td>
+<td>Prefix of the fluxnova database tables. Attention: The table prefix will <b>not</b> be applied if you  are using <code>schema-update</code>!</td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
 <td><code>.schema-name</code></td>
 <td>The dataBase schema name</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
@@ -401,12 +401,12 @@ The available properties are as follows:
 <td>Controls if the engine executes the jdbc statements as Batch or not.
 It has to be disabled for some databases.
 See the <a href="{{<ref "/user-guide/process-engine/database/database-configuration.md#jdbc-batch-processing" >}}">user guide</a> for further details.</td>
-<td><i>Flowave default value: true</i></td>
+<td><i>Fluxnova default value: true</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Eventing</b></td></tr>
 <tr>
-<td rowspan="4"><code>flowave.bpm.eventing</code></td>
+<td rowspan="4"><code>fluxnova.bpm.eventing</code></td>
 <td><code>.execution</code></td>
 <td>Enables eventing of delegate execution events.
 See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-bridge.md" >}}">user guide</a> for further details.</td>
@@ -437,37 +437,37 @@ See the <a href="{{<ref "/user-guide/spring-boot-integration/the-spring-event-br
 
 <tr><td colspan="4"><b>Management</b></td></tr>
 <tr>
-<td><code>flowave.bpm.management</code></td>
-<td><code>.health.flowave.enabled</code></td>
-<td>Enables default flowave health indicators</td>
+<td><code>fluxnova.bpm.management</code></td>
+<td><code>.health.fluxnova.enabled</code></td>
+<td>Enables default fluxnova health indicators</td>
 <td><code>true</code></td>
 </tr>
 
 <tr><td colspan="4"><b>Metrics</b></td></tr>
 <tr>
-<td rowspan="2"><code>flowave.bpm.metrics</code></td>
+<td rowspan="2"><code>fluxnova.bpm.metrics</code></td>
 <td><code>.enabled</code></td>
 <td>Enables metrics reporting</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
 <td><code>.db-reporter-activate</code></td>
 <td>Enables db metrics reporting</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
 <tr>
-<td rowspan="3"><code>flowave.bpm.webapp</code></td>
+<td rowspan="3"><code>fluxnova.bpm.webapp</code></td>
 <td><code>.enabled</code></td>
-<td>Switch to disable the Flowave Webapp auto-configuration.</td>
+<td>Switch to disable the Fluxnova Webapp auto-configuration.</td>
 <td><code>true</code></td>
 </tr>
 
 <tr>
 <td><code>.index-redirect-enabled</code></td>
-<td>Registers a redirect from <code>/</code> to flowave's bundled <code>index.html</code>.
+<td>Registers a redirect from <code>/</code> to fluxnova's bundled <code>index.html</code>.
 <br/>
 If this property is set to <code>false</code>, the
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
@@ -479,13 +479,13 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.application-path</code></td>
 <td>Changes the application path of the webapp.
 <br/>
-When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Starter <= 3.4.x is restored.
+When setting to <code>/</code>, the legacy behavior of Fluxnova Spring Boot Starter <= 3.4.x is restored.
 </td>
-<td><code>/flowave</code></td>
+<td><code>/fluxnova</code></td>
 </tr>
 
 <tr id="csrf">
-  <td rowspan="10"><code>flowave.bpm.webapp.csrf</code></td>
+  <td rowspan="10"><code>fluxnova.bpm.webapp.csrf</code></td>
 </tr>
 <tr>
 <td><code>.target-origin</code></td>
@@ -557,7 +557,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 </tr>
 
 <tr id="session-cookie">
-  <td rowspan="6"><code>flowave.bpm.webapp.session-cookie</code></td>
+  <td rowspan="6"><code>fluxnova.bpm.webapp.session-cookie</code></td>
 </tr>
 <tr>
   <td><code>.enable-secure-cookie</code></td>
@@ -611,7 +611,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 </tr>
 
 <tr id="header-security">
-  <td rowspan="12"><code>flowave.bpm.webapp.header-security</code></td>
+  <td rowspan="12"><code>fluxnova.bpm.webapp.header-security</code></td>
 </tr>
 <tr>
   <td><code>.xss-protection-disabled</code></td>
@@ -730,7 +730,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 </tr>
 
 <tr id="auth-cache">
-  <td rowspan="3"><code>flowave.bpm.webapp.auth.cache</code></td>
+  <td rowspan="3"><code>fluxnova.bpm.webapp.auth.cache</code></td>
 </tr>
 <tr>
   <td><code>.ttl-enabled</code></td>
@@ -756,22 +756,22 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 
 <tr><td colspan="4"><b>Authorization</b></td></tr>
 <tr>
-<td rowspan="4"><code>flowave.bpm.authorization</code></td>
+<td rowspan="4"><code>fluxnova.bpm.authorization</code></td>
 <td><code>.enabled</code></td>
 <td>Enables authorization</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
 <td><code>.enabled-for-custom-code</code></td>
 <td>Enables authorization for custom code</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
 <td><code>.authorization-check-revokes</code></td>
 <td>Configures authorization check revokes</td>
-<td><i>Flowave default value</i></td>
+<td><i>Fluxnova default value</i></td>
 </tr>
 
 <tr>
@@ -782,7 +782,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 
 <tr><td colspan="4"><b>Admin User</b></td></tr>
 <tr>
-<td rowspan="3"><code>flowave.bpm.admin-user</code></td>
+<td rowspan="3"><code>fluxnova.bpm.admin-user</code></td>
 <td><code>.id</code></td>
 <td>The username (e.g., 'admin')</td>
 <td>-</td>
@@ -802,7 +802,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
 
 <tr><td colspan="4"><b>Filter</b></td></tr>
 <tr>
-<td><code>flowave.bpm.filter</code></td>
+<td><code>fluxnova.bpm.filter</code></td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
@@ -814,7 +814,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
   </td>
 </tr>
 <tr>
-  <td rowspan="3"><code>flowave.bpm.oauth2.identity-provider</code></td>
+  <td rowspan="3"><code>fluxnova.bpm.oauth2.identity-provider</code></td>
   <td><code>.enabled</code></td>
   <td>Enables the OAuth2 identity provider.</td>
   <td><code>true</code></td>
@@ -833,7 +833,7 @@ When setting to <code>/</code>, the legacy behavior of Flowave Spring Boot Start
   <td><code>,</code> (comma)</td>
 </tr>
 <tr>
-  <td rowspan="2"><code>flowave.bpm.oauth2.sso-logout</code></td>
+  <td rowspan="2"><code>fluxnova.bpm.oauth2.sso-logout</code></td>
   <td><code>.enabled</code></td>
   <td>Activates the client initiated OIDC logout feature.</td>
   <td><code>false</code></td>
@@ -870,7 +870,7 @@ camunda:
 Override configuration using exposed properties:
 
 ```yaml
-flowave.bpm:
+fluxnova.bpm:
   admin-user:
     id: kermit
     password: superSecret
@@ -892,7 +892,7 @@ camunda:
 
 You can configure the **Session Cookie** for the Spring Boot application via the `application.yaml` configuration file.
 
-Flowave Spring Boot Starter versions <= 2.3 (Spring Boot version 1.x)
+Fluxnova Spring Boot Starter versions <= 2.3 (Spring Boot version 1.x)
 
 ```yaml
 server:
@@ -902,7 +902,7 @@ server:
       http-only: true # Not possible for versions before 1.5.14
 ```
 
-Flowave Spring Boot Starter versions >= 3.0 (Spring Boot version 2.x)
+Fluxnova Spring Boot Starter versions >= 3.0 (Spring Boot version 2.x)
 
 ```yaml
 server:
@@ -914,14 +914,14 @@ server:
 ```
 
 Further details of the session cookie like the `SameSite` flag can be configured via
-[flowave.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
+[fluxnova.bpm.webapp.session-cookie]({{< ref "/user-guide/spring-boot-integration/configuration.md#session-cookie" >}}) in the `application.yaml`.
 
 # Configuring Spin DataFormats
 
-The Flowave Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
-`flowave-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
+The Fluxnova Spring Boot Starter auto-configures the Spin Jackson Json DataFormat when the
+`fluxnova-spin-dataformat-json-jackson` dependency is detected on the classpath. To include a
 `DataFormatConfigurator` for the desired Jackson Java 8 module, the appropriate dependency needs
-to be included on the classpath as well. Note that `flowave-engine-plugin-spin`
+to be included on the classpath as well. Note that `fluxnova-engine-plugin-spin`
 needs to be included as a dependency as well for the auto-configurators to work.
 
 Auto-configuration is currently supported for the following [Jackson Java 8 modules](https://github.com/FasterXML/jackson-modules-java8):
@@ -932,9 +932,9 @@ Auto-configuration is currently supported for the following [Jackson Java 8 modu
 
 {{< note title="Heads Up!" class="warning" >}}
 The Spin Jackson Json DataFormat auto-configuration is disabled when using
-`flowave-spin-dataformat-all` as a dependency. The `flowave-spin-dataformat-all` artifact shades the
+`fluxnova-spin-dataformat-all` as a dependency. The `fluxnova-spin-dataformat-all` artifact shades the
 Jackson libraries, which breaks compatibility with the regular Jackson modules. If usage of
-`flowave-spin-dataformat-all` is necessary, please use the standard method for
+`fluxnova-spin-dataformat-all` is necessary, please use the standard method for
 [Spin Custom DataFormat configuration]({{< ref "/reference/spin/extending-spin.md#custom-dataformats" >}}).
 {{< /note >}}
 
@@ -945,12 +945,12 @@ appropriate version tags, will need to be added in the Spring Boot Application's
  ```xml
 <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine-plugin-spin</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine-plugin-spin</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.finos.flowave.spin</groupId>
-      <artifactId>flowave-spin-dataformat-json-jackson</artifactId>
+      <groupId>org.finos.fluxnova.spin</groupId>
+      <artifactId>fluxnova-spin-dataformat-json-jackson</artifactId>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -964,7 +964,7 @@ configure the Jackson `ObjectMapper`. They can be found [here](https://docs.spri
 
 To provide additional configurations, the following actions need to be performed:
 
-1. Provide a custom implementation of `org.finos.flowave.spin.spi.DataFormatConfigurator`;
+1. Provide a custom implementation of `org.finos.fluxnova.spin.spi.DataFormatConfigurator`;
 1. Add the appropriate key-value pair of the fully qualified classnames of the interface and the
    implementation to the `META-INF/spring.factories` file;
 1. Ensure that the artifact containing the configurator is reachable from Spin’s classloader.

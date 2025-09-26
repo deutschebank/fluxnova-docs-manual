@@ -8,18 +8,18 @@ menu:
     name: "Model a Process"
     parent: "get-started-java-ee"
     identifier: "get-started-java-ee-model"
-    pre: "Learn the basics of handling the Flowave Modeler and learn how to model and configure a fully executable process."
+    pre: "Learn the basics of handling the Fluxnova Modeler and learn how to model and configure a fully executable process."
 
 ---
 
-In this section we model our sample process with the Flowave Modeler.
+In this section we model our sample process with the Fluxnova Modeler.
 
 
 # Create a new BPMN 2.0 Diagram
 
 {{< img src="../img/modeler-new-bpmn-diagram.png" >}}
 
-Open Flowave Modeler and create a new BPMN diagram by Clicking *File > New File > BPMN Diagram*.
+Open Fluxnova Modeler and create a new BPMN diagram by Clicking *File > New File > BPMN Diagram*.
 
 ## Create the Sample Pizza Order Process
 
@@ -39,4 +39,4 @@ Additionally, you have to configure some placeholder expressions for the service
 
 When you are done, save the BPMN diagram by selecting *File > Save File As..* in the top-level menu. Name the file `pizza-order.bpmn` and save it in the `src/main/resources` folder of your Eclipse project. Switch back to Eclipse. In order to reflect the changes in Eclipse, make sure to manually refresh the project by right-clicking on the project and selecting *Refresh*.
 
-{{< get-tag repo="flowave-get-started-javaee" tag="Step-3" >}}
+{{< get-tag repo="fluxnova-get-started-javaee" tag="Step-3" >}}

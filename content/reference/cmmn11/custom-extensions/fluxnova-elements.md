@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "cmmn-ref-extensions-elements"
     parent: "cmmn-ref-extensions"
-    pre: "Reference of Flowave Extension Elements for CMMN."
+    pre: "Reference of Fluxnova Extension Elements for CMMN."
 
 ---
 
@@ -335,7 +335,7 @@ The following elements are extension elements for the `flowave` namespace `http:
     <td></td>
     <td><code>resource</code></td>
     <td>
-      equivalent to <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#resource" >}}">
+      equivalent to <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#resource" >}}">
       camunda:resource</a>
     </td>
   </tr>
@@ -354,7 +354,7 @@ The following elements are extension elements for the `flowave` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">
         camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
@@ -595,7 +595,7 @@ The following elements are extension elements for the `flowave` namespace `http:
   <tr>
     <th>Parent element</th>
     <td colspan="2">
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variableonpart" >}}">VariableOnPart</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variableonpart" >}}">VariableOnPart</a>
     </td>
   </tr>
 </table>

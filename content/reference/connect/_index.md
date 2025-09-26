@@ -1,6 +1,6 @@
 ---
 
-title: 'Flowave Connector Reference'
+title: 'Fluxnova Connector Reference'
 weight: 70
 layout: "single"
 
@@ -12,13 +12,13 @@ menu:
 
 ---
 
-Flowave Connect provides a simple API for connecting HTTP services and other
+Fluxnova Connect provides a simple API for connecting HTTP services and other
 things. It aims at two usage scenarios: usage in a generic system such as the
-Flowave process engine and standalone usage via API.
+Fluxnova process engine and standalone usage via API.
 
 # Connectors
 
-Flowave Connect provides a HTTP and a SOAP HTTP connector. If you want to
+Fluxnova Connect provides a HTTP and a SOAP HTTP connector. If you want to
 add an own connector to Connect please have a look at the [extending Connect]({{< ref "/reference/connect/extending-connect.md" >}})
 section. This section also describes the usage of a `ConnectorConfigurator` to
 configure the connector instances.
@@ -36,21 +36,21 @@ connector.addRequestInterceptor(interceptor).createRequest();
 Connect can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
-{{< note title="Flowave BOM" class="info" >}}
-If you use other Flowave projects please import the
-[Flowave BOM](/get-started/apache-maven/)
-to ensure correct versions for every Flowave project.
+{{< note title="Fluxnova BOM" class="info" >}}
+If you use other Fluxnova projects please import the
+[Fluxnova BOM](/get-started/apache-maven/)
+to ensure correct versions for every Fluxnova project.
 {{< /note >}}
 
 ```xml
 <dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.connect</groupId>
-      <artifactId>flowave-connect-bom</artifactId>
+      <groupId>org.finos.fluxnova.connect</groupId>
+      <artifactId>fluxnova-connect-bom</artifactId>
       <scope>import</scope>
       <type>pom</type>
-      <version>${version.flowave}</version>
+      <version>${version.fluxnova}</version>
     </dependency>
   </dependencies>
 </dependencyManagement>
@@ -59,26 +59,26 @@ to ensure correct versions for every Flowave project.
 ```xml
 <dependencies>
   <dependency>
-    <groupId>org.finos.flowave.connect</groupId>
-    <artifactId>flowave-connect-core</artifactId>
+    <groupId>org.finos.fluxnova.connect</groupId>
+    <artifactId>fluxnova-connect-core</artifactId>
   </dependency>
 
   <dependency>
-    <groupId>org.finos.flowave.connect</groupId>
-    <artifactId>flowave-connect-connectors-all</artifactId>
+    <groupId>org.finos.fluxnova.connect</groupId>
+    <artifactId>fluxnova-connect-connectors-all</artifactId>
   </dependency>
 </dependencies>
 ```
 
-Flowave Connect is published to [maven central](http://search.maven.org/#search%7Cga%7C1%7Cflowave-connect).
+Fluxnova Connect is published to [maven central](http://search.maven.org/#search%7Cga%7C1%7Cfluxnova-connect).
 
 {{< note title="Process engine plugin" class="info" >}}
-If you are using Connect in the Flowave process engine, you also need the `flowave-engine-plugin-connect` dependency. For more information, refer to the [Connectors guide]({{< ref "/user-guide/process-engine/connectors.md" >}}).
+If you are using Connect in the Fluxnova process engine, you also need the `fluxnova-engine-plugin-connect` dependency. For more information, refer to the [Connectors guide]({{< ref "/user-guide/process-engine/connectors.md" >}}).
 {{< /note >}}
 
 # Logging
 
-Flowave Connect uses [flowave-commons-logging](https://github.com/finos/flowave-bpm-platform/tree/master/commons/logging) which itself uses [SLF4J](http://slf4j.org) as
+Fluxnova Connect uses [fluxnova-commons-logging](https://github.com/finos/fluxnova-bpm-platform/tree/master/commons/logging) which itself uses [SLF4J](http://slf4j.org) as
 a logging backend. To enable logging a SLF4J implementation has to be part of
 your classpath. For example `slf4j-simple`, `log4j12` or `logback-classic`.
 

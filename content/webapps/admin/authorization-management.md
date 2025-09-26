@@ -110,7 +110,7 @@ During the [setup]({{< ref "/webapps/admin/user-management.md#initial-user-setup
 
 To create an administrator account, there are several options:
 
-1. If you kept the group *flowave-admin* in your application, you can add the user to this group.
+1. If you kept the group *fluxnova-admin* in your application, you can add the user to this group.
 2. If you use the [Administrator Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}), you can configure the plugin to grant the user or a certain group all permissions.
 3. You can create your own *administrator* group (also see [Groups]({{< ref "/webapps/admin/group-management.md#groups-menu" >}})), grant it all permissions and assign a user to it.
 4. Grant one specific user all permissions.

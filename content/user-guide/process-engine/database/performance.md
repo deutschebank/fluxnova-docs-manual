@@ -9,9 +9,9 @@ menu:
 
 ---
 
-This page explains specific performance-related topics of database queries. It does not attempt to provide tools and guidance for general performance analysis and optimization of Flowave installations. 
+This page explains specific performance-related topics of database queries. It does not attempt to provide tools and guidance for general performance analysis and optimization of Fluxnova installations. 
 
-As the impact of the settings discussed here largely depends on the setup and workload of Flowave, the recommendations may or may not help in your case. Performance improvements are not guaranteed.
+As the impact of the settings discussed here largely depends on the setup and workload of Fluxnova, the recommendations may or may not help in your case. Performance improvements are not guaranteed.
 
 # Task Query
 

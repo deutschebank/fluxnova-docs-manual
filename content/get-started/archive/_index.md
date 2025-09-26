@@ -12,6 +12,6 @@ menu:
 
 ---
 
-You can use the following archived guides. They are fixed to Flowave.18 and are not actively maintained anymore.
-Due to Flowave backward compatibility, they usually still work with later versions. However, you
+You can use the following archived guides. They are fixed to Fluxnova.18 and are not actively maintained anymore.
+Due to Fluxnova backward compatibility, they usually still work with later versions. However, you
 might need to adjust them to make them work.

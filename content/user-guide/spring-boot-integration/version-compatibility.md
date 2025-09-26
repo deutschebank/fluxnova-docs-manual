@@ -11,20 +11,20 @@ menu:
 
 ---
 
-Each version of the Flowave Spring Boot Starter is bound to a specific version of Flowave and Spring Boot. 
-Only these default combinations are recommended (and supported) by Flowave.
+Each version of the Fluxnova Spring Boot Starter is bound to a specific version of Fluxnova and Spring Boot. 
+Only these default combinations are recommended (and supported) by Fluxnova.
 Other combinations must be thoroughly tested before being used in production.
 
 {{< note title="Heads Up" class="info" >}}
-  Flowave and its compatible Spring Boot Starter always share the same version.
-  Also, the Flowave version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
-  the version of the Starter that resembles the version of Flowave you want to use.
+  Fluxnova and its compatible Spring Boot Starter always share the same version.
+  Also, the Fluxnova version used in the Spring Boot Starter doesn't have to be overridden anymore. Simply pick
+  the version of the Starter that resembles the version of Fluxnova you want to use.
 {{< /note >}}
 
 <table class="table table-striped">
   <tr>
     <th>Spring Boot Starter version</th>
-    <th>Flowave version</th>
+    <th>Fluxnova version</th>
     <th>Spring Boot version</th>
   </tr>
   <tr>
@@ -37,8 +37,8 @@ Other combinations must be thoroughly tested before being used in production.
 \* For these versions, use the following Maven coordinates:
 ```
 <dependency>
-  <groupId>org.finos.flowave.bpm.extension</groupId>
-  <artifactId>flowave-bpm-spring-boot-starter</artifactId>
+  <groupId>org.finos.fluxnova.bpm.extension</groupId>
+  <artifactId>fluxnova-bpm-spring-boot-starter</artifactId>
   <version>1.x</version> <!-- set correct version here -->
 </dependency>
 ```
@@ -46,8 +46,8 @@ Other combinations must be thoroughly tested before being used in production.
 \*\* For these versions, use the following Maven coordinates:
 ```
 <dependency>
-  <groupId>org.finos.flowave.bpm.extension.springboot</groupId>
-  <artifactId>flowave-bpm-spring-boot-starter</artifactId>
+  <groupId>org.finos.fluxnova.bpm.extension.springboot</groupId>
+  <artifactId>fluxnova-bpm-spring-boot-starter</artifactId>
   <version>2.x</version> <!-- set correct version here -->
 </dependency>
 ```

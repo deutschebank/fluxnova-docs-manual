@@ -32,7 +32,7 @@ On the second page (see screenshot), configure the Maven coordinates for the pro
 
 When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the *Project Explorer* View.
 
-# Add Flowave Maven Dependencies
+# Add Fluxnova Maven Dependencies
 
 The next step consists of setting up the Maven dependencies for your new process application. Add the following dependencies to the `pom.xml` file of your project:
 
@@ -41,13 +41,13 @@ The next step consists of setting up the Maven dependencies for your new process
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.finos.flowave.bpm.getstarted</groupId>
+  <groupId>org.finos.fluxnova.bpm.getstarted</groupId>
   <artifactId>loan-approval</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
-    <flowave.version>7.18.0</flowave.version>
+    <fluxnova.version>7.18.0</fluxnova.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -55,9 +55,9 @@ The next step consists of setting up the Maven dependencies for your new process
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.finos.flowave.bpm</groupId>
-        <artifactId>flowave-bom</artifactId>
-        <version>${flowave.version}</version>
+        <groupId>org.finos.fluxnova.bpm</groupId>
+        <artifactId>fluxnova-bom</artifactId>
+        <version>${fluxnova.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -66,8 +66,8 @@ The next step consists of setting up the Maven dependencies for your new process
 
   <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -97,17 +97,17 @@ The next step consists of setting up the Maven dependencies for your new process
 
 Now you can perform the first build. Select the `pom.xml` in the Package Explorer, perform a right-click and select `Run As / Maven Install`.
 
-{{< get-tag repo="flowave-get-started-java" tag="Step-1" >}}
+{{< get-tag repo="fluxnova-get-started-java" tag="Step-1" >}}
 
 # Add a Process Application Class
 
-Next, you need to create a package, e.g., `org.finos.flowave.bpm.getstarted.loanapproval` and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
+Next, you need to create a package, e.g., `org.finos.fluxnova.bpm.getstarted.loanapproval` and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
 
 ```java
-package org.finos.flowave.bpm.getstarted.loanapproval;
+package org.finos.fluxnova.bpm.getstarted.loanapproval;
 
-import org.finos.flowave.bpm.application.ProcessApplication;
-import org.finos.flowave.bpm.application.impl.ServletProcessApplication;
+import org.finos.fluxnova.bpm.application.ProcessApplication;
+import org.finos.fluxnova.bpm.application.impl.ServletProcessApplication;
 
 @ProcessApplication("Loan Approval App")
 public class LoanApprovalApplication extends ServletProcessApplication {
@@ -146,4 +146,4 @@ You can leave the `META-INF/processes.xml` file empty. In that case, default val
 
 At this point you have successfully set up the process application and you can start modeling the first process.
 
-{{< get-tag repo="flowave-get-started-java" tag="Step-2" >}}
+{{< get-tag repo="fluxnova-get-started-java" tag="Step-2" >}}

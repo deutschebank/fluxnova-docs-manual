@@ -16,12 +16,12 @@ After familiarizing yourself with all [Requirements](../requirements), this sect
 
 # RPA Vendor Credentials
 
-To orchestrate RPA bots, we will connect the Flowave Platform Workflow Engine to your RPA vendor via the Flowave RPA Bridge. 
+To orchestrate RPA bots, we will connect the Fluxnova Platform Workflow Engine to your RPA vendor via the Fluxnova RPA Bridge. 
 This component will require configuration parameters to connect to your RPA vendor.
 
 ## UiPath
 
-The Flowave RPA Orchestration works with the UiPath Orchestrator in either the [Cloud](https://cloud.uipath.com) or On-Premises (v2019 or v2020.4) distribution. For testing purposes, we recommend using the cloud version.
+The Fluxnova RPA Orchestration works with the UiPath Orchestrator in either the [Cloud](https://cloud.uipath.com) or On-Premises (v2019 or v2020.4) distribution. For testing purposes, we recommend using the cloud version.
 
 To prepare the setup of the RPA Bridge, please
 
@@ -48,18 +48,18 @@ The RPA Bridge integrates with Automation 360 (formerly A2019).
 
 To prepare the setup of the RPA Bridge, please
 
-* Create or choose a user with a bot runner license (bots available to this user can be orchestrated in Flowave and the user will be used to run bots)
+* Create or choose a user with a bot runner license (bots available to this user can be orchestrated in Fluxnova and the user will be used to run bots)
 * Remember the password of that user or alternatively [create an API key](https://docs.automationanywhere.com/bundle/enterprise-v2019/page/enterprise-cloud/topics/control-room/control-room-api/cloud-control-room-apikey-role.html) and write that down
 
-# Flowave Platform Run
+# Fluxnova Platform Run
 
-Unless you already have a running Flowave.14 or later installation, please
+Unless you already have a running Fluxnova.14 or later installation, please
 
-* [Download Flowave Run (Enterprise)](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)
+* [Download Fluxnova Run (Enterprise)](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/run/)
 
 You will be asked for a username and password that you have obtained together with your Enterprise license key.
 
-Once you have downloaded Flowave Run, please
+Once you have downloaded Fluxnova Run, please
 
 * Unzip the archive
 * Launch the platform by executing
@@ -72,9 +72,9 @@ start.bat
 ./start.sh
 ```
 
-Learn more about [Installing Flowave Platform](https://docs.flowave.finos.org/manual/latest/installation/).
+Learn more about [Installing Fluxnova Platform](https://docs.fluxnova.finos.org/manual/latest/installation/).
 
-# Flowave RPA Bridge
+# Fluxnova RPA Bridge
 
 In order to install the RPA Bridge, please:
 
@@ -86,7 +86,7 @@ Edit the config file `application.yml`:
 
 * In general, lines starting with a `#` are comments and will not be considered by the Bridge.
 * `license-file`: Remove the comment character. The property value should be `file:///${user.dir}/license.txt`.
-* `flowave-api`: Adjust the URL and credentials to your Flowave Platform instance if necessary.
+* `fluxnova-api`: Adjust the URL and credentials to your Fluxnova Platform instance if necessary.
 
 ### UiPath Cloud
 
@@ -131,7 +131,7 @@ Edit the config file `application.yml`:
 We recommend enabling simple logging by adding this as the last line to `application.yml`:
 
 ```
-logging.level.org.finos.flowave.bpm.rpa.bridge.externaltask: DEBUG
+logging.level.org.finos.fluxnova.bpm.rpa.bridge.externaltask: DEBUG
 ```
 
 ### Launch the RPA Bridge
@@ -139,7 +139,7 @@ logging.level.org.finos.flowave.bpm.rpa.bridge.externaltask: DEBUG
 Use the following command to launch the Bridge
 
 ```sh
-java -jar flowave-bpm-rpa-bridge.jar
+java -jar fluxnova-bpm-rpa-bridge.jar
 ```
 
 You should see a log message like 
@@ -151,41 +151,41 @@ External Task Listener started ----
 For troubleshooting, you can switch to extensive logging by adding this as the last line to `application.yml`:
 
 ```
-logging.level.org.finos.flowave.bpm.rpa.bridge: DEBUG
+logging.level.org.finos.fluxnova.bpm.rpa.bridge: DEBUG
 ```
 
 
-Learn more about [configuring the RPA Bridge](https://docs.flowave.finos.org/manual/7.19/user-guide/flowave-bpm-rpa-bridge).
+Learn more about [configuring the RPA Bridge](https://docs.fluxnova.finos.org/manual/7.19/user-guide/fluxnova-bpm-rpa-bridge).
 
 # Cawemo Catalog
 
-In order to use Cawemo On-Premises (version 1.6 or later), please follow this [on-premises installation guide](https://docs.flowave.finos.org/cawemo/latest/technical-guide/installation/).
+In order to use Cawemo On-Premises (version 1.6 or later), please follow this [on-premises installation guide](https://docs.fluxnova.finos.org/cawemo/latest/technical-guide/installation/).
 
 After logging into Cawemo:
 
 * Open the settings page.
 * Create an API Key with the name "RPA Orchestration".
-* Save the key hash for later use in the Flowave Modeler.
+* Save the key hash for later use in the Fluxnova Modeler.
 * Open the "User ID / Organization ID" panel to retrieve your User ID (which is not your email address).
 
 {{< img src="../img/cawemo-settings-page.png" title="Cawemo Settings Page" >}}
 
-# Flowave Modeler
+# Fluxnova Modeler
 
-Please use the Flowave Modeler version 4.7 or later. In case you don't have it yet, you can [download the latest version of Flowave Modeler](https://flowave.finos.org/download/modeler/).
+Please use the Fluxnova Modeler version 4.7 or later. In case you don't have it yet, you can [download the latest version of Fluxnova Modeler](https://fluxnova.finos.org/download/modeler/).
 
-* Download version 3.0 or later of the [Cloud Connect plugin](https://downloads.camunda.cloud/enterprise-release/cawemo/cloud-connect-modeler-plugin/) for Flowave Modeler
+* Download version 3.0 or later of the [Cloud Connect plugin](https://downloads.camunda.cloud/enterprise-release/cawemo/cloud-connect-modeler-plugin/) for Fluxnova Modeler
 * Extract the archive and move it to the plugins folder
 
 ```sh
 # Windows
-%APPDATA%\flowave-modeler\plugins
+%APPDATA%\fluxnova-modeler\plugins
 
 # Mac OS
-~/Library/Application Support/flowave-modeler/plugins
+~/Library/Application Support/fluxnova-modeler/plugins
 
 # Linux
-~/.config/flowave-modeler/plugins
+~/.config/fluxnova-modeler/plugins
 ```
 
 * Restart the Modeler and verify that the Plugins menu contains an entry "Cloud Connect".
@@ -198,4 +198,4 @@ Please use the Flowave Modeler version 4.7 or later. In case you don't have it y
 
 In the upper right corner of the Modeler window you should see "Connected to Cawemo", indicating a successful connection.
 
-Learn more about [connecting Flowave Modeler with Cawemo](https://docs.flowave.finos.org/cawemo/latest/technical-guide/integrations/modeler).
+Learn more about [connecting Fluxnova Modeler with Cawemo](https://docs.fluxnova.finos.org/cawemo/latest/technical-guide/integrations/modeler).

@@ -20,7 +20,7 @@ It deletes:
 * Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
 * Historic batches plus all related historic data (historic incidents and job logs)
 
-History cleanup can be triggered manually or scheduled on a regular basis. Only [flowave-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-flowave-admin-group">}}) have permissions to execute history cleanup manually.
+History cleanup can be triggered manually or scheduled on a regular basis. Only [fluxnova-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-fluxnova-admin-group">}}) have permissions to execute history cleanup manually.
 
 ## Use case example
 
@@ -34,7 +34,7 @@ Note: The exact time at which data is removed depends on a couple of configurati
 
 ### Cleanable instances
 
-The following elements of Flowave history are cleanable:
+The following elements of Fluxnova history are cleanable:
 
 * Process Instances
 * Decision Instances
@@ -110,7 +110,7 @@ The *end-time-based cleanup strategy* deletes data whose end time plus TTL has e
 Strengths:
 
 * Changing the TTL of a definition also affects already written history data.
-* Can remove data from any Flowave version.
+* Can remove data from any Fluxnova version.
 
 Limitations:
 

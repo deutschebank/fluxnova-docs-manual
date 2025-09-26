@@ -52,11 +52,11 @@ start.setName("new name");
 
 // read attributes by generic XML model API (with optional namespace)
 String custom1 = start.getAttributeValue("custom-attribute");
-String custom2 = start.getAttributeValueNs("custom-attribute-2", "http://flowave.finos.org/custom");
+String custom2 = start.getAttributeValueNs("custom-attribute-2", "http://fluxnova.finos.org/custom");
 
 // edit attributes by generic XML model API (with optional namespace)
 start.setAttributeValue("custom-attribute", "new value");
-start.setAttributeValueNs("custom-attribute", "http://flowave.finos.org/custom", "new value");
+start.setAttributeValueNs("custom-attribute", "http://fluxnova.finos.org/custom", "new value");
 ```
 
 You can also access the child elements of an element or references to other elements. For example, a sequence flow
@@ -67,7 +67,7 @@ For example, the following BPMN model was created by the BPMN model API as an ex
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions targetNamespace="http://flowave.finos.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions targetNamespace="http://fluxnova.finos.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="process-with-one-task">
     <startEvent id="start">
       <outgoing>start-task1</outgoing>

@@ -9,7 +9,7 @@ menu:
     parent: "security-guide"
 ---
 
-On this page, Flowave Project publishes security notices _after_ fixes are available.
+On this page, Fluxnova Project publishes security notices _after_ fixes are available.
 
 Security notices of the ancestor software product can be found at [Camunda 7 CE Security Notices](https://docs.camunda.org/security/).
 
@@ -28,11 +28,11 @@ This is a sample description of an identified vulnerability:
 
 **How to determine if the installation is affected**
 
-You use the following Flowave version or lower: 0.8.15
+You use the following Fluxnova version or lower: 0.8.15
 
 **Solution**
 
 Upgrade to the following release, which contains a fix:
 
-Flowave 0.9.1
+Fluxnova 0.9.1
 

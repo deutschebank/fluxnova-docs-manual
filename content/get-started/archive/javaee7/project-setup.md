@@ -58,13 +58,13 @@ The next step consists of setting up the Maven dependencies for your new process
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.finos.flowave.bpm.getstarted</groupId>
+  <groupId>org.finos.fluxnova.bpm.getstarted</groupId>
   <artifactId>pizza-order</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
-    <flowave.version>7.18.0</flowave.version>
+    <fluxnova.version>7.18.0</fluxnova.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -72,9 +72,9 @@ The next step consists of setting up the Maven dependencies for your new process
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.finos.flowave.bpm</groupId>
-        <artifactId>flowave-bom</artifactId>
-        <version>${flowave.version}</version>
+        <groupId>org.finos.fluxnova.bpm</groupId>
+        <artifactId>fluxnova-bom</artifactId>
+        <version>${fluxnova.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -83,23 +83,23 @@ The next step consists of setting up the Maven dependencies for your new process
 
   <dependencies>
 
-    <!-- Flowave engine dependency -->
+    <!-- Fluxnova engine dependency -->
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine</artifactId>
       <scope>provided</scope>
     </dependency>
 
-    <!-- Flowave cdi beans -->
+    <!-- Fluxnova cdi beans -->
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine-cdi</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine-cdi</artifactId>
     </dependency>
 
     <!-- provides a default EjbProcessApplication -->
     <dependency>
-      <groupId>org.finos.flowave.bpm.javaee</groupId>
-      <artifactId>flowave-ejb-client</artifactId>
+      <groupId>org.finos.fluxnova.bpm.javaee</groupId>
+      <artifactId>fluxnova-ejb-client</artifactId>
     </dependency>
 
     <!-- Java EE 7 Specification -->
@@ -136,16 +136,16 @@ The next step consists of setting up the Maven dependencies for your new process
 
 ```
 
-As dependencies you need the Flowave engine and Flowave engine CDI package. The CDI package provide you with beans to easily interact with the process engine and the ability to resolve CDI beans from inside the BPMN process XML.
+As dependencies you need the Fluxnova engine and Fluxnova engine CDI package. The CDI package provide you with beans to easily interact with the process engine and the ability to resolve CDI beans from inside the BPMN process XML.
 
-We also use the Flowave EJB client to interact with the process engine, which provides a default implementation of the `EjbProcessApplication`. This dependency is not necessary if you want to implement your own `EjbProcessApplication`.
+We also use the Fluxnova EJB client to interact with the process engine, which provides a default implementation of the `EjbProcessApplication`. This dependency is not necessary if you want to implement your own `EjbProcessApplication`.
 
 The JBoss JavaEE spec dependency helps us to develop the application. It is only necessary during development so the `scope` is set to provided. The
 WildFly already contains this interfaces.
 
 Now you can perform the first build. Select the `pom.xml` in the Package Explorer, perform a right-click and select `Run As / Maven Install`
 
-{{< get-tag repo="flowave-get-started-javaee" tag="Step-1" >}}
+{{< get-tag repo="fluxnova-get-started-javaee" tag="Step-1" >}}
 
 ## Add a WEB-INF/beans.xml Deployment Descriptor
 
@@ -221,4 +221,4 @@ This file needs to be added to the `src/main/resources/META-INF` folder of the M
 
 At this point you have successfully set up the process application you can start modeling your process.
 
-{{< get-tag repo="flowave-get-started-javaee" tag="Step-2" >}}
+{{< get-tag repo="fluxnova-get-started-javaee" tag="Step-2" >}}

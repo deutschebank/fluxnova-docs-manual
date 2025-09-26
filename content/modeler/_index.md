@@ -1,17 +1,17 @@
 ---
 
-title: 'Flowave Modeler'
+title: 'Fluxnova Modeler'
 layout: 'section-list'
 weight: 45
 aliases:
-  - modeler/flowave-modeler
+  - modeler/fluxnova-modeler
 
 menu:
   main:
     name: "Modeler"
     identifier: "modeler"
     parent: "manual"
-    pre: "Desktop Application for modeling BPMN, DMN and CMMN. *Works with Flowave.4.0, 7.3.3, 7.2.6 and above.*"
+    pre: "Desktop Application for modeling BPMN, DMN and CMMN. *Works with Fluxnova.4.0, 7.3.3, 7.2.6 and above.*"
 
 ---
 

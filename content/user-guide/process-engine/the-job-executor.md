@@ -262,7 +262,7 @@ To optimize the acquisition of jobs that need to be executed immediately, the `D
 
 In case each job must have a `DUEDATE_` set, the optimization can be disabled. This can be done by setting the `ensureJobDueDateNotNull` [process engine configuration flag]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#ensureJobDueDateNotNull" >}}) to `true`.
 
-However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimization will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the **Set Due Date** {{< javadocref page="org/finos/flowave/bpm/engine/ManagementService.html#setJobDuedate(java.lang.String,java.util.Date)" text="Java" >}}/{{< restref page="setJobDuedate" text="REST" tag="Job" >}} or **Set Retries** {{< javadocref page="org/finos/flowave/bpm/engine/ManagementService.html#setJobRetries(int)" text="Java" >}}/{{< restref page="setJobRetries" text="REST" tag="Job" >}} APIs.
+However, any jobs created with a `null` value for `DUEDATE_` before disabling the optimization will not be picked up by the Job Acquisition phase, unless the jobs are explicitly updated with a due date through the **Set Due Date** {{< javadocref page="org/finos/fluxnova/bpm/engine/ManagementService.html#setJobDuedate(java.lang.String,java.util.Date)" text="Java" >}}/{{< restref page="setJobDuedate" text="REST" tag="Job" >}} or **Set Retries** {{< javadocref page="org/finos/fluxnova/bpm/engine/ManagementService.html#setJobRetries(int)" text="Java" >}}/{{< restref page="setJobRetries" text="REST" tag="Job" >}} APIs.
 
 ## The Two Phases of Job Acquisition
 
@@ -427,7 +427,7 @@ By default, a failed job will be retried three times and the retries are perform
 
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
-The Flowave engine allows you to configure this setting for the following specific elements:
+The Fluxnova engine allows you to configure this setting for the following specific elements:
 
 * [Activities (tasks, call activities, subprocesses)]({{< relref "#use-a-custom-job-retry-configuration-for-activities" >}})
 * [Events]({{< relref "#use-a-custom-job-retry-configuration-for-events" >}})
@@ -436,7 +436,7 @@ The Flowave engine allows you to configure this setting for the following specif
 
 #### Use a Custom Job Retry Configuration for Activities 
 
-As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Flowave engine in the BPMN 2.0 XML as follows:
+As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Fluxnova engine in the BPMN 2.0 XML as follows:
 
 ```xml
 <definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
@@ -539,7 +539,7 @@ If the user decides to increase the retry number during retries, the last interv
 You can configure an custom retry configuration by adding the `customPostBPMNParseListeners` property and specify your custom `FailedJobParseListener` to the process engine configuration:
 
 ```xml
-<bean id="processEngineConfiguration" class="org.finos.flowave.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+<bean id="processEngineConfiguration" class="org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
   <!-- Your defined properties! -->
   ...
   <property name="customPostBPMNParseListeners">
@@ -621,7 +621,7 @@ In the case of a single, application-embedded process engine, the job executor s
 
 There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
 
-In larger deployments however, this quickly leads to a poorly manageable situation. When running Flowave on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
+In larger deployments however, this quickly leads to a poorly manageable situation. When running Fluxnova on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
 
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
@@ -630,7 +630,7 @@ See the platform-specific information in the [Runtime Container Integration]({{<
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
-To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the `processes.xml` deployment descriptor of a process application or in the Flowave descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named `default`, which is created when the platform is bootstrapped.
+To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the `processes.xml` deployment descriptor of a process application or in the Fluxnova descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named `default`, which is created when the platform is bootstrapped.
 
 ```xml
 <process-engine name="newEngine">
@@ -639,12 +639,12 @@ To which job acquisition a process engine is assigned can be specified in the de
 </process-engine>
 ```
 
-Job acquisitions have to be declared in Flowave's deployment descriptor, see [the container-specific configuration options]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}).
+Job acquisitions have to be declared in Fluxnova's deployment descriptor, see [the container-specific configuration options]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}).
 
 
 # Cluster Setups
 
-When running Flowave in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run Flowave against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
+When running Fluxnova in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run Fluxnova against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
 
 {{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
 

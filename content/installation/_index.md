@@ -1,6 +1,6 @@
 ---
 
-title: "Install Flowave"
+title: "Install Fluxnova"
 weight: 40
 
 menu:
@@ -11,7 +11,7 @@ menu:
     
 ---
 
-These documents contain information about how to install different components and distributions of Flowave.
+These documents contain information about how to install different components and distributions of Fluxnova.
 
 {{< note title="Supported Environments" class="info" >}}
 Before installing a distribution, first check the list of [Supported Environments]({{< ref "/introduction/supported-environments.md" >}}).

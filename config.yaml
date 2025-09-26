@@ -1,8 +1,8 @@
 ---
 baseURL: "/"
 languageCode: "en-us"
-title: "Flowave documentation"
-theme: "flowave"
+title: "Fluxnova documentation"
+theme: "fluxnova"
 
 markup:
   goldmark:
@@ -17,7 +17,7 @@ blackfriday:
   plainIDAnchors: true
 
 params:
-  canonicalBasePath: "https://docs.flowave.finos.org"
+  canonicalBasePath: "https://docs.fluxnova.finos.org"
   section:
     id: "manual"
     version: "develop"
@@ -28,7 +28,7 @@ params:
       - "develop"
   
   github:
-    repositoryName: "finos/flowave-docs-manual"
+    repositoryName: "finos/fluxnova-docs-manual"
     branch: "main"    
 
 outputs:

@@ -66,7 +66,7 @@ runtimeService.signal(execution.getId());
 ```
 
 
-# Flowave Extensions
+# Fluxnova Extensions
 
 <table class="table table-striped">
   <tr>
@@ -97,6 +97,6 @@ runtimeService.signal(execution.getId());
 
 # Additional Resources
 
-* [Tasks](http://flowave.finos.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://flowave.finos.org/bpmn/reference.html)
+* [Tasks](http://fluxnova.finos.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://fluxnova.finos.org/bpmn/reference.html)
 * [Message Receive Events]({{< ref "/reference/bpmn20/events/message-events.md" >}})
 * {{< restref page="signalExecution" tag="Execution" text="Trigger a subscription via REST" >}}

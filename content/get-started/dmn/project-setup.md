@@ -16,7 +16,7 @@ aliases: [/dmn11/project-setup/]
 Now you are ready to set up your first process application project in the IDE of your choice, the following description uses Eclipse.
 
 {{< note title="Terminology - Process vs. Decisions" class="info" >}}
-DMN is a modeling language for *decisions*, whereas BPMN is a language for *processes*. This tutorial is about decisions. However, due to Flowave's BPMN-focused heritage, the Java project contains classes and files with names like `ProcessApplication` and `processes.xml`. These are in fact generally applicable and can be used with both processes and decisions.
+DMN is a modeling language for *decisions*, whereas BPMN is a language for *processes*. This tutorial is about decisions. However, due to Fluxnova's BPMN-focused heritage, the Java project contains classes and files with names like `ProcessApplication` and `processes.xml`. These are in fact generally applicable and can be used with both processes and decisions.
 {{< /note >}}
 
 # Create a new Maven Project
@@ -37,7 +37,7 @@ On the second page (see screenshot), configure the Maven coordinates for the pro
 
 When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the *Project Explorer* View.
 
-# Add Flowave Maven Dependencies
+# Add Fluxnova Maven Dependencies
 
 The next step consists of setting up the Maven dependencies for your new process application. Add the following dependencies to the `pom.xml` file of your project:
 
@@ -45,22 +45,22 @@ The next step consists of setting up the Maven dependencies for your new process
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.finos.flowave.bpm.getstarted</groupId>
+  <groupId>org.finos.fluxnova.bpm.getstarted</groupId>
   <artifactId>dinner-dmn</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
-    <flowave.version>7.23.0</flowave.version>
+    <fluxnova.version>7.23.0</fluxnova.version>
     <maven.compiler.release>11</maven.compiler.release>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.finos.flowave.bpm</groupId>
-        <artifactId>flowave-bom</artifactId>
-        <version>${flowave.version}</version>
+        <groupId>org.finos.fluxnova.bpm</groupId>
+        <artifactId>fluxnova-bom</artifactId>
+        <version>${fluxnova.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -69,8 +69,8 @@ The next step consists of setting up the Maven dependencies for your new process
 
   <dependencies>
     <dependency>
-      <groupId>org.finos.flowave.bpm</groupId>
-      <artifactId>flowave-engine</artifactId>
+      <groupId>org.finos.fluxnova.bpm</groupId>
+      <artifactId>fluxnova-engine</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -105,17 +105,17 @@ The next step consists of setting up the Maven dependencies for your new process
 
 Now you can perform the first build. Select the `pom.xml` in the Package Explorer, perform a right-click and select `Run As / Maven Install`.
 
-{{< get-tag repo="flowave-get-started-dmn" tag="Step-1" >}}
+{{< get-tag repo="fluxnova-get-started-dmn" tag="Step-1" >}}
 
 # Add a Process Application Class
 
-Next, you need to create a package, e.g., `org.finos.flowave.bpm.getstarted.dmn` and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
+Next, you need to create a package, e.g., `org.finos.fluxnova.bpm.getstarted.dmn` and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
 
 ```java
-package org.finos.flowave.bpm.getstarted.dmn;
+package org.finos.fluxnova.bpm.getstarted.dmn;
 
-import org.finos.flowave.bpm.application.ProcessApplication;
-import org.finos.flowave.bpm.application.impl.ServletProcessApplication;
+import org.finos.fluxnova.bpm.application.ProcessApplication;
+import org.finos.fluxnova.bpm.application.impl.ServletProcessApplication;
 
 @ProcessApplication("Dinner App DMN")
 public class DinnerApplication extends ServletProcessApplication
@@ -152,4 +152,4 @@ This file needs to be added to the `src/main/resources/META-INF` folder of the M
 
 At this point you have successfully set up the process application and you can start modeling your first decision table.
 
-{{< get-tag repo="flowave-get-started-dmn" tag="Step-2" >}}
+{{< get-tag repo="fluxnova-get-started-dmn" tag="Step-2" >}}

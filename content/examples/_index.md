@@ -11,9 +11,9 @@ menu:
 
 ---
 
-Completed the <a href="/get-started">Getting Started Guides</a>? Now discover what you can build with Flowave.
+Completed the <a href="/get-started">Getting Started Guides</a>? Now discover what you can build with Fluxnova.
 
-This page collects links to hands-on examples around Flowave.
+This page collects links to hands-on examples around Fluxnova.
 
-* [Examples](https://github.com/finos/flowave-bpm-examples) (On Github)
-* [Flowave Consulting Examples](https://github.com/finos/flowave-consulting) (On Github)
+* [Examples](https://github.com/finos/fluxnova-bpm-examples) (On Github)
+* [Fluxnova Consulting Examples](https://github.com/finos/fluxnova-consulting) (On Github)

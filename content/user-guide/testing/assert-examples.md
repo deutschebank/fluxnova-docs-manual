@@ -312,7 +312,7 @@ to a user of the specified candidate group.
 assertThat(task).hasCandidateGroup("human-resources-department");
 ```
 
-Note that (in line with Flowave's interpretation of the term 
+Note that (in line with Fluxnova's interpretation of the term 
 'candidate') **assigned** tasks will not pass this assertion. 
 However, the next assertion discussed here, would pass:                      
                       
@@ -336,7 +336,7 @@ Assert that a task is currently waiting to be assigned to a specified candidate 
 assertThat(task).hasCandidateUser("kermit");
 ```
 
-Note that (in line with Flowave's interpretation of the term 
+Note that (in line with Fluxnova's interpretation of the term 
 'candidate') **assigned** tasks will not pass this assertion. 
 However, the next assertion discussed here, would pass:                      
 

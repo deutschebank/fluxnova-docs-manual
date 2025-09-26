@@ -46,9 +46,9 @@ processEngineConfiguration.buildProcessEngine();
 
 # Configure the DMN Engine using Spring XML
 
-Follow the [instructions]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `flowave.cfg.xml` XML configuration for the process engine. 
+Follow the [instructions]({{< ref "/user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `fluxnova.cfg.xml` XML configuration for the process engine. 
 
-Add a new configuration bean of class `org.finos.flowave.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration`. Configure the DMN engine using the bean and set it as `dmnEngineConfiguration` property on the `processEngineConfiguration` bean. 
+Add a new configuration bean of class `org.finos.fluxnova.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration`. Configure the DMN engine using the bean and set it as `dmnEngineConfiguration` property on the `processEngineConfiguration` bean. 
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans" 
@@ -56,10 +56,10 @@ Add a new configuration bean of class `org.finos.flowave.bpm.dmn.engine.impl.Def
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean id="processEngineConfiguration" 
-        class="org.finos.flowave.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        class="org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
   
     <property name="dmnEngineConfiguration">
-      <bean class="org.finos.flowave.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration">
+      <bean class="org.finos.fluxnova.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration">
         
         <!-- configure the DMN engine ... --> 
         <!-- e.g. set the default expression language for input expressions to `groovy` -->

@@ -11,7 +11,7 @@ menu:
 ---
 
 
-*Multi-Tenancy* regards the case in which a single Flowave installation should serve more than one tenant. For each tenant, certain guarantees of isolation should be made. For example, one tenant's process instances should not interfere with those of another tenant.
+*Multi-Tenancy* regards the case in which a single Fluxnova installation should serve more than one tenant. For each tenant, certain guarantees of isolation should be made. For example, one tenant's process instances should not interfere with those of another tenant.
 
 Multi-Tenancy can be achieved in two different ways. One way is to use [one process engine per tenant]({{< relref "#one-process-engine-per-tenant" >}}). The other way is to use just one process engine and associate the data with [tenant identifiers]({{< relref "#single-process-engine-with-tenant-identifiers" >}}). The two ways differ from each other in the level of data isolation, the effort of maintenance and the scalability. A combination of both ways is also possible.
 
@@ -23,15 +23,15 @@ Multi-Tenancy can be achieved with one process engine which uses tenant identifi
 
 The tenant identifier is specified on the deployment and is propagated to all data that is created from the deployment (e.g., process definitions, process instances, tasks, etc.). To access the data for a specific tenant, the process engine allows to filter queries by a tenant identifier or specify a tenant identifier for a command (e.g., create a process instance). Additionally, the process engine provides transparent access restrictions in combination with the Identity Service that allows to omit the tenant identifier. 
 
-Note that transparent tenant separation is not implemented for all APIs. For example, with the deployment API, a tenant can deploy a process for another tenant. Therefore it is not a supported usecase to expose such API endpoints directly to tenants. Instead, custom access checking logic should be built on top of the Flowave API.
+Note that transparent tenant separation is not implemented for all APIs. For example, with the deployment API, a tenant can deploy a process for another tenant. Therefore it is not a supported usecase to expose such API endpoints directly to tenants. Instead, custom access checking logic should be built on top of the Fluxnova API.
 
 It is also possible for all tenants to share the same process and decision definitions without deploying them for each tenant. Shared definitions can simplify management of the deployments in case of a larger amount of tenants.
 
 {{< note title="Examples" class="info" >}}
-Find [examples on GitHub](https://github.com/finos/flowave-bpm-examples) that show how to use tenant-identifiers with
+Find [examples on GitHub](https://github.com/finos/fluxnova-bpm-examples) that show how to use tenant-identifiers with
 
-* [Embedded Process Engine](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/tenant-identifier-embedded)
-* [Shared Process Engine](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared)
+* [Embedded Process Engine](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/tenant-identifier-embedded)
+* [Shared Process Engine](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared)
 {{< /note >}}
 
 
@@ -43,7 +43,7 @@ If no tenant identifier is set then the deployment and its definitions belong to
 
 ### Specify the Tenant Identifier via Java API
 
-When a deployment is created using the Repository Service, the tenant identifier can be set on the {{< javadocref page="org/finos/flowave/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}}.
+When a deployment is created using the Repository Service, the tenant identifier can be set on the {{< javadocref page="org/finos/fluxnova/bpm/engine/repository/DeploymentBuilder.html" text="DeploymentBuilder" >}}.
 
 ```java
 repositoryService
@@ -78,11 +78,11 @@ In case of a process application, the deployment is specified by a [processes.xm
 When the [Automatic Resource Deployment]({{< ref "/user-guide/spring-framework-integration/deployment.md" >}}) of the Spring Framework Integration is used, the tenant identifier can be specified in the Process Engine Configuration as `deploymentTenantId` property.
 
 ```xml
-<bean id="processEngineConfiguration" class="org.finos.flowave.bpm.engine.spring.SpringProcessEngineConfiguration">
+<bean id="processEngineConfiguration" class="org.finos.fluxnova.bpm.engine.spring.SpringProcessEngineConfiguration">
   <property name="deploymentResources">
     <array>
-      <value>classpath*:/org/finos/flowave/bpm/engine/spring/test/autodeployment/autodeploy.*.cmmn</value>
-      <value>classpath*:/org/finos/flowave/bpm/engine/spring/test/autodeployment/autodeploy.*.bpmn20.xml</value>
+      <value>classpath*:/org/finos/fluxnova/bpm/engine/spring/test/autodeployment/autodeploy.*.cmmn</value>
+      <value>classpath*:/org/finos/fluxnova/bpm/engine/spring/test/autodeployment/autodeploy.*.bpmn20.xml</value>
     </array>
   </property>
   <property name="deploymentTenantId" value="tenant1" />
@@ -151,7 +151,7 @@ Note that the [transparent access restrictions]({{< relref "#transparent-access-
 
 ### Create a Process Instance
 
-To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/flowave/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
+To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/fluxnova/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
 
 ```java
 runtimeService
@@ -162,7 +162,7 @@ runtimeService
 
 ### Correlate a Message
 
-The [Message API]({{< ref "/reference/bpmn20/events/message-events.md#message-api" >}}) can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/flowave/bpm/engine/runtime/MessageCorrelationBuilder.html" text="MessageCorrelationBuilder" >}}. Otherwise, a `MismatchingMessageCorrelationException` is thrown.
+The [Message API]({{< ref "/reference/bpmn20/events/message-events.md#message-api" >}}) can be used to correlate a message to one or all tenants. In case a message can correlate to definitions or executions of multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/fluxnova/bpm/engine/runtime/MessageCorrelationBuilder.html" text="MessageCorrelationBuilder" >}}. Otherwise, a `MismatchingMessageCorrelationException` is thrown.
 
 ```java
 runtimeService
@@ -181,7 +181,7 @@ runtimeService
 
 ### Send a Signal
 
-The [Signal API]({{< ref "/reference/bpmn20/events/signal-events.md#signal-api" >}}) can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the {{< javadocref page="org/finos/flowave/bpm/engine/runtime/SignalEventReceivedBuilder.html" text="SignalEventReceivedBuilder" >}} to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.
+The [Signal API]({{< ref "/reference/bpmn20/events/signal-events.md#signal-api" >}}) can be used to deliver a signal to one or all tenants. Pass the tenant identifier to the {{< javadocref page="org/finos/fluxnova/bpm/engine/runtime/SignalEventReceivedBuilder.html" text="SignalEventReceivedBuilder" >}} to deliver the signal to a specific tenant. If no identifier is passed then the signal is delivered to all tenants.
 
 ```java
 runtimeService
@@ -194,7 +194,7 @@ When a signal is thrown within a process (i.e., intermediate signal event or sig
 
 ### Create a Case Instance
 
-To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/flowave/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
+To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/fluxnova/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
 
 ```java
 caseService
@@ -205,7 +205,7 @@ caseService
 
 ### Evaluate a Decision Table
 
-To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/flowave/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
+To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="org/finos/fluxnova/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
 
 ```java
 decisionService
@@ -216,7 +216,7 @@ decisionService
 
 ## Transparent Access Restrictions for Tenants
 
-When integrating Flowave into an application, it can be cumbersome to pass the tenant Id to each flowave API call. Since such an application usually also has a concept of an "authenticated user", it is possible to set the list of tenant ids when setting the authentication:
+When integrating Fluxnova into an application, it can be cumbersome to pass the tenant Id to each fluxnova API call. Since such an application usually also has a concept of an "authenticated user", it is possible to set the list of tenant ids when setting the authentication:
 
 ```java
 try {
@@ -306,9 +306,9 @@ The above example only works with the [Database Identity Service]({{< ref "/user
 {{< /note >}}  
 
 
-### Flowave Rest API and Web Applications
+### Fluxnova Rest API and Web Applications
 
-The Flowave [Rest API]({{< ref "/reference/rest/_index.md" >}}) and the web applications Cockpit and Tasklist support the transparent access restrictions. When a user logs in then he only sees and can only access the data (e.g., process definitions) that belongs to one of his tenants.
+The Fluxnova [Rest API]({{< ref "/reference/rest/_index.md" >}}) and the web applications Cockpit and Tasklist support the transparent access restrictions. When a user logs in then he only sees and can only access the data (e.g., process definitions) that belongs to one of his tenants.
 
 Tenants and their memberships can be managed in the [Admin]({{< ref "/webapps/admin/tenant-management.md" >}}) web application.
 
@@ -332,17 +332,17 @@ Note that the restrictions can't be enabled for a command if they are disabled i
 
 The admin user or users who are a member of the admin group can access the data of all tenants, even if they don't belong to the tenants. This is useful for an administrator of a multi-tenancy application as they must manage the data of all tenants.
 
-Define admin users by making them a member of the group `flowave-admin` or with the help of the [Admin Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}). The Admin Authorization Plugin allows granting admin privileges to a custom user or group.
+Define admin users by making them a member of the group `fluxnova-admin` or with the help of the [Admin Authorization Plugin]({{< ref "/user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}). The Admin Authorization Plugin allows granting admin privileges to a custom user or group.
 
 ## Shared Definitions for all Tenants
 
 In section [Deploy Definitions for a Tenant](#deploy-definitions-for-a-tenant) it is explained how to deploy a Process Definition or a Decision Definition for a particular tenant. The result is that the definition is only visible to the tenant for whom it was deployed but not to other tenants. This is useful if tenants have different processes and decisions. However, there are also many situations where all tenants should share the same definitions. In such situations it is desirable to deploy a definition only once, in a way that it is visible to all tenants.
 Then, when a new instance is created by a particular tenant, it should  be only visible to that tenant (and administrators of course).
 This can be achieved by a usage pattern we call "Shared Definitions".
-By the term *usage pattern* we mean that it is not a feature of Flowave per se but rather a specific way to use it to achieve the desired behavior.
+By the term *usage pattern* we mean that it is not a feature of Fluxnova per se but rather a specific way to use it to achieve the desired behavior.
 
 {{< note title="Example" class="info" >}}
-You can find an [example](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) on [GitHub](https://github.com/finos/flowave-bpm-examples) that shows how to use shared definitions.
+You can find an [example](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) on [GitHub](https://github.com/finos/fluxnova-bpm-examples) that shows how to use shared definitions.
 {{< /note >}}
 
 ### Deploy a Shared Definition
@@ -379,7 +379,7 @@ repositoryService.createProcessDefinitionQuery()
 ### Instantiate a Shared Definition
 
 When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
-Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="org/finos/flowave/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
+Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="org/finos/fluxnova/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
 
 The `TenantIdProvider` receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).
 
@@ -429,17 +429,17 @@ public class CustomTenantIdProvider implements TenantIdProvider {
 }
 ```
 
-To use the `TenantIdProvider`, it must be set in the Process Engine Configuration, for example using the `flowave.cfg.xml`:
+To use the `TenantIdProvider`, it must be set in the Process Engine Configuration, for example using the `fluxnova.cfg.xml`:
 
 ```xml
 <beans>
-  <bean id="processEngineConfiguration" class="org.finos.flowave.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+  <bean id="processEngineConfiguration" class="org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
     <!-- ... -->
     
     <property name="tenantIdProvider" ref="tenantIdProvider" />
   </bean>
   
-  <bean id="tenantIdProvider" class="org.finos.flowave.bpm.CustomTenantIdProvider">
+  <bean id="tenantIdProvider" class="org.finos.fluxnova.bpm.CustomTenantIdProvider">
 </beans>
 ```
 
@@ -451,11 +451,11 @@ So far, we have seen that shared resources are a useful pattern if tenants have 
 
 A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic (i.e., decision tables) using a business rules task are also common.
 
-To realize this, the call activity or business rule task needs to select the correct definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
+To realize this, the call activity or business rule task needs to select the correct definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
 
 See also:
 
-* [Shared Resources Example](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions)
+* [Shared Resources Example](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions)
 * [Called Element Tenant Id]({{< ref "/reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id" >}})
 * [Case Tenant Id]({{< ref "/reference/bpmn20/subprocesses/call-activity.md#case-tenant-id" >}}) for call activities.
 * [Decision Ref Tenant Id]({{< ref "/reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id" >}}) for business rule tasks.
@@ -469,7 +469,7 @@ Multi-Tenancy can be achieved by providing one process engine per tenant. Each p
 The process engines can run on the same server so that all share the same computational resources such as a data source (when isolating via schemas or tables) or a thread pool for asynchronous job execution. 
 
 {{< note title="Tutorial" class="info" >}}
-  You can see the [example](https://github.com/finos/flowave-bpm-examples/tree/master/multi-tenancy/schema-isolation) how to implement multi-tenancy with data isolation by schemas.
+  You can see the [example](https://github.com/finos/fluxnova-bpm-examples/tree/master/multi-tenancy/schema-isolation) how to implement multi-tenancy with data isolation by schemas.
 {{< /note >}}
 
 ## Configure the Process Engines
@@ -521,7 +521,7 @@ Multi-Tenancy settings can be applied in the various ways of configuring a proce
 
   <process-engine name="tenant1">
     <job-acquisition>default</job-acquisition>
-    <configuration>org.finos.flowave.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
+    <configuration>org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
     <datasource>java:jdbc/ProcessEngine</datasource>
 
     <properties>
@@ -536,7 +536,7 @@ Multi-Tenancy settings can be applied in the various ways of configuring a proce
 
   <process-engine name="tenant2">
     <job-acquisition>default</job-acquisition>
-    <configuration>org.finos.flowave.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
+    <configuration>org.finos.fluxnova.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
     <datasource>java:jdbc/ProcessEngine</datasource>
 
     <properties>
@@ -589,11 +589,11 @@ The following is an example that deploys different process definitions for two t
 
 ## Access the Process Engine of a Tenant
 
-To access a specific tenant's process engine at runtime, it has to be identified by its name. The Flowave engine offers access to named engines in various programming models:
+To access a specific tenant's process engine at runtime, it has to be identified by its name. The Fluxnova engine offers access to named engines in various programming models:
 
 * **Plain Java API**: Via the [ProcessEngineService]({{< ref "/user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
 * **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< ref "/user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
 * **Via JNDI on Wildfly**: On Wildfly, every container-managed process engine can be [looked up via JNDI]({{< ref "/user-guide/runtime-container-integration/jboss.md#look-up-a-process-engine-in-jndi" >}}).
 
-The Flowave web applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< ref "/webapps/cockpit/dashboard.md#multi-engine" >}}).
+The Fluxnova web applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< ref "/webapps/cockpit/dashboard.md#multi-engine" >}}).
 
