@@ -31,7 +31,7 @@ To specify a class that is called during process execution, the fully qualified 
 ```xml
 <serviceTask id="javaService"
              name="My Java Service Task"
-             camunda:class="org.finos.flowave.bpm.MyJavaDelegate" />
+             camunda:class="org.finos.fluxnova.bpm.MyJavaDelegate" />
 ```
 
 Please refer to the [Java Delegate]({{< ref "/user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details on how to implement a Java Delegate.

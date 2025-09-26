@@ -102,7 +102,7 @@ declarations, which is a requirement of the BPMN 2.0 XML Schema.
 ```xml
   <serviceTask id="javaService"
                name="Java service invocation"
-               camunda:class="org.finos.flowave.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+               camunda:class="org.finos.fluxnova.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
     <extensionElements>
         <camunda:field name="text" stringValue="Hello World" />
     </extensionElements>
@@ -120,7 +120,7 @@ used:
 ```xml
   <serviceTask id="javaService"
                name="Java service invocation"
-               camunda:class="org.finos.flowave.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+               camunda:class="org.finos.fluxnova.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
     <extensionElements>
       <camunda:field name="text">
           <camunda:string>
@@ -142,7 +142,7 @@ passed in the `execute` method.
 
 ```xml
   <serviceTask id="javaService" name="Java service invocation"
-               camunda:class="org.finos.flowave.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
+               camunda:class="org.finos.fluxnova.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
 
     <extensionElements>
       <camunda:field name="text1">
@@ -321,7 +321,7 @@ A task listener is used to execute custom Java logic or an expression upon the o
 ```xml
   <userTask id="myTask" name="My Task" >
     <extensionElements>
-      <camunda:taskListener event="create" class="org.finos.flowave.bpm.MyTaskCreateListener" />
+      <camunda:taskListener event="create" class="org.finos.fluxnova.bpm.MyTaskCreateListener" />
     </extensionElements>
   </userTask>
 ```
@@ -474,7 +474,7 @@ The fragment below shows a simple example process with an execution listener wit
 ```xml
   <process id="executionListenersProcess">
     <extensionElements>
-      <camunda:executionListener class="org.finos.flowave.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener" event="start">
+      <camunda:executionListener class="org.finos.fluxnova.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener" event="start">
         <camunda:field name="fixedValue" stringValue="Yes, I am " />
         <camunda:field name="dynamicValue" expression="${myVar}" />
       </camunda:executionListener>

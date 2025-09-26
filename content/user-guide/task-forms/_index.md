@@ -55,7 +55,7 @@ Form keys that are used in Tasklist have the structure `FORM-TYPE:LOCATION:FORM.
 To configure the form in your process, open the process with the [Fluxnova Modeler](http://fluxnova.finos.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:
 
 ```xml
-<userTask id="theTask" camunda:formKey="flowave-forms:deployment:forms/userTask.form"
+<userTask id="theTask" camunda:formKey="fluxnova-forms:deployment:forms/userTask.form"
           camunda:candidateUsers="John, Mary"
           name="my Task">
 ```

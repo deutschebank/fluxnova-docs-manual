@@ -181,7 +181,7 @@ The following example shows an `inputParameter` which uses expression language t
 a bean.
 
 ```xml
-  <serviceTask id="task" camunda:class="org.finos.flowave.bpm.example.SumDelegate">
+  <serviceTask id="task" camunda:class="org.finos.fluxnova.bpm.example.SumDelegate">
     <extensionElements>
       <camunda:inputOutput>
         <camunda:inputParameter name="x">

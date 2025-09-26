@@ -11,7 +11,7 @@ menu:
 
 ---
 
-The following attributes are extension attributes for the `flowave` namespace `http://camunda.org/schema/1.0/cmmn`.
+The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/cmmn`.
 
 # assignee
 
@@ -129,7 +129,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#caseversion" >}}">camunda:caseVersion</a> is required, see <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#casebinding" >}}">Case Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#caseversion" >}}">camunda:caseVersion</a> is required, see <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#casebinding" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -232,7 +232,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>CMMN 1.1 Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
@@ -260,7 +260,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisionversion" >}}">camunda:decisionVersion</a> is required.
+      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#decisionversion" >}}">camunda:decisionVersion</a> is required.
     </td>
   </tr>
   <tr>
@@ -363,7 +363,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>CMMN 1.1 Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
@@ -428,7 +428,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>CMMN 1.1 Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
@@ -502,7 +502,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute references which <a href="{{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a case variable. It should be used in combination with <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
+      The attribute references which <a href="{{< ref "/user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a case variable. It should be used in combination with <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
     </td>
   </tr>
   <tr>
@@ -580,7 +580,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#processbinding" >}}">Process Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#processbinding" >}}">Process Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -723,7 +723,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>CMMN 1.1 Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
@@ -735,7 +735,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the case variable in which the returned decision result is saved. It can be used in combination with <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a> to define a decision result mapping.
+      The attribute specifies the case variable in which the returned decision result is saved. It can be used in combination with <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a> to define a decision result mapping.
     </td>
   </tr>
   <tr>
@@ -766,7 +766,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The variable name that is attached to element <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variableonpart" >}}">camunda:variableOnPart</a> for which the sentry listens. Sentry is evaluated when the variable event transition occurs.
+      The variable name that is attached to element <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variableonpart" >}}">camunda:variableOnPart</a> for which the sentry listens. Sentry is evaluated when the variable event transition occurs.
     </td>
   </tr>
   <tr>
@@ -776,7 +776,7 @@ The following attributes are extension attributes for the `flowave` namespace `h
   <tr>
     <th>Fluxnova extension element</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variableonpart" >}}">camunda:variableOnPart</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variableonpart" >}}">camunda:variableOnPart</a>
     </td>
   </tr>
 </table>

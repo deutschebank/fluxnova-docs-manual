@@ -202,7 +202,7 @@ In our example, the following steps might take place:
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#repeatonstandardevent" >}}">camunda:repeatOnStandardEvent</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#repeatonstandardevent" >}}">camunda:repeatOnStandardEvent</a>
     </td>
   </tr>
   <tr>

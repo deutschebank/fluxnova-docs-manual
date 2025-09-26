@@ -213,7 +213,7 @@ The first one is to set the Fluxnova extension property `variableMappingClass` a
 
     <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
 
-    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingClass="org.finos.flowave.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingClass="org.finos.fluxnova.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
 
     <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
 

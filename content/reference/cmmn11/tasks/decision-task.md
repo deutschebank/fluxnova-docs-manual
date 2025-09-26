@@ -144,18 +144,18 @@ To evaluate a referenced decision, the integration of the Fluxnova DMN engine is
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
-            <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisiontenantid" >}}">camunda:decisionTenantId</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
+            <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#decisiontenantid" >}}">camunda:decisionTenantId</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#resultvariable" >}}">camunda:resultVariable</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

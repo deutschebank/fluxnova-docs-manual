@@ -23,7 +23,7 @@ The <code>bpm-platform.xml</code> file is not used in the Fluxnova distribution 
 
 # Xml Schema Namespace
 
-The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/1.0/BpmPlatform`. The XSD file can be found in the `flowave-engine.jar` file.
+The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/1.0/BpmPlatform`. The XSD file can be found in the `fluxnova-engine.jar` file.
 
 
 ## Example

@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The following attributes are extension attributes for the `flowave` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 # assignee
 

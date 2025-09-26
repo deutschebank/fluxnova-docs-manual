@@ -41,7 +41,7 @@ This can be a good hook to monitor some KPI's, basically by adding an execution 
 ```xml
 <intermediateThrowEvent id="noneEvent">
   <extensionElements>
-    <camunda:executionListener class="org.finos.flowave.bpm.engine.test.bpmn.event.IntermediateNoneEventTest$MyExecutionListener" event="start" />
+    <camunda:executionListener class="org.finos.fluxnova.bpm.engine.test.bpmn.event.IntermediateNoneEventTest$MyExecutionListener" event="start" />
   </extensionElements>
 </intermediateThrowEvent>
 ```

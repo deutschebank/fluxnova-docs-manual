@@ -12,7 +12,7 @@ menu:
 aliases: [reference/dmn11/custom-extensions/fluxnova-attributes/]
 ---
 
-The following attributes are extension attributes for the `flowave` namespace `http://camunda.org/schema/1.0/dmn`.
+The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/dmn`.
 
 # historyTimeToLive
 

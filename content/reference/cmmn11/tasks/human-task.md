@@ -171,22 +171,22 @@ make sure the form keys are initialized.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#assignee" >}}">camunda:assignee</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#duedate" >}}">camunda:dueDate</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#formkey" >}}">camunda:formKey</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-attributes.md#priority" >}}">camunda:priority</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#assignee" >}}">camunda:assignee</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#duedate" >}}">camunda:dueDate</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-attributes.md#priority" >}}">camunda:priority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< ref "/reference/cmmn11/custom-extensions/flowave-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/fluxnova-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

@@ -311,7 +311,7 @@ A Message Intermediate Throwing event sends a message to an external service. Th
 
 ```xml
 <intermediateThrowEvent id="message">
-  <messageEventDefinition camunda:class="org.finos.flowave.bpm.MyMessageServiceDelegate" />
+  <messageEventDefinition camunda:class="org.finos.fluxnova.bpm.MyMessageServiceDelegate" />
 </intermediateThrowEvent>
 ```
 
@@ -377,7 +377,7 @@ When process execution arrives at a Message End Event, the current path of execu
 
 ```xml
 <endEvent id="end">
-  <messageEventDefinition camunda:class="org.finos.flowave.bpm.MyMessageServiceDelegate" />
+  <messageEventDefinition camunda:class="org.finos.fluxnova.bpm.MyMessageServiceDelegate" />
 </endEvent>
 ```
 
