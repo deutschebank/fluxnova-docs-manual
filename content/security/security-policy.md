@@ -24,6 +24,7 @@ Any vulnerabilities detected are handled according to our [process for security 
 
 Further details on previously conducted security reviews on the ancestor software can be found at [Camunda 7 CE Security Policy](https://docs.camunda.org/security/security-policy/)
 
+{{< comment >}}
 Test history:
 
 <table class="table table-striped">
@@ -38,4 +39,6 @@ Test history:
       <p>Fluxnova Version: 1.0.0</p>
       <p>External security assessment using the graybox approach to test the Fluxnova Platform web applications and REST API.</p>
     </td>
+  </tr>
 </table>
+{{< /comment >}}

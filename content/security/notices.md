@@ -13,7 +13,7 @@ On this page, Fluxnova Project publishes security notices _after_ fixes are avai
 
 Security notices of the ancestor software product can be found at [Camunda 7 CE Security Notices](https://docs.camunda.org/security/).
 
-
+{{< comment >}}
 # Notices
 
 ## Notice 001
@@ -36,3 +36,4 @@ Upgrade to the following release, which contains a fix:
 
 Fluxnova 0.9.1
 
+{{< /comment >}}
