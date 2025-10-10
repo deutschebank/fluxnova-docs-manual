@@ -10,6 +10,7 @@ menu:
     parent: "user-guide-runtime-container-integration"
 
 ---
+{{< deprecated >}}
 
 {{< note title="Installation Guide" class="info" >}}
   If you [download a full distribution](http://fluxnova.finos.org/download/), the Fluxnova Wildfly subsystem is readily installed into the application server.

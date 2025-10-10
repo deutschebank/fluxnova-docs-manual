@@ -11,7 +11,7 @@ menu:
     parent: "references"
 
 ---
-
+{{<deprecated>}}
 This page provides an overview of the CMMN 1.1 elements and the current coverage of the process engine.
 
 The CMMN editor is disabled in recent versions of Fluxnova Modeler but can be enabled with a feature flag. For more context and information on how to enable this feature flag in Fluxnova Modeler, please see [this forum post](https://forum.camunda.org/t/how-to-access-cmmn-in-the-modeler/25127). 

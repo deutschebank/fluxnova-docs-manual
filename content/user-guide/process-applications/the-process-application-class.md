@@ -55,10 +55,6 @@ Notice the `@ProcessApplication` annotation. This annotation fulfills two purpos
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat) annotating your class with `@ProcessApplication` is sufficient.
 
-{{< note title="" class="info" >}}
-  There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called ```fluxnova-archetype-servlet-war```, which gives you a complete running project based on a servlet process application.
-{{< /note >}}
-
 ## Using Servlet process applications inside an EJB/Jakarta EE/Java EE container such as Wildfly
 
 You can use the `ServletProcessApplication` inside an EJB / Java EE container such as Wildfly 26 and below.
@@ -139,8 +135,6 @@ You could of course use something like the maven shade plugin for adding the cla
 
 {{< note title="" class="info" >}}
   We always recommend using the Fluxnova EJB Client over deploying a custom `EjbProcessApplication` class unless you want to customize the behavior of the `EjbProcessApplication`.
-
-  There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called ```fluxnova-archetype-servlet-war```, which gives you a complete running project based on a Java EE servlet process application.
 {{< /note >}}
 
 
