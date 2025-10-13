@@ -9,6 +9,7 @@ menu:
     parent: "user-guide"
 
 ---
+{{< deprecated >}}
 
 The Fluxnova Engine can be used in a Quarkus application by using the provided Quarkus Extension. Quarkus Extensions add 
 behavior to your Quarkus application by adding dependencies to the classpath.
