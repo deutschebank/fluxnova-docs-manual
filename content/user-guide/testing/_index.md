@@ -140,11 +140,6 @@ public class MyBusinessProcessTest {
 }
 ```
 
-{{< note title="" class="info" >}}
-  Our [Project Templates for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
-{{< /note >}}
-
-
 ## JUnit 3
 
 In the JUnit 3 style, the {{< javadocref page="org/finos/fluxnova/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the `setup()` of the test, the processEngine will be initialized by default with the `fluxnova.cfg.xml` resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.

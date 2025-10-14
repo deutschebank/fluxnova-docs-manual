@@ -49,7 +49,3 @@ For Jakarta EE 9+ containers, use the following dependency instead:
   <artifactId>fluxnova-engine-cdi-jakarta</artifactId>
 </dependency>
 ```
-
-{{< note title="" class="info" >}}
-  There is a [project template for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) called `fluxnova-archetype-ejb-war`, which gives you a complete running project, including CDI integration.
-{{< /note >}}

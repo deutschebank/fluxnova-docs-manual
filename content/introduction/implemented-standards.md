@@ -29,6 +29,7 @@ Fluxnova supports the 2.0 version of BPMN.
 
 # CMMN
 
+{{<deprecated>}}
 Case Management Model and Notation (CMMN) is a standard for Case Management.
 Fluxnova supports the 1.1 version of CMMN.
 
