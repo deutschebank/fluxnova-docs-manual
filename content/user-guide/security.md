@@ -314,6 +314,8 @@ On server side, they can then be deserialized into Java objects, so that Java co
 
 If an attacker can access these endpoints, they can exploit so-called _serialization gadgets_, i.e. classes that run vulnerable code during deserialization resulting in remote code execution in the general case. For example, consider a class constructor that makes a REST request based on a field value. An attacker could submit a forged variable value so that during deserialization, when the constructor is called, the application server would make an arbitrary REST request to a destination of the attacker's choice. For details, see [OWASP's description of Deserialization of untrusted data](https://www.owasp.org/index.php/Deserialization_of_untrusted_data).
 
+In addition to safe deserialization settings, use restricted-variable authorization to limit who can read or modify sensitive variable data at runtime. Restricted-variable reads are filtered based on read permissions, and write operations are rejected when permission is missing. See [Process Variables]({{< ref "/user-guide/process-engine/variables.md#restricted-variables" >}}) and [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md#restricted-variable-permissions" >}}).
+
 ### Java objects using the JDK built-in `application/x-java-serialized-object` data format
 
 By default, it is not possible to set variables of type `Object` **AND** the data format `application/x-java-serialized-object`.

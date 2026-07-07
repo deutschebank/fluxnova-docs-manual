@@ -489,6 +489,10 @@ The following is a list with the most commonly used process engine configuration
           <li>READ_INSTANCE_VARIABLE, READ_HISTORY_VARIABLE, and READ_TASK_VARIABLE on Process Definition resource, and READ_VARIABLE on Task resource</li>
           <li>READ_VARIABLE on Historic Task resource</li>
         </ul>
+        This setting is often used together with restricted-variable authorization to tighten read access to sensitive process data. See
+        <a href="{{< ref "/user-guide/process-engine/variables.md#restricted-variables" >}}">Restricted Variables</a> and
+        <a href="{{< ref "/user-guide/process-engine/authorization-service.md#restricted-variable-permissions" >}}">Restricted Variable Permissions</a>
+        for behavior and permission mapping details.
         Default value is <code>false</code>.
         <p>
             <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).

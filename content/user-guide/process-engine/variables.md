@@ -50,6 +50,96 @@ In general, variables are accessible in the following cases:
 * (Historic) Variable queries
 
 
+# Restricted Variables
+
+Restricted variables add an authorization layer on top of regular variable scope visibility. Scope visibility still defines where a variable can be resolved. Restricted-variable permissions define whether a caller may read or modify that resolved variable.
+
+Use this feature for variables that may contain sensitive or regulated data, such as personal data, financial values, or internal risk signals.
+
+## CRUD behavior
+
+When a variable is marked as restricted, access is evaluated against the dedicated Variable authorization resource and its restricted-variable permissions. The authorization resource id must be the wildcard `*`.
+
+| Operation | Permission required | Behavior if permission is missing |
+| --- | --- | --- |
+| Create restricted variable | Create Restricted permission on Variable resource | Operation is rejected with an authorization error |
+| Read restricted runtime variable | Read Restricted permission on Variable resource | Variable is filtered from the response when applicable |
+| Read restricted historic variable | Read History Restricted permission on Variable resource | Variable is filtered from the response when applicable |
+| Update restricted variable | Update Restricted permission on Variable resource | Operation is rejected with an authorization error |
+| Delete restricted runtime variable | Delete Restricted permission on Variable resource | Operation is rejected with an authorization error |
+| Delete restricted historic variable | Delete History Restricted permission on Variable resource | Operation is rejected with an authorization error |
+
+## Read filtering versus authorization errors
+
+For restricted-variable reads, the default behavior is filtering. This means callers only receive variables they are allowed to read. Variables without read permission are not included in list or payload results where filtering is supported.
+
+For write operations (create, update, delete), missing permission leads to an explicit authorization error.
+
+## Examples
+
+Assume a process instance contains two variables:
+
+* `customerId` (non-restricted)
+* `creditScore` (restricted)
+
+If a caller has permission to read `customerId` but not `creditScore`, a variable query returns only `customerId`. The restricted variable is omitted from the payload.
+
+If the same caller attempts to update `creditScore`, the engine rejects the operation with an authorization error.
+
+See [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}) for permission modeling details and [Variables in the REST API]({{< ref "/reference/rest/overview/variables.md" >}}) for endpoint-specific behavior.
+
+## Setting restricted variables
+
+Restricted variables are set like regular variables, but with `VariableOptions` where `restricted=true`.
+
+### VariableOptions
+
+The `VariableOptions` class encapsulates configuration for variable creation. It supports four options:
+
+* `isTransient`: If `true`, the variable exists only in memory during the current transaction and is not persisted to the database.
+* `restricted`: If `true`, the variable is marked as restricted and subject to authorization checks.
+* `skipJavaSerializationFormatCheck`: If `true`, bypasses validation of the Java serialization format when storing object values.
+* `failIfNotExists`: If `true` (default), throws an exception if the variable does not exist when updating. If `false`, creates the variable if it does not exist.
+
+Use the static factory methods to construct options: `VariableOptions.options(isTransient, restricted)` or `VariableOptions.options(isTransient, restricted, skipJavaSerializationFormatCheck)` to include all parameters.
+
+### Example 1: Set a restricted `string` value
+
+```java
+VariableOptions options = VariableOptions.options(false, true);
+execution.setVariable("customerSegment", "gold", options);
+```
+
+### Example 2: Set a restricted `number` value
+
+```java
+VariableOptions options = VariableOptions.options(false, true);
+execution.setVariable("creditScore", 720, options);
+```
+
+### Example 3: Set a restricted variable via `RuntimeService`
+
+Use the Typed Value API with `RuntimeService`:
+
+```java
+TypedValue restrictedValue = Variables.stringValue("secret", VariableOptions.options(false, true));
+runtimeService.setVariable(processInstanceId, "restrictedVar", restrictedValue);
+```
+
+You can also set a restricted number value in the same way:
+
+```java
+TypedValue restrictedValue = Variables.numberValue(720, VariableOptions.options(false, true));
+runtimeService.setVariable(processInstanceId, "creditScore", restrictedValue);
+```
+
+Alternatively, you can set an untyped restricted variable directly with `VariableOptions`:
+
+```java
+runtimeService.setVariable(processInstanceId, "creditScore", 720, VariableOptions.options(false, true));
+```
+
+
 # Set and Retrieve Variables - Overview
 
 To set and retrieve variables, the process engine offers a Java API that allows setting of variables from Java objects and retrieving them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes, when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:

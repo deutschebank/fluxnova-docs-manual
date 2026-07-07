@@ -81,3 +81,28 @@ Serializing Object into XML format:
 	}
 ```
 
+
+# Restricted Variables in REST
+
+Restricted variables use permission checks on the dedicated Variable resource in addition to normal variable scope resolution. The authorization resource id must be the wildcard `*`.
+
+## Read behavior
+
+For read operations, restricted variables follow filtering semantics. If the caller has no Read Restricted permission for a restricted variable, that variable is omitted from response payloads where filtering applies.
+
+This affects list and query-style variable responses most notably, where non-readable restricted variables are not returned.
+
+## Write behavior
+
+For create, update, and delete operations on restricted variables, missing Create Restricted, Update Restricted, or Delete Restricted permission results in an authorization error.
+
+## Practical endpoint guidance
+
+When using variable endpoints, apply the following expectations:
+
+* List/query variables: expect partial results when some restricted variables are not readable.
+* Read variable details: expect restricted content to be hidden when Read Restricted permission is missing and filtering applies.
+* Create/update/delete variable operations: expect authorization errors when the corresponding restricted-variable permission is not granted.
+
+For permission modeling, see [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}). For conceptual behavior, see [Process Variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
+

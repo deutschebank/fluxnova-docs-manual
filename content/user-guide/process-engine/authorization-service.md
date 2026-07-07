@@ -198,6 +198,11 @@ The following resources are available:
     <td>21</td>
     <td>*<br>System resources do not support individual resource ids. You have to use them with a wildcard id (*).</td>
   </tr>
+  <tr>
+    <td>Variable</td>
+    <td>22</td>
+    <td>*<br>Variable resources do not support individual resource ids. You have to use them with a wildcard id (*).</td>
+  </tr>
 </table>
 
 **Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
@@ -649,6 +654,47 @@ In case of Process Definitions
 * Read Instance Variable (for runtime process instance variables)
 * Read History Variable (for historic variables)
 * Read Task Variable (for runtime task variables)
+
+## Restricted Variable Permissions
+
+Restricted variables are protected by the dedicated **Variable** authorization resource (integer value `22`).
+
+Use this resource when variable access must be limited beyond normal scope visibility. A caller may still resolve a variable by scope, but access to restricted content depends on the granted restricted-variable permission. The authorization resource id must be the wildcard `*`.
+
+The following restricted-variable permissions are available:
+
+* Read Restricted
+* Update Restricted
+* Create Restricted
+* Delete Restricted
+* Read History Restricted
+* Delete History Restricted
+
+The permission model maps to operations as follows:
+
+* Create restricted variable -> Create Restricted permission required
+* Read restricted runtime variable -> Read Restricted permission required
+* Read restricted historic variable -> Read History Restricted permission required
+* Update restricted variable -> Update Restricted permission required
+* Delete restricted runtime variable -> Delete Restricted permission required
+* Delete restricted historic variable -> Delete History Restricted permission required
+
+Behavior when permission is missing:
+
+* Read operations: restricted variables are filtered from results when filtering applies.
+* Create, update, and delete operations: the operation is rejected with an authorization error.
+
+### Example Role Model
+
+For a process instance that stores both public and restricted variables:
+
+* A reader role can be granted read access to restricted variables and sees only readable data in variable query results.
+* An editor role can additionally be granted create/update/delete access and can modify restricted variables.
+* A history-focused role can be granted Read History Restricted and Delete History Restricted without receiving runtime write access.
+
+This split allows teams to separate visibility from modification rights while keeping process-variable access auditable.
+
+See [Process Variables]({{< ref "/user-guide/process-engine/variables.md" >}}) for the end-user behavior and [Variables in the REST API]({{< ref "/reference/rest/overview/variables.md" >}}) for endpoint-level effects.
 
 ## Application Permissions
 
