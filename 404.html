@@ -92,11 +92,24 @@
     (async function() {
       const currentPath = window.location.pathname;
       const currentHash = window.location.hash;
+      let latestVersion = ''; 
       
-      let latestVersion = '';
+      // Find versions.json by traversing up the directory structure
+      let rootPath = currentPath;
+      do {
+        try {
+          const response = await fetch(`${rootPath}/manual/versions.json`, { method: 'HEAD' });
+          if (response.ok) {
+            break; // Found the versions.json, stop looking further up
+          }
+        } catch (error) {
+          // Ignore errors and continue looking up
+        }
+        rootPath = rootPath.substring(0, rootPath.lastIndexOf('/'));
+      } while (rootPath.length > 0);
 
       try {
-        const response = await fetch('/manual/versions.json');
+        let response = await fetch(`${rootPath}/manual/versions.json`);
         if (response.ok) {
           const versions = await response.json();
           if (Array.isArray(versions) && versions.length > 0) {
@@ -108,16 +121,16 @@
       }
 
       if (latestVersion) {
+        
         if (currentPath === '/') {
-          window.location.replace(`/manual/${latestVersion}/${currentHash}`);
+          window.location.replace(`${rootPath}/manual/${latestVersion}/${currentHash}`);
           return;
-        } else if (currentPath.startsWith('/manual/latest/')) {
-          const remainingPath = currentPath.substring('/manual/latest/'.length);
-          const targetUrl = `/manual/${latestVersion}/${remainingPath}${currentHash}`;
+        } else if (currentPath.search('/manual/latest/') >= 0) {
+          const targetUrl = currentPath.replace('/manual/latest/', `/manual/${latestVersion}/`) + currentHash;
           window.location.replace(targetUrl);
           return; // Stop execution, browser is redirecting
         } else {
-          document.getElementById('latest-link').href = `/manual/${latestVersion}/`;
+          document.getElementById('latest-link').href = `${rootPath}/manual/${latestVersion}/`;
         }
       } else {
         // Fallback in case versions.json cannot be loaded
@@ -125,7 +138,7 @@
           window.location.replace(`/manual/latest/${currentHash}`);
           return;
         }
-        document.getElementById('latest-link').href = '/manual/latest/'; 
+        document.getElementById('latest-link').href = `${rootPath}/manual/latest/`; 
       }
 
       // If we reach this point, it means no redirection happened
