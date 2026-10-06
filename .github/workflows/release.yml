@@ -11,6 +11,11 @@ permissions:
   
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (major.minor, e.g. "3.1"). Only needed for ad-hoc manual runs; pushes to release/vX.Y.Z branches derive it automatically.'
+        required: false
+        type: string
   push:
     branches:
       - 'release/*'
@@ -32,11 +37,23 @@ jobs:
           hugo-version: '0.163.3'
           extended: true
 
-      - name: Extract version from config.yaml and compute next development version
+      - name: Determine release version
         id: set-vars
         run: |
-          # Extract current version from config.yaml
-          releaseVersion=$(hugo config --format json | jq -r .params.version)
+          if [ -n "${{ inputs.version }}" ]; then
+            # Explicit override via workflow_dispatch input
+            releaseVersion="${{ inputs.version }}"
+            echo "Using version from workflow_dispatch input: ${releaseVersion}"
+          elif [[ "${GITHUB_REF_NAME}" == release/v* ]]; then
+            # Derive major.minor from a release/vX.Y.Z branch name, e.g. release/v3.1.0 -> 3.1
+            branchVersion="${GITHUB_REF_NAME#release/v}"
+            releaseVersion=$(echo "$branchVersion" | cut -d. -f1,2)
+            echo "Derived version from branch '${GITHUB_REF_NAME}': ${releaseVersion}"
+          else
+            # Fallback safety net for ad-hoc manual runs without an input: use config.yaml's committed default
+            releaseVersion=$(hugo config --format json | jq -r .params.version)
+            echo "No input and no release/v* branch match - falling back to config.yaml's committed version: ${releaseVersion}"
+          fi
 
           # Set as environment variable
           echo "RELEASE_VERSION=${releaseVersion}" >> $GITHUB_ENV
@@ -49,7 +66,11 @@ jobs:
           echo "TAG=$TAG" >> $GITHUB_ENV
          
       - name: Build website
-        # We override baseURL so Hugo generates correct internal links for the subfolder
+        # We override baseURL so Hugo generates correct internal links for the subfolder.
+        # HUGO_PARAMS_VERSION overrides config.yaml's committed `version` param for this build,
+        # so no manual config.yaml edit is needed before cutting a release.
+        env:
+          HUGO_PARAMS_VERSION: ${{ env.RELEASE_VERSION }}
         run: |
           hugo --minify --baseURL "https://docs.fluxnova.finos.org/manual/${{ env.RELEASE_VERSION }}/" --destination public/manual/${{ env.RELEASE_VERSION }}/
 
