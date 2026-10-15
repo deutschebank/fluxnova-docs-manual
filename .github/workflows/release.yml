@@ -58,20 +58,32 @@ jobs:
 
       - name: Determine release version
         id: set-vars
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          if [ -n "${{ inputs.version }}" ]; then
+          if [ -n "${INPUT_VERSION}" ]; then
             # Explicit override via workflow_dispatch input
-            releaseVersion="${{ inputs.version }}"
+            releaseVersion="${INPUT_VERSION}"
             echo "Using version from workflow_dispatch input: ${releaseVersion}"
           elif [[ "${GITHUB_REF_NAME}" == release/v* ]]; then
             # Derive major.minor from a release/vX.Y.Z branch name, e.g. release/v3.1.0 -> 3.1
             branchVersion="${GITHUB_REF_NAME#release/v}"
             releaseVersion=$(echo "$branchVersion" | cut -d. -f1,2)
             echo "Derived version from branch '${GITHUB_REF_NAME}': ${releaseVersion}"
-          else
-            # Fallback safety net for ad-hoc manual runs without an input: use config.yaml's committed default
+          elif [ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]; then
+            # Safety net for ad-hoc manual runs without an input: use config.yaml's committed default
             releaseVersion=$(hugo config --format json | jq -r .params.version)
             echo "No input and no release/v* branch match - falling back to config.yaml's committed version: ${releaseVersion}"
+          else
+            # A push to a release/* branch that is not release/vX.Y.Z must not silently publish config.yaml's version
+            echo "::error::Cannot derive the release version from branch '${GITHUB_REF_NAME}'. Use a release/vX.Y.Z branch name."
+            exit 1
+          fi
+
+          # The version becomes a path, a git tag and part of the baseURL, so fail fast on anything unexpected
+          if ! [[ "${releaseVersion}" =~ ^[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Invalid release version '${releaseVersion}'. Expected major.minor, e.g. 3.1."
+            exit 1
           fi
 
           # Set as environment variable
