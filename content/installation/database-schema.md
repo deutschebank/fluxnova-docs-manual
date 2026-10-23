@@ -23,7 +23,10 @@ Fluxnova supports a variety of databases that are documented in the [supported e
 
 Fluxnova supports the following ways of installing the database schema:
 
-* Use the database migration tool [Liquibase](https://www.liquibase.org/) with the provided changelog for a semi-automatic installation and update. Liquibase keeps track of database schema changes. This allows you to focus on *when* changes should be applied rather than also on *which* changes are relevant. Starting with version `7.16.0`, Fluxnova comes with a curated *changelog file* that Liquibase can consume.
+* Use the database migration tool [Liquibase](https://www.liquibase.org/) with the provided changelogs for a semi-automatic installation and update. Liquibase keeps track of database schema changes. This allows you to focus on *when* changes should be applied rather than also on *which* changes are relevant.
+  Alongside the existing `camunda-changelog.xml`, Fluxnova introduces `fluxnova-changelog.xml`:
+    * `fluxnova-changelog.xml` (new): recommended for new installations and for databases already on Camunda `7.23` or any Fluxnova version. It starts from the Fluxnova `1.0` baseline and detects schema changes that are already applied.
+    * `camunda-changelog.xml` (existing): continues to be shipped and supported. Use it for databases on Camunda versions older than `7.23`, or if you already use it to manage your schema.
 * Use the provided SQL scripts with the tools related to your database for a fully manual installation and update. A manual procedure allows you to fully control the SQL statements that are executed on your database instance and to adjust those statements to your needs if necessary.
 
 {{< note title="Isolation level" class="info" >}}
@@ -40,24 +43,72 @@ The [update](#update) paragraph provides more details on this topic.
 
 ## Liquibase installation
 
-Fluxnova comes with a maintained changelog file that Liquibase can consume.
-This changelog defines which SQL statements to execute on a database.
-You can find the changelog and its referenced resources on our [Artifact Repository].
+Fluxnova comes with two maintained changelog files that Liquibase can consume.
+These changelogs define which SQL statements to execute on a database.
+You can find the changelogs and their referenced resources on our [Artifact Repository].
 Select the respective version (`$PLATFORM_VERSION`) and download the resources as a `zip` or `tar.gz` file.
-Open the `fluxnova-sql-scripts-$PLATFORM_VERSION/liquibase` folder to find the changelog. 
+Open the `fluxnova-sql-scripts-$PLATFORM_VERSION/liquibase` folder to find the changelogs. 
 In case you are using a [pre-packaged distribution], the Liquibase resources already reside in the `sql/liquibase` folder of the distribution.
 
 The `liquibase` folder contains the following resources:
 
-* `fluxnova-changelog.xml`
+* `fluxnova-changelog.xml` (new)
+* `camunda-changelog.xml` (existing)
+* `fluxnova-baseline` directory (new)
+* `fluxnova-upgrade` directory (new)
 * `baseline` directory
 
-Liquibases uses these resources in combination with the scripts in the `upgrade` folder next to the `liquibase` folder to install the schema.
+Liquibase uses these resources to install the schema.
+`fluxnova-changelog.xml` uses the `fluxnova-baseline` and `fluxnova-upgrade` directories.
+`camunda-changelog.xml` uses the `baseline` directory together with the scripts in the `upgrade` folder next to the `liquibase` folder.
+
+### Choosing a changelog
+
+Fluxnova ships two Liquibase changelogs. Select the changelog based on the current state of your database:
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Current database</th>
+    <th>Changelog</th>
+    <th>Preparation</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Empty</td>
+    <td><code>fluxnova-changelog.xml</code></td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Camunda <code>7.23</code> or Fluxnova <code>1.0</code> and later, not yet tracked by Liquibase</td>
+    <td><code>fluxnova-changelog.xml</code></td>
+    <td>None. Changesets that are already applied to the schema are detected and marked as executed.</td>
+  </tr>
+  <tr>
+    <td>Camunda <code>7.16</code> to <code>7.22</code>, not yet tracked by Liquibase</td>
+    <td><code>camunda-changelog.xml</code></td>
+    <td>Run Liquibase's <code>changelogSyncToTag</code> command with your current schema version as the tag (e.g. <code>7.21.0</code>) before running <code>update</code>. See <a href="#migrate-to-liquibase">Migrate to Liquibase</a>.</td>
+  </tr>
+  <tr>
+    <td>Already tracked by Liquibase</td>
+    <td>The changelog you used before</td>
+    <td>None</td>
+  </tr>
+  </tbody>
+</table>
+
+{{< note title="Heads Up!" class="info" >}}
+`fluxnova-changelog.xml` does not check the Camunda version of an existing schema.
+Running it against a Camunda database older than `7.23` skips required schema changes.
+Use `camunda-changelog.xml` for these databases.
+{{< /note >}}
 
 Perform the following steps to install the database schema on your database instance:
 
 1. Setup Liquibase, e.g. by [downloading Liquibase CLI](https://www.liquibase.org/download)
-1. Run Liquibase's [update command](https://docs.liquibase.com/commands/community/update.html) referencing the `fluxnova-changelog.xml`.
+1. Run Liquibase's [update command](https://docs.liquibase.com/commands/community/update.html) referencing the changelog selected in [Choosing a changelog](#choosing-a-changelog).
+For databases on Camunda versions older than `7.23`, run the [changelogSyncToTag](#migrate-to-liquibase) step first.
 You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
 
 Liquibase creates two additional tables to keep track of the changes that have been applied to your database.
@@ -70,7 +121,69 @@ Consult the [manual installation guide]({{< relref "/installation/full/_index.md
 {{< note title="Heads Up!" class="info" >}}
 Liquibase provides additional commands to preview all changes that will be applied by commands that execute SQL statements on a database. For the `update` command, you can execute the [updateSql](https://docs.liquibase.com/commands/community/updatesql.html) command. This will let you inspect all statements that Liquibase will issue on your database without actually executing them.
 
-Furthermore, if you have defined a specific prefix for the entities of your database, you will have to manually adjust the `create` scripts in the `liquibase/baseline` directory accordingly so that the tables are created with the prefix.
+Furthermore, if you have defined a specific prefix for the entities of your database, you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix. Use the `liquibase/fluxnova-baseline` directory for `fluxnova-changelog.xml`, or the `liquibase/baseline` directory for `camunda-changelog.xml`.
+{{< /note >}}
+
+### Using a custom changelog
+
+If your application manages its own database objects with Liquibase, you can use your own master changelog instead of referencing a Fluxnova changelog directly. To create the Fluxnova schema from scratch, your master changelog must include `fluxnova-changelog.xml`. Otherwise the Fluxnova tables are not created on an empty database. Include it **before** any changesets that reference Fluxnova tables:
+
+```xml
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+<include file="org/finos/fluxnova/bpm/engine/db/liquibase/fluxnova-changelog.xml"/>
+<include file="db/changelog/my-app-changes.xml"/>
+
+</databaseChangeLog>
+```
+
+{{< note title="Heads Up!" class="info" >}}
+Liquibase identifies each changeset by its ID, author, and changelog file path.
+Keep the include path of the Fluxnova changelog stable across releases. Changing it causes Liquibase to treat the Fluxnova changesets as new and try to create the schema again.
+{{< /note >}}
+
+When upgrading to a newer Fluxnova version, update the Fluxnova resources. Your master changelog does not need to change, and Liquibase applies only the new Fluxnova changesets.
+
+### Liquibase with the Spring Boot Starter
+
+The Fluxnova Spring Boot Starter integrates with Spring Boot's
+[Liquibase auto-configuration](https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-initialization.migration-tool.liquibase)
+and brings the `spring-boot-starter-liquibase` dependency with it.
+Instead of running the Liquibase CLI, you can let the application apply the changelog on startup.
+
+The starter applies the following defaults:
+
+```properties
+spring.liquibase.enabled=false
+spring.liquibase.change-log=classpath:org/finos/fluxnova/bpm/engine/db/liquibase/fluxnova-changelog.xml
+```
+
+These defaults have the lowest precedence. Any value you set in `application.properties`/`application.yml`,
+environment variables, or command-line arguments overrides them.
+
+To enable Liquibase, set:
+
+```properties
+spring.liquibase.enabled=true
+```
+
+To use a different changelog, for example `camunda-changelog.xml` for Camunda databases older than `7.23`
+or your own master changelog (see [Using a custom changelog](#using-a-custom-changelog)), also set:
+
+```properties
+spring.liquibase.change-log=classpath:org/finos/fluxnova/bpm/engine/db/liquibase/camunda-changelog.xml
+```
+
+When Liquibase is enabled, the starter sets the engine's `databaseSchemaUpdate` to `false`
+and ignores `fluxnova.bpm.database.schema-update`, so the process engine does not create or update tables itself.
+When Liquibase is disabled, the engine uses `fluxnova.bpm.database.schema-update` as before.
+
+{{< note title="Heads Up!" class="info" >}}
+Spring Boot enables Liquibase by default and reads `classpath:db/changelog/db.changelog-master.yaml`.
+The Fluxnova starter overrides both defaults. If your application already uses Liquibase, set
+`spring.liquibase.enabled` and `spring.liquibase.change-log` explicitly so your migrations keep running.
 {{< /note >}}
 
 ## Manual installation
@@ -111,16 +224,16 @@ Section [patch level update](#patch-level-update) provides details on how this c
 This section assumes you are already set up with Liquibase as described in the [installation section](#liquibase-installation).
 In case you have not set up Liquibase itself yet and want to update a database that you [manually installed](#manual-installation) and updated until now, please consult the [migration section](#migrate-to-liquibase) first.
 
-Fluxnova comes with a maintained changelog file that Liquibase can consume.
-This changelog helps Liquibase to keep track of the changes that have been made to your database already.
-Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when you instruct it to update your schema.
+Fluxnova comes with two maintained changelog files that Liquibase can consume.
+These changelogs help Liquibase to keep track of the changes that have been made to your database already.
+Based on the changelog and the tracking tables, Liquibase determines which changes it needs to apply when you instruct it to update your schema.
 
 Perform the following steps to update the database schema on your database instance:
 
 1. Select the respective version you want to update to (`$Y`) on our [Artifact Repository] and download the resources as a `zip` or `tar.gz` file.
-Open the `fluxnova-sql-scripts-$Y/liquibase` folder to find the changelog file.
+Open the `fluxnova-sql-scripts-$Y/liquibase` folder to find the changelog files.
 In case you are using a [pre-packaged distribution], the Liquibase resources already reside in the `sql/liquibase` folder of the distribution with version `$Y`.
-1. Run Liquibase's [update command](https://docs.liquibase.com/commands/community/update.html) referencing the new `fluxnova-changelog.xml` of version `$Y`.
+1. Run Liquibase's [update command](https://docs.liquibase.com/commands/community/update.html) referencing the changelog of version `$Y` that you already use for this database (`fluxnova-changelog.xml` or `camunda-changelog.xml`).
 Liquibase takes care of determining the necessary changes and applying them to your database according to the new changelog.
 You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
 1. We highly recommend updating to the latest patch version that is within the bounds of the new minor version you are updating to (`$Y`).
@@ -146,8 +259,11 @@ Perform the following steps to migrate your manual installation to Liquibase:
 1. Setup Liquibase, e.g. by [downloading Liquibase CLI](https://www.liquibase.org/download)
 1. Identify your current database schema version. You can extract this information from the `ACT_GE_SCHEMA_LOG` table.
 Find the row with the highest value in the `ID_` column and use the value of this row's `VERSION_` column.
-1. Run Liquibase's [changelogSyncToTag command](https://docs.liquibase.com/commands/community/changelogsynctotag.html) referencing the `fluxnova-changelog.xml` and using your current database schema version as the tag.
-You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
+1. Run Liquibase's [changelogSyncToTag command](https://docs.liquibase.com/commands/community/changelogsynctotag.html) using your current database schema version as the tag:
+    * Camunda `7.16` to `7.22`: reference `camunda-changelog.xml`, e.g. with tag `7.21.0`.
+    * Camunda `7.23` or Fluxnova: this step is optional. `fluxnova-changelog.xml` detects the existing schema, so you can run the `update` command directly.
+
+    You can pass on the connection details to your database instance via parameters as described in the Liquibase documentation or [create a properties file](https://docs.liquibase.com/workflows/liquibase-community/creating-config-properties.html).
 
 Liquibase uses this information to create the tracking tables and mark all changesets until the tag you defined as executed.
 Liquibase determines if there are any changes that it needs to apply to your database for any subsequent `update` commands.
@@ -612,9 +728,9 @@ The one exception to this is a bug in the database schema itself. If you are aff
 
 ### Liquibase patch level update
 
-Fluxnova comes with a maintained changelog file that Liquibase can consume.
-This changelog helps Liquibase to keep track of the changes that have been made to your database already.
-Based on that changelog and the tracking tables, Liquibase determines which changes it needs to apply when instructing it to update your schema.
+Fluxnova comes with two maintained changelog files that Liquibase can consume.
+These changelogs help Liquibase to keep track of the changes that have been made to your database already.
+Based on the changelog and the tracking tables, Liquibase determines which changes it needs to apply when instructing it to update your schema.
 Therefore, the procedure for patch-level updates is equivalent to that for [minor version updates](#liquibase-update).
 
 ### Manual patch level update

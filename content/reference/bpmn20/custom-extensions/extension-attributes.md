@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following attributes are extension attributes for the legacy `camunda` namespace `http://camunda.org/schema/1.0/bpmn`, which remains fully supported. They can equivalently be declared with the `fluxnova` namespace `http://fluxnova.finos.org/schema/1.0/bpmn`, for example `fluxnova:assignee` instead of `camunda:assignee`. When a BPMN element has attributes in both namespaces, the `camunda:` attribute takes precedence.
 
 # assignee
 

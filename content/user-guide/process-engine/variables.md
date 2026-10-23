@@ -14,6 +14,22 @@ menu:
 This section describes the concepts of variables in processes. Variables can be used to add data to process runtime state or, more particular, variable scopes. Various API methods that change the state of these entities allow updating of the attached variables. In general, a variable consists of a name and a value. The name is used for identification across process constructs. For example, if one activity sets a variable named *var*, a follow-up activity can access it by using this name. The value of a variable is a Java object.
 
 
+# Querying Variable Instances by Business Key
+
+Runtime and historic variable-instance queries can be filtered by the business key of the owning process instance. Use `businessKey` for an exact match and `businessKeyLike` when the value should be matched as a pattern; `%` is the wildcard.
+
+```java
+List<VariableInstance> runtimeVariables = runtimeService.createVariableInstanceQuery()
+    .businessKey("order-123")
+    .list();
+
+List<HistoricVariableInstance> historicVariables = historyService.createHistoricVariableInstanceQuery()
+    .businessKeyLike("order-%")
+    .list();
+```
+
+The REST API supports the same filters and includes the process instance business key in variable-instance responses. See [Variables in the REST API]({{< relref "/reference/rest/overview/variables.md" >}}).
+
 # Variable Scopes and Variable Visibility
 
 All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section]({{< relref "/user-guide/process-engine/process-engine-concepts.md#executions" >}}), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:

@@ -32,9 +32,9 @@ Run Fluxnova in every Java-runnable environment. Fluxnova is supported with our 
 ## Container-Managed Process Engine and Fluxnova Cockpit, Tasklist, Admin
 
 * Apache Tomcat 11.0
-* JBoss EAP 8.0
-* WildFly Application Server 33.0 / 35.0 / 37.0
 * Oracle WebLogic Server 14.1.2
+
+Fluxnova no longer provides dedicated JBoss EAP or WildFly distributions; these runtimes are not included in the current tested container-managed environment list.
 
 # Databases
 
@@ -84,18 +84,9 @@ Whenever a new version of one of the following environments is released, we targ
 
 * Java Language (LTS)
 * Spring Boot
-* Wildfly Application Server
 * Oracle Database (LTS)
 * PostgreSQL
 
 The exact release in which we support a new environment depends on factors such as the release date of the environment and the required implementation effort.
 
 Version support for other environments is decided case by case, much of which is based on the demand in our user base.
-
-## Removing Environments
-
-Whenever a new version of one of the following environments is supported, we usually discontinue support of the oldest version with the same release:
-
-* Wildfly Application Server
-
-Note that we may decide to deviate from this policy on a case-by-case basis.

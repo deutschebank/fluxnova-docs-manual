@@ -221,7 +221,7 @@ The distro comes with a file-based h2 database for testing. It is recommended to
 
 ## Authentication
 
-To add authentication to requests against the [REST API]({{< relref "/reference/rest/overview/_index.md" >}}), you can enable basic authentication.
+To add authentication to requests against the [REST API]({{< relref "/reference/rest/overview/_index.md" >}}), you can enable authentication at runtime, without having to rebuild Fluxnova Run. Both basic and JWT/OIDC authentication are supported, and you select between them with the `fluxnova.bpm.run.auth.authentication` property.
 
 <table class="table desc-table">
   <tr>
@@ -231,17 +231,93 @@ To add authentication to requests against the [REST API]({{< relref "/reference/
       <th>Default value</th>
   </tr>
   <tr>
-      <td rowspan="15"><code>fluxnova.bpm.run.auth</code></td>
+      <td rowspan="2"><code>fluxnova.bpm.run.auth</code></td>
       <td><code>.enabled</code></td>
-      <td>Switch to enable basic authentication for requests to the REST API.</td>
+      <td>Switch to enable authentication for requests to the REST API.</td>
       <td><code>false</code></td>
   </tr>
   <tr>
       <td><code>.authentication</code></td>
-      <td>Authentication method, currently only basic is supported.</td>
+      <td>Authentication method, either <code>basic</code> or <code>jwt</code>.</td>
       <td>basic</td>
   </tr>
 </table>
+
+### Basic Authentication
+
+With `basic` authentication, requests are authenticated against the configured identity source, for example the [built-in admin user]({{< relref "#plugin-registration" >}}):
+
+```yaml
+fluxnova:
+  bpm:
+    run:
+      auth:
+        enabled: true
+        authentication: basic
+```
+
+Basic authentication has no additional required dependencies.
+
+### JWT Authentication
+
+With `jwt` authentication, incoming requests are authenticated using a bearer token validated against an OIDC-compliant identity provider (for example Microsoft Entra ID/Azure AD, Okta, or Keycloak).
+
+```yaml
+fluxnova:
+  bpm:
+    run:
+      auth:
+        enabled: true
+        authentication: jwt
+    jwt:
+      jwks-url: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
+      issuer: https://login.microsoftonline.com/<tenant>/v2.0
+      audience: api://your-client-id
+```
+
+<table class="table desc-table">
+  <tr>
+      <th>Prefix</th>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Default value</th>
+  </tr>
+  <tr>
+      <td rowspan="6"><code>fluxnova.bpm.jwt</code></td>
+      <td><code>.jwks-url</code></td>
+      <td>URL of the identity provider's JSON Web Key Set, used to validate the token signature.</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td><code>.issuer</code></td>
+      <td>Expected token issuer (<code>iss</code> claim).</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td><code>.audience</code></td>
+      <td>Expected token audience (<code>aud</code> claim).</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td><code>.user-claim-name</code></td>
+      <td>Claim used to resolve the Fluxnova user ID from the token.</td>
+      <td><code>preferred_username</code></td>
+  </tr>
+  <tr>
+      <td><code>.groups-claim-name</code></td>
+      <td>Claim used to resolve the user's groups from the token.</td>
+      <td><code>groups</code></td>
+  </tr>
+  <tr>
+      <td><code>.header-name</code>, <code>.header-prefix</code></td>
+      <td>HTTP header and prefix the token is read from. The prefix automatically gets a trailing space appended if missing.</td>
+      <td><code>Authorization</code>, <code>Bearer</code></td>
+  </tr>
+</table>
+
+The `nimbus-jose-jwt` library, required for JWT token validation, is only pulled in when JWT authentication is used; it remains an optional dependency otherwise.
+
+The same `fluxnova.bpm.jwt.*` properties and JWT support are also available for Spring Boot applications using the `fluxnova-bpm-spring-boot-starter-rest` starter, where authentication is instead configured with `fluxnova.bpm.auth.enabled` and `fluxnova.bpm.auth.type`. See the [REST API]({{< relref "/user-guide/spring-boot-integration/rest-api.md#authentication" >}}) documentation for details.
 
 ## Cross-Origin Resource Sharing
 

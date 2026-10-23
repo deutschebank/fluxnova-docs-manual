@@ -24,6 +24,17 @@ form:
 
 The REST API supports the [Value Types]({{< relref "/user-guide/process-engine/variables.md#supported-variable-values" >}}) supported by the process engine.
 
+# Variable Instance Business Keys
+
+Variable-instance and historic-variable-instance query responses include the `businessKey` of the process instance that owns the variable.
+
+The list endpoints also support filtering by business key:
+
+* `businessKey` matches an exact business key.
+* `businessKeyLike` matches a pattern; use `%` as a wildcard for starts-with, ends-with, or contains matches.
+
+For example, `/engine-rest/variable-instance?businessKey=order-123` returns runtime variable instances for the matching process instance, and `/engine-rest/history/variable-instance?businessKeyLike=order-%` filters historic variable instances by a business key that starts with `order-`.
+
 # valueInfo Flags
 
 In addition to type-specific metadata, `valueInfo` supports the following common flags:
@@ -125,4 +136,3 @@ When using variable endpoints, apply the following expectations:
 * Create/update/delete variable operations: expect authorization errors when the corresponding restricted-variable permission is not granted.
 
 For permission modeling, see [Authorization Service]({{< ref "/user-guide/process-engine/authorization-service.md" >}}). For conceptual behavior, see [Process Variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
-

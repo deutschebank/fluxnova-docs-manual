@@ -13,22 +13,24 @@ menu:
 You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.finos.fluxnova.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
 
 * **ServletProcessApplication**: To be used for process applications in a Servlet container like Apache Tomcat.
-* **JakartaServletProcessApplication**: To be used for process applications in a Jakarta Servlet 5.0+ container like WildFly 27 and above.
+* **JakartaServletProcessApplication**: To be used for process applications in a Jakarta Servlet 5.0+ container.
 * **EjbProcessApplication**: To be used in a Java EE application server like IBM WebSphere Application Server.
-* **JakartaEjbProcessApplication**: To be used in a Jakarta EE 9+ application server like Wildfly 27+.
+* **JakartaEjbProcessApplication**: To be used in a Jakarta EE 9+ application server.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine in an ordinary Java SE application.
 * **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.
 
 In the following section, we walk through the different implementations and discuss where and how they can be used.
 
+Fluxnova no longer provides dedicated JBoss EAP or WildFly distributions. Check the [supported environments]({{< relref "/introduction/supported-environments.md" >}}) for the container-managed runtimes currently tested by Fluxnova.
+
 # The ServletProcessApplication and JakartaServletProcessApplication
 
 {{< note title="Jakarta Servlet environments" class="info" >}}
-  The `JakartaServletProcessApplication` can only be used in environments working with Jakarta Servlet 5.0 and above like WildFly 27+.
+  The `JakartaServletProcessApplication` can only be used in environments working with Jakarta Servlet 5.0 and above.
   The mechanisms described herein for the `ServletProcessApplication` apply in the same way.
 {{< /note >}}
 
-**Supported on:** Apache Tomcat, Wildfly. The Servlet process application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-servlet-process-applications-inside-an-ejb-jakarta-ee-java-ee-container-such-as-wildfly" >}})
+The Servlet process application is intended for Servlet containers. Read the [note about Servlet Process Applications inside EJB/Java EE containers]({{< relref "#using-servlet-process-applications-inside-an-ejb-jakarta-ee-java-ee-container" >}}).
 
 **Packaging**: WAR (or embedded WAR inside EAR)
 
@@ -55,10 +57,9 @@ Notice the `@ProcessApplication` annotation. This annotation fulfills two purpos
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat) annotating your class with `@ProcessApplication` is sufficient.
 
-## Using Servlet process applications inside an EJB/Jakarta EE/Java EE container such as Wildfly
+## Using Servlet process applications inside an EJB/Jakarta EE/Java EE container
 
-You can use the `ServletProcessApplication` inside an EJB / Java EE container such as Wildfly 26 and below.
-In Jakarta EE 9+ containers like WildFly 27 and above, you need to use the `JakartaServletProcessApplication`.
+You can use the `ServletProcessApplication` inside an EJB / Java EE container. In Jakarta EE 9+ containers, use the `JakartaServletProcessApplication`.
 
 Process application bootstrapping and deployment will work in the same way as in a Servlet container.
 However, you will not be able to use all Jakarta EE/Java EE features at runtime. In contrast to the
@@ -83,8 +84,7 @@ In that case you only get servlet specification guarantees.
   The mechanisms described herein for the `EjbProcessApplication` apply in the same way.
 {{< /note >}}
 
-**Supported on:** Wildfly. The `EjbProcessApplication` is supported on Java EE 6 to Java EE 8 containers like WildFly 26 and below.
-The `JakartaEjbProcessApplication` is supported on Jakarta EE 9+ containers like WildFly 27 and above.
+The `EjbProcessApplication` targets Java EE 6 to Java EE 8 containers. The `JakartaEjbProcessApplication` targets Jakarta EE 9+ containers.
 It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
 **Packaging:** JAR, WAR, EAR
@@ -289,7 +289,7 @@ When the EJB process application registers with a process engine (see `Managemen
 
 # The EmbeddedProcessApplication
 
-**Supported on:** JVM, Apache Tomcat, Wildfly
+**Supported on:** JVM, Apache Tomcat
 
 **Packaging:** JAR, WAR, EAR
 

@@ -77,6 +77,31 @@ public PlatformTransactionManager fluxnovaTransactionManager(@Qualifier("fluxnov
   The wired data source and transaction manager beans must match, i.e. make sure that the transaction manager actually manages the Fluxnova data source. If that is not the case, the process engine will use auto-commit mode for the data source connection, potentially leading to inconsistencies in the database.
 {{< /note >}}
 
+### Database Schema Management with Liquibase
+
+By default, the Fluxnova engine schema is created and upgraded using its built-in Java-based schema setup. Spring Boot applications can instead delegate schema creation and upgrades to [Liquibase](https://www.liquibase.org/), Spring Boot's standard schema management tool, by enabling the bundled Fluxnova changelog:
+
+```yaml
+spring:
+  liquibase:
+    enabled: true
+```
+
+Setting `spring.liquibase.enabled=true` automatically disables the engine's Java-based schema setup and runs the bundled `fluxnova-changelog.xml` changelog instead, which contains baselines starting from Fluxnova 1.0.0 as well as the upgrade changesets needed to reach the current version.
+
+```yaml
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:org/finos/fluxnova/bpm/engine/db/liquibase/fluxnova-changelog.xml
+```
+
+To use a custom changelog, for example one that includes the bundled changelog alongside your own application's changesets, override `spring.liquibase.change-log` to point at your own master changelog.
+
+{{< note title="Note" class="info" >}}
+Liquibase-based schema management is disabled by default; the engine's existing Java-based schema setup remains the default behavior unless `spring.liquibase.enabled` is explicitly set to `true`.
+{{< /note >}}
+
 ### `DefaultHistoryConfiguration`
 
 Applies the history configuration to the process engine. If not configured, the history level [FULL]({{< relref "/user-guide/process-engine/history/history-configuration.md#choose-a-history-level" >}}) is used.

@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The following attributes are extension attributes for the `fluxnova` namespace `http://camunda.org/schema/1.0/bpmn`.
+The following attributes are extension attributes for the legacy `camunda` namespace `http://camunda.org/schema/1.0/bpmn`, which remains fully supported. They can equivalently be declared with the `fluxnova` namespace `http://fluxnova.finos.org/schema/1.0/bpmn`, for example `fluxnova:class` instead of `camunda:class`. When a BPMN element has attributes in both namespaces, the `camunda:` attribute takes precedence.
 
 
 # connector
@@ -807,9 +807,10 @@ The following attributes are extension attributes for the `fluxnova` namespace `
   </tr>
   <tr>
     <td></td>
-    <td><code>camunda:isTransient</code></td>
+    <td><code>isTransient</code></td>
     <td>
       Optional. If set to <code>true</code>, the mapped variable is transient and is not persisted.
+      The legacy <code>camunda:isTransient</code> attribute is also accepted.
     </td>
   </tr>
   <tr>
@@ -1087,9 +1088,10 @@ The following attributes are extension attributes for the `fluxnova` namespace `
   </tr>
   <tr>
     <td></td>
-    <td><code>camunda:isTransient</code></td>
+    <td><code>isTransient</code></td>
     <td>
       Optional. If set to <code>true</code>, the mapped variable is transient and is not persisted.
+      The legacy <code>camunda:isTransient</code> attribute is also accepted.
     </td>
   </tr>
   <tr>
